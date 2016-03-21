@@ -1,3 +1,4 @@
 <?php
-echo "string"; probando
+echo "string"; //probando
+echo date();
 ?>
