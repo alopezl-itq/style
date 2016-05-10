@@ -44,17 +44,25 @@ class Controlador{
 		}
 
 
+
 	public function eliminar($id_usuario){
 			$this->usuario->set("id_usuario",$id_usuario);
-			$resultado=$this->usuario->eliminar();
-			return $resultado;
+			$this->usuario->eliminar();
+			
 		}	
 		
 		public function ver($id_usuario){
 			$this->usuario->set("id_usuario",$id_usuario);
-			$resultado=$this->usuario->ver();
+		$resul=$this->usuario->ver();
+			
+		  return $resul;
 			
 		}
+		
+		
+	 
+	 
+		
 		
 		public function editar($id_usuario){
 			$this->usuario->set("id_usuario",$id_usuario);

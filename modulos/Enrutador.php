@@ -6,7 +6,7 @@ class Enrutador
 	
 	switch($vista):
 	case "crear":
-	include_once('..vistas/'.$vista.'.php');
+	include_once('../vistas/'.$vista.'.php');
 	break;
 	
 	case "ver":
@@ -23,7 +23,7 @@ class Enrutador
 	break;
 	
 	default:
-	include_once('../vistas/error.php');
+	include_once('../vistas//error.php');
 	endswitch;
 	
 	}

@@ -1,13 +1,13 @@
 <?php
 $controlador = new Controlador();
-if(isset($_GET['empno'])){
-	$row = $controlador->ver($_GET['empno']);
+if(isset($_GET['id_usuario'])){
+	$row = $controlador->ver($_GET['id_usuario']);
 }else{
 	header('Location: index.php');
 	}
 	
 if(isset($_POST['enviar'])){
-	 $controlador->eliminar($_GET['empno']);
+	 $controlador->eliminar($_GET['id_usuario']);
 	 
 	header('Location: index.php');
 	}	
@@ -20,7 +20,7 @@ if(isset($_POST['enviar'])){
 
 
 
-usted de verdad quiere eliminar al empleado <?php echo $row['ename']  ?> ?
+usted de verdad quiere eliminar al empleado <?php echo $row['nombre']  ?> ?
 <br/>
 <br/>
 <form action="" method="POST">

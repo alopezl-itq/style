@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+@import url("styleCommon.css") screen;
+
+body{
+	background-color:hsla(0,0%,98%,1.00)
+}
+
+input[type=text] {
+    width: 20%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #D8D8D8;
+    border-radius: 4px;
+    text-align: center;
+}
+input[type=date] {
+    width: 20%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #D8D8D8;
+    border-radius: 4px;
+    text-align: center;
+}
+input[type=submit] {
+    width: 20%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #D8D8D8;
+    border-radius: 4px;
+	text-align: center;
+	cursor: pointer;
+	 
+}
+
+input[type=tel] {
+    width: 20%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #D8D8D8;
+    border-radius: 4px;
+	text-align: center;
+	cursor: pointer;
+	 
+}
+
+
+input[type=email] {
+    width: 20%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #D8D8D8;
+    border-radius: 4px;
+	text-align: center;
+	cursor: pointer;
+	 
+}
+ 
+
+ 
+
+
+  
+ 
+ 
+
+
+
