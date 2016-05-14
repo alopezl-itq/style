@@ -1,6 +1,6 @@
 <?php
-include_once('../modulos/Enrutador.php');
-include_once('../modulos/Controlador.php');
+include_once('../../modulos/Enrutador.php');
+include_once('../../modulos/Controlador.php');
 
 
 
@@ -14,15 +14,16 @@ include_once('../modulos/Controlador.php');
         <meta name="viewport" content="width=device-width">
 
         
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/font-awesome.css">
-        <link rel="stylesheet" href="../css/animate.css">
-        <link rel="stylesheet" href="../css/templatemo_misc.css">
-        <link rel="stylesheet" href="../css/templatemo_style.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/font-awesome.css">
+        <link rel="stylesheet" href="../../css/animate.css">
+        <link rel="stylesheet" href="../../css/templatemo_misc.css">
+        <link rel="stylesheet" href="../../css/templatemo_style.css">
     
-        <script src="../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        <script src="../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
     </head>
- <body>
+ 
+    <body>
        
         
                  <div class="main-header">
@@ -49,11 +50,11 @@ include_once('../modulos/Controlador.php');
             
                                   
 
-  <script src="../js/vendor/jquery-1.11.0.min.js"></script>
-     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-        <script src="../js/bootstrap.js"></script>
-        <script src="../js/plugins.js"></script>
-        <script src="../js/main.js"></script>
+  <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
+     <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="../../js/bootstrap.js"></script>
+        <script src="../../js/plugins.js"></script>
+        <script src="../../js/main.js"></script>
 
 
 <br/>

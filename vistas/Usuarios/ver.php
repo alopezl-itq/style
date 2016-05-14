@@ -35,7 +35,7 @@ if(isset($_GET['id_usuario'])){
 <br/><br/>
 <b>Correo electronico:</b>&nbsp;<?php  echo   $row['email']; ?>
 <br/><br/>
-<b>Redes sociales:</b>&nbsp;<?php  echo   $row['descripcion_redes']; ?>
+<b>Redes sociales:</b>&nbsp;<?php  echo   $row['id_red_social']; ?>
 <br/><br/>
 
 <br/><br/>

@@ -6,24 +6,24 @@ class Enrutador
 	
 	switch($vista):
 	case "crear":
-	include_once('../vistas/'.$vista.'.php');
+	include_once('C:/xampp/htdocs/style/vistas/Usuarios/'.$vista.'.php');
 	break;
 	
 	case "ver":
-	include_once('../vistas/'.$vista.'.php');
+	include_once('C:/xampp/htdocs/style/vistas/Usuarios/'.$vista.'.php');
 	break;
 	
 	case "eliminar":
-	include_once('../vistas/'.$vista.'.php');
+	include_once('C:/xampp/htdocs/style/vistas/Usuarios/'.$vista.'.php');
 	break;
 	
 	
 	case "editar":
-	include_once('../vistas/'.$vista.'.php');
+	include_once('C:/xampp/htdocs/style/vistas/Usuarios/'.$vista.'.php');
 	break;
 	
 	default:
-	include_once('../vistas//error.php');
+	include_once('C:/xampp/htdocs/style/vistas/Usuarios/error.php');
 	endswitch;
 	
 	}
@@ -32,7 +32,7 @@ class Enrutador
 	
  public function validarGet($variable){
 	 if(empty($variable)){
-		 include_once('../vistas/inicio.php');
+		 include_once('C:/xampp/htdocs/style/vistas/Usuarios/inicio.php');
 		 }else{
 			 return true;
 			 }

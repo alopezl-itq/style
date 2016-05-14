@@ -47,6 +47,10 @@ if($r){
 <h4>Apellidos Paterno:</h4><label for="apellido_p"><input type="text" placeholder="Perez " id="apellidos" name="apellidos" maxlength="50" size="20" required/></label>	
 </div>
 <br/>
+	<div class="form-group">
+		<h4>Apellidos Materno:</h4><label for="apellido_m"><input type="text" placeholder="Hernández " id="apellidos" name="apellidos" maxlength="50" size="20" required/></label>
+	</div>
+	<br/>
 <div class="form-group">
 <h4>Sexo:</h4><br/>
  <input type="radio" name="sexo" id="sexo-m" value="m"  checked="checked" /> <label for="sexo-m"><strong>Mujer</strong></label>&nbsp;&nbsp;
@@ -66,11 +70,11 @@ if($r){
 <h4>Correo Electronico:</h4><label for="email"><input type="email" placeholder="ejemplo@email.com" id="email" name="email" size="20"  maxlength="50" /></label>	
 </div>
 <br/>
-<div class="chebox">
+<div class="checkbox">
 <label for="opcion"><input type="checkbox" name="opcion" id="opcion" checked="checked" ><strong>Deseo recibir información sobre novedades y ofertas</strong></label>
 </div>
 <br/>
-
+<div class="checkbox">
     <select>
         <option value="0" selected>Selecciona una empresa</option>
 	<?php
@@ -85,6 +89,86 @@ if($r){
 	?>
 
     </select>
+	</div>
+	<br/>
+	<div class="checkbox">
+		<select>
+			<option value="0" selected>Selecciona una empresa</option>
+			<?php
+
+			$usuario = new Usuario();
+
+			$resultado1=$usuario->verempresas();
+			while($row=mysqli_fetch_array($resultado1)){
+				echo '<option value="'.$row["id_empresa"].'">'.$row["nombre_empresa"].'</option>';
+			}
+
+			?>
+
+		</select>
+	</div>
+	<br/>
+	<div class="checkbox">
+		<select>
+			<option value="0" selected>Selecciona una empresa</option>
+			<?php
+
+			$usuario = new Usuario();
+
+			$resultado1=$usuario->verempresas();
+			while($row=mysqli_fetch_array($resultado1)){
+				echo '<option value="'.$row["id_empresa"].'">'.$row["nombre_empresa"].'</option>';
+			}
+
+			?>
+
+		</select>
+	</div>
+	<br/>
+	<div class="checkbox">
+		<select>
+			<option value="0" selected>Selecciona una empresa</option>
+			<?php
+
+			$usuario = new Usuario();
+
+			$resultado1=$usuario->verempresas();
+			while($row=mysqli_fetch_array($resultado1)){
+				echo '<option value="'.$row["id_empresa"].'">'.$row["nombre_empresa"].'</option>';
+			}
+
+			?>
+
+		</select>
+	</div>
+	<br/>
+	<div class="checkbox">
+		<select>
+			<option value="0" selected>Selecciona una empresa</option>
+			<?php
+
+			$usuario = new Usuario();
+
+			$resultado1=$usuario->verempresas();
+			while($row=mysqli_fetch_array($resultado1)){
+				echo '<option value="'.$row["id_empresa"].'">'.$row["nombre_empresa"].'</option>';
+			}
+
+			?>
+
+		</select>
+	</div>
+	<br/>
+
+
+	<div class="form-group">
+		<h4>User:</h4><label for="user"><input type="text" placeholder="" id="user" name="user" maxlength="50" size="20" required/></label>
+	</div>
+	<br/>
+	<div class="form-group">
+		<h4>Password:</h4><label for="password"><input type="password" placeholder=" " id="password" name="password" maxlength="50" size="20" required/></label>
+	</div>
+	<br/>
 <div>
 <input type="submit"  name="enviar" value="enviar" />
 </div>

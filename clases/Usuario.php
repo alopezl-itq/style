@@ -1,5 +1,5 @@
 <?php
-include_once('../clases/Conexion.php');
+include_once('../../clases/Conexion.php');
 
 class Usuario
 {
@@ -53,7 +53,7 @@ public function verempresas(){
 }
 	
 	public function listar(){
-	$sql = "Select usuarios.id_usuario, usuarios.nombre, usuarios.apellido_p, usuarios.apellido_m, usuarios.sexo, usuarios.fecha_nacimiento,usuarios.foto, usuarios.email,usuarios.telefono,usuarios.observaciones, usuarios.usuario, usuarios.password, redes.descripcion_redes, tipo_usuarios.descripcion_tipo_usuarios,estatus.descripcion_estatus,empresas.nombre_empresa, direcciones_usuarios.nombre_calle, direcciones_usuarios.no_int, direcciones_usuarios.no_ext, ciudades.descripcion_ciudades, municipios.descripcion_municipios, estados.descripcion_estados FROM usuarios,redes,tipo_usuarios,estatus,empresas,direcciones_usuarios,ciudades,municipios,estados where usuarios.id_redes=redes.id_redes and usuarios.id_tipo_usuario=tipo_usuarios.id_tipo_usuario and usuarios.id_estatus=estatus.id_estatus and usuarios.id_empresa=empresas.id_empresa and usuarios.id_direccion=direcciones_usuarios.id_direccion and direcciones_usuarios.id_ciudad=ciudades.id_ciudad and ciudades.id_municipio=municipios.id_municipio and municipios.id_estado=estados.id_estado ";
+	$sql = "Select usuarios.id_usuario, usuarios.nombre, usuarios.apellido_p, usuarios.apellido_m, usuarios.sexo, usuarios.fecha_nacimiento,usuarios.foto, usuarios.email,usuarios.telefono,usuarios.observaciones, usuarios.usuario, usuarios.password, redes.id_red_social, tipo_usuarios.descripcion_tipo_usuarios,estatus.descripcion_estatus,empresas.nombre, direcciones.nombre_calle, direcciones.no_int, usuarios.no_ext, ciudades.descripcion_ciudades, municipios.descripcion_municipios, estados.descripcion_estados FROM usuarios,redes,tipo_usuarios,estatus,empresas,direcciones,ciudades,municipios,estados where usuarios.id_red=redes.id_red_social and usuarios.id_tipo_usuario=tipo_usuarios.id_tipo_usuario and usuarios.id_estatus=estatus.id_estatus and usuarios.id_empresa=empresas.id_empresa and usuarios.id_direccion=direcciones.id_direccion and direcciones.id_ciudad=ciudades.id_ciudad and ciudades.id_municipio=municipios.id_municipio and municipios.id_estado=estados.id_estado";
 		$resultado = $this->con->consultaR($sql);
 		return $resultado;
 		
@@ -65,7 +65,7 @@ public function verempresas(){
 		
 		public function ver(){
 		
-		$sql = ("Select usuarios.id_usuario, usuarios.nombre, usuarios.apellido_p, usuarios.apellido_m, usuarios.sexo, usuarios.fecha_nacimiento,usuarios.foto, usuarios.email,usuarios.telefono,usuarios.observaciones, usuarios.usuario, usuarios.password, redes.descripcion_redes, tipo_usuarios.descripcion_tipo_usuarios,estatus.descripcion_estatus,empresas.nombre_empresa, direcciones_usuarios.nombre_calle, direcciones_usuarios.no_int, direcciones_usuarios.no_ext, ciudades.descripcion_ciudades, municipios.descripcion_municipios, estados.descripcion_estados FROM usuarios,redes,tipo_usuarios,estatus,empresas,direcciones_usuarios,ciudades,municipios,estados where usuarios.id_redes=redes.id_redes and usuarios.id_tipo_usuario=tipo_usuarios.id_tipo_usuario and usuarios.id_estatus=estatus.id_estatus and usuarios.id_empresa=empresas.id_empresa and usuarios.id_direccion=direcciones_usuarios.id_direccion and direcciones_usuarios.id_ciudad=ciudades.id_ciudad and ciudades.id_municipio=municipios.id_municipio and municipios.id_estado=estados.id_estado 
+		$sql = ("Select usuarios.id_usuario, usuarios.nombre, usuarios.apellido_p, usuarios.apellido_m, usuarios.sexo, usuarios.fecha_nacimiento,usuarios.foto, usuarios.email,usuarios.telefono,usuarios.observaciones, usuarios.usuario, usuarios.password, redes.id_red_social, tipo_usuarios.descripcion_tipo_usuarios,estatus.descripcion_estatus,empresas.nombre, direcciones.nombre_calle, direcciones.no_int, direcciones.no_ext, ciudades.descripcion_ciudades, municipios.descripcion_municipios, estados.descripcion_estados FROM usuarios,redes,tipo_usuarios,estatus,empresas,direcciones,ciudades,municipios,estados where usuarios.id_red=redes.id_red_social and usuarios.id_tipo_usuario=tipo_usuarios.id_tipo_usuario and usuarios.id_estatus=estatus.id_estatus and usuarios.id_empresa=empresas.id_empresa and usuarios.id_direccion=direcciones.id_direccion and direcciones.id_ciudad=ciudades.id_ciudad and ciudades.id_municipio=municipios.id_municipio and municipios.id_estado=estados.id_estado
 		and usuarios.id_usuario = ".$this->id_usuario);
 		$resul = $this->con->consultaR($sql);
 		$row =mysqli_fetch_assoc($resul) ;
@@ -84,10 +84,10 @@ public function verempresas(){
 		$this->observaciones = $row["observaciones"];
 		$this->usuario = $row["usuario"];
 		$this->password = $row["password"];
-	    $this->id_redes = $row['descripcion_redes'];
+	    $this->id_redes = $row['id_red_social'];
 		$this->id_tipo_usuario = $row['descripcion_tipo_usuarios'];
 		$this->id_estatus = $row["descripcion_estatus"];
-		$this->id_empresa = $row["nombre_empresa"];
+		$this->id_empresa = $row["nombre"];
 		$this->id_direccion= $row['nombre_calle'];
 		$this->id_direccion = $row['no_int'];
 		$this->id_direccion = $row['no_ext'];
