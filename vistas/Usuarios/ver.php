@@ -21,9 +21,9 @@ if(isset($_GET['id_usuario'])){
 <br/><br/>
 <b>Tipo de empleado:</b>&nbsp;<?php  echo   $row['descripcion_tipo_usuarios']; ?>
 <br/><br/>
-<b>Usuario:</b>&nbsp;<?php  echo   $row['usuario']; ?> 
+<b>Usuario:</b>&nbsp;<?php  echo   $row['usuario']; ?>
 <br/><br/>
-<b>Nombre:</b> &nbsp; <?php echo $row['nombre']; ?>
+<b>Nombre:</b> &nbsp; <?php echo $row['nombreU']; ?>
 <br/><br/>
 <b>Apellido Paterno: </b>&nbsp;<?php echo $row['apellido_p']; ?>
 <br/><br/>

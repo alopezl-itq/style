@@ -31,7 +31,7 @@ $resultado = $controlador->index();
      <?php  while($row = mysqli_fetch_array($resultado)): ?>
         <tr>
         <td><?php echo '<img src="'.$row['foto'].'.jpg" width="100" height="120"></img>'; ?></td>
-        <td><?php echo $row['nombre']; ?></td>
+        <td><?php echo $row['nombreU']; ?></td>
         <td><?php echo $row['apellido_p']; ?></td>
         <td><?php echo $row['apellido_m']; ?></td>
         <td><?php echo $row['telefono']; ?></td>
