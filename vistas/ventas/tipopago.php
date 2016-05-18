@@ -7,7 +7,7 @@
               
 </head>
 <body>
-<table align="center">
+<div id='tipopago'>
 <table align="center"><tr><th>
 <br>Tipo de Venta: <br>
 Efectivo <input type="radio" name="tipoV" id="tipoV" value="efectivo">
@@ -15,5 +15,6 @@ Tarjeta  <input type="radio" name="tipoV" id="tipoV" value="tarjeta">
 Cheque   <input type="radio" name="tipoV" id="tipoV" value="cheque">
 <br><br>
 </th></tr></table>
+</div>
 </body>
 </html>

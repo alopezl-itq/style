@@ -7,6 +7,7 @@
               
 </head>
 <body>
+<div id='infoventa'>
 <table align="center">
 <TR align="center">
 <td ></td> 
@@ -23,6 +24,6 @@
 <td><br>&nbsp;&nbsp;</td><td><br>&nbsp;&nbsp;&nbsp;Vendedor<input type="text" name="clave" id="clave"></td></tr>
 
 </table>
-
+</div>
 </body>
 </html>

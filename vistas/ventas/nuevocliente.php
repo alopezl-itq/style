@@ -17,18 +17,7 @@ document.getElementById("ClienteSel").style.display="none";	}
               
 </head>
 <body>
-<table align="center">
-<TR align="center">
-<td ></td> 
-<td align="right"><a  onClick="ocultar()" align="center" style="cursor:pointer"></a></td>
-</TR></table>
-<table align="center"> 
-<tr>
-<td></td><td><br><br><br>&nbsp;<input type="button" value="Nuevo Cliente" Onclick="NuevoCliente()"></td>
-</tr>
-</table>
-<div id="NuevoC" style="display:none">
-	<br>
+<div id='nuevocliente'>
 <table><tr><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;Datos del Cliente</td></tr>
 <td>Nombre:<input type="text" name="clienteN" id="clienteN"></td>
 <td>Direccion:<input type="text" name="clienteD" id="clienteD"></td>
@@ -39,7 +28,7 @@ document.getElementById("ClienteSel").style.display="none";	}
 <option value="Queretaro">Queretaro</option>
 <select></td><td>Telefono:<input type="text" name="clienteT" id="clienteT">
 	<td>E-mail:<input type="text" name="clienteE" id="clienteE"></td></table>
-
+</div>
 </div>
 
 </body>

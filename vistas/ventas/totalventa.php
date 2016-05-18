@@ -7,6 +7,7 @@
               
 </head>
 <body>
+<div id='totalventa'>
 <table align="center">
 <tr><th>Pago Total&nbsp;&nbsp;<input type="text"></th><th>Descuento&nbsp;&nbsp;<input type="text"></th><th>Cantidad de Articulos&nbsp;&nbsp;<input type="text"></th><th>SubTotal&nbsp;&nbsp;<input type="text"></th></tr>
 <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;<input type="text"></th></tr>
@@ -14,5 +15,6 @@
 <tr><th></th><th></th><th></th><th>Referencia<input type="text"></th></tr>
 
 </table>
+</div>
 </body>
 </html>
