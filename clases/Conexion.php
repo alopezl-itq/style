@@ -5,14 +5,14 @@ class Conexion extends MySQLi{
 		//constructor de conexiÃ³n
 		public function __construct(){
 			//constructor de mysql con la conexiÃ³n
-		parent::__construct('localhost','root','','style');
+		parent::__construct('localhost','desarrollo','style16','style');
 		#Establece el charset para consultas 
 		$this->query("SET NAMES 'utf-8';");
 		#Devuelve la respuesta de la conexiÃ³n
-		$error=mysqli_connect_errno() ? die('Error con la conexiÃ³n'): $x = 'Conectado';
+		$error=mysqli_connect_errno() ? die('Error con la conexón'.mysqli_connect_error()): $x = 'Conectado';
 		#borra la respuesta para liberar memoria
 		unset($x);
-		$this->MiConexion = mysqli_connect('localhost','root','','style');
+		$this->MiConexion = mysqli_connect('localhost','desarrollo','style16','style');
 		
 	
 	}
