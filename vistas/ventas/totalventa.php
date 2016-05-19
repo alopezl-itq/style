@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id='totalventa'>
-<table align="center">
+<table align="center" style="background-color:black;color:#E80078">
 <tr><th>Pago Total&nbsp;&nbsp;<input type="text"></th><th>Descuento&nbsp;&nbsp;<input type="text"></th><th>Cantidad de Articulos&nbsp;&nbsp;<input type="text"></th><th>SubTotal&nbsp;&nbsp;<input type="text"></th></tr>
 <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total&nbsp;<input type="text"></th></tr>
 <tr><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVA&nbsp;&nbsp;<input type="text"></th></tr>

@@ -18,13 +18,29 @@
               
 </head>
 <body>
-<div id='selectcliente'>
+	<div id='selectcliente'>
+
 <table align="center"> 
 <td><br><br>&nbsp;<select name="usuarioSelec" Onchange="ClienteSelect()">
 		<option value="0">--Seleccione un Cliente --</option>
 		<option value="Nestor">--Nestor --</option>
 	</td></tr>
 </table>
+<div id="ClienteSel" style="display:none">
+	<br>
+<table><tr><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;Datos del Cliente</td></tr>
+<td>Nombre:<input type="text" name="clienteN" id="clienteN"></td>
+<td>Direccion:<input type="text" name="clienteD" id="clienteD"></td>
+<td>Ciudad:<select ><option value="1">seleccione</option>
+<option value="Queretaro">Queretaro</option>
+<select></td>
+<td>Estado:<select ><option value="1">seleccione</option>
+<option value="Queretaro">Queretaro</option>
+<select></td><td>Telefono:<input type="text" name="clienteT" id="clienteT">
+	<td>E-mail:<input type="text" name="clienteE" id="clienteE"></td></table>
 </div>
+</div>
+
+
 </body>
 </html>

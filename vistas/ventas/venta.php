@@ -35,13 +35,13 @@ document.getElementById("ClienteSel").style.display="none";	}
 
               
 </head>
-<body>
+
+<body style="background-color:black;color:white; background-size:800px 800px; background-repeat:no-repeat" background="../../images/logo.jpg" >
 <table align="center">
 <TR align="center">
 <td ></td> 
 <td align="right"><a  onClick="ocultar()" align="center" style="cursor:pointer"></a></td>
 </TR>
-
 </table>
 <div id='infoventa'>
 </div>
