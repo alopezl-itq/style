@@ -18,6 +18,14 @@ document.getElementById("ClienteSel").style.display="none";	}
 </head>
 <body>
 <div id='nuevocliente'>
+
+<table align="center"> 
+<tr>
+<td></td><td><br><br><br>&nbsp;<input type="button" value="Nuevo Cliente" Onclick="NuevoCliente()"></td>
+</tr>
+</table>
+<div id="NuevoC" style="display:none">
+	<br>
 <table><tr><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;Datos del Cliente</td></tr>
 <td>Nombre:<input type="text" name="clienteN" id="clienteN"></td>
 <td>Direccion:<input type="text" name="clienteD" id="clienteD"></td>
