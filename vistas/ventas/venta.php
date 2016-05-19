@@ -57,5 +57,6 @@ document.getElementById("ClienteSel").style.display="none";	}
 </div>
 <div id='totalventa'>
 </div>
+//
 </body>
 </html>
