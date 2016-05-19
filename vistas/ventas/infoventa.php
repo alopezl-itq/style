@@ -15,7 +15,7 @@
 </TR></table>
 <table align="center" style="background-color:black;color:#E80078"> <tr><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td style="background-color:black;color:#E80078"><h1>Modulo de Ventas</h1></td></tr>
 <tr><tr>
-	<td>No de Folio. <?php echo ("<input type='number' name='folio' value='d' readonly placeholder='Numero de Folio'>")?></td>
+	<td>No de Folio.<input type='number' name='folio' value='d' placeholder='Numero de Folio'></td>
 	<td>&nbsp;&nbsp;</td>
 	<td>&nbsp;&nbsp;&nbsp;No. Venta <input type="text" name="cliente" id="clave" placeholder="Numero de Venta"></td>
 	<td>&nbsp;&nbsp;</td>

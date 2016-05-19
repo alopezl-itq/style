@@ -15,8 +15,7 @@
 	document.getElementById("clienteNe").value=selCliente;
 	}
 </script>
-
-//              
+           
 </head>
 <body>
 

@@ -73,6 +73,6 @@ document.getElementById("clienteE").value=clienteE;
 </div>
 <div id='totalventa'>
 </div>
-//
+
 </body>
 </html>

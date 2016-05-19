@@ -34,15 +34,15 @@
 <div id="ClienteSel" style="display:none">
 	
 <table><tr><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td><br>Datos del Cliente<br></td></tr>
-<td>Nombre:<input type="text" name="clienteNe" id="clienteN"></td>
-<td>Direccion:<input type="text" name="clienteN" id="clienteN"></td>
-<td>Ciudad:<select name='ciudad'><option value="1">seleccione</option>
-<option value="Queretaro">Queretaro</option>
+<td>Nombre:<input type="text" name="clienteNe" id="clienteN" value='nestor'></td>
+<td>Direccion:<input type="text" name="clienteN" id="clienteN" value='Queretaro'></td>
+<td>Ciudad:<select name='ciudad'><option value="1" >seleccione</option>
+<option value="Queretaro" selected>Queretaro</option>
 <select></td>
 <td>Estado:<select name='estado' ><option value="1">seleccione</option>
-<option value="Queretaro">Queretaro</option>
-<select></td><td>Telefono:<input type="text" name="clienteT" id="clienteT">
-	<td>E-mail:<input type="text" name="clienteE" id="clienteE"></td></table>
+<option value="Queretaro" selected>Queretaro</option>
+<select></td><td>Telefono:<input type="text" name="clienteT" id="clienteT" value='1232121'>
+	<td>E-mail:<input type="text" name="clienteE" id="clienteE " value='ejem@ejeml.com'></td></table>
 </div>
 </div>
 
