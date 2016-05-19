@@ -20,11 +20,14 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <div id="selectventa">
 	
 
 
 
+=======
+>>>>>>> origin/master
 <br><br><br><br><br>
 <table align="center">
 <tr  style="background-color:gray;color:#E80078">
