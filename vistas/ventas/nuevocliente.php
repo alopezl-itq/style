@@ -27,15 +27,15 @@ document.getElementById("ClienteSel").style.display="none";	}
 <div id="NuevoC" style="display:none">
 	<br>
 <table><tr><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;</td><td>&nbsp;&nbsp;Datos del Cliente</td></tr>
-<td>Nombre:<input type="text" name="clienteN" id="clienteN"></td>
-<td>Direccion:<input type="text" name="clienteD" id="clienteD"></td>
+<td>Nombre:<input type="text" name="clienteN" id="clienteN" placeholder="Nombre"></td>
+<td>Direccion:<input type="text" name="clienteD" id="clienteD" placeholder="Direccion"></td>
 <td>Ciudad:<select ><option value="1">seleccione</option>
 <option value="Queretaro">Queretaro</option>
 <select></td>
 <td>Estado:<select ><option value="1">seleccione</option>
 <option value="Queretaro">Queretaro</option>
-<select></td><td>Telefono:<input type="text" name="clienteT" id="clienteT">
-	<td>E-mail:<input type="text" name="clienteE" id="clienteE"></td></table>
+<select></td><td>Telefono:<input type="text" name="clienteT" id="clienteT" placeholder="Telefono">
+	<td>E-mail:<input type="text" name="clienteE" id="clienteE" placeholder="E-mail"></td></table>
 </div>
 </div>
 

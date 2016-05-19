@@ -30,6 +30,22 @@ document.getElementById("ClienteSel").style.display="none";	}
 	document.getElementById("NuevoC").style.display="none";
 	var selCliente=$F("usuarioSelec");
 	document.getElementById("clienteNe").value=selCliente;
+	valoresCliente();
+	}
+	function valoresCliente(){
+		var Nestor='Nestor';
+		var clienteN='Los Olvera';
+		var ciudad='Queretaro';
+		var estado='Queretaro';
+		var clienteT='123412213';
+		var clienteE='Nestor@gay';
+	document.getElementById("clienteNe").value=Nestor;
+document.getElementById("clienteN").value=clienteN;
+document.getElementById("ciudad").value=ciudad;
+document.getElementById("estado").value=estado;
+document.getElementById("clienteT").value=clienteT;
+document.getElementById("clienteE").value=clienteE;
+
 	}
 </script>
 
@@ -39,7 +55,7 @@ document.getElementById("ClienteSel").style.display="none";	}
 <body style="background-color:black;color:white; background-size:800px 800px; background-repeat:no-repeat" background="../../images/logo.jpg" >
 <table align="center">
 <TR align="center">
-<td ></td> 
+<td ><input type="hidden" id="dato1" name="dato1" ></td> 
 <td align="right"><a  onClick="ocultar()" align="center" style="cursor:pointer"></a></td>
 </TR>
 </table>
