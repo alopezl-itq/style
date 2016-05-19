@@ -33,12 +33,12 @@
 <option value="Loreal">Loreal</option><select></th>
 <th><select ><option value="1">seleccione</option>
 <option value="shampoo1223">shampoo1223</option><select></th>
-<th><input type="text" name="cantidad" id="cantidad" value=""></th>
+<th><input type="text" name="cantidad" id="cantidad" value="" placeholder="Numero de Productos"></th>
 <th><select ><option value="1">seleccione</option>
 <option value="chico">Chico</option>
 <option value="mediano">Mediano</option>
 <option value="grande">Grande</option><select></th>
-<th><input type="number" value="$" name="precio"></th>
+<th><input type="number" value="$" name="precio" placeholder="Capturar Precio"></th>
 <th>10</th>
 <th><img src="../../images/editar.png"  width='18' height='23' alt='Modificar' onClick="mostrarModifica()" style="cursor:pointer"></th>
 <th><img  src="../../images/close.png" alt='Eliminar' width='20' height='25' onClick="mostrarBaja()" style="cursor:pointer"></th></tr>
