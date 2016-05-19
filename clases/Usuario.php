@@ -25,8 +25,9 @@ private $id_direccion;
 private $id_ciudad;
 private $id_municipio;
 private $id_estado;
-private $nombre_empresa;
-private $redes;
+private $nombre_calle;
+private $no_int;
+	private $no_ext;
 private $con;
 
 
@@ -47,13 +48,39 @@ public function set($atributo, $contenido){
 
 
 public function verempresas(){
-	$sql ="Select empresas.id_empresa, empresas.nombre_empresa FROM empresas";
+	$sql ="Select * FROM empresas";
 	$res=$this->con->consultaR($sql);
 	return $res;
 }
+	public function vertipous(){
+		$sql ="Select * FROM tipo_usuarios";
+		$res=$this->con->consultaR($sql);
+		return $res;
+		}
+
+	public function verestatus(){
+	$sql ="Select * FROM estatus";
+	$res=$this->con->consultaR($sql);
+	return $res;
+}
+	public function verestados(){
+		$sql ="Select * FROM estados";
+		$res=$this->con->consultaR($sql);
+		return $res;
+	}
+	public function verciudades($municipio1){
+		$sql ="Select * FROM ciudades where id_municipio=".$municipio1;
+		$res=$this->con->consultaR($sql);
+		return $res;
+	}
+	public function vermunicipio($municipio){
+		$sql ="Select * FROM municipios where id_estado=".$municipio;
+		$res=$this->con->consultaR($sql);
+		return $res;
+	}
 	
 	public function listar(){
-	$sql = "Select usuarios.id_usuario, usuarios.nombreU, usuarios.apellido_p, usuarios.apellido_m, usuarios.sexo, usuarios.fecha_nacimiento,usuarios.foto, usuarios.email,usuarios.telefono,usuarios.observaciones, usuarios.usuario, usuarios.password, redes.id_red_social, tipo_usuarios.descripcion_tipo_usuarios,estatus.descripcion_estatus,empresas.nombre, direcciones.nombre_calle, direcciones.no_int, usuarios.no_ext, ciudades.descripcion_ciudades, municipios.descripcion_municipios, estados.descripcion_estados FROM usuarios,redes,tipo_usuarios,estatus,empresas,direcciones,ciudades,municipios,estados where usuarios.id_red=redes.id_red_social and usuarios.id_tipo_usuario=tipo_usuarios.id_tipo_usuario and usuarios.id_estatus=estatus.id_estatus and usuarios.id_empresa=empresas.id_empresa and usuarios.id_direccion=direcciones.id_direccion and direcciones.id_ciudad=ciudades.id_ciudad and ciudades.id_municipio=municipios.id_municipio and municipios.id_estado=estados.id_estado";
+	$sql = "";
 		$resultado = $this->con->consultaR($sql);
 		return $resultado;
 		
@@ -100,19 +127,13 @@ public function verempresas(){
 		
 		public function crear(){
 			
-			$sql2 = "SELECT * FROM usuarios WHERE usuario=".$this->usuario;
-			$resultado = $this->con->recorrer($sql2);
-			$num = mysqli_num_rows($sql2);
+
 			
-			if($num!=0){
-				return false;
-			}
-			else{
-			
-			$sql= "INSERT INTO `usuarios` (`nombre`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`, `foto`, `email`, `telefono`, `observaciones`, `usuario`, `password`, `id_redes`, `id_tipo_usuario`, `id_estatus`, `id_empresa`, `id_direccion`) VALUES ('".$this->nombre."','".$this->apellido_p."','".$this->apellido_m."','".$this->sexo."','".$this->fecha_nacimiento."','".$this->email."','".$this->foto."','".$this->email."',".$this->telefono.",'".$this->observaciones."','".$this->usuario."','".$this->password."',".$this->id_redes.",".$this->id_estatus.",".$this->id_empresa.",".$this->id_direccion.",) ";
+			$sql= "INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`, `foto`, `email`, `telefono`, `observaciones`, `usuario`, `password`, `id_tipo_usuario`, `id_estatus`, `id_empresa`, `nombre_calle`, `no_ext`, `no_int`, `id_estado`) VALUES (NULL, '$this->nombre', '$this->apellido_p', '$this->apellido_m',
+ '$this->sexo', '$this->fecha_nacimiento', '$this->foto', '$this->email', '$this->telefono', '$this->observaciones', '$this->usuario', '$this->password', '$this->id_tipo_usuario', '$this->id_estatus', '$this->id_empresa', '$this->nombre_calle', '$this->no_ext', '$this->no_int', '$this->id_estado'); ";
 			$this->con->query($sql);
 			return true;
-			}
+
 			
 	}		
 			

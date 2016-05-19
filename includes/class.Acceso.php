@@ -12,10 +12,10 @@ class Acceso{
 public function Login(){
 		
 		$db = new Conexion();
-		$sql=$db->query('select usuario,password from usuarios where usuario="'.$this->user.'" and password="'.$this->pass.'";');
+		$sql=$db->query('select id_tipo_usuario from usuarios where usuario="'.$this->user.'" and password="'.$this->pass.'";');
 		$dato=$db->recorrer($sql);
 		
-		if($dato['usuario'] ==$this->user and $dato['password']==$this->pass){
+		if($dato['id_tipo_usuario'] ==1){
 			session_start();
 			$_SESSION['user'];
 			}else{

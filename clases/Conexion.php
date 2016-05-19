@@ -18,7 +18,7 @@ class Conexion extends MySQLi{
 	}
 	#funcin recorrer, regresa la lista de la consulta
 	public function recorrer($y){
-		return mysqli_fetch_array($y);	
+		return mysqli_fetch_array($y);
 	}
 	
 	public function consultaS($sql){

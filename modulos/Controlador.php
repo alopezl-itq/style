@@ -18,9 +18,9 @@ class Controlador{
 		}
 		
 		
-	public function crear($id_usuario, $nombre, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $foto, $email, $telefono, $observaciones, $usuario, $password, $id_redes, $id_tipo_usuario, $id_estatus, $id_empresa, $id_direccion, $id_municipio, $id_estado){
+	public function crear( $nombre, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $foto, $email, $telefono, $observaciones, $usuario, $password, $id_tipo_usuario, $id_estatus, $id_empresa, $id_estado,$nombre_calle,$no_int,$no_ext){
 		
-			$this->usuario->set("id_usuario",$id_usuario);
+
 			$this->usuario->set("nombre",$nombre);
 			$this->usuario->set("apellido_p",$apellido_p);
 			$this->usuario->set("apellido_m",$apellido_m);
@@ -32,13 +32,19 @@ class Controlador{
 			$this->usuario->set("observaciones",$observaciones);
 			$this->usuario->set("usuario",$usuario);
 			$this->usuario->set("password",$password);
-			$this->usuario->set("id_redes",$id_redes);
+
 			$this->usuario->set("id_tipo_usuario",$id_tipo_usuario);
 			$this->usuario->set("id_estatus",$id_estatus);
 			$this->usuario->set("id_empresa",$id_empresa);
-			$this->usuario->set("id_direccion",$id_direccion);
-			
-			$resultado=$this->usuario->crear();
+			$this->usuario->set("id_estado",$id_estado);
+			$this->usuario->set("nombre_calle",$nombre_calle);
+			$this->usuario->set("no_int",$no_int);
+			$this->usuario->set("no_ext",$no_ext);
+
+
+
+
+		$resultado=$this->usuario->crear();
 			return $resultado;
 		
 		}

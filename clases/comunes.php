@@ -1,10 +1,20 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Documento sin título</title>
-</head>
+<?php
 
-<body>
-</body>
-</html>
+
+ function salir(){
+    session_start();
+    session_destroy();
+    session_write_close();
+}
+
+
+function validarSesion(){
+    if(isset($_SESSION['login'])){
+        echo "Bienvenido ".$_SESSION['nombre'];
+    }else{
+        header ("location:index.html");
+    }
+
+
+}
+?>
