@@ -1,30 +1,15 @@
 <?php
 class Enrutador
     {
-	public function cargarVista($vista)
+	public function cargarVista($vista,$controlador)
 	{
 	
-	switch($vista):
-	case "crear":
-	include_once('../../vistas/usuarios/'.$vista.'.php');
-	break;
+	echo $vista. "    ".$controlador."<br>";
 	
-	case "ver":
-	include_once('../../style/vistas/usuarios/'.$vista.'.php');
-	break;
-	
-	case "eliminar":
-	include_once('../../vistas/usuarios/'.$vista.'.php');
-	break;
+	echo '../../vistas/'.$vista."/".$controlador.'.php';
+	include_once('../../vistas/'.$vista."/".$controlador.'.php');
 	
 	
-	case "editar":
-	include_once('../../vistas/usuarios/'.$vista.'.php');
-	break;
-	
-	default:
-	include_once('C../../vistas/usuarios/error.php');
-	endswitch;
 	
 	}
 	

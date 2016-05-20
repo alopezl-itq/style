@@ -26,7 +26,8 @@ function menu(){
 	 if($menu=mysqli_query($db,$sql)){
 		 
 		 while($dato=mysqli_fetch_array($menu)){
-			 echo  "<li><a href='vistas/".$dato['vista']."?cargar=".$dato['controlador']."'>".$dato['descripcion']."</a></li>"; 
+			 //echo  "<li><a href='vistas/".$dato['vista']."/?cargar=".$dato['controlador']."'>".$dato['descripcion']."</a></li>"; //original
+		echo  "<li><a href='vistas/".$dato['vista']."/?cargar=".$dato['vista']."&controlador=".$dato['controlador']."'>".$dato['descripcion']."</a></li>";
 		 }
 	 } else {
 		 echo mysqli_error($db);

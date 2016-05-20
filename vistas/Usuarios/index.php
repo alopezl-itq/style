@@ -69,7 +69,7 @@ include_once('../../modulos/controlador.php');
 <?php 
    $enrutador= new Enrutador();
    if($enrutador->validarGet(isset($_GET['cargar']))){
-        $enrutador->cargarVista($_GET['cargar']);
+        $enrutador->cargarVista($_GET['cargar'],$_GET['controlador']);
     
 }
 ?>﻿
