@@ -21,6 +21,7 @@ public function Login(){
 
 			session_start();
 			$_SESSION['user']=$this->usuario;
+			$_SESSION['id_user']=$dato['id_usuario'];
 			$_SESSION['nombre']=$dato['nombre']." ".$dato['apellido_p']." ".$dato['apellido_m'];
 			$_SESSION['login']=true;
 			header("location: principal.php");

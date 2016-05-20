@@ -1,6 +1,6 @@
 <?php
-include_once('../../modulos/Enrutador.php');
-include_once('../../modulos/Controlador.php');
+include_once('../../modulos/enrutador.php');
+include_once('../../modulos/controlador.php');
 
 
 
@@ -38,7 +38,7 @@ include_once('../../modulos/Controlador.php');
                                 <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
-                                    <li><a href="index.php"><b>Inicio</b></a></li>
+                                    <li><a href="../../principal.php"><b>Inicio</b></a></li>
                                     <li><a href="?cargar=crear"><b>Registrar</b></a></li>
                                      </ul>
                                       </ul>                                    

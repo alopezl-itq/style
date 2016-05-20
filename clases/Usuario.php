@@ -1,5 +1,5 @@
 <?php
-include_once('../../clases/Conexion.php');
+include_once('../../clases/conexion.php');
 
 class Usuario
 {

@@ -1,6 +1,6 @@
 <?php
 
-require('clases/Conexion.php');
+require('clases/conexion.php');
 
 
 $modo = isset($_GET['modo']) ? $_GET['modo'] : 'default';

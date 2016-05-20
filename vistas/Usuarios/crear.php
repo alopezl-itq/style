@@ -29,7 +29,7 @@
   
 <header align="center"><h1>Registro empleado</h1></header>
 <?php
-$controlador = new Controlador();
+$controlador = new controlador();
 if(isset($_POST['enviar'])){
  $r =$controlador->crear($_POST['nombre'], $_POST['apellido_p'], $_POST['apellido_m'],$_POST['sexo'],$_POST['fecha_nacimiento'],
 	 $_POST['foto'],$_POST['email'],$_POST['telefono'],$_POST['observaciones'],$_POST['usuario'],$_POST['password'],
