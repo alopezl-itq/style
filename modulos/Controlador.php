@@ -1,5 +1,6 @@
 <?php
 include_once("../../clases/usuario.php");
+include_once("../../clases/venta.php");
 
 
 class Controlador{
@@ -7,13 +8,15 @@ class Controlador{
 	public function __construct(){
 		
 		$this->usuario=new Usuario();
+		$this->venta=new Venta();
 		
 		}
 	
 	public function index(){
 		
 		$resultado =$this->usuario->listar();
-		return $resultado;
+		$resultado2 =$this->Venta->listar();
+		return $resultado,$resultado2;
 		
 		}
 		
@@ -75,6 +78,39 @@ class Controlador{
 			$resultado=$this->usuario->editar();
 			
 		}	
+		
+
+	public function eliminar($id_detalle_ventas){
+			$this->usuario->set("id_detalle_ventas",$id_detalle_ventas);
+			$this->id_detalle_ventas->eliminar();
+			
+		}	
+		
+		public function ver($id_detalle_ventas){
+			$this->usuario->set("id_detalle_ventas",$id_detalle_ventas);
+		$resul=$this->venta->ver();
+			
+		  return $resul;
+			
+		}
+		
+		
+	public function crearventa( $id_detalle_ventas, $id_servicio, $id_producto, $id_venta,){
+		
+
+			$this->usuario->set("id_detalle_ventas",$id_detalle_ventas);
+			$this->usuario->set("id_servicio",$id_servicio);
+			$this->usuario->set("id_producto",$id_producto);
+			$this->usuario->set("id_venta",$id_venta);
+			
+
+
+		$resultado=$this->venta->crearventa();
+			return $resultado;
+		
+		}
+
+
 	
 
 }

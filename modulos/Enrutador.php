@@ -18,6 +18,8 @@ class Enrutador
  public function validarGet($variable){
 	 if(empty($variable)){
 		 include_once('../vistas/usuarios/inicio.php');
+		 
+		 include_once('../vistas/usuarios/inicio.php');
 		 }else{
 			 return true;
 			 }
