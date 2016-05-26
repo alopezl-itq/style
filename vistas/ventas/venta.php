@@ -52,7 +52,7 @@ document.getElementById("clienteE").value=clienteE;
               
 </head>
 
-<body style="background-color:black;color:white; background-size:800px 800px; background-repeat:no-repeat" background="../../images/logo.jpg" >
+<body style="background-color:white;color:white; background-size:800px 800px; background-repeat:no-repeat" background="../../images/logo.jpg" >
 <table align="center">
 <TR align="center">
 <td ><input type="hidden" id="dato1" name="dato1" ></td> 

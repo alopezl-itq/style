@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id='tipopago'>
-<table align="center" style="background-color:black;color:#E80078"><tr><th>
+<table align="center" style="background-color:white;color:#E80078"><tr><th>
 <br>Tipo de Venta: <br>
 Efectivo <input type="radio" name="tipoV" id="tipoV" value="efectivo">
 Tarjeta  <input type="radio" name="tipoV" id="tipoV" value="tarjeta">
