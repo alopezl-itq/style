@@ -69,11 +69,12 @@ http://www.templatemo.com/tm-406-flex
                                     
                                     <ul class="menu-first">
 	                                    
-                                        <li class="active"><a href="#">Home</a></li>
+                                        <li class="active"><a href="#">Inicio</a></li>
                                        <li><a href="vistas/usuarios">Usuarios</a></li>
+                                       <li><a href="vistas/esteticas">Estéticas</a></li>
                                        <?php menu();?>
                                         <!--<li><a href="#">¿Quienes Somos?</a></li>-->
-                                        <li><a href="clases/salir.php">Salir</a></li>                               
+                                        <li><a class="glyphicon-arrow-right" href="clases/salir.php">Salir</a></li>                               
                                     </ul>                                    
                                 </div> <!-- /.main-menu -->
                             </div> <!-- /.row -->

@@ -6,7 +6,7 @@ class Usuario
 //atributos
 
 private $id_usuario;
-private $nombre;
+private $nombre_u;
 private $apellido_p;
 private $apellido_m;
 private $sexo;
@@ -17,18 +17,20 @@ private $telefono;
 private $observaciones;
 private $usuario;
 private $password;
-private $id_redes;
 private $id_tipo_usuario;
 private $id_estatus;
 private $id_empresa;
-private $id_direccion;
 private $id_ciudad;
 private $id_municipio;
 private $id_estado;
 private $nombre_calle;
 private $no_int;
-	private $no_ext;
+private $no_ext;
 private $con;
+private $usuario_r;
+private $descripcion_red; 
+
+
 
 
 //metodos
@@ -68,19 +70,40 @@ public function verempresas(){
 		$res=$this->con->consultaR($sql);
 		return $res;
 	}
-	public function verciudades($municipio1){
-		$sql ="Select * FROM ciudades where id_municipio=".$municipio1;
+	
+	public function vermunicipio($estado){
+		$sql ="Select * FROM municipios where id_estado=".$estado;
 		$res=$this->con->consultaR($sql);
 		return $res;
-	}
-	public function vermunicipio($municipio){
-		$sql ="Select * FROM municipios where id_estado=".$municipio;
+		}
+	
+	public function verciudades($municipio){
+		$sql ="Select * FROM ciudades where id_municipio=".$municipio;
 		$res=$this->con->consultaR($sql);
 		return $res;
 	}
 	
+	
+	
+	public function verredes(){
+		$sql ="SELECT usuarios.id_usuario,redes_usuario.usuario_r,tipo_redes_sociales.descripcion_red_social from redes_usuario,tipo_redes_sociales,usuarios where redes_usuario.id_tipo_red_social=tipo_redes_sociales.id_tipo_red_social and usuarios.id_usuario=redes_usuario.id_usuario and usuarios.id_usuario=".$this->id_usuario;
+		$result = $this->con->consultaR($sql);
+		return $result;
+		
+		$row =mysqli_fetch_assoc($result) ;
+		
+		
+		//set interno
+		$this->usuario_r = $row['usuario_r'];
+		$this->descripcion_red = $row['descripcion_red_social'];
+		return $row;
+	}
+	
+	
 	public function listar(){
-	$sql = "";
+
+$sql = ("SELECT usuarios.id_usuario, usuarios.nombre_u, usuarios.apellido_p,usuarios.apellido_m,usuarios.telefono,empresas.nombre From usuarios,empresas ORDER by nombre_u ASC");
+	
 		$resultado = $this->con->consultaR($sql);
 		return $resultado;
 		
@@ -91,47 +114,45 @@ public function verempresas(){
 
 		
 		public function ver(){
-		
-		$sql = ("Select usuarios.id_usuario, usuarios.nombreU, usuarios.apellido_p, usuarios.apellido_m, usuarios.sexo, usuarios.fecha_nacimiento,usuarios.foto, usuarios.email,usuarios.telefono,usuarios.observaciones, usuarios.usuario, usuarios.password, redes.id_red_social, tipo_usuarios.descripcion_tipo_usuarios,estatus.descripcion_estatus,empresas.nombre, direcciones.nombre_calle, direcciones.no_int, direcciones.no_ext, ciudades.descripcion_ciudades, municipios.descripcion_municipios, estados.descripcion_estados FROM usuarios,redes,tipo_usuarios,estatus,empresas,direcciones,ciudades,municipios,estados where usuarios.id_red=redes.id_red_social and usuarios.id_tipo_usuario=tipo_usuarios.id_tipo_usuario and usuarios.id_estatus=estatus.id_estatus and usuarios.id_empresa=empresas.id_empresa and usuarios.id_direccion=direcciones.id_direccion and direcciones.id_ciudad=ciudades.id_ciudad and ciudades.id_municipio=municipios.id_municipio and municipios.id_estado=estados.id_estado
-		and usuarios.id_usuario = ".$this->id_usuario);
+	
+		$sql = ("SELECT usuarios.id_usuario, usuarios.nombre_u,usuarios.apellido_p,usuarios.apellido_m,sexo.descripcion,usuarios.fecha_nacimiento, usuarios.email,usuarios.telefono,usuarios.usuario,tipo_usuarios.descripcion_tipo_usuarios, estatus.descripcion_estatus,empresas.nombre,usuarios.nombre_calle,usuarios.no_int,usuarios.no_ext,estados.descripcion_estados,ciudades.descripcion_ciudades, municipios.descripcion_municipios From usuarios,sexo,empresas,estatus,municipios,ciudades,tipo_usuarios,estados WHERE usuarios.sexo=sexo.id_sexo and usuarios.id_tipo_usuario=tipo_usuarios.id_tipo_usuario and usuarios.id_estatus=estatus.id_estatus and usuarios.id_empresa=empresas.id_empresa and usuarios.id_estado=estados.id_estado and municipios.id_estado=estados.id_estado and usuarios.id_ciudad=ciudades.id_ciudad  and usuarios.id_usuario =".$this->id_usuario);
 		$resul = $this->con->consultaR($sql);
+	
 		$row =mysqli_fetch_assoc($resul) ;
 		
 		
 		//set interno
 		$this->id_usuario = $row['id_usuario'];
-		$this->nombre = $row['nombreU'];
+		$this->nombre = $row["nombre_u"];
 		$this->apellido_p = $row["apellido_p"];
 		$this->apellido_m = $row["apellido_m"];
-		$this->sexo = $row["sexo"];
-		$this->fecha_nacimiento = $row["fecha_nacimiento"];
-		$this->email = $row["foto"];
-		$this->foto = $row["email"];
-		$this->telefono = $row["telefono"];
-		$this->observaciones = $row["observaciones"];
+		$this->sexo = $row["descripcion"];
+	    $this->fecha_nacimiento = $row["fecha_nacimiento"];
+		$this->email = $row["email"];
 		$this->usuario = $row["usuario"];
-		$this->password = $row["password"];
-	    $this->id_redes = $row['id_red_social'];
-		$this->id_tipo_usuario = $row['descripcion_tipo_usuarios'];
+	    $this->id_tipo_usuario = $row['descripcion_tipo_usuarios'];
 		$this->id_estatus = $row["descripcion_estatus"];
 		$this->id_empresa = $row["nombre"];
 		$this->id_direccion= $row['nombre_calle'];
-		$this->id_direccion = $row['no_int'];
-		$this->id_direccion = $row['no_ext'];
+		$this->no_int = $row['no_int'];
+		$this->no_ext = $row['no_ext'];
 		$this->id_ciudad= $row['descripcion_ciudades'];
 		$this->id_municipio=$row['descripcion_municipios'];
 		$this->id_estado = $row['descripcion_estados'];
 		return $row;
+		
 		}
 		
 		
-		public function crear(){
+		public function crearUsuario(){
 			
 
 			
-			$sql= "INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`, `foto`, `email`, `telefono`, `observaciones`, `usuario`, `password`, `id_tipo_usuario`, `id_estatus`, `id_empresa`, `nombre_calle`, `no_ext`, `no_int`, `id_estado`) VALUES (NULL, '$this->nombre', '$this->apellido_p', '$this->apellido_m',
- '$this->sexo', '$this->fecha_nacimiento', '$this->foto', '$this->email', '$this->telefono', '$this->observaciones', '$this->usuario', '$this->password', '$this->id_tipo_usuario', '$this->id_estatus', '$this->id_empresa', '$this->nombre_calle', '$this->no_ext', '$this->no_int', '$this->id_estado'); ";
+			$sql= "INSERT INTO `usuarios` ( `nombre_u`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_estado`,`id_ciudad`,`nombre_calle`,`no_int`, `no_ext`,`usuario`,`password`) VALUES ('$this->nombre_u','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono
+ , '$this->email',$this->id_empresa, $this->id_tipo_usuario, $this->id_estatus,$this->id_estado,$this->id_ciudad,'$this->nombre_calle',$this->no_int,$this->no_ext,'$this->usuario','$this->password'); ";
+  
 			$this->con->query($sql);
+			
 			return true;
 
 			

@@ -4,9 +4,9 @@ class Enrutador
 	public function cargarVista($vista,$controlador)
 	{
 	
-	echo $vista. "    ".$controlador."<br>";
+	//echo $vista. "    ".$controlador."<br>";
 	
-	echo '../../vistas/'.$vista."/".$controlador.'.php';
+	//echo '../../vistas/'.$vista."/".$controlador.'.php';
 	include_once('../../vistas/'.$vista."/".$controlador.'.php');
 	
 	
@@ -17,9 +17,7 @@ class Enrutador
 	
  public function validarGet($variable){
 	 if(empty($variable)){
-		 include_once('../vistas/usuarios/inicio.php');
-		 
-		 include_once('../vistas/usuarios/inicio.php');
+		 include_once('inicio.php');
 		 }else{
 			 return true;
 			 }
