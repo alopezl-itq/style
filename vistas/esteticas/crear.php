@@ -112,6 +112,8 @@ a:hover,a:focus{
   
 <header align="center"><h1>Nueva Estética</h1></header>
 <?php
+	
+	/*se genera el controlador y se pasan los parametros para la función crear y se verifica que se registra la estética*/
 $controlador = new c_estetica();
 if(isset($_POST['enviar'])){
  $r =$controlador->crear( $_POST['nombre_estetica'],$_POST['imagen'], $_POST['eslogan'],$_POST['cliente_a'],
