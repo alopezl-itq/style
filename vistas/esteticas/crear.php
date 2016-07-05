@@ -2,6 +2,8 @@
 	include_once('../../modulos/enrutador.php');
 include_once('../../modulos/c_estetica.php');
 
+/*modulos para poder usar las fteunciones relacionadas con esté
+*/
 ?>
 
 
