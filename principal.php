@@ -8,7 +8,7 @@
 session_start();
 
 
-
+echo "hola";
 include_once('clases/comunes.php');
 
 //validarSesion();
