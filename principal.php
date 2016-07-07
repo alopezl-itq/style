@@ -8,7 +8,7 @@
 session_start();
 
 
-echo "hola";
+
 include_once('clases/comunes.php');
 
 //validarSesion();
@@ -32,63 +32,25 @@ http://www.templatemo.com/tm-406-flex
         <link rel="stylesheet" href="css/templatemo_misc.css">
         <link rel="stylesheet" href="css/templatemo_style.css">
 
-        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-
 </head>
 <body>
-
-<!--<header><a href="clases/salir.php">Logout</a></header>-->
-
-
-
-<div class="site-main" id="sTop">
-            <div class="site-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <ul class="social-icons">
-                                <li><a href="#" class="fa fa-facebook"></a></li>
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                            </ul>
-                        </div> <!-- /.col-md-12 -->
-                    </div> <!-- /.row -->
-                </div> <!-- /.container -->
-                <div class="main-header">
-                    <div class="container">
-                        <div id="menu-wrapper">
-                            <div class="row">
-                                <div class="logo-wrapper col-md-2 col-sm-2">
-                                    <!--<h1>
-                                       <a href="#">Flex</a>
-                                    </h1>-->
-                                </div> <!-- /.logo-wrapper -->
-                                <div class="col-md-10 col-sm-10 main-menu text-right">
-	                                
-                                    <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
-                                    
-                                    
-                                    <ul class="menu-first">
-	                                    
-                                        <li class="active"><a href="#">Inicio</a></li>
-                                       <li><a href="vistas/usuarios">Usuarios</a></li>
-                                       <li><a href="vistas/esteticas">Estéticas</a></li>
-                                       <?php menu();?>
-                                        <!--<li><a href="#">¿Quienes Somos?</a></li>-->
-                                        <li><a class="glyphicon-arrow-right" href="clases/salir.php">Salir</a></li>                               
-                                    </ul>                                    
-                                </div> <!-- /.main-menu -->
-                            </div> <!-- /.row -->
-                        </div> <!-- /#menu-wrapper -->                        
-                    </div> <!-- /.container -->
-                </div> <!-- /.main-header -->
-            </div> <!-- /.site-header -->
-             <!-- /.site-main -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="../../principal.php">Inicio</a></li>
+      <li><a href="vistas/esteticas">Estéticas</a></li>
+      <li><a href="vistas/usuarios">Usuarios</a></li>
+      <li><a href="clases/salir.php">Salir</a></li> 
+    </ul>
+  </div>
+</nav>
 
 
 <div class="content-section" id="contact">
             <div class="container">
                 <div class="row">
-                    <div class="heading-section col-md-12 text-center">
+                    <div class="heading-section col-md-12" style="font-size:xx-large; text-align:center">
                             </center>
 	                    <?php
 
@@ -99,36 +61,7 @@ validarSesion();
                                           </div> <!-- /.col-md-12 -->
                 </div> 
 
-
-
-            
-        <div id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-xs-12 text-left">
-                        <span>Copyright &copy; 2016 Style Co. 
-                        
-                        | Design: <a rel="nofollow" href="http://www.alejandrolopezlopez.com"
-                         target="_target">QroSol</a>
-
-                        </span>
-                  </div> <!-- /.text-center -->
-                    <div class="col-md-4 hidden-xs text-right">
-                        <a href="#top" id="go-top">Back to top</a>
-                    </div> <!-- /.text-center -->
-                </div> <!-- /.row -->
-            </div> <!-- /.container -->
-        </div> <!-- /#footer -->
-        
-        <script src="js/vendor/jquery-1.11.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-        <script src="js/bootstrap.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-        
-
-
 </body>
 
 </html>
+

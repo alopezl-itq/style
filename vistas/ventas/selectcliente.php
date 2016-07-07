@@ -14,6 +14,25 @@
 	document.getElementById("clienteNe").value=selCliente;
 	}
 </script>
+<script type="text/javascript">
+	var checkbox = document.getElementById("estados"),
+		ajax = function(url){
+			var xhr = window.XMLHttpRequest ?
+				new XMLHttpRequest() :
+			new ActiveXObject("Microsoft.XMLHTTP") ||
+			new ActiveXObject("Msxml2.XMLHTTP");
+
+		};
+
+	checkbox.addEventListener("click", function(){
+		var estado = this.checked ? 1 : 0,
+			id = this.getAttribute("data-id"),
+			url = "ver_usuarios2.php?estado="+estado+"&id="+id;
+
+		ajax(url);
+
+	}, false);
+</script>
 
               
 </head>
@@ -39,10 +58,24 @@
 <td>Ciudad:<select name='ciudad'><option value="1" >seleccione</option>
 <option value="Queretaro" selected>Queretaro</option>
 <select></td>
-<td>Estado:<select name='estado' ><option value="1">seleccione</option>
-<option value="Queretaro" selected>Queretaro</option>
-<select></td><td>Telefono:<input type="text" name="clienteT" id="clienteT" value='1232121'>
+<td>Estado:<select name="id_estado">
+			<option value="" selected>Selecciona un Estado</option>
+			<?php
+
+			$ventas = new ventas();
+
+			$resultado4=$ventas->verestados();
+			while($row=mysqli_fetch_array($resultado4)){
+
+				echo '<option value="'.$row["id_estado"].'">'.$row["descripcion_estados"].'</option>';
+			}
+
+			?>
+
+		</select>
+</td><td>Telefono:<input type="text" name="clienteT" id="clienteT" value='1232121'>
 	<td>E-mail:<input type="text" name="clienteE" id="clienteE " value='ejem@ejeml.com'></td></table>
+	<input type="hidden" name="id_cliente" id="id_cliente" placeholder="" value="1"></td>
 </div>
 </div>
 

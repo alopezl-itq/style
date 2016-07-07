@@ -2,27 +2,38 @@
 $controlador = new Controlador();
 if(isset($_GET['id_usuario'])){
 	$row = $controlador->ver($_GET['id_usuario']);
+	
 }else{
-	header('Location: index.php');
+	
 	}
 	
+	
+	
 if(isset($_POST['enviar'])){
-	 $controlador->eliminar($_GET['id_usuario']);
-	 
-	header('Location: index.php');
+	 $controlador->desactivar($_GET['id_usuario'], $_POST['id_estatus']);
+
+	
 	}	
 	
 
 
 
 ?>
-
-
-
-
-usted de verdad quiere eliminar al empleado <?php echo $row['nombre']  ?> ?
-<br/>
-<br/>
 <form action="" method="POST">
-<input type="submit" name="enviar" value="Elimnar"/>
+     <div class="form-group">
+							<h4>Status:</h4>
+							<select name="id_estatus">
+								<option value="" selected>Seleccionea el estatus de usuario</option>
+								<option value="1">Activo</option>
+								<option value="2">Inactivo</option>
+							</select>
+						</div><br/>
+						</div>
+
+
+
+<br/>
+<br/>
+
+<input type="submit" name="enviar" value="actualizar"/>
 </form>

@@ -1,13 +1,8 @@
 <?php  
-
 include_once('../../modulos/enrutador.php');
 include_once('../../modulos/c_estetica.php');
-
-
 $controlador = new c_estetica();
 //$resultado = $controlador->index();
-
-
  ?>
 <!doctype html>
 <html>
@@ -15,15 +10,7 @@ $controlador = new c_estetica();
 <meta charset="utf-8">
 <title>Inicio</title>
 </head>
-
 <body>
-	<center>
-	<h1><?php
-		echo utf8_encode(($_SESSION['nombre'])); ?><h1>
-	</center>
-
-
-
 	<div class="panel panel-default">
 		<div class="panel-heading">  Estéticas</div>
 		<div id="muestraesteticas" class="panel panel-body ">
@@ -48,9 +35,5 @@ $controlador = new c_estetica();
 			</table>
 		</div>
 	</div>
-
-
-
-
 </body>
 </html>

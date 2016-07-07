@@ -1,9 +1,13 @@
 <?php  
 $controlador = new Controlador();
-$resultado = $controlador->index();
+
+$resultado = $controlador->index($_SESSION['tipo']);
+
 ?>
-<div align="center"> 
-<table border="1">
+<div class="panel panel-default">
+		<div class="panel panel-body ">
+<div align="center" class="table-responsive"> 
+<table class="table" width="50px">
 	<thead>
         <th>Nombre</th>
 		<th>Apellido Paterno</th>
@@ -13,16 +17,17 @@ $resultado = $controlador->index();
      </thead>
      <tbody>
      <?php  while($row = mysqli_fetch_array($resultado)): ?>
-        <tr>
-        <td><?php echo $row['nombre_u']; ?></td>
-        <td><?php echo $row['apellido_p']; ?></td>
-        <td><?php echo $row['apellido_m']; ?></td>
-        <td><?php echo $row['nombre']; ?></td>
-        <td><?php echo $row['telefono']; ?></td>
+        <tr class="success">
+        
+        <td><?php echo utf8_encode($row['nombre_usuario']); ?></td>
+        <td><?php echo utf8_encode($row['apellido_p']); ?></td>
+        <td><?php echo utf8_encode($row['apellido_m']); ?></td>
+        <td><?php echo utf8_encode($row['nombre']); ?></td>
+        <td><?php echo utf8_encode($row['telefono']); ?></td>
        
-        <td> <a href="?cargar=ver&controlador=usuarios&id_usuario=<?php echo  $row['id_usuario'];  ?>">Ver mas informacion</a> </td>
-       <td> <a href="?cargar=editar&controlador=usuarios&&id_usuario=<?php echo $row['id_usuario'];  ?>">editar</a></td>
-        <td><a href="?cargar=eliminar&controlador=usuarios&&id_usuario=<?php echo $row['id_usuario'];  ?>">eliminar</a></td>
+        <td> <a href="?cargar=usuarios&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">Ver mas informacion</a> </td>
+       <td> <a href="?cargar=usuarios&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
+        <td><a href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Desactivar</a></td>
         
         </tr>
         
@@ -36,4 +41,6 @@ $resultado = $controlador->index();
       
      </tbody>
 </table>
+</div>
+</div>
 </div>

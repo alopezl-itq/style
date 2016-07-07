@@ -1,6 +1,13 @@
-<?php
+﻿<?php
 include_once('../../modulos/enrutador.php');
 include_once('../../modulos/controlador.php');
+include_once('../../modulos/c_estetica.php');
+include '../../clases/comunes.php';
+
+
+session_start();
+validarSesionEnVistas();
+
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -15,57 +22,41 @@ include_once('../../modulos/controlador.php');
         <meta name="viewport" content="width=device-width">
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+		
 
         <link rel="stylesheet" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" href="../../css/font-awesome.css">
         <link rel="stylesheet" href="../../css/animate.css">
         <link rel="stylesheet" href="../../css/templatemo_misc.css">
         <link rel="stylesheet" href="../../css/templatemo_style.css">
-
-        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        
+        <script src="js/vendor/jquery-1.11.0.min.js"></script>
     </head>
-    <body>
-    
-        <div class="site-main" id="sTop">
-            <div class="site-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <ul class="social-icons">
-                                <li><a href="#" class="fa fa-facebook"></a></li>
-                                <li><a href="#" class="fa fa-twitter"></a></li>
-                            </ul>
-                        </div> <!-- /.col-md-12 -->
-                    </div> <!-- /.row -->
-                </div> <!-- /.container -->
-                <div class="main-header">
-                    <div class="container">
-                        <div id="menu-wrapper">
-                            <div class="row">
-                                <div class="logo-wrapper col-md-2 col-sm-2">
-                                    <h1>
-                                       <a href="#">Usuarios</a>
-                                    </h1>
-                                </div> <!-- /.logo-wrapper -->
-                                <div class="col-md-10 col-sm-10 main-menu text-right">
-                                    <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
-                                    <ul class="menu-first">
-                                        <li class="active"><a href="index.php">Home</a></li>
-                                        <li><a href="?cargar=crear&&controlador=Usuarios">Registrarse</a></li>                               
-                                    </ul>                                    
-                                </div> <!-- /.main-menu -->
-                            </div> <!-- /.row -->
-                        </div> <!-- /#menu-wrapper -->                        
-                    </div> <!-- /.container -->
-                </div> <!-- /.main-header -->
-            </div> <!-- /.site-header -->
-        </div> <!-- /.site-main -->
+<body>
 
-        <div class="content-section" id="contact">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+      <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="../../principal.php">Inicio</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="?cargar=usuarios&controlador=crear">Nuevo Usuario</a></li>       
+          <li><a href="../../vistas/usuarios">Usuarios Regisrados</a></li>
+          <li><a href="?cargar=usuarios&controlador=reactivar">Usuarios Desactivados</a></li> 
+        </ul>
+      </li>
+      <li><a href="../../principal.php">Regresar</a></li>
+      <li><a href="../../clases/salir.php">Salir</a></li> 
+    </ul>
+  </div>
+</nav>
             <div class="container">
                 <div class="row">
                     <div class="heading-section col-md-12 text-center">
-                        <p>REGISTROS</p>
+                        <p>USUARIOS</p>
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row">
@@ -76,9 +67,7 @@ include_once('../../modulos/controlador.php');
     						}
 						?>﻿
                 </div> <!-- /.row -->
-            </div> <!-- /.container -->
-        </div> <!-- /#contact -->
-         
+            </div> <!-- /.container -->         
         <div id="footer">
             <div class="container">
                 <div class="row">
@@ -88,13 +77,32 @@ include_once('../../modulos/controlador.php');
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#footer -->
-        
-		<?php
-        echo"<script src='js/vendor/jquery-1.11.0.min.js'></script>
-        <script>window.jQuery || document.write("."<script src='js/vendor/jquery-1.11.0.min.js'><\/script>".")</script>
-        <script src='js/bootstrap.js'></script>
-        <script src='js/plugins.js'></script>
-        <script src='js/main.js'></script>";?>
+
+            
+                                  
+
+  <script src="js/vendor/jquery-1.11.0.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>   
+
+<?php
+echo "<script type='text/javascript' src='js/jquery.js'></script>";
+echo "<script type='text/javascript' src='js/jqueryui.js'></script>";
+echo "<script type='text/javascript'>";
+
+echo "var x;";
+echo "x=$(document);";
+echo "x.ready(inicializar);";
+
+echo "function inicializar()";
+echo "{";
+echo "	var x=$('#pestanas');";
+echo "	x.tabs();";
+echo "	}";
+echo "</script>";
+?>
 
     </body>
 </html>

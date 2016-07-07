@@ -1,6 +1,9 @@
+    <script src="../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+
+
 <?php
 include_once('../../modulos/enrutador.php');
-include_once('../../modulos/controlador.php');
+include_once('../../modulos/c.ventas.php');
 include('infoventa.php');
 include('nuevocliente.php');
 include('selectcliente.php');
@@ -59,7 +62,7 @@ include('totalventa.php');
                                   
 
   <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
-     <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+     <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"></script>')</script>
         <script src="../../js/bootstrap.js"></script>
         <script src="../../js/plugins.js"></script>
         <script src="../../js/main.js"></script>

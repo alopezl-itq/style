@@ -5,7 +5,7 @@ $controlador = new estetica();
 if(isset($_GET['id'])){
 	$row = $controlador->ver($_GET['id']);
 }else{
-	header('Location: index.php');
+	header('Location:index.php');
 	}
 	
 ?>
@@ -21,13 +21,14 @@ if(isset($_GET['id'])){
 <?php
 $controlador = new c_estetica();
 if(isset($_POST['enviar'])){
- $r =$controlador->editar( $_POST['nombre_estetica'],$_POST['imagen'], $_POST['eslogan'],$_POST['cliente_a'],
+ $r =$controlador->editar( $_POST['nombre_estetica'],$_POS['id_usuario'],$_POST['imagen'], $_POST['eslogan'],$_POST['cliente_a'],
 	 $_POST['cliente_b'],$_POST['cliente_c'],$_POST['cliente_d'],$_POST['id_estatus'],$_POST['calle'],$_POST['no_int'],
 	 $_POST['no_ext'],$_POST['id_estado']);
 
 	if($r){
-		echo 'Estética actualizada';
 		header("location:index.php");
+		echo 'Estética actualizada';
+		
 	}else{
 		echo'no se agrego el registro';
 		}
@@ -46,14 +47,14 @@ if(isset($_POST['enviar'])){
             <div class="tab" role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i>Datos 1</a></li>
+                    <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i>Datos Grals.</a></li>
                     <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-cube"></i>Límites</a></li>
                     <li role="presentation"><a href="#Section3" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-comment"></i>Dirección </a></li>
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="Section1">
-                        <h2>Datos 1</h2>
+                        <h2>Datos Grals.</h2>
                         <p>
                             <div class="form-group">
 								<h4> Nombre de la estética:</h4><label for="nombre"><input type="text" value="<?php echo $row['nombre']; ?>" name="nombre_estetica" id="nombre_estetica" maxlength="50" size="20" required/></label>
@@ -63,7 +64,17 @@ if(isset($_POST['enviar'])){
 								<h4> Eslogán:</h4><label for="nombre"><input type="text" value="<?php echo $row['eslogan']; ?>" name="eslogan" id="eslogan" maxlength="50" 								size="20" required/></label>
 							</div>
 							<div class="form-group">
-							<h4> Administrador:</h4><label for="nombre"><input type="text" value="<?php  echo   $row['administrador']; ?>" name="imagen" id="imagen" maxlength="50" 		size="20" required/></label>
+							<h4> Administrador:</h4><label for="nombre"><select name="id_usuario">
+							<option value="0" selected>Selecciona un Usuario</option>
+									<?php $estetica = new estetica();
+
+									$resultadoa=$estetica->veradministradores();
+									while($rowa=mysqli_fetch_array($resultadoa)){
+										if($rowa["id_usuario"]==$rowa['id_usuario']){
+											echo '<option value="'.$rowa["id_usuario"].'" selected>'.utf8_encode($rowa['nombre_usuario'])." ".utf8_encode($rowa['apellido_p'])."".utf8_encode($rowa['apellido_m']).'</option>';										}else echo '<option value="'.$rowa["id_usuario"].'">'.utf8_decode($rowa['nombre_usuario']).'</option>';
+				
+									} ?>
+							</select>
 							</div>
 							
 							<div class="form-group">
