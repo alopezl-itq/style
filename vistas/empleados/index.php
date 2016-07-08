@@ -39,7 +39,7 @@ validarSesionEnVistas();
   <div class="container-fluid">
       <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="../../principal.php">Inicio</a></li>
+      <li class="active"><a href="index.php">Inicio</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Empleados
         <span class="caret"></span></a>

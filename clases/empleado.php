@@ -241,18 +241,17 @@ return  $this->usu->verempresas();
 				
 			
 
-	    public function verredes(){
-		$sql ="SELECT u.id_usuario,r.usuario_r,t.descripcion_red_social from redes_usuario r,tipo_redes_sociales t,usuarios u where r.id_tipo_red_social=t.id_tipo_red_social and u.id_usuario=r.id_usuario and u.id_usuario and u.id_usuario=".$this->id_usuario;
+	    public function verredes($id_usuario){
+		$sql ="SELECT u.id_usuario,r.usuario_r,t.descripcion_red_social from redes_usuario r,tipo_redes_sociales t,usuarios u where r.id_tipo_red_social=t.id_tipo_red_social and u.id_usuario=r.id_usuario and u.id_usuario and u.id_usuario=".$id_usuario;
 		$result = $this->con->consultaR($sql);
 		return $result;
 		
-		$row =mysqli_fetch_assoc($result) ;
+
 		
 		
-		//set interno
-		$this->usuario_r = $row['usuario_r'];
-		$this->descripcion_red = $row['descripcion_red_social'];
-		return $row;
+
+
+
 	}
 
 

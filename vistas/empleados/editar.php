@@ -247,19 +247,19 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
 <br/>
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
-                        
-					 <div class="form-group">
-                          <h5><i>Facebook</i></h5><label for="usuario_r"><input type="text" placeholder="Usuario Facebook" name="usuario_r1"value="<?php echo $row["usuario_r1"]; ?>"  id="usuario_r1" maxlength="50" size="20"  /></label>
-						</div>
+	<?php
+$resulRedes=$empleado->verredes($_GET['id_usuario']);
 
-						 
-                        <div class="form-group">
-							<h5><i>instagram:</i></h5><label for="usuario_r"><input type="text" placeholder= "Usuario Twitter" id="usuario_r2" name="usuario_r2" value="<?php echo $row["usuario_r2"]; ?>" maxlength="50" size="20"  /></label>
+	while($row2=mysqli_fetch_array($resulRedes)){
+
+
+	echo '
+					 <div class="form-group">
+                          <h5><i>'.$row2["descripcion_red_social"].'</i></h5><label for="usuario_r"><input type="text" placeholder="Usuario '.$row2["descripcion_red_social"].'" name="'.$row2["descripcion_red_social"].'" value="'.$row2["usuario_r"].'"  id="'.$row2["descripcion_red_social"].'" maxlength="50" size="20"  /></label>
 						</div>
-                        
-                            <div class="form-group">
-							<h5><i>Twitter:</i></h5><label for="usuario_r"><input type="text" placeholder= "Usuario Instagram" id="usuario_r3" name="usuario_r3" value="<?php echo $row["usuario_r3"]; ?>" maxlength="50" size="20"  /></label>
-						</div>
+';}
+						 ?>
+
 						
                       
 </div>

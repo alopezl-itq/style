@@ -114,8 +114,8 @@ public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo,
 		}
 		
 		public function verredes($id_usuario){
-			$this->empleado->set("id_usuario",$id_usuario);
-		$result=$this->empleado->verredes();
+
+		$result=$this->empleado->verredes($id_usuario);
 			
 		  return $result;
 		}
