@@ -1,5 +1,5 @@
 <?php
-include_once("../clases/servicios.php");
+include_once("../../clases/servicios.php");
 
 
 class Controlador{
@@ -43,7 +43,8 @@ public function crearServicio( $id_servicio, $detalle){
 			$this->servicio->eliminar();
 			
 		}	
-		public function ver(){
+		public function ver($id_empresa){
+			$this->servicio->set("id_empresa",$id_empresa);
 			$resultado=$this->servicio->ver();
 		  return $resultado;
 			
@@ -105,9 +106,10 @@ public function crearServicio( $id_servicio, $detalle){
 			
 		
 		}
-		public function verServiciosEmpresa($id_servicio){
+		public function verServiciosEmpresa($id_servicio,$id_empresa){
 
 			$this->servicio->set("id_servicio",$id_servicio);
+			$this->servicio->set("id_empresa",$id_empresa);
 
 			$resultado=$this->servicio->verServiciosEmpresa();
 		  return $resultado;

@@ -37,18 +37,14 @@ public function consultaR($sql){
 	
 	
 	 public function consulta($consulta){ 
-    $this->total_consultas++; 
-    $resultado = mysql_query($consulta,$this->conexion);
-    if(!$resultado){ 
-      echo 'MySQL Error: ' . mysql_error();
-      exit;
-    }
+    $resultado = mysqli_query($this->Miconexion,$consulta);
+    
     return $resultado;
   }
   
   public function update($update)
   {
-    $actualizacion=mysql_query($update,$this->conexion);
+    $actualizacion=mysqli_query($this->Miconexion,$update);
     if(!$actualizacion){ 
       echo 'MySQL Error: ' . mysql_error();
       exit;
@@ -58,24 +54,12 @@ public function consultaR($sql){
   
   public function insert($insert)
   {
-    $insercion=mysql_query($insert,$this->conexion);
+    $insercion=mysqli_query($this->Miconexion,$insert);
     if(!$insercion){ 
       echo 'MySQL Error: ' . mysql_error();
       exit;
     }
     return $insercion;
   }
-	
-	
-	
-	
-	
 	}
-
- 
-
- 
-
- 
- 
  ?>

@@ -1,7 +1,8 @@
 <?php
 
-include_once('../modulos/controladorS.php');
+include_once('../../modulos/controladorS.php');
 
+$id_empresa=$_POST["id_empresa"];
 
 $controlador = new controlador();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
@@ -10,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $peinado=$_POST["peinado"];
     $maquillaje=$_POST["maquillaje"];
     $otro=$_POST["otro"];
-    $id_empresa=1;
+    
     $count=count($corte);
     $count2=count($color);
     $count3=count($peinado);
@@ -70,19 +71,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
         <meta charset="utf-8">
         <title>The Best Hair Salons</title>
-        <link rel="icon" type="img/ico" href="images/icoB.ico"/>
+        <link rel="icon" type="img/ico" href="../../images/icoB.ico"/>
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		
 
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/pestanas.css">
-        <link rel="stylesheet" href="../css/font-awesome.css">
-        <link rel="stylesheet" href="../css/animate.css">
-        <link rel="stylesheet" href="../css/templatemo_misc.css">
-        <link rel="stylesheet" href="../css/templatemo_style.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/pestanas.css">
+        <link rel="stylesheet" href="../../css/font-awesome.css">
+        <link rel="stylesheet" href="../../css/animate.css">
+        <link rel="stylesheet" href="../../css/templatemo_misc.css">
+        <link rel="stylesheet" href="../../css/templatemo_style.css">
 <?php 
 echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
 ?>
@@ -135,15 +136,15 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
                 <div class="row">
 						<?php  
 $controlador = new Controlador();
-$resultado = $controlador->verServiciosEmpresa(1);
-$resultado2 = $controlador->verServiciosEmpresa(2);
-$resultado3 = $controlador->verServiciosEmpresa(3);
-$resultado4 = $controlador->verServiciosEmpresa(4);
-$resultado5 = $controlador->verServiciosEmpresa(5);
+$resultado = $controlador->verServiciosEmpresa(1,$id_empresa);
+$resultado2 = $controlador->verServiciosEmpresa(2,$id_empresa);
+$resultado3 = $controlador->verServiciosEmpresa(3,$id_empresa);
+$resultado4 = $controlador->verServiciosEmpresa(4,$id_empresa);
+$resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 ?>
 
 
-<script  src="../js/jquery.js"></script>
+<script  src="js/jquery.js"></script>
 <div id="pestanas"> 
  <ul class="nav nav-tabs">
         <li role="presentation" class="active" ><a href="#pestana1" role="tab" data-toggle="tab">Cortes</a></li>
@@ -169,7 +170,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5);
     
 
      <?php
-	     while($row = mysql_fetch_array($resultado)): 
+	     while($row = mysqli_fetch_array($resultado)): 
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
@@ -205,7 +206,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5);
     
 
      <?php
-	     while($row = mysql_fetch_array($resultado2)): 
+	     while($row = mysqli_fetch_array($resultado2)): 
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
@@ -240,7 +241,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5);
     
 
      <?php
-	     while($row = mysql_fetch_array($resultado3)): 
+	     while($row = mysqli_fetch_array($resultado3)): 
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
@@ -275,7 +276,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5);
     
 
      <?php
-	     while($row = mysql_fetch_array($resultado4)): 
+	     while($row = mysqli_fetch_array($resultado4)): 
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
@@ -310,7 +311,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5);
     
 
      <?php
-	     while($row = mysql_fetch_array($resultado5)): 
+	     while($row = mysqli_fetch_array($resultado5)): 
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
@@ -326,6 +327,9 @@ $resultado5 = $controlador->verServiciosEmpresa(5);
     <div class="col-lg-3 col-md-3"></div>                     
     
 </table>
+<?
+echo "<INPUT TYPE='HIDDEN' VALUE='$id_empresa' name='id_empresa'>";
+?>
 <br><INPUT TYPE="SUBMIT" name="guardar" value="Guardar" style="height:38px; width:350px" >
 </form>
 </div>
@@ -345,10 +349,16 @@ $resultado5 = $controlador->verServiciosEmpresa(5);
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#footer -->
+       
+  <script src="js/vendor/jquery-1.11.0.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script> 
         
         <?php
-echo "<script type='text/javascript' src='../js/jquery.js'></script>";
-echo "<script type='text/javascript' src='../js/jqueryui.js'></script>";
+echo "<script type='text/javascript' src='js/jquery.js'></script>";
+echo "<script type='text/javascript' src='js/jqueryui.js'></script>";
 echo "<script type='text/javascript'>";
 
 echo "var x;";

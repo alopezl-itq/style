@@ -1,12 +1,12 @@
 <?php
-include_once('../clases/conexion.php');
+include_once('conexion.php');
 
 class Servicio
 {
 //atributos
 private $id_servicio;
 private $descripcion;
-
+private $id_empresa;
 private $id_descripcion_servicios;
 private $descripcionServicios;
 private $costo;
@@ -104,7 +104,7 @@ public function listar(){
 
 		//$id_empresa=1;
 	
-		$sql = "SELECT s.servicio, d.descripcion, x.costo, x.tiempo from descripcion_servicios d, servicios s, servicios_empresa x WHERE x.id_servicio=s.id_servicio and x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_empresa=1";
+		$sql = "SELECT s.servicio, d.descripcion, x.costo, x.tiempo from descripcion_servicios d, servicios s, servicios_empresa x WHERE x.id_servicio=s.id_servicio and x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_empresa=$this->id_empresa";
 		$resultado = $this->con->consulta($sql);
 		
 		
@@ -124,7 +124,7 @@ public function listar(){
 			
 
 			
-		echo	$sql= "INSERT INTO servicios(id_servicio, servicio) VALUES ($this->id_servicio,'$this->$descripcion')";
+		$sql= "INSERT INTO servicios(id_servicio, servicio) VALUES ($this->id_servicio,'$this->$descripcion')";
              
 			$this->con->query($sql);
 			
@@ -135,7 +135,7 @@ public function listar(){
 	public function crearDesServicio(){
 
 
-		echo  $SQL="INSERT INTO descripcion_servicios(descripcion, id_servicio) VALUES ('$this->descripcionServicios',$this->id_servicio)";
+		$SQL="INSERT INTO descripcion_servicios(descripcion, id_servicio) VALUES ('$this->descripcionServicios',$this->id_servicio)";
 		$this->con->insert($SQL);
 			
 			return true;
@@ -143,13 +143,20 @@ public function listar(){
 
 
 	public function agregarServicioEmpresa(){
-		echo  $SQL="INSERT INTO servicios_empresa(id_empresa, id_servicio, costo, id_descripcion_servicios, tiempo) VALUES ($this->id_empresa,$this->id_servicio,$this->costo,'$this->id_descripcion_servicios',$this->tiempo)";
+		$sql1="SELECT id_servicios_empresa from servicios_empresa where id_descripcion_servicios=$this->id_descripcion_servicios and id_servicio=$this->id_servicio and id_empresa=$this->id_empresa";
+		 $resultado=$this->con->consulta($sql1);
+		$row = mysqli_fetch_array($resultado);
+		$numero= $row[0];
+
+		 if($numero==null){
+			 $SQL="INSERT INTO servicios_empresa(id_empresa, id_servicio, costo, id_descripcion_servicios, tiempo) VALUES ($this->id_empresa,$this->id_servicio,$this->costo,$this->id_descripcion_servicios,$this->tiempo)";
 		$this->con->insert($SQL);
+		 }
 			return true;
 	}
 
 	public function vernuevoServiciosEmpresa(){
-		echo $sql="SELECT id_descripcion_servicios from descripcion_servicios where descripcion='$this->descripcionServicios' and id_servicio=$this->id_servicio";
+		$sql="SELECT id_descripcion_servicios from descripcion_servicios where descripcion=$this->descripcionServicios and id_servicio=$this->id_servicio";
 		 
 		$resultado=$this->con->consulta($sql);
 		return $resultado;
@@ -158,16 +165,15 @@ public function listar(){
 
 	public function agregarNuevoServicioEmpresa(){
 
-		echo $sql1="SELECT id_descripcion_servicios from descripcion_servicios where descripcion='$this->descripcionServicios' and id_servicio=$this->id_servicio";
+		$sql1="SELECT id_descripcion_servicios from descripcion_servicios where descripcion='$this->descripcionServicios' and id_servicio=$this->id_servicio";
 		 
 		$resultado=$this->con->consulta($sql1);
-		$row = mysql_fetch_array($resultado);
+		$row = mysqli_fetch_array($resultado);
 		$numero= $row[0];
 
-		echo $numero;
 
 		
-		echo  $SQL="INSERT INTO servicios_empresa(id_empresa, id_servicio, costo, id_descripcion_servicios, tiempo) VALUES ($this->id_empresa,$this->id_servicio,$this->costo,$numero,$this->tiempo)";
+		$SQL="INSERT INTO servicios_empresa(id_empresa, id_servicio, costo, id_descripcion_servicios, tiempo) VALUES ($this->id_empresa,$this->id_servicio,$this->costo,$numero,$this->tiempo)";
 		$this->con->insert($SQL);
 
 
@@ -176,26 +182,22 @@ public function listar(){
 
 
 	public function verServiciosEmpresa(){
-		echo $sql ="SELECT d.descripcion, x.id_servicios_empresa from descripcion_servicios d,servicios_empresa x WHERE x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_servicio=$this->id_servicio";
+		$sql ="SELECT d.descripcion, x.id_servicios_empresa from descripcion_servicios d,servicios_empresa x WHERE x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_servicio=$this->id_servicio and x.id_empresa=$this->id_empresa";
 
 		$resultado=$this->con->consulta($sql);
 		return $resultado;
 	}
 	public function actualizarServicioEmpresa(){
-		echo  $SQL="UPDATE servicios_empresa SET  costo =$this->costo, tiempo=$this->tiempo where id_servicios_empresa=$this->id_servicios_empresa"; 
+		$SQL="UPDATE servicios_empresa SET  costo =$this->costo, tiempo=$this->tiempo where id_servicios_empresa=$this->id_servicios_empresa"; 
 		$this->con->update($SQL);
 			return true;
 	}
 
 public function editarServicio(){
-			echo	$sql = "UPDATE `servicios` SET `servicio`='$this->$descripcion' WHERE id_servicio="+$this->$id_servicio;
+			$sql = "UPDATE `servicios` SET `servicio`='$this->$descripcion' WHERE id_servicio="+$this->$id_servicio;
 			
 				$this->con->query($sql);
 				
 				}
 }
-
-
-
-
 ?>

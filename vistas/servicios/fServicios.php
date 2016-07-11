@@ -1,8 +1,10 @@
 <?php
-include_once('../modulos/controladorS.php');
+include_once('../../modulos/controladorS.php');
 
 $controlador = new controlador();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
+    $id_empresa=$_POST["id_empresa"];
+    
     $id_servicios_empresa=$_POST["numero"];
     $costo=$_POST["costo"];
     $tiempo=$_POST["tiempo"];
@@ -29,27 +31,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <meta charset="utf-8">
         <title>The Best Hair Salons</title>
-        <link rel="icon" type="img/ico" href="images/icoB.ico"/>
+        <link rel="icon" type="img/ico" href="../../images/icoB.ico"/>
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		   <!-- Necesitas esto para el bootstrap para el modal-->
   <meta charset="utf-8">
-	 <link rel="stylesheet" href="../css/templatemo_misc.css">
-        <link rel="stylesheet" href="../css/templatemo_style.css">
+	 <link rel="stylesheet" href="../../css/templatemo_misc.css">
+        <link rel="stylesheet" href="../../css/templatemo_style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <!-- Fin bootstrap para el modal-->
 
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/pestanas.css">
-        <link rel="stylesheet" href="../css/font-awesome.css">
-        <link rel="stylesheet" href="../css/animate.css">
-        <link rel="stylesheet" href="../css/templatemo_misc.css">
-        <link rel="stylesheet" href="../css/templatemo_style.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/pestanas.css">
+        <link rel="stylesheet" href="../../css/font-awesome.css">
+        <link rel="stylesheet" href="../../css/animate.css">
+        <link rel="stylesheet" href="../../css/templatemo_misc.css">
+        <link rel="stylesheet" href="../../css/templatemo_style.css">
 <?php 
 echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
 ?>
@@ -102,7 +104,7 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
                 <div class="row">
 												<?php  
 $controlador = new Controlador();
-$resultado = $controlador->ver();
+$resultado = $controlador->ver($id_empresa);
 ?>
 <div align="center"> 
 <table border="1">
@@ -116,7 +118,7 @@ $resultado = $controlador->ver();
 
      </thead>
      <tbody>
-     <?php  while($row = mysql_fetch_array($resultado)): ?>
+     <?php  while($row = mysqli_fetch_array($resultado)): ?>
         <tr>
         <td><?php echo utf8_encode($row['servicio']); ?></td>
         <td><?php echo  utf8_encode($row['descripcion']); ?></td>
@@ -125,9 +127,9 @@ $resultado = $controlador->ver();
 
        
       
-       <td> <a href="?cargar=usuarios&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
+      <!-- botones eliminar y editar <td> <a href="?cargar=usuarios&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
         <td><a href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Eliminar</a></td>
-        
+        -->
         </tr>
         
       <?php  
@@ -145,7 +147,7 @@ $resultado = $controlador->ver();
 </div>
 
 
-<!-- Modal Sexo-->
+<!-- Modal-->
 <div id="ModalAdd" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
@@ -164,6 +166,9 @@ $resultado = $controlador->ver();
             <input type="text" name='costo' style="height:20px; width:100px;" required><br>
            <br>Tiempo del Servicio:<br>
             <select name='tiempo'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select><br>
+            <?
+echo "<INPUT TYPE='HIDDEN' VALUE='$id_empresa' name='id_empresa'>";
+?>
         
 			<br><INPUT TYPE="SUBMIT" style="height:38px; width:350px" value="Insertar" aling="Center"><br>
 		</form>
@@ -186,8 +191,8 @@ $resultado = $controlador->ver();
         </div> <!-- /#footer -->
         
         <?php
-echo "<script type='text/javascript' src='../js/jquery.js'></script>";
-echo "<script type='text/javascript' src='../js/jqueryui.js'></script>";
+echo "<script type='text/javascript' src='../../js/jquery.js'></script>";
+echo "<script type='text/javascript' src='../../js/jqueryui.js'></script>";
 echo "<script type='text/javascript'>";
 
 echo "var x;";
