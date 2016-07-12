@@ -27,6 +27,13 @@ class ControladorC
         $resultado = $this->cliente->verServicios();
         return $resultado;
     }
+    public function verProductos($id_cliente){
+
+        $this->cliente->set("id_cliente",$id_cliente);
+
+        $resultado = $this->cliente->verProductos();
+        return $resultado;
+    }
     public function verDescripcionProductos($id_s){
 
         $resultado = $this->cliente->verDescripcionProductos($id_s);

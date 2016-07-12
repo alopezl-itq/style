@@ -43,18 +43,18 @@ $sql=$db->query('select * from usuarios where usuario="'.$this->usuario.'" and p
 		header("location: vistas/empleados/index.php");
 
 
-	}
-		elseif($dato['usuario'] ==$this->usuario&&$dato['password']==$this->password &&($dato['id_tipo_usuario']>='7')){
+		}
+	elseif($dato['usuario'] ==$this->usuario&&$dato['password']==$this->password &&($dato['id_tipo_usuario']=='3')){
 			session_start();
 			$_SESSION['user']=$this->usuario;
 			$_SESSION['id_user']=$dato['id_usuario'];
 			$_SESSION['tipo']=$dato['id_tipo_usuario'];
-
+			$_SESSION['empresa']=$dato['id_empresa'];
 			$_SESSION['nombre']=utf8_encode($dato['nombre_usuario'])." ".utf8_encode($dato['apellido_p'])." ".utf8_encode($dato['apellido_m']);
 			$_SESSION['login']=true;
+			header("location: vistas/clientes/index.php");
 
 
-						header ("location: vistas/clientes/index.php");
 				}elseif($dato['usuario'] ==$this->usuario&&$dato['password']==$this->password &&($dato['id_tipo_usuario']=='6')){
 
 

@@ -1,5 +1,5 @@
 <?php
-include_once('modulos/controlador.php');
+include_once('modulos/Controlador_Registro.php');
 
 $controlador = new controlador();
 if(isset($_POST['enviar'])){
@@ -34,7 +34,7 @@ if(isset($_POST['enviar'])){
 
 <body>
 
-
+<form method="post" action="">
 
 
 
@@ -240,7 +240,7 @@ if(isset($_POST['enviar'])){
 <script src="js/main.js"></script>
 <script type='text/javascript' src='js/jquery.js'></script>
 <script type='text/javascript' src='js/jqueryui.js'></script>
-
+</form>
 </body>
 
 </html>

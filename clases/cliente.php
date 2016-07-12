@@ -68,4 +68,9 @@ class Cliente
         return $resultado;
     }
 
+    public function verProductos(){
+        $sql="SELECT p.descripcion_productos,p.precio_venta,u.* from productos p, productos_usuario u where u.id_cliente=".$this->id_cliente." and p.id_productos=u.id_producto";
+        $resultado =$this->con->consultaR($sql);
+        return $resultado;
+    }
 }
