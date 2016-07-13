@@ -28,10 +28,10 @@ $resultado = $controlador->verProductos($_SESSION['id_user']);
                 while($row=mysqli_fetch_array($resultado)){
 
 
-                    echo '<tr><th>'.$row['id_productos_usuario'].'</th><th>'.$row['fecha'].'</th><th>'.$row['hora'].'</th>
-                    <th>'.$row['rating'].'</th>
-                    <th><img src=""></th><th>'.$row['observaciones'].'</th><th>'.$row['descripcion_productos'].'</th>
-                    <th>'.$row['precio_venta'].'</th></tr>';
+                    echo '<tr><td>'.$row['id_productos_usuario'].'</td><td>'.$row['fecha'].'</td><td>'.$row['hora'].'</td>
+                    <td>'.$row['rating'].'</td>
+                    <td><img src=""></td><td>'.$row['observaciones'].'</td><td>'.$row['descripcion_productos'].'</td>
+                    <td>'.$row['precio_venta'].'</td></tr>';
                 }
                 ?>
 

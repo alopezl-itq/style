@@ -40,4 +40,23 @@ class ControladorC
         return $resultado;
     }
 
+    public function totalPrecioProductos($id_cliente){
+        $this->cliente->set("id_cliente",$id_cliente);
+        $resultado = $this->cliente->totalPrecioProductos();
+        return $resultado;
+    }
+
+    public function totalPrecioServicios($id_cliente){
+        $this->cliente->set("id_cliente",$id_cliente);
+        $resultado = $this->cliente->totalPrecioServicios();
+        return $resultado;
+    }
+    public function rakingUsuario($id_cliente,$id_empresa){
+        $this->cliente->set("id_cliente",$id_cliente);
+        $this->cliente->set("id_empresa",$id_empresa);
+
+        $resultado = $this->cliente->rakingUsuario();
+        return $resultado;
+    }
+
 }

@@ -24,6 +24,13 @@ function validarSesion(){
     
 }
 
+function verValorClienteEmpresa($id_empresa,$tipo){
+    $sql='SELECT cliente_'.$tipo.' FROM `empresas` where id_empresa='.$id_empresa;
+    $db = new Conexion();
+    $resultado =$db->consultaR($sql);
+
+}
+
 function menu(){
 	 $id=$_SESSION['id_user'];
 	 //$sql="select * from modulo_usuario where id_usuario='".$id."'";

@@ -147,62 +147,59 @@ if(isset($_POST['enviar'])){
 <br/>
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
-    					<div class="form-group">
-							<h5><i>Estado de Residencia:</i></h5>
-						<select name="id_estado">
-							<option value="" selected>Selecciona un Estado</option>
-							<?php
-								$usuario = new Usuario();
-								$resultadoestado=$usuario->verestados();
-								while($row2=mysqli_fetch_array($resultadoestado)){
-                                if($row['descripcion_estados']==$row2['descripcion_estados']){
-echo '<option value="'.$row2["id_estado"].'" selected>'.utf8_encode($row2["descripcion_estados"]).'</option>';
-									}else{
+	<div class="form-group">
+		<h5><i>Estado de Residencia:</i></h5>
+		<select name="id_estado" id="id_estado">
+			<option value="">Seleccione un Estado</option>
+			<?php
+			$usuario = new Usuario();
+			$resultadoestado=$usuario->verestados();
+			while($row1=mysqli_fetch_array($resultadoestado)){
+			if($row['descripcion_estados']==$row1['descripcion_estados']){
+				echo '<option value="'.$row1["id_estado"].'" selected>'.utf8_encode($row1["descripcion_estados"]).'</option>';
+			}else{
+				echo '<option value="'.$row1["id_estado"].'">'.utf8_encode($row1["descripcion_estados"]).'</option>';
+			}
+			}
+			?>
+		</select>
+	</div>
 
-echo '<option value="'.$row2["id_estado"].'">'.utf8_encode($row2["descripcion_estados"]).'</option>';
-								}}
-								?>
-						</select>
-						</div>
-    
-    					<div class="form-group">
-							<h5><i>Municipio de Residencia:</i></h5>
-						<select name="id_municipio">
-							<option value="" selected>Selecciona un Municipio</option>
-							<?php
-								$usuario = new Usuario();
-								$resultMun = $usuario->vermunicipioTodos();
-									while($row1=mysqli_fetch_array($resultMun)){
-										if($row['id_municipio']==$row1['id_municipio']){
-									echo '<option value="'.$row1["id_municipio"].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
-								}else{
-									echo '<option value="'.$row1["id_municipio"].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
-								}
-							}
+	<div class="form-group">
+		<h5><i>Municipio de Residencia:</i></h5>
 
-								?>
-							</select>
-
-
-
-							<script>
-								$(document).ready(function(){
-									$('#id_estado').change(function(){
-										var country_id = $(this).val();
-										$.ajax({
-											url:"fetch_state.php",
-											method:"POST",
-											data:{countryId:country_id},
-											dataType:"text",
-											success:function(data)
-											{
-												$('#id_municipio').html(data);
-											}
-										});
-									});
-								});
-							</script>
-						</div>
+		<select name="id_municipio" id="id_municipio">
+			<option value="">Selecciona un Municipio</option>
+			<?php
+			$usuario = new Usuario();
+			$resultadomun=$usuario->vermunicipioTodos($row['descripcion_estados']);
+			while($row1=mysqli_fetch_array($resultadomun)){
+				if($row['descripcion_municipios']==$row1['descripcion_municipios']){
+					echo '<option value="'.$row1["id_municipio"].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+				}else{
+					echo '<option value="'.$row1["id_municipio"].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+				}
+			}
+			?>
+		</select>
+		<script>
+			$(document).ready(function(){
+				$('#id_estado').change(function(){
+					var country_id = $(this).val();
+					$.ajax({
+						url:"fetch_state.php",
+						method:"POST",
+						data:{countryId:country_id},
+						dataType:"text",
+						success:function(data)
+						{
+							$('#id_municipio').html(data);
+						}
+					});
+				});
+			});
+		</script>
+	</div>
                         
     					<div class="form-group">
 							<h5><i>Ciudad de Residencia:</i></h5>

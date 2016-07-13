@@ -22,38 +22,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vistas/clientes/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="109" column="67" selection-start-line="109" selection-start-column="67" selection-end-line="109" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="historial_productos.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vistas/clientes/historial_productos.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5068259">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-              <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+            <state vertical-scroll-proportion="-16.0">
+              <caret line="96" column="56" selection-start-line="96" selection-start-column="56" selection-end-line="96" selection-end-column="56" />
               <folding>
-                <marker date="1468360488671" expanded="true" signature="663:884" placeholder="..." />
-                <marker date="1468360488671" expanded="true" signature="663:916" placeholder="..." />
-                <marker date="1468360488671" expanded="true" signature="663:980" placeholder="..." />
-                <marker date="1468360488671" expanded="true" signature="1090:1102" placeholder="..." />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controlador_cl.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/modulos/controlador_cl.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.307692">
-              <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -61,23 +37,27 @@
       <file leaf-file-name="cliente.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clases/cliente.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.0">
-              <caret line="71" column="140" selection-start-line="71" selection-start-column="140" selection-end-line="71" selection-end-column="140" />
+            <state vertical-scroll-proportion="-13.384615">
+              <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
               <folding>
-                <marker date="1468360174561" expanded="true" signature="1104:1337" placeholder="select u.*, ..servicios_usuario..." />
-                <marker date="1468360174561" expanded="true" signature="1490:1637" placeholder="select p.des..productos..." />
-                <marker date="1468360174561" expanded="true" signature="1780:1887" placeholder="SELECT p.des..productos..." />
-                <marker date="1468360174561" expanded="true" signature="1780:1941" placeholder="select u.*, ..servicios_usuario..." />
+                <marker date="1468446000504" expanded="true" signature="1095:1410" placeholder="SELECT u.*,e..usuarios..." />
+                <marker date="1468446000504" expanded="true" signature="1583:1763" placeholder="SELECT p.des..productos..." />
+                <marker date="1468446000504" expanded="true" signature="1900:2061" placeholder="SELECT p.des..productos..." />
+                <marker date="1468446000504" expanded="true" signature="2311:2458" placeholder="SELECT SUM(p..productos..." />
+                <marker date="1468446000504" expanded="true" signature="2311:2505" placeholder="SELECT SUM(p..productos..." />
+                <marker date="1468446000504" expanded="true" signature="2311:2537" placeholder="SELECT SUM(p..productos..." />
+                <marker date="1468446000504" expanded="true" signature="2736:3110" placeholder="SELECT SUM(e..usuarios..." />
+                <marker date="1468446000504" expanded="true" signature="3500:3578" placeholder="select clien..empresas..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="historial_servicios.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="historial_servicios.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vistas/clientes/historial_servicios.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.63822526">
+              <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -98,12 +78,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modulos/Controlador.php" />
-        <option value="$PROJECT_DIR$/vistas/Usuarios/eliminar.php" />
-        <option value="$PROJECT_DIR$/vistas/Usuarios/crear.php" />
-        <option value="$PROJECT_DIR$/vistas/Usuarios/editar.php" />
-        <option value="$PROJECT_DIR$/clases/Conexion.php" />
-        <option value="$PROJECT_DIR$/clases/Usuario.php" />
         <option value="$PROJECT_DIR$/vistas/esteticas/index.php" />
         <option value="$PROJECT_DIR$/vistas/Usuarios/index.php" />
         <option value="$PROJECT_DIR$/vistas/Usuarios/inicio.php" />
@@ -128,7 +102,6 @@
         <option value="$PROJECT_DIR$/vistas/usuarios/fetch_state.php" />
         <option value="$PROJECT_DIR$/vistas/usuarios/fetch_municipio.php" />
         <option value="$PROJECT_DIR$/vistas/usuarios/dynamic.php" />
-        <option value="$PROJECT_DIR$/clases/comunes.php" />
         <option value="$PROJECT_DIR$/vistas/usuarios/index.php" />
         <option value="$PROJECT_DIR$/vistas/usuarios/crear.php" />
         <option value="$PROJECT_DIR$/clases/usuario.php" />
@@ -145,10 +118,17 @@
         <option value="$PROJECT_DIR$/modulos/controlador_registro.php" />
         <option value="$PROJECT_DIR$/modulos/Controlador_Registro.php" />
         <option value="$PROJECT_DIR$/clases/registro.php" />
+        <option value="$PROJECT_DIR$/clases/comunes.php" />
+        <option value="$PROJECT_DIR$/includes/registro.php" />
+        <option value="$PROJECT_DIR$/clases/Usuario.php" />
+        <option value="$PROJECT_DIR$/vistas/Usuarios/editar.php" />
+        <option value="$PROJECT_DIR$/vistas/clientes/editar.php" />
         <option value="$PROJECT_DIR$/registro.php" />
         <option value="$PROJECT_DIR$/modulos/controlador_cl.php" />
         <option value="$PROJECT_DIR$/clases/cliente.php" />
+        <option value="$PROJECT_DIR$/vistas/clientes/index.php" />
         <option value="$PROJECT_DIR$/vistas/clientes/historial_productos.php" />
+        <option value="$PROJECT_DIR$/vistas/clientes/historial_servicios.php" />
       </list>
     </option>
   </component>
@@ -192,7 +172,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -253,26 +232,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modulos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="style" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="clases" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -287,15 +253,19 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\style\js" />
+      <recent name="C:\xampp\htdocs\style\vistas\clientes" />
+      <recent name="C:\xampp\htdocs\style\vistas\Usuarios" />
       <recent name="C:\xampp\htdocs\style\vistas\usuarios" />
       <recent name="C:\xampp\htdocs\style\vistas\usuarios\prueba" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\style\includes" />
       <recent name="C:\xampp\htdocs\style\vistas\usuarios" />
       <recent name="C:\xampp\htdocs\style\clases" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html">
+  <component name="RunManager" selected="JavaScript Debug.index.php (2)">
     <configuration default="false" name="index.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:8080/style1/vistas/index.php">
       <method />
     </configuration>
@@ -342,8 +312,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php (2)" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php (2)" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
         <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.php (1)" />
         <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
       </list>
@@ -366,26 +336,26 @@
     <frame x="-8" y="0" width="1370" height="772" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20458016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21068703" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265625" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3265625" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -428,41 +398,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/crear.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="182" column="24" selection-start-line="166" selection-start-column="28" selection-end-line="182" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/editar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/comunes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/fetch_state.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modulos/Enrutador.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -617,13 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/editar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vistas/Usuarios/fetch_state.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33278957">
@@ -638,13 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/crear.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vistas/empleados/ver.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14901257">
@@ -656,13 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26109216">
           <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/Conexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55119455">
-          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -687,17 +601,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clases/comunes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24573378">
-          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clases/empleado.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="244" column="8" selection-start-line="244" selection-start-column="8" selection-end-line="244" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18771331">
+          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/registro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/comunes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1468389966180" expanded="true" signature="-1:-1" placeholder="SELECT clien..." />
+            <marker date="1468389966180" expanded="true" signature="-1:-1" placeholder="SELECT * fro..modulo..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -711,128 +643,169 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/modulos/Controlador_Registro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18771331">
-          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modulos/Controlador.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="26" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="123" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.39317775">
+          <caret line="71" column="37" selection-start-line="71" selection-start-column="37" selection-end-line="71" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/clientes/fetch_state.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/editar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36135957">
+          <caret line="174" column="54" selection-start-line="174" selection-start-column="54" selection-end-line="174" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/clientes/editar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.058020476">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/Usuarios/crear.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.087030716">
+          <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="147" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clases/Usuario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="111" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="196" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.51526034">
+          <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
           <folding>
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="Select * FRO..empresas..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="Select * FRO..tipo_usuarios..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="Select * FRO..estatus..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="Select * FRO..estados..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="Select * FRO..municipios..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="Select * FRO..municipios..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="SELECT usuar..usuarios..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="SELECT usuar..usuarios..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="SELECT u.*, ..usuarios..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="SELECT usuar..usuarios..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1468006970014" expanded="true" signature="-1:-1" placeholder="UPDATE usuar..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="Select * FRO..empresas..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="Select * FRO..tipo_usuarios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="Select * FRO..estatus..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="Select * FRO..estados..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="Select * FRO..municipios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="Select * FRO..municipios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="Select * FRO..municipios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="Select * FRO..municipios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="Select * FRO..municipios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="SELECT id_es..estados..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="SELECT usuar..usuarios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="SELECT usuar..usuarios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="SELECT u.*, ..usuarios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="SELECT usuar..usuarios..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1468424243304" expanded="true" signature="-1:-1" placeholder="UPDATE usuar..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/Controlador_Registro.php">
+    <entry file="file://$PROJECT_DIR$/vistas/clientes/inicio.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clases/registro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-          <folding>
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="Select * FRO..empresas..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="Select * FRO..tipo_usuarios..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="Select * FRO..estatus..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="Select * FRO..estados..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="Select * FRO..municipios..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="Select * FRO..municipios..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="SELECT usuar..usuarios..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="SELECT usuar..usuarios..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="SELECT u.*, ..usuarios..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="SELECT usuar..usuarios..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1468358345499" expanded="true" signature="-1:-1" placeholder="UPDATE usuar..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/registro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69624573">
-          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="109" column="67" selection-start-line="109" selection-start-column="67" selection-end-line="109" selection-end-column="67" />
+        <state vertical-scroll-proportion="0.4641638">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/clientes/historial_servicios.php">
+    <entry file="file://$PROJECT_DIR$/registro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="37" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.058020476">
+          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modulos/controlador_cl.php">
+    <entry file="file://$PROJECT_DIR$/clases/Conexion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.307692">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.609215">
+          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clases/cliente.php">
+    <entry file="file://$PROJECT_DIR$/js/jqueryui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/clientes/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.0">
-          <caret line="71" column="140" selection-start-line="71" selection-start-column="140" selection-end-line="71" selection-end-column="140" />
+          <caret line="96" column="56" selection-start-line="96" selection-start-column="56" selection-end-line="96" selection-end-column="56" />
           <folding>
-            <marker date="1468360174561" expanded="true" signature="1104:1337" placeholder="select u.*, ..servicios_usuario..." />
-            <marker date="1468360174561" expanded="true" signature="1490:1637" placeholder="select p.des..productos..." />
-            <marker date="1468360174561" expanded="true" signature="1780:1887" placeholder="SELECT p.des..productos..." />
-            <marker date="1468360174561" expanded="true" signature="1780:1941" placeholder="select u.*, ..servicios_usuario..." />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vistas/clientes/historial_productos.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5068259">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.49317408">
+          <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
           <folding>
-            <marker date="1468360488671" expanded="true" signature="663:884" placeholder="..." />
-            <marker date="1468360488671" expanded="true" signature="663:916" placeholder="..." />
-            <marker date="1468360488671" expanded="true" signature="663:980" placeholder="..." />
-            <marker date="1468360488671" expanded="true" signature="1090:1102" placeholder="..." />
+            <marker date="1468446575572" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modulos/controlador_cl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8549488">
+          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clases/cliente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.384615">
+          <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
+          <folding>
+            <marker date="1468446000504" expanded="true" signature="1095:1410" placeholder="SELECT u.*,e..usuarios..." />
+            <marker date="1468446000504" expanded="true" signature="1583:1763" placeholder="SELECT p.des..productos..." />
+            <marker date="1468446000504" expanded="true" signature="1900:2061" placeholder="SELECT p.des..productos..." />
+            <marker date="1468446000504" expanded="true" signature="2311:2458" placeholder="SELECT SUM(p..productos..." />
+            <marker date="1468446000504" expanded="true" signature="2311:2505" placeholder="SELECT SUM(p..productos..." />
+            <marker date="1468446000504" expanded="true" signature="2311:2537" placeholder="SELECT SUM(p..productos..." />
+            <marker date="1468446000504" expanded="true" signature="2736:3110" placeholder="SELECT SUM(e..usuarios..." />
+            <marker date="1468446000504" expanded="true" signature="3500:3578" placeholder="select clien..empresas..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/clientes/historial_servicios.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63822526">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>

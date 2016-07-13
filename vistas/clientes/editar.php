@@ -16,7 +16,22 @@ if(isset($_POST['enviar'])){
 
 ?>
 
-<script  src="js/jquery.js"></script>
+<script  src="../../js/jquery.js"></script>
+<script type="text/javascript">
+	function val(){
+
+
+
+		if(frm.confirmpassword.value != frm.password.value)
+		{
+			alert("El Password no Coincide.");
+			return false;
+		}
+
+		return true;
+	}
+</script>
+
 <div id="pestanas">
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#pestana1">Información Personal</a></li>
@@ -29,20 +44,20 @@ if(isset($_POST['enviar'])){
 		<br/>
 		<div class="col-lg-3 col-md-3"></div>
 		<div class="col-lg-6 col-md-6">
-			<form action="" method="POST" name="frm">
+			<form action="" method="POST">
 				<div class="form-group">
-					<h5><i>Nombre:</i></h5><label for="nombre"><input type="text" placeholder="Nombre(s)*" name="nombre_usuario"
-																	  id="nombre_usuario" value="<?php echo $row['nombre_usuario']; ?>" maxlength="50" size="20" style="width:100%;" required/></label>
+					<h5><i>Nombre:</i></h5><label for="nombre_usuario"><input type="text" value="<?php echo $row["nombre_usuario"]; ?>" name="nombre_usuario"
+																			  id="nombre_usuario" maxlength="50" size="20" style="width:100%;" required/></label>
 				</div>
 
 				<div class="form-group">
-					<h5><i>Apellidos Paterno:</i></h5><label for="apellido_p"><input value="<?php echo $row['apellido_p']; ?>" type="text" placeholder="Apellido Paterno*"
-																					 id="apellidos" name="apellido_p" maxlength="50" size="20" required/></label>
+					<h5><i>Apellido Paterno:</i></h5><label for="apellido_p"><input type="text" value="<?php echo $row["apellido_p"]; ?>"
+																					id="apellidos" name="apellido_p" maxlength="50" size="20" required/></label>
 				</div>
 
 				<div class="form-group">
-					<h5><i>Apellidos Materno:</i></h5><label for="apellido_m"><input type="text" placeholder="Apellido Materno*"
-																					 id="apellidos" value="<?php echo $row['apellido_m']; ?>" name="apellido_m" maxlength="50" size="20" required/></label>
+					<h5><i>Apellido Materno:</i></h5><label for="apellido_m"><input type="text" value="<?php echo $row["apellido_m"]; ?>"
+																					id="apellidos" name="apellido_m" maxlength="50" size="20" required/></label>
 				</div>
 
 				<div class="form-group">
@@ -50,20 +65,26 @@ if(isset($_POST['enviar'])){
 					<select name="sexo">
 						<option value="null" selected>Seleccione el sexo</option>
 						<?php
-					if($row['descripcion']=='mujer'||$row['descripcion']=='Mujer'){
-						echo ' <option value="2" selected>Mujer</option>
-						<option value="1">Hombre</option>';
-					}else {
-						echo '
-						<option value = "2" > Mujer</option >
-						<option value = "1" selected> Hombre</option >
-						';}?>
-						</select>
+
+						if($row['sexo']=='mujer') {
+
+							echo '
+					<option value="2" selected>Mujer</option>
+					<option value="1">Hombre</option>
+					';
+						}else{
+							echo '
+					<option value="2">Mujer</option>
+					<option value="1" selected>Hombre</option>
+					';
+						}
+						?>
+					</select>
 				</div>
 
 				<div class="form-group">
-					<h5><i>Fecha de nacimiento:</i></h5><label for="date"><input type="date" value="<?php echo $row['fecha_nacimiento']; ?>" name="fecha_nacimiento"
-																				 id="date" required /></label>
+					<h5><i>Fecha Nacimiento:</i></h5><label for="date"><input type="date" value="<?php echo $row["fecha_nacimiento"]; ?>" name="fecha_nacimiento"
+																			  id="date"/></label>
 				</div>
 		</div>
 		<div class="col-lg-3 col-md-3"></div>
@@ -74,39 +95,55 @@ if(isset($_POST['enviar'])){
 		<div class="col-lg-3 col-md-3"></div>
 		<div class="col-lg-6 col-md-6">
 			<div class="form-group">
-				<h5><i>Telefono:</i></h5><label for="tel"><input value="<?php echo $row['telefono']; ?>" type="tel" placeholder="(555)123-4567"
+				<h5><i>Teléfono:</i></h5><label for="tel"><input type="tel" value="<?php echo $row["telefono"]; ?>"
 																 id="tel" name="telefono" maxlength="20" size="20" required/></label>
 			</div>
 
 			<div class="form-group">
-				<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email" value="<?php echo $row['email']; ?>"
-																			 placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" required /></label>
+				<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email"
+																			 value="<?php echo $row["email"]; ?>" id="email" name="email" size="20"  maxlength="50" /></label>
 			</div>
 
 			<div class="form-group">
 				<h5><i>Estética:</i></h5>
 				<select name="id_empresa">
-					<option value="" selected>Selecciona una Estetica</option>
+					<option value="0" selected>Selecciona una Estetica</option>
 					<?php
 					$usuario = new Usuario();
 					$resultado1=$usuario->verempresas();
 					while($row1=mysqli_fetch_array($resultado1)){
-						if($row['id_empresa']==$row1['id_empresa']){
-						echo '<option value="'.$row1["id_empresa"].'" selected>'.utf8_encode($row1["nombre"]).'</option>';
-					}else{
-							echo '<option value="'.$row1["id_empresa"].'" >'.utf8_encode($row1["nombre"]).'</option>';
-					}
-					}
+						if($row['nombre']==$row1['nombre']){
+							echo '<option value="'.$row1["id_empresa"].'" selected>'.$row1["nombre"].'</option>';
+						}else{
+							echo '<option value="'.$row1["id_empresa"].'" selected>'.$row1["nombre"].'</option>';
+						}}
 					?>
 				</select>
 			</div>
 
+			<div class="form-group">
+				<h5><i>Tipo de Usuario</i></h5>
+				<select name="id_tipo_usuario">
+					<option value="0" selected>Selecciona un Puesto</option>
+					<?php
+					$usuario = new Usuario();
+					$resultado2=$usuario->vertipous();
+					while($row1=mysqli_fetch_array($resultado2)){
+						if($row['id_tipo_usuario']==$row1['id_tipo_usuario']){
+							echo '<option value="'.$row1["id_tipo_usuario"].'" selected>'.utf8_encode($row1["descripcion_tipo_usuarios"]).'</option>';
+						}else{
+							echo '<option value="'.$row1["id_tipo_usuario"].'">'.utf8_encode($row1["descripcion_tipo_usuarios"]).'</option>';
+						}
 
+					}
+					?>
+				</select>
+			</div>
 		</div>
 		<div class="col-lg-3 col-md-3"></div>
 	</div>
 
-	<div id="pestana3" onchange="">
+	<div id="pestana3">
 		<br/>
 		<div class="col-lg-3 col-md-3"></div>
 		<div class="col-lg-6 col-md-6">
@@ -119,11 +156,10 @@ if(isset($_POST['enviar'])){
 					$resultadoestado=$usuario->verestados();
 					while($row1=mysqli_fetch_array($resultadoestado)){
 						if($row['descripcion_estados']==$row1['descripcion_estados']){
-						echo '<option value="'.$row1["id_estado"].'" selected>'.utf8_encode($row1["descripcion_estados"]).'</option>';
-					}else{
-							echo '<option value="'.$row1["id_estado"].'" >'.utf8_encode($row1["descripcion_estados"]).'</option>';
+							echo '<option value="'.$row1["id_estado"].'" selected>'.utf8_encode($row1["descripcion_estados"]).'</option>';
+						}else{
+							echo '<option value="'.$row1["id_estado"].'">'.utf8_encode($row1["descripcion_estados"]).'</option>';
 						}
-
 					}
 					?>
 				</select>
@@ -136,21 +172,16 @@ if(isset($_POST['enviar'])){
 					<option value="">Selecciona un Municipio</option>
 					<?php
 					$usuario = new Usuario();
-					$resultadomuni=$usuario->vermunicipioTodos($row['descripcion_estados']);
-					while($row1=mysqli_fetch_array($resultadomuni)){
-						if($row['id_municipio']==$row1['id_municipio']){
+					$resultadomun=$usuario->vermunicipioTodos($row['descripcion_estados']);
+					while($row1=mysqli_fetch_array($resultadomun)){
+						if($row['descripcion_municipios']==$row1['descripcion_municipios']){
 							echo '<option value="'.$row1["id_municipio"].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
 						}else{
-							echo '<option value="'.$row1["id_municipio"].'" >'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+							echo '<option value="'.$row1["id_municipio"].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
 						}
-
 					}
 					?>
-
 				</select>
-
-
-
 				<script>
 					$(document).ready(function(){
 						$('#id_estado').change(function(){
@@ -170,35 +201,37 @@ if(isset($_POST['enviar'])){
 				</script>
 			</div>
 
-			<h5><i>Ciudad de Residencia:</i></h5>
 			<div class="form-group">
+				<h5><i>Ciudad de Residencia:</i></h5>
 				<label>
-					<input type="text" placeholder="Ingrese su Colonia" value="<?php echo $row['colonia']; ?>" name="colonia" required />
-				</label></div>
+					<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo $row["colonia"]; ?>"required />
+				</label>
+			</div>
 
 			<h5><i>Calle:</i></h5>
 			<div class="form-group">
 				<label>
-					<input type="text" placeholder="Ingrese su Calle" value="<?php echo $row['nombre_calle']; ?>" name="nombre_calle" required />
+					<input type="text" value="<?php echo $row['nombre_calle']; ?>" name="nombre_calle"/>
 				</label></div>
 
-			<h5><i>Número interior:</i></h5>
+			<h5><i>Número Interior:</i></h5>
 			<div class="form-group">
 				<label>
-					<input type="text" placeholder="Ingrese su Número Interior/SN" value="<?php echo $row['no_int']; ?>" name="no_int"/>
+					<input type="text" value="<?php echo $row['no_int']; ?>" name="no_int"/>
 				</label></div>
 
-			<h5><i>Número exterior:</i></h5>
+			<h5><i>Número Exterior:</i></h5>
 			<div class="form-group">
 				<label>
-					<input type="text" placeholder="Ingrese su Número Exterior" value="<?php echo $row['no_ext']; ?>" name="no_ext"/>
+					<input type="text" value="<?php echo $row['no_ext']; ?>" name="no_ext"/>
 				</label></div>
 
 			<h5><i>Codigo Postal:</i></h5>
 			<div class="form-group">
 				<label>
-					<input type="number" placeholder="Ingrese su Número Exterior" value="<?php echo $row['cp']; ?>" name="cp" min="1" required />
+					<input type="number" placeholder="Ingrese su Número Exterior" name="cp" value="<?php echo $row["cp"]; ?>" min="1" required />
 				</label></div>
+
 		</div>
 		<div class="col-lg-3 col-md-3"></div>
 	</div>
@@ -222,20 +255,18 @@ if(isset($_POST['enviar'])){
 				}
 			</script>
 			<div class="form-group">
-				<h5><i>User:</i></h5><label for="user"><input type="text" value="<?php echo $row['usuario']; ?>"id="user" placeholder="Ingrese Username" name="usuario" maxlength="50"
+				<h5><i>User:</i></h5><label for="user"><input type="text" id="user" value="<?php echo $row["usuario"]; ?>" placeholder="Ingrese Username" name="usuario" maxlength="50"
 															  size="20" required/></label>
 			</div>
 
 			<div class="form-group">
-				<h5><i>Password:</i></h5><label for="password"><input type="password" value="<?php echo $row['password']; ?>"
-																	  id="password" placeholder="Ingrese Password" name="password" maxlength="50" size="20" required/></label>
+				<h5><i>Password:</i></h5><label for="password"><input type="password"
+																	  id="password" placeholder="Ingrese Password" name="password" maxlength="50" value="<?php echo $row["password"]; ?>" size="20" required/></label>
 			</div>
-
 			<div class="form-group">
-				<h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password" value="<?php echo $row['password']; ?>"
-																					   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" maxlength="50" size="20" required/></label>
-			</div>
-
+				<h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password"
+																					   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echo $row["password"]; ?>" maxlength="50" size="20" required/></label>
+			</div><br/>
 			<div class="col-sm-12" align="center">
 				<div>
 					<input type="submit"  name="enviar" value="ENVIAR" onclick="return val();" style="width:30%"/>

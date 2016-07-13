@@ -11,6 +11,11 @@
 include_once('../../modulos/controlador_cl.php');
 session_start();
 
+$controlador = new ControladorC();
+
+
+$raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['empresa']);
+
 ?>
 
 <head>
@@ -57,13 +62,19 @@ session_start();
             <li><a href="../../clases/salir.php">Salir</a></li>
 
     </div>
-
+    <div class="container">
+        <div class="row" align="right"><h3>Class: <?php echo $raking; ?></h3>
+        </div>
+    </div>
 </nav>
 
 
+
 <div class="content-section" id="contact">
+
     <div class="container">
         <div class="row">
+
             <div class="heading-section col-md-12" style="font-size:xx-large; text-align:center">
 
                 <?php
@@ -82,8 +93,8 @@ session_start();
     <script src="../../js/plugins.js"></script>
     <script src="../../js/main.js"></script>
 
-<script type='text/javascript' src='jquery.js'></script>
-<script type='text/javascript' src='jqueryui.js'></script>
+<script type='text/javascript' src='../../js/jquery.js'></script>
+<script type='text/javascript' src='../../js/jqueryui.js'></script>
 
 </body>
 

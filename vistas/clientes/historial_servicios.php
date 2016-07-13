@@ -7,6 +7,9 @@
  */
 $controlador = new ControladorC();
 $resultado = $controlador->verServicios($_SESSION['id_user']);
+
+
+
 ?>
 <div class="container">
 
@@ -15,14 +18,14 @@ $resultado = $controlador->verServicios($_SESSION['id_user']);
             <div>
                 <table class="table table-bordered table-responsive">
 
-                    <tr><th>ID</th><th>Fecha</th><th>Hora</th><th>Empleado</th><th>Rating</th><th>Foto</th><th>Observaciones</th><th>Tarjeta de Formulacion</th></tr>
+                    <tr><th>ID</th><th>Fecha</th><th>Hora</th><th>Rating</th><th>Foto</th><th>Observaciones</th><th>Tarjeta de Formulacion</th></tr>
                     <?php
                         while($row=mysqli_fetch_array($resultado)){
 
                             $res = $controlador->verDescripcionProductos($row['id_servicio_usuario']);
-                            echo '<tr><th>'.$row['id_servicio_usuario'].'</th><th>'.$row['fecha_servicio'].'</th><th>'.$row['hora'].'</th><th>'.$row['nombre_usuario'].' '.$row['apellido_p'].' '.$row['apellido_m'].'</th><th>'.$row['rating'].'</th><th><img src=""></th><th>'.$row['observaciones'].'</th><th>'; while($row2=mysqli_fetch_array($res)){
-                                echo 'Producto: '.$row2['descripcion_productos'].' Cantidad:'.$row2['cantidad'].'<br>';
-                            }'</th></tr>';
+                            echo '<tr><td>'.$row['id_servicio_usuario'].'</td><td>'.$row['fecha_servicio'].'</td><td>'.$row['hora'].'</td><td>'.$row['rating'].'</td><td><img src=""></td><td>'.$row['observaciones'].'</td><td>'; while($row2=mysqli_fetch_array($res)){
+                                echo 'Producto: '.$row2['descripcion_productos'].' Cantidad:'.$row2['cantidad'].' Presentación:'.$row2['presentacion'].' <br>';
+                            }'</td></tr>';
                         }
                     ?>
 
