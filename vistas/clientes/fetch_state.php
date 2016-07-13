@@ -1,4 +1,6 @@
 <?php
+session_start();
+if($_SESSION['tipo']==3){
 //fetch_municipio.php
 
 include_once('../../clases/usuario.php');
@@ -13,4 +15,8 @@ while($row = mysqli_fetch_array($result))
  $output .= '<option value="'.$row["id_municipio"].'">'.utf8_encode($row["descripcion_municipios"]).'</option>';
 }
 echo $output;
+
+ }else{
+ header('location: ../../clases/salir.php');
+};
 ?>

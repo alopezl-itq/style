@@ -1,5 +1,5 @@
 <?php
-
+if($_SESSION['tipo']==3){
 $controlador = new controlador();
 
 if(isset($_SESSION['id_user'])){
@@ -277,3 +277,6 @@ if(isset($_POST['enviar'])){
 		<div class="col-lg-3 col-md-3"></div>
 	</div>
 </div>
+<?php }else{
+	header('location: ../../clases/salir.php');
+};

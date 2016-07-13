@@ -1,4 +1,5 @@
 <?php
+if($_SESSION['tipo']==3){
 include_once('../../modulos/controlador.php');
 $controlador = new Controlador();
 
@@ -52,3 +53,6 @@ if(isset($_SESSION['id_user'])){
 
 
                			</div>
+<?php }else{
+    header('location: ../../clases/salir.php');
+};

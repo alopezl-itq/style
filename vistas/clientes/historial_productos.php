@@ -13,6 +13,8 @@
  * Date: 05/07/2016
  * Time: 10:22 AM
  */
+
+if($_SESSION['tipo']==3){
 $controlador = new ControladorC();
 $resultado = $controlador->verProductos($_SESSION['id_user']);
 ?>
@@ -45,3 +47,7 @@ $resultado = $controlador->verProductos($_SESSION['id_user']);
 
 
 </div>
+
+<?php }else{
+    header('location: ../../clases/salir.php');
+};
