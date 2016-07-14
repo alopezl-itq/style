@@ -121,7 +121,7 @@ $resultado5 = $controlador->serviciosOtros();
          ?>
             <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
-            <?
+            <?php
             echo "<td><input type=checkbox value=$row[0] name='corte[]' ></td>";
             ?>
          </tr>
@@ -155,7 +155,7 @@ $resultado5 = $controlador->serviciosOtros();
          ?>
         <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
-             <?
+             <?php
             echo "<td><input type=checkbox value=$row[0] name='color[]' ></td>";
             ?>
             </tr>
@@ -189,7 +189,7 @@ $resultado5 = $controlador->serviciosOtros();
          ?>
         <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
-             <?
+             <?php
             echo "<td><input type=checkbox value=$row[0] name='peinado[]' ></td>";
             ?>
           </tr>
@@ -223,7 +223,7 @@ $resultado5 = $controlador->serviciosOtros();
          ?>
         <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
-             <?
+             <?php
             echo "<td><input type=checkbox value=$row[0] name='maquillaje[]' ></td>";
             ?>
         </tr>
@@ -257,7 +257,7 @@ $resultado5 = $controlador->serviciosOtros();
          ?>
         <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
-             <?
+             <?php
             echo "<td><input type=checkbox value=$row[0] name='otro[]' ></td>";
             ?>
          </tr>
@@ -268,7 +268,7 @@ $resultado5 = $controlador->serviciosOtros();
     <div class="col-lg-3 col-md-3"></div>                     
     
 </table>
-<?
+<?php
 echo "<INPUT TYPE='HIDDEN' VALUE='$id_empresa' name='id_empresa'>";
 ?>
 <br><INPUT TYPE="SUBMIT" name="guardar" value="Guardar" style="height:38px; width:350px" >
