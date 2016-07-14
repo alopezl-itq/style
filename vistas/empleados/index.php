@@ -46,7 +46,8 @@ validarSesionEnVistas();
         <ul class="dropdown-menu">
           <li><a href="?cargar=empleados&controlador=crear">Nuevo Empleado</a></li>       
           <li><a href="../../vistas/empleados">Empleados Regisrados</a></li>
-          <li><a href="?cargar=empleados&controlador=reactivar">Empleados Desactivados</a></li> 
+          <li><a href="?cargar=empleados&controlador=reactivar">Empleados Desactivados</a></li>
+            <li><a href="../../vistas/servicios/Servicios.php">Servicios</a></li>
         </ul>
       </li>
       <li><a href="../empleados/index.php">Regresar</a></li>

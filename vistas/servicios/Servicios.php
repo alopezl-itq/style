@@ -1,7 +1,8 @@
 <?php
 
 include_once('../../modulos/controladorS.php');
- $id_empresa=$_POST["id_empresa"];
+session_start();
+$id_empresa=$_SESSION['empresa'];
 
 ?>
 <!DOCTYPE html>
@@ -27,11 +28,15 @@ include_once('../../modulos/controladorS.php');
         <link rel="stylesheet" href="../../css/templatemo_misc.css">
         <link rel="stylesheet" href="../../css/templatemo_style.css">
 <?php 
-echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
+echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
+
+
+
+
 ?>
     </head>
     <body>
-    
+
         <div class="site-main" id="sTop">
             <div class="site-header">
                 <div class="container">
@@ -86,6 +91,7 @@ $resultado5 = $controlador->serviciosOtros();
 ?>
 
 <script  src="/../../js/jquery.js"></script>
+                <?php echo $id_empresa; ?>
 <div id="pestanas"> 
  <ul class="nav nav-tabs">
         <li role="presentation" class="active" ><a href="#pestana1" role="tab" data-toggle="tab">Cortes</a></li>
