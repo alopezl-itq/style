@@ -6,7 +6,7 @@ $controlador= new ControladorE();
 
 
 if(isset($_POST['enviar'])){
- $controlador->crearC($_POST['id_tipo_curso'],$_POST['fecha_inicio'],$_POST['fecha_final'], utf8_encode($_POST['imparte']),utf8_encode($_POST['nombre_curso']),utf8_encode($_POST['nom_empresa_foranea']),$_POST['costo'],$_POST['apoyo']);
+ $controlador->crearC($_POST['id_tipo_curso'],$_POST['fecha_inicio'],$_POST['fecha_final'], utf8_encode($_POST['imparte']),utf8_encode($_POST['nombre_curso']),utf8_encode($_POST['nom_empresa_foranea']),$_POST['costo'],$_POST['apoyo'],$_GET['id_usuario']);
 }
 
 
@@ -138,9 +138,9 @@ endwhile;
 </div>
 </div>
 
-
-<br><button type="button" style="height:38px; width:350px" data-toggle="modal" data-target="#ModalAdd">Insertar Nuevo Curso</button>
-
+<form action="" method="post">
+<br><button type="button" style="height:38px; width:350px" data-toggle="modal" data-target="#ModalAdd">Insertar Nuevo Curso</button><input type="hidden" name="id_usuario" value="<?php echo $_GET['id_usuario']; ?>">
+</form>
 </div>
 
 
@@ -210,7 +210,7 @@ endwhile;
                         
                             <div class="col-sm-12" align="center">
 						<div>
-							<input type="submit"  name="enviar" value="ENVIAR" onclick="return val();" style="width:30%"/>
+							<input type="submit"  name="enviar" value="enviar" onclick="return val();" style="width:30%"/>
 						</div>
 						</form>
                         

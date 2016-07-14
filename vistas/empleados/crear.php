@@ -219,9 +219,7 @@ if(isset($_POST['enviar'])){
 						</label></div>
                         <div id="cpError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
-                        <div id="pestanas"">
-    						<a href="#pestana5">SIGUIENTE</a>
-						</div>
+                        
                         
 </div>
 <div class="col-lg-3 col-md-3"></div>

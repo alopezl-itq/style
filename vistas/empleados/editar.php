@@ -7,8 +7,9 @@ $row=$controlador->verE($_GET['id_usuario']);
 }
 
 if(isset($_POST['enviar'])){
+	
 
- $controlador->editarE($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_encode($_POST['Facebook']),utf8_encode($_POST['twitter']),utf8_encode($_POST['instagram']));
+$controlador->editarE($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_encode($_POST['Facebook']),utf8_encode($_POST['twitter']),utf8_encode($_POST['instagram']));
 
 
 
@@ -51,11 +52,12 @@ if(isset($_POST['enviar'])){
                         
 							<div class="form-group">
 							<h5><i>Sexo:</i></h5>
+                            <?php  $row['sexo']; ?>
 							<select name="sexo">
 					<option value="null" selected>Seleccione el sexo</option>
 					<?php
 
-					if($row['sexo']=='mujer') {
+					if($row['sexo']=='2') {
 
 						echo '
 					<option value="2" selected>Mujer</option>
@@ -86,6 +88,7 @@ if(isset($_POST['enviar'])){
 <br/>
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
+                        
                         
 						<div class="form-group">
                             <h5><i>Comision:</i></h5><label for="comisiones"><input type="number" placeholder="100.00" name="comisiones" value="<?php echo $row['comisiones']; ?>"id="comisiones" maxlength="50" size="20" min="0" onblur="comisionValidate(this);" required/></label>
@@ -169,7 +172,7 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
 							<option value="" selected>Selecciona un Municipio</option>
 							<?php
 								$usuario = new Usuario();
-								$resultMun = $usuario->vermunicipioTodos();
+								$resultMun = $usuario->vermunicipioTodos($row['descripcion_estados']);
 									while($row1=mysqli_fetch_array($resultMun)){
 										if($row['id_municipio']==$row1['id_municipio']){
 									echo '<option value="'.$row1["id_municipio"].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
@@ -251,7 +254,7 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
 $resulRedes=$empleado->verredes($_GET['id_usuario']);
 
 	while($row6=mysqli_fetch_array($resulRedes)){
-
+	
 
 	echo '
 					 <div class="form-group">
@@ -303,10 +306,11 @@ $resulRedes=$empleado->verredes($_GET['id_usuario']);
     
                         <div class="col-sm-12" align="center">
 						<div>
-							<input type="submit"  name="enviar" value="ENVIAR" onclick="return val();" style="width:30%"/>
+							<input type="submit"  name="enviar" value="Enviar" onclick="return val();" style="width:30%"/>
 						</div>
-						</form>
-                        </div>
+						</div>
+                        </form>
+                        
 </div>
 <div class="col-lg-3 col-md-3"></div>
 </div>
