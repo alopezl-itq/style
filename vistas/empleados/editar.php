@@ -8,7 +8,7 @@ $row=$controlador->verE($_GET['id_usuario']);
 
 if(isset($_POST['enviar'])){
 
- $controlador->editarE($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base']);
+ $controlador->editarE($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_encode($_POST['Facebook']),utf8_encode($_POST['twitter']),utf8_encode($_POST['instagram']));
 
 
 
@@ -20,12 +20,12 @@ if(isset($_POST['enviar'])){
 <script  src="js/jquery.js"></script>
 <div id="pestanas">
  <ul class="nav nav-tabs">
- 	<li class="active"><a href="#pestana1">Información Personal</a></li>
- 	<li><a href="#pestana2">Datos de sueldo</a></li> 
-    <li><a href="#pestana3">Información de Contacto</a></li> 
-   <li><a href="#pestana4">Domicilio</a></li> 
-    <li><a href="#pestana5">Redes Sociales</a></li> 
-	<li><a href="#pestana6">Datos de Acceso</a></li> 
+ 	<li role="presentation"  class="active"><a href="#pestana1" role="tab" data-toggle="tab">Información Personal</a></li>
+ 	<li role="presentation" ><a href="#pestana2" role="tab" data-toggle="tab">Datos de sueldo</a></li> 
+    <li role="presentation" ><a href="#pestana3" role="tab" data-toggle="tab">Información de Contacto</a></li> 
+   <li role="presentation" ><a href="#pestana4" role="tab" data-toggle="tab">Domicilio</a></li> 
+    <li role="presentation" ><a href="#pestana5" role="tab" data-toggle="tab">Redes Sociales</a></li> 
+	<li role="presentation" ><a href="#pestana6" role="tab" data-toggle="tab">Datos de Acceso</a></li> 
  </ul>
 
 
@@ -128,7 +128,7 @@ if(isset($_POST['enviar'])){
 								$resultado5=$empleado->vertipous();
 								while($row3=mysqli_fetch_array($resultado5)){
 									if($row['id_tipo_usuario']==$row3['id_tipo_usuario']){
-									echo '<option value="'.$row3['id_tipo_usuario'].'" >'.utf8_encode($row3['descripcion_tipo_usuarios']).'</option>';
+									echo '<option value="'.$row3['id_tipo_usuario'].'" selected>'.utf8_encode($row3['descripcion_tipo_usuarios']).'</option>';
 								}else{
 									echo '<option value="'.$row3['id_tipo_usuario'].'">'.utf8_encode($row3['descripcion_tipo_usuarios']).'</option>';
 								}
@@ -250,12 +250,12 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
 	<?php
 $resulRedes=$empleado->verredes($_GET['id_usuario']);
 
-	while($row2=mysqli_fetch_array($resulRedes)){
+	while($row6=mysqli_fetch_array($resulRedes)){
 
 
 	echo '
 					 <div class="form-group">
-                          <h5><i>'.$row2["descripcion_red_social"].'</i></h5><label for="usuario_r"><input type="text" placeholder="Usuario '.$row2["descripcion_red_social"].'" name="'.$row2["descripcion_red_social"].'" value="'.$row2["usuario_r"].'"  id="'.$row2["descripcion_red_social"].'" maxlength="50" size="20"  /></label>
+                          <h5><i>'.$row6["descripcion_red_social"].'</i></h5><label for="usuario_r"><input type="text" placeholder="Usuario '.$row6["descripcion_red_social"].'" name="'.$row6["descripcion_red_social"].'" value="'.$row6["usuario_r"].'"  id="'.$row6["descripcion_red_social"].'" maxlength="50" size="20"  /></label>
 						</div>
 ';}
 						 ?>

@@ -17,12 +17,12 @@ if(isset($_POST['enviar'])){
 <script  src="js/jquery.js"></script>
 <div id="pestanas">
  <ul class="nav nav-tabs">
- 	<li class="active"><a href="#pestana1">Información Personal</a></li>
- 	<li><a href="#pestana2">Datos de sueldo</a></li> 
-    <li><a href="#pestana3">Información de Contacto</a></li> 
-   <li><a href="#pestana4">Domicilio</a></li> 
-    <li><a href="#pestana5">Redes Sociales</a></li> 
-	<li><a href="#pestana6">Datos de Acceso</a></li> 
+ 	<li role="presentation" class="active"><a href="#pestana1" role="tab" data-toggle="tab">Información Personal</a></li>
+ 	<li role="presentation" ><a href="#pestana2" role="tab" data-toggle="tab">Datos de sueldo</a></li> 
+    <li role="presentation"><a href="#pestana3" role="tab" data-toggle="tab">Información de Contacto</a></li> 
+   <li role="presentation"><a href="#pestana4" role="tab" data-toggle="tab">Domicilio</a></li> 
+    <li role="presentation" ><a href="#pestana5" role="tab" data-toggle="tab">Redes Sociales</a></li> 
+	<li role="presentation"><a href="#pestana6" role="tab" data-toggle="tab">Datos de Acceso</a></li> 
  </ul>
  
 <div id="pestana1">
@@ -71,7 +71,30 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-6 col-md-6">
                         
 						<div class="form-group">
-                            <h5><i>Comision:</i></h5><label for="comisiones"><input type="number" placeholder="100.00" name="comisiones" id="comisiones" maxlength="50" size="20" min="0" onblur="comisionValidate(this);" required/></label>
+                        <h5><i>Comision:</i></h5>
+                        <select name="comisiones">
+                        <option value="0" selected>Seleccione porcentaje de comision</option>
+                        <option value="0.01">%1</option>
+                        <option value="0.02">%2</option>
+                        <option value="0.03">%3</option>
+                       <option value="0.04">%4</option>
+                       <option value="0.05">%5</option>
+                       <option value="0.06">%6</option>
+                       <option value="0.07">%7</option>
+                       <option value="0.08">%8</option>
+                       <option value="0.09">%9</option>
+                       <option value="0.10">%10</option>
+                       <option value="0.11">$11</option>
+                       <option value="0.12">%12</option>
+                        <option value="0.13">%13</option>
+                       <option value="0.14">%14</option>
+                       <option value="0.15">%15</option>
+                       <option value="0.16">%16</option>
+                       <option value="0.17">%17</option>
+                       <option value="0.18">%18</option>
+                       <option value="0.19">%19</option>
+                        <option value="0.20">%20</option>
+                        </select>
 						</div>
                         <div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
@@ -210,16 +233,16 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-6 col-md-6">
                         
 					 <div class="form-group">
-                          <h5><i>Facebook</i></h5><label for="usuario_r"><input type="text" placeholder="Usuario Facebook" name="usuario_r1" id="usuario_r1" maxlength="50" size="20"  /></label>
+                          <h5><i>Facebook</i></h5><label for="usuario_r"><input type="text" placeholder="Usuario Facebook" name="Facebook" id="Facebook" maxlength="50" size="20"  /></label>
 						</div>
 
 						 
                         <div class="form-group">
-							<h5><i>instagram:</i></h5><label for="usuario_r"><input type="text" placeholder= "Usuario Twitter" id="usuario_r2" name="usuario_r2" maxlength="50" size="20"  /></label>
+							<h5><i>instagram:</i></h5><label for="usuario_r"><input type="text" placeholder= "Usuario Twitter" id="twitter" name="twitter" maxlength="50" size="20"  /></label>
 						</div>
                         
                             <div class="form-group">
-							<h5><i>Twitter:</i></h5><label for="usuario_r"><input type="text" placeholder= "Usuario Instagram" id="usuario_r3" name="usuario_r3" maxlength="50" size="20"  /></label>
+							<h5><i>Twitter:</i></h5><label for="usuario_r"><input type="text" placeholder= "Usuario Instagram" id="instagram" name="instagram" maxlength="50" size="20"  /></label>
 						</div>
 						
                       
