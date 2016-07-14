@@ -27,7 +27,7 @@ private $nombre_calle;
 private $no_int;
 private $no_ext;
 private $con;
-private $facebook;
+private $Facebook;
 private $twitter;
 private $instagram;
 private $id_tipo_red_social;
@@ -173,14 +173,14 @@ return  $this->usu->verempresas();
 	  
 	 
 	  
-     $sql5="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
-      ($id_usuario1,1,'$this->facebook') ";
+    echo $sql5="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
+      ($id_usuario1,1,'$this->Facebook') ";
       $this->con->query($sql5);
 	  
-	  $sql6="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
+	 echo $sql6="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
       ($id_usuario1,2,'$this->twitter') ";
       $this->con->query($sql6);
-	  $sql7="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
+	echo  $sql7="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
       ($id_usuario1,3,'$this->instagram') ";
       $this->con->query($sql7);
 
@@ -215,14 +215,14 @@ return  $this->usu->verempresas();
 				$this->con->query($sql);
 				
 				
-				$sql1="Update sueldos SET comisiones = $this->comisiones, sueldo_base = $this->sueldo_base where 
+				echo $sql1="Update sueldos SET comisiones = $this->comisiones, sueldo_base = $this->sueldo_base where 
 				sueldos.id_usuario= $this->id_usuario";
 				
 				$this->con->query($sql1);
 				echo $sql1;
 				echo "<br/>";
 				
-				$sql2="Update redes_usuario SET usuario_r ='$this->facebook' where redes_usuario.id_usuario = '$this->id_usuario'";
+				$sql2="Update redes_usuario SET usuario_r ='$this->Facebook' where redes_usuario.id_usuario = '$this->id_usuario'";
 				$this->con->query($sql2);
 				echo $sql2;
 				echo "<br/>";
@@ -242,7 +242,7 @@ return  $this->usu->verempresas();
 			
 
 	    public function verredes($id_usuario){
-		$sql ="SELECT u.id_usuario,r.usuario_r,t.descripcion_red_social from redes_usuario r,tipo_redes_sociales t,usuarios u where r.id_tipo_red_social=t.id_tipo_red_social and u.id_usuario=r.id_usuario and u.id_usuario and u.id_usuario=".$id_usuario;
+	echo	$sql ="SELECT u.id_usuario,r.usuario_r,t.descripcion_red_social from redes_usuario r,tipo_redes_sociales t,usuarios u where r.id_tipo_red_social=t.id_tipo_red_social and u.id_usuario=r.id_usuario and u.id_usuario and u.id_usuario=".$id_usuario;
 		$result = $this->con->consultaR($sql);
 		return $result;
 		
@@ -296,6 +296,15 @@ echo $sql="INSERT  INTO cursos_tomados (id_curso,id_tipo_curso,fecha_inicio,fech
 $this->con->query($sql);
 
 
+		  
+		  }
+		  
+		  
+		  public function EditarCurso(){
+		  
+		  echo $sql="Upadte cursos_tomados set id_tipo_curso=$this->tipo_curso, fecha_inicio='$this->'fecha_inicio', fecha_final='$this->fecha_final',imparte='$this->imparte',nombre_curso='$this->nombre_curso', nom_empresa_foranea='$this->nom_empresa_foranea',costo = $this->costo, apoyo=$this->apoyo  where  usuario.id_usuario = cursos_tomados.id_usario and id_curso=".$this->id_curso;
+		  $this->con->query($sql);
+		  
 		  
 		  }
 

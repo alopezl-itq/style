@@ -30,7 +30,7 @@ $resultado = $controlador->index($_SESSION['empresa']);
         <td><?php echo utf8_encode($row['telefono']); ?></td>
 
 
-        <td> <a href="?cargar=empleados&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">Ver mas informacion</a> </td>
+        <td> <a href="?cargar=empleados&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">+Informacion</a> </td>
        <td> <a href="?cargar=empleados&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
         <td><a href="?cargar=empleados&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Desactivar</a></td>
 

@@ -35,7 +35,7 @@ class ControladorE{
 		
 		
 		
-public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $telefono,$email,$id_empresa,$id_tipo_usuario, $id_municipio,$colonia,$nombre_calle,$no_int, $no_ext,$cp,$usuario,$password,$comisiones,$sueldo_base,$facebook,$twitter,$instagram){
+public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $telefono,$email,$id_empresa,$id_tipo_usuario, $id_municipio,$colonia,$nombre_calle,$no_int, $no_ext,$cp,$usuario,$password,$comisiones,$sueldo_base,$Facebook,$twitter,$instagram){
 		
 
 			$this->empleado->set("nombre_usuario",$nombre_usuario);
@@ -57,7 +57,7 @@ public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo,
 			$this->empleado->set("password",$password);
 			$this->empleado->set("comisiones",$comisiones);
 			$this->empleado->set("sueldo_base",$sueldo_base);
-			$this->empleado->set("Facebook",$facebook);
+			$this->empleado->set("Facebook",$Facebook);
 			$this->empleado->set("twitter",$twitter);
 			$this->empleado->set("instagram",$instagram);
 		
