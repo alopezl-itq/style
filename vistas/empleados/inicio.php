@@ -5,8 +5,13 @@ $resultado = $controlador->index($_SESSION['empresa']);
 
 
 
+
+
 ;
 ?>
+
+
+
 <div class="panel panel-default">
 		<div class="panel panel-body ">
 <div align="center" class="table-responsive">

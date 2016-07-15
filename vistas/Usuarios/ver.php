@@ -14,8 +14,6 @@ if(isset($_GET['id_usuario'])){
 
  <div class="col-sm-4" align="center">
                     <b style="font-size:24px">Información Personal</b><br/><br/>
-                        <b>Numero de Usuario:</b> &nbsp; <?php echo utf8_encode($row['id_usuario']); ?>
-<br/><br/>
 <b>Tipo de empleado:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion_tipo_usuarios']); ?>
 <br/><br/>
 <b>Usuario:</b>&nbsp;<?php  echo   utf8_encode($row['usuario']); ?>

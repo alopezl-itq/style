@@ -40,7 +40,7 @@ validarSesionEnVistas();
       <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.php">Inicio</a></li>
-      <li class="dropdown">
+       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Empleados
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -51,6 +51,22 @@ validarSesionEnVistas();
         </ul>
       </li>
       <li><a href="../empleados/index.php">Regresar</a></li>
+            <?php 
+if($_SESSION['tipo']==2 or 4){
+	   echo '<li class="dropdown">';
+      echo  '<a class="dropdown-toggle" data-toggle="dropdown" href="#">Perfil<span class="caret"></span></a>';
+	echo '<ul class="dropdown-menu">';
+	echo '<li><a href="?cargar=usuarios&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Perfil</a></li>';
+	echo '<li><a href="?cargar=usuarios&controlador=editar&&id_usuario='.$_SESSION['id_user'].'">Editar Perfil</a></li>';
+	echo '</ul>';
+	echo '<li>';
+	}else{
+		
+		}
+		
+		
+?>
+      
       <li><a href="../../clases/salir.php">Salir</a></li> 
     </ul>
   </div>
