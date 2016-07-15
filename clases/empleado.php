@@ -175,33 +175,33 @@ return  $this->usu->verempresas();
 		 
 
 
-$sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono
+echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono
  , '$this->email',$this->id_empresa,$this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
   $this->con->query($sql);
   
   //consulta para obtener el id del ultimo registro obtenido 
- $sql4 ="SELECT id_usuario From usuarios where email ='".$this->email."' and  usuario='".$this->usuario."' ";
+ echo $sql4 ="SELECT id_usuario From usuarios where email ='".$this->email."' and  usuario='".$this->usuario."' ";
  $id_usuariores = $this->con->consultaR($sql4);
   $rowus =mysqli_fetch_assoc($id_usuariores) ;
 	$id_usuario1=$rowus['id_usuario'];	
 	
    //consulta para insertar sueldos
-   $sql3="INSERT INTO Sueldos (id_usuario,comisiones,sueldo_base) values
+   echo $sql3="INSERT INTO Sueldos (id_usuario,comisiones,sueldo_base) values
    ($id_usuario1,$this->comisiones,$this->sueldo_base); ";
       $this->con->query($sql3);
 	  
 	  
 	 
 	 //Consultas para  insertar los datos de redes de SQL5 a SQL7
-     $sql5="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
+    echo  $sql5="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
       ($id_usuario1,1,'$this->Facebook') ";
       $this->con->query($sql5);
 	  
-	 $sql6="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
+	echo  $sql6="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
       ($id_usuario1,2,'$this->twitter') ";
       $this->con->query($sql6);
 	 
-	  $sql7="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
+	echo $sql7="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
       ($id_usuario1,3,'$this->instagram') ";
       $this->con->query($sql7);
       return true;

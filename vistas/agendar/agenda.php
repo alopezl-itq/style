@@ -109,7 +109,7 @@ $miConexion = new Conexion();
 				if($day==$diaActual)
 				{
 					echo "<td style='text-align:left' class='link hoy'><a href='agendar.php?dia=".$day."&mes=".$month."&anio=".$year."' data-toggle='modal'>$day";
-					$sql_cd1='SELECT usuarios.nombre_usuario, usuarios.apellido_p, servicios.servicio, agendas.tiempo, agendas.hora, agendas.fecha FROM `usuarios`, `servicios`, `agendas` WHERE usuarios.id_usuario=agendas.id_usuario AND servicios.id_servicio=agendas.id_servicio AND agendas.id_cliente = '.$_SESSION['id_user'];$resul_cd1=mysqli_query($miConexion,$sql_cd1);
+					$sql_cd1='SELECT usuarios.nombre_usuario, usuarios.apellido_p, servicios.servicio, descripcion_servicios.descripcion, agendas.tiempo, agendas.hora FROM `usuarios`, `descripcion_servicios`, `servicios`, `agendas` WHERE usuarios.id_usuario=agendas.id_usuario AND descripcion_servicios.id_servicio=servicios.id_servicio AND descripcion_servicios.id_descripcion_servicios=agendas.id_servicio AND agendas.id_cliente ='.$_SESSION['id_user'].' AND agendas.fecha="'.$year.'-'.$month.'-'.$day.'"';$resul_cd1=mysqli_query($miConexion,$sql_cd1);
 		while($fila1=mysqli_fetch_array($resul_cd1)){
 			echo "<p><b>Peluquero:</b>".$fila1['0']." ".$fila1['1']."<br> <b>Servicio Contratado:</b>".$fila1['2']."<br> <b>Tiempo Estimado:</b>".$fila1['3']."<br> <b>Hora:</b>".$fila1['4']."</p>";	
 		}					echo "</a></td><td style='padding:0px'></td>";
@@ -117,7 +117,7 @@ $miConexion = new Conexion();
 				}else{
 				
 					echo "<td style='text-align:left' class='link'><a href='agendar.php?dia=".$day."&mes=".$month."&anio=".$year."' data-toggle='modal'>$day";
-					 $sql_cd1='SELECT usuarios.nombre_usuario, usuarios.apellido_p, servicios.servicio, agendas.tiempo, agendas.hora, agendas.fecha FROM `usuarios`, `servicios`, `agendas` WHERE usuarios.id_usuario=agendas.id_usuario AND servicios.id_servicio=agendas.id_servicio AND agendas.id_cliente = '.$_SESSION['id_user'];
+					 $sql_cd1='SELECT usuarios.nombre_usuario, usuarios.apellido_p, servicios.servicio, descripcion_servicios.descripcion, agendas.tiempo, agendas.hora FROM `usuarios`, `descripcion_servicios`, `servicios`, `agendas` WHERE usuarios.id_usuario=agendas.id_usuario AND descripcion_servicios.id_servicio=servicios.id_servicio AND descripcion_servicios.id_descripcion_servicios=agendas.id_servicio AND agendas.id_cliente ='.$_SESSION['id_user'].' AND agendas.fecha="'.$year.'-'.$month.'-'.$day.'"';
 					$resul_cd1=mysqli_query($miConexion,$sql_cd1);
 		while($fila1=mysqli_fetch_array($resul_cd1)){
 			echo "<p><b>Peluquero:</b>".$fila1['0']." ".$fila1['1']."<br> <b>Servicio Contratado:</b>".$fila1['2']."<br> <b>Tiempo Estimado:</b>".$fila1['3']."<br> <b>Hora:</b>".$fila1['4']."</p>";	
