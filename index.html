@@ -50,7 +50,9 @@
                                 <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
-                                        <li class="active"><a href="#">Inicio</a></li>                                        <li><a href="#acceso">Login</a></li>                                <li><a href=""  data-toggle="modal" data-target="#myModal">Registrarse</a></li>
+                                        <li class="active"><a href="#">Inicio</a></li>                                        <li><a href="#acceso">Login</a></li>                                										<li><a href=""  data-toggle="modal" data-target="#myModal">Registrarse</a></li>
+                                        <li><a href=""  data-toggle="modal" data-target="#myModalAsistencia">Asistencia</a></li>
+                                        <li><a href=""  data-toggle="modal" data-target="#myModalSalida">Salida</a></li>
                                     </ul>                                    
                                 </div> <!-- /.main-menu -->
                             </div> <!-- /.row -->
@@ -107,7 +109,7 @@
                             	<p>INICIO DE SESIÓN</p><br>
                             </div>
                         	<div class="contact-form">
-                            	<form action="index.php?modo=login" method="post">
+                            	<form action="indexb.php?modo=login" method="post">
 									<i>Usuario:</i><br> <input type="text" name="usuario"><br>
 									<i>Password:</i><br> <input type="password" name="password"><br>
 									<input type="hidden" name="login" value="1">
@@ -157,9 +159,52 @@
         </div>
     </div>
     </form>
+    <!-- Modal Asistencia-->
+	<form action="index.php?modo=registro" method="post">
+    <div class="modal fade" id="myModalAsistencia" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Asistencia</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe src="asistencia.php" style="width: 100% !important; height:250px !important"></iframe>
+                </div>
+                <div id="texto">
+	                
+                </div>
 
 
+            </div>
 
+        </div>
+    </div>
+    </form>
+
+	 <!-- Modal Salida-->
+	<form action="index.php?modo=registro" method="post">
+    <div class="modal fade" id="myModalSalida" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Salida</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe src="salida.php" style="width: 100% !important; height:250px !important"></iframe>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    </form>
 
 
 

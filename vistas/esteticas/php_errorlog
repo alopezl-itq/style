@@ -1,1 +1,14 @@
-[29-May-2016 23:22:22 CST6CDT] PHP Parse error:  syntax error, unexpected 'web' (T_STRING) in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/conexion.php on line 16
+[20-May-2016 00:07:19 CST6CDT] PHP Fatal error:  Class 'Conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:08:03 CST6CDT] PHP Fatal error:  Class 'Conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:08:22 CST6CDT] PHP Fatal error:  Class 'Conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:08:32 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:09:20 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:10:06 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:10:10 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:11:51 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:12:25 CST6CDT] PHP Fatal error:  require(): Failed opening required 'clases/Conexion.php' (include_path='.:/usr/local/php54/pear') in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/index.php on line 3
+[20-May-2016 00:15:30 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:16:08 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:16:53 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:18:28 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25
+[20-May-2016 00:18:36 CST6CDT] PHP Fatal error:  Class 'conexion' not found in /home/alejan14/domains/alejandrolopezlopez.com/public_html/style/clases/comunes.php on line 25

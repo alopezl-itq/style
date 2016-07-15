@@ -85,7 +85,7 @@ direcciones,clientes,productos,ventas,detalle_ventas,tipo_pago WHERE usuarios.id
 $resul = $this->con->consultaR($sql);
 		$row =mysqli_fetch_assoc($resul) ;
 		
-		public function vercliente($cliente){
+		 function vercliente($cliente){
 		$sql ="Select * FROM clientes where id_cliente=".$cliente;
 		$res=$this->con->consultaR($sql);
 		return $res;

@@ -1,7 +1,7 @@
 <?php
 include_once('../../clases/conexion.php');
 
-class estetica
+class cursos
 {
 //atributos
 
@@ -50,8 +50,8 @@ public function set($atributo, $contenido){
 	}
 
 
-public function verempresas(){
-	$sql ="Select * FROM empresas e, estatus c where e.id_estatus= c.id_estatus order by e.id_estatus asc";
+public function vercursos(){
+	$sql ="Select * FROM cursos";
 	$res=$this->con->consultaR($sql);
 	
 	 
@@ -73,13 +73,13 @@ public function verempresas(){
 
 
 	public function veradministradores(){
-	$sql ="SELECT  u.nombre_usuario, u.apellido_p, u.apellido_m, u.id_usuario FROM usuarios u WHERE  u.id_tipo_usuario =4";
+	$sql ="SELECT  u.nombre_usuario, u.apellido_p, u.apellido_m FROM usuarios u WHERE  u.id_tipo_usuario =4";
 	$res=$this->con->consultaR($sql);
 	return $res;
 }
 	public function verestados(){
 		
-		$sql ="Select * FROM estados";
+		 $sql ="Select * FROM estados";
 		$res=$this->con->consultaR($sql);
 		return $res;
 	}
@@ -107,33 +107,21 @@ public function verempresas(){
 		
 		public function ver(){
 		$_GET['id'];
-		$sql = ("SELECT e.*, t.descripcion_estatus, s.descripcion_estados, m.descripcion_municipios from empresas e, estatus t, estados s, municipios m where e.id_empresa =".$_GET['id']. " and e.id_estado = s.id_estado and e.id_ciudad = m.id_municipio and e.id_estatus = t.id_estatus");
+		$sql = ("SELECT * from cursos where id_curso =".$_GET['id']);
 		$resul = $this->con->consultaR($sql);
 		$row =mysqli_fetch_assoc($resul) ;
 		
 		
 		//set interno
-		$this->id_empresa = $row['id_empresa'];
-		$this->nombre = $row['nombre'];
-		$this->administrador = $row["id_usuario"];
-		$this->eslogan = $row["eslogan"];
-		$this->imagen = $row["imagen"];
-		$this->cliente_a = $row["cliente_a"];
-		$this->cliente_b = $row["cliente_b"];
-		$this->cliente_c = $row["cliente_c"];
-		$this->cliente_d = $row["cliente_d"];
+		$this->id_curso = $row['id_curso'];
+		$this->descripcion_cursos = $row['descripcion_cursos'];
+		$this->fecha_inicio = $row["fecha_inicio"];
+		$this->fecha_final = $row["fecha_final"];
+		$this->imparte = $row["imparte"];
+		$this->nombre_curso = $row["nombre_curso"];
+		$this->foranea = $row["nom_empresa_foranea"];
+		$this->archivo = $row["archivo"];
 		
-		$this->estatus= $row["descripcion_estatus"];
-		$this->calle = $row["calle"];
-		$this->no_ext = $row["no_ext"];
-		$this->no_int = $row["no_int"];
-		$this->estado = $row["descripcion_estados"];
-		$this->id_estado= $row["id_estado"];
-	    $this->id_municipio=$row['descripcion_municipios'];
-		$this->nombre;
-		$this->facebook=$row['facebook'];
-		$this->facebook=$row['twitter'];
-		$this->facebook=$row['instagram'];
 		
 		return $row;
 		}
@@ -143,8 +131,7 @@ public function verempresas(){
 			
 
 			
-			echo $sql= "INSERT INTO `empresas` (`id_empresa`, `id_usuario`, `nombre`, `eslogan`, `imagen`, `cliente_a`, `cliente_b`, `cliente_c`, `cliente_d`, `id_estatus`, `calle`, `no_ext`, `no_int`, `id_estado`,`id_ciudad`,`facebook`,`twitter`,`instagram`) VALUES (NULL, NULL, '$this->nombre', '$this->eslogan', '$this->imagen',
- '$this->cliente_a', '$this->cliente_b', '$this->cliente_c', '$this->cliente_d',  '$this->id_estatus', '$this->calle', '$this->no_ext', '$this->no_int', '$this->id_estado', '1','$this->facebook','$this->twitter','$this->instagram'); ";
+			 $sql= "INSERT INTO `cursos` (`id_curso`, `descripcion_cursos`, `fecha_inicio`, `fecha_final`, `imparte`, `nombre_curso`, `nom_empresa_foranea`, `archivo`) VALUES (NULL, '$this->descripcion', '$this->fecha_inicio', '$this->fecha_final','$this->imparte', '$this->nombre_curso', '$this->empresa', '$this->archivo'); ";
 			//$this->con->query($sql);
 			//$conexion=mysqli_connect('localhost','desarrollo','style16','style') or die(mysql_error());
 			$conexion=mysqli_connect('localhost','alejan14_style','style16','alejan14_style') or die(mysql_error());
@@ -177,11 +164,8 @@ public function verempresas(){
 				$this->con->query($sql);				
 				}
 				
-				
-//Inicia función par editar estéticas
-				
 				public function editar(){
-				 $sql = "UPDATE empresas SET nombre = '".$_POST['nombre_estetica']."', id_usuario= '".$_POST['id_usuario']."', eslogan= '".$_POST['eslogan']."', id_estatus= '".$_POST['id_estatus']."', cliente_a = '".$_POST['cliente_a']."', cliente_b = '".$_POST['cliente_b']."', cliente_c = '".$_POST['cliente_c']."', cliente_d = '".$_POST['cliente_d']."', calle = '".$_POST['calle']."', facebook = '".$_POST['facebook']."', twitter = '".$_POST['twitter']."', instagram = '".$_POST['instagram']."', no_ext = '".$_POST['no_ext']."', no_int = '".$_POST['no_int']."', id_ciudad ='1',  id_estado='".$_POST['id_estado']."' WHERE id_empresa = '".$_POST['id_empresa']."'";
+				$sql = "UPDATE cursos SET descripcion_cursos = '".utf8_decode($_POST['descripcion'])."', fecha_inicio= '".$_POST['fecha_inicio']."', fecha_final= '".$_POST['fecha_final']."', imparte= '".$_POST['imparte']."', nombre_curso = '".$_POST['nombre_curso']."', nom_empresa_foranea = '".$_POST['empresa']."' WHERE id_curso = ".$_POST['id_curso']."";
 				
 				//$this->con->query($sql);
 				
@@ -189,20 +173,17 @@ public function verempresas(){
 			$conexion=mysqli_connect('localhost','alejan14_style','style16','alejan14_style') or die(mysql_error());
 			
 			if ($conexion->connect_error) {
-					die("Connection failed: " . $conn>connect_error);
+					die("Connection failed: " . $conexion>connect_error);
 			} 
 			
 			if ($conexion->query($sql) === TRUE) {
-				echo("aqui ando");
-								//header("location:index.php");
+						header("location:index.php");
 			}else {
 				echo "Error: " . $sql . "<br>" . $conexion->error;
 			}
 			
-			return true;	
-				}
 				
-		
+				}
 			
 	
 }

@@ -10,74 +10,9 @@ include_once('../../modulos/c_estetica.php');
 <html xmlns="http://www.w3.org/1999/html">
 <head>
 <meta charset="utf-8">
-<title>Nueva empresa</title>
+<title>Nueva Estética</title>
 
 	<script src="../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-<style type="text/css">
-a:hover,a:focus{
-    text-decoration: none;
-    outline: none;
-}
-.tab .nav-tabs{
-    border-bottom: 0 none;
-}
-.tab .nav-tabs li{
-    margin-right: 2px;
-}
-.tab .nav-tabs li a{
-    border: none;
-    padding: 13px 35px;
-    color: #fff;
-    background: #272e38;
-    border-radius: 0;
-}
-.tab .nav-tabs li a:hover{
-    background:#000;
-}
-.tab .nav-tabs li a i{
-    font-size: 14px;
-    display: block;
-    text-align: center;
-    margin-bottom: 5px;
-}
-.tab .nav-tabs li.active a,
-.tab .nav-tabs li.active a:focus,
-.tab .nav-tabs li.active a:hover{
-    border: none;
-    background: #737495;
-    color:#fff;
-    transition: background 0.20s linear;
-}
-.tab .nav-tabs li.active:after{
-    content: "";
-    position: absolute;
-    top: 41px;
-    left: 40%;
-    border: 12px solid transparent;
-    border-top-color: #fff;
-    transform: rotate(180deg);
-}
-.tab .tab-content{
-    background: #fff;
-    line-height: 25px;
-    padding: 30px 25px;
-    border: 1px solid #ddd;
-    border-bottom: 5px solid #737495;
-}
-@media only screen and (max-width: 480px){
-    .tab .nav-tabs li{
-        width:100%;
-    }
-    .tab .nav-tabs li a{
-        padding: 20px;
-        text-align: center;
-    }
-    .tab .nav-tabs li.active:after{
-        border:none;
-    }
-}
-	
-</style>
 	
 	
 	
@@ -108,16 +43,81 @@ a:hover,a:focus{
 </script>
 
   
-<header align="center"><h1>Nueva Estética</h1></header>
+<header align="center"><h1><center>Nueva Estética</center></h1></header>
 <?php
 $controlador = new c_estetica();
-if(isset($_POST['enviar'])){
- $r =$controlador->crear( $_POST['nombre_estetica'],$_POST['imagen'], $_POST['eslogan'],$_POST['cliente_a'],
-	 $_POST['cliente_b'],$_POST['cliente_c'],$_POST['cliente_d'],$_POST['id_estatus'],$_POST['calle'],$_POST['no_int'],
-	 $_POST['no_ext'],$_POST['id_estado']);
 
+
+	
+	
+	
+	
+
+
+if(isset($_POST['enviar'])){
+	//print_r($_POST);
+	
+	
+	//print_r($_POST);
+	
+	$permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+	$limite_kb = 16384;
+	if (in_array($_FILES['imagen']['type'], $permitidos) && $_FILES['imagen']['size'] <= $limite_kb * 1024){
+		//esta es la ruta donde copiaremos la imagen
+		//recuerden que deben crear un directorio con este mismo nombre
+		//en el mismo lugar donde se encuentra el imagen subir.php
+		//echo $ruta = "../../imagenes_esteticas/" . $_FILES['imagen']['name'];
+		
+		
+		
+		switch($_FILES['imagen']['type']){
+			case("image/jpg"):
+				$ext=".jpg";
+				break;
+			case("image/jpeg"):
+				$ext=".jpg";
+				break;
+			case("image/gif"):
+				$ext=".gif";
+				break;
+			case("image/png"):
+				$ext=".png";
+				break;	
+		}
+		
+		$nombre=strtolower($_POST['nombre_estetica']);
+		$nombre=str_replace(" ", "", $nombre);
+		echo $ruta = "../../imagenes_esteticas/" . $nombre.$ext;
+
+	print_r($_POST);
+ $r =$controlador->crear( $_POST['nombre_estetica'],$ruta, $_POST['eslogan'],$_POST['cliente_a'],
+	 $_POST['cliente_b'],$_POST['cliente_c'],$_POST['cliente_d'],$_POST['id_estatus'],$_POST['calle'],$_POST['no_int'],
+	 $_POST['no_ext'],$_POST['id_estado'],$_POST['facebook'],$_POST['twitter'],$_POST['instagram']);
+
+
+
+		//comprovamos si este imagen existe para no volverlo a copiar.
+		//pero si quieren pueden obviar esto si no es necesario.
+		//o pueden darle otro nombre para que no sobreescriba el actual.
+		if (!file_exists($ruta)){
+			//aqui movemos el imagen desde la ruta temporal a nuestra ruta
+			//usamos la variable $resultado para almacenar el resultado del proceso de mover el imagen
+			//almacenara true o false
+			$resultado = @move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);
+			if ($resultado){
+				echo "el imagen ha sido movido exitosamente";
+			} else {
+				echo "ocurrio un error al mover el imagen.";
+			}
+		} else {
+			echo $_FILES['imagen']['name'] . ", este imagen existe";
+		}
+	} else {
+		echo "imagen no permitido, es tipo de imagen prohibido o excede el tamano de $limite_kb Kilobytes";
+	}	
+	
 	if($r){
-		echo 'se agrego un nuevo estética';
+		//echo 'se agrego un nuevo estética';
 		header("location:index.php");
 	}else{
 		echo'no se agrego el registro';
@@ -131,7 +131,7 @@ if(isset($_POST['enviar'])){
 
 <body>
 <div class="container" >   
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
 
 <div class="container">
     <div class="row">
@@ -139,61 +139,84 @@ if(isset($_POST['enviar'])){
             <div class="tab" role="tabpanel">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i>Datos 1</a></li>
-                    <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-cube"></i>Datos 2</a></li>
-                    <li role="presentation"><a href="#Section3" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-comment"></i>Datos 3</a></li>
+                    <li role="presentation" class="active"><a href="#Section1" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-envelope-o"></i>Datos Grals.</a></li>
+                    <li role="presentation"><a href="#Section2" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-cube"></i>Rangos</a></li>
+                    <li role="presentation"><a href="#Section4" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-comment"></i>Redes Sociales</a></li>
+                    <li role="presentation"><a href="#Section3" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-comment"></i>Dirección</a></li>
                 </ul>
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="Section1">
-                        <h2>Datos 1</h2>
+                        <h2> --</h2>
                         <p>
                             <div class="form-group">
-								<h4> Nombre de la estética:</h4><label for="nombre"><input type="text" placeholder="estética@" name="nombre_estetica" id="nombre_estetica" 									maxlength="50" size="20" required/></label>
+								<h4> Nombre de la estética:</h4><label for="nombre"><input type="text" placeholder="estética@" name="nombre_estetica" id="nombre_estetica" 									maxlength="50" size="20" required/>*</label>
 							</div>
 
 							<div class="form-group">
-								<h4> Eslogán:</h4><label for="nombre"><input type="text" placeholder="eslogán@" name="eslogan" id="eslogan" maxlength="50" 								size="20" required/></label>
+								<h4> Eslogán:</h4><label for="nombre"><input type="text" placeholder="eslogán@" name="eslogan" id="eslogan" maxlength="50" 								size="20" required/>*</label>
 							</div>
 							<div class="form-group">
-							<h4> Imagen:</h4><label for="nombre"><input type="file" placeholder="imagen@" name="imagen" id="imagen" maxlength="50" 		size="20" required/></label>
+							<h4> Imagen:</h4><label for="nombre"><input type="file"  name="imagen" id="imagen" required/>*</label>
 							</div>
 
                 </div>
  
                     <div role="tabpanel" class="tab-pane fade" id="Section2">
-                        <h2>Datos 2</h2>
+                        <h2>--</h2>
                        
                             <div class="form-group">
-								<h4> Valor Cliente a:</h4><label for="nombre"><input type="text" placeholder="estética@" name="cliente_a" id="nombre" maxlength="50" size="20" required/></label>
+								<h4> Límite A:</h4><label for="nombre"><input type="text" placeholder="estética@" name="cliente_a" id="nombre" maxlength="50" size="20" required/>*</label>
 							</div>
 							<div class="form-group">
-								<h4> Valor Cliente b:</h4><label for="nombre"><input type="text" placeholder="estética@" name="cliente_b" id="nombre" maxlength="50" size="20" required/></label>
+								<h4> Límite B:</h4><label for="nombre"><input type="text" placeholder="estética@" name="cliente_b" id="nombre" maxlength="50" size="20" required/>*</label>
 							</div>
 							<div class="form-group">
-								<h4> Valor Cliente c:</h4><label for="nombre"><input type="text" placeholder="estética@" name="cliente_c" id="nombre" maxlength="50" size="20" required/></label>
+								<h4> Límite C:</h4><label for="nombre"><input type="text" placeholder="estética@" name="cliente_c" id="nombre" maxlength="50" size="20" required/>*</label>
 							</div>
 							<div class="form-group">
-								<h4> Valor Cliente d:</h4><label for="nombre"><input type="text" placeholder="estética@" name="cliente_d" id="nombre" maxlength="50" size="20" required/></label>
+								<h4> Límite D:</h4><label for="nombre"><input type="text" placeholder="estética@" name="cliente_d" id="nombre" maxlength="50" size="20" required/>*</label>
 							</div>
                         
                     </div>
+                    
+                    
+                    <div role="tabpanel" class="tab-pane fade" id="Section4">
+                        <h2>--</h2>
+                        <p>
+                            <div class="form-group">
+								<h4> Facebook:</h4><label for="nombre"><input type="text" placeholder="facebook@" name="facebook" id="facebook" 									maxlength="50" size="20" /></label>
+							</div>
+
+							<div class="form-group">
+								<h4> Twitter:</h4><label for="nombre"><input type="text" placeholder="twitter@" name="twitter" id="twitter" maxlength="50" 								size="20" /></label>
+							</div>
+							<div class="form-group">
+							<h4> Instagram:</h4><label for="nombre"><input type="text"  name="instagram" id="instagram" /></label>
+							</div>
+
+                </div>
+                    
+                    
+                    
+                    
+                    
  
                     <div role="tabpanel" class="tab-pane fade" id="Section3">
-                        <h2>Datos 3</h2>
+                        <h2>--</h2>
                             <div class="form-group">
-								<h4> Calle:</h4><label for="nombre"><input type="text" placeholder="calle@" name="calle" id="nombre" maxlength="50" size="20" required/></label>
+								<h4> Calle:</h4><label for="nombre"><input type="text" placeholder="calle@" name="calle" id="nombre" maxlength="50" size="20" required/>*</label>
 							</div>
 
 							<div class="form-group">
-								<h4> No. Exterior</h4><label for="nombre"><input type="text"  name="no_ext" id="nombre" maxlength="50" size="20" required/></label>
+								<h4> No. Exterior</h4><label for="nombre"><input type="text"  name="no_ext" id="nombre" maxlength="50" size="20" required/>*</label>
 							</div>
 
 							<div class="form-group">
-								<h4> No. Interior</h4><label for="nombre"><input type="text"  name="no_int" id="nombre" maxlength="50" size="20" required/></label>
+								<h4> No. Interior</h4><label for="nombre"><input type="text"  name="no_int" id="nombre" maxlength="50" size="20" /></label>
 							</div>
 							<div class="form-group">
-								<h4>Telefono:</h4><label for="tel"><input type="tel" placeholder="(442)3605521" id="tel" name="telefono" maxlength="20" size="20" required/>	</label>
+								<h4>Telefono:</h4><label for="tel"><input type="tel" placeholder="(442)3605521" id="tel" name="telefono" maxlength="20" size="20" required/>*	</label>
 							</div>
 							
 							<div class="checkbox">
@@ -212,7 +235,7 @@ if(isset($_POST['enviar'])){
 
 									?>
 
-								</select>
+								</select>*
 							</div>
 							<div class="checkbox">
 								<select name="id_estado">
@@ -226,11 +249,11 @@ if(isset($_POST['enviar'])){
 
 									?>
 
-								</select>
+								</select>*
 							</div>
 	
 							<div>
-								<input type="submit"  name="enviar" value="enviar" />
+								<input type="submit" class="slider-btn" name="enviar" value="enviar" />
 							</div>
                        
                     </div>
