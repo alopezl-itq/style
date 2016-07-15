@@ -218,12 +218,12 @@ endwhile;
 
 						<div class="form-group">
 							<h5><i>Costo:</i></h5><label for="costo"><input type="number"  name="costo" 
-                           placeholder="$$$$$" id="costo" onblur="CostValidate(this);" required /></label>
+                           placeholder="$$$$$" id="costo" min="0" onblur="CostValidate(this);" required /></label>
                         </div>
                         <div id="CostError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                             <div class="form-group">
 							<h5><i>Apoyo economico:</i></h5><label for="apoyo"><input type="number"  name="apoyo"
-                           placeholder="$$$$$"  id="apoyo" onblur="ApoValidate(this);" required /></label>
+                           placeholder="$$$$$" min="o" id="apoyo" onblur="ApoValidate(this);" required /></label>
                         </div>
                         <div id="ApoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
