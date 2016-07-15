@@ -32,36 +32,120 @@ http://www.templatemo.com/tm-406-flex
         <link rel="stylesheet" href="css/templatemo_misc.css">
         <link rel="stylesheet" href="css/templatemo_style.css">
 
+        <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-      <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="../../principal.php">Inicio</a></li>
-      <li><a href="vistas/esteticas">Estéticas</a></li>
-      <li><a href="vistas/usuarios">Usuarios</a></li>
-      <li><a href="clases/salir.php">Salir</a></li> 
-    </ul>
-  </div>
-</nav>
+
+<!--<header><a href="clases/salir.php">Logout</a></header>-->
+
+
+
+<div class="site-main" id="sTop">
+            <div class="site-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <ul class="social-icons">
+                                
+                                <?php
+	                                redes();
+	                            ?>
+                            </ul>
+                        </div> <!-- /.col-md-12 -->
+                    </div> <!-- /.row -->
+                </div> <!-- /.container -->
+                <div class="main-header">
+                    <div class="container">
+                        <div id="menu-wrapper">
+                            <div class="row">
+                                <div class="logo-wrapper col-md-2 col-sm-2">
+                                    <!--<h1>
+                                       <a href="#">Flex</a>
+                                    </h1>-->
+                                </div> <!-- /.logo-wrapper -->
+                                <div class="col-md-10 col-sm-10 main-menu text-right">
+	                                
+                                    <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
+                                    
+                                    
+                                    <ul class="menu-first">
+	                                    
+                                        <li class="active"><a href="#">Inicio</a></li>
+                                      <li><a href="vistas/usuarios">Usuarios</a></li>
+                                       	<li><a href="vistas/esteticas">Estéticas</a></li>
+                                       	<li><a href="vistas/cursos">Cursos</a></li>
+                                       <!--<li><a href="vistas/ventas">Ventas</a></li>-->
+                                       <li><a href="vistas/clientes">Clientes</a></li>
+                                       
+                                        <!--<li><a href="#">¿Quienes Somos?</a></li>-->
+                                        <li><a class="glyphicon-arrow-right" href="clases/salir.php">Salir</a></li>                               
+                                    </ul>                                    
+                                </div> <!-- /.main-menu -->
+                            </div> <!-- /.row -->
+                        </div> <!-- /#menu-wrapper -->                        
+                    </div> <!-- /.container -->
+                </div> <!-- /.main-header -->
+            </div> <!-- /.site-header -->
+             <!-- /.site-main -->
 
 
 <div class="content-section" id="contact">
             <div class="container">
                 <div class="row">
-                    <div class="heading-section col-md-12" style="font-size:xx-large; text-align:center">
+                    <div class="heading-section col-md-12 text-center">
                             </center>
 	                    <?php
 
 validarSesion();
-//echo $_SESSION['nombre'];
+
 
 ?>
                                           </div> <!-- /.col-md-12 -->
+                                          
+                                      
+    <!--            
+                
+                <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-comments" data-href="https://alex.redes.sociales.facebook.com" data-width="800" data-numposts="5"></div>-->
+                  
+                    <div class="col-md-4 hidden-xs text-right">
+                        <a href="#top" id="go-top">Back to top</a>
+                    </div> <!-- /.text-center -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /#footer -->
+        
+        <script src="js/vendor/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>                
                 </div> 
+
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-xs-12 text-left">
+                        <span>Copyright &copy; 2016 Style Co. 
+                        
+                        | Design: <a rel="nofollow" href="http://www.alejandrolopezlopez.com"
+                         target="_target">QroSol</a>
+
+                        </span>
+                  </div> <!-- /.text-center -->
+                  <div id="fb-root"></div>
+
+
+        
+
 
 </body>
 
 </html>
-
