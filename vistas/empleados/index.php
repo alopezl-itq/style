@@ -48,7 +48,7 @@ validarSesionEnVistas();
           <li><a href="../../vistas/empleados">Empleados Regisrados</a></li>
           <li><a href="?cargar=empleados&controlador=reactivar">Empleados Desactivados</a></li>
             <li><a href="../../vistas/servicios/Servicios.php">Servicios</a></li>
-          <li><a href="../../vistas/productos/Productos.php">Productos</a></li>
+          <li><a href="../../vistas/productos/Menu.php">Productos</a></li>
         </ul>
       </li>
       <li><a href="../empleados/index.php">Regresar</a></li>

@@ -147,7 +147,7 @@ $resultado = $controlador->ver($id_empresa);
      </tbody>
 </table>
 </table>
-<form method="POST" action="rProductos.php">
+<form method="POST" action="Menu.php">
 <br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas productos" style="height:38px; width:350px" >
 </form>
 </div>

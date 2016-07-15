@@ -1,17 +1,5 @@
 <?php
-
 include_once('../../modulos/controladorS.php');
-
-$controlador = new controlador();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {  
-    $id_servicio=$_POST["tipo"];
-    $costo=$_POST["costo"];
-    $tiempo=$_POST["tiempo"];
-    $descripcionServicios=$_POST["descripcion"];
-    $id_empresa=$_POST["id_empresa"];
-
-    $d=$controlador->crearDesServicio($descripcionServicios,$id_servicio);
-    $r=$controlador->agregarNuevoServicioEmpresa($id_empresa,$id_servicio,$costo,$descripcionServicios,$tiempo);}
 ?>
 
 <!DOCTYPE html>
@@ -70,15 +58,14 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
                             <div class="row">
                                 <div class="logo-wrapper col-md-2 col-sm-2">
                                     <h1>
-                                       <a href="#">Servicios</a>
+                                       <a href="#">Productos</a>
                                     </h1>
                                 </div> <!-- /.logo-wrapper -->
                                 <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <li class="active"><a href="../../principal.php">Inicio</a></li>
-                                        <li><a href="?cargar=usuarios&controlador=crear"><b>Registrar</b></a></li>
-                                    
+                                        <li class="glyphicon-book"><a href="tabla.php">Ver Productos registrados</a></li>
                                     <li><a class="glyphicon-book" href="../../clases/salir.php">Salir</a></li>
                                     </ul>                                    
                                 </div> <!-- /.main-menu -->
@@ -92,85 +79,118 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
         <div class="content-section" id="contact">
             <div class="container">
                 <div class="row">
-                    <div class="heading-section col-md-12 text-center">
+                    <div class="heading-section  text-center">
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
-                <div class="row">
-						<?php  
-$controlador = new Controlador();
-$resultado = $controlador->ver($id_empresa);
-?>
-<div align="center"> 
-<table border="1">
-	<thead>
-        <th>Servicio</th>
-		<th>Descripcion</th>
-        <th>Costo</th>
-        <th>tiempo</th>
-         <!-- 
-        <th>Editar</th>
-        <th>Eliminar</th>
-        -->
-     </thead>
-     <tbody>
-     <?php  while($row = mysqli_fetch_array($resultado)): ?>
-        <tr>
-        <td><?php echo utf8_encode($row['servicio']); ?></td>
-        <td><?php echo  utf8_encode($row['descripcion']); ?></td>
-        <td>$<?php echo  utf8_encode($row['costo']); ?> Pesos</td>
-        <td><?php echo  utf8_encode($row['tiempo']); ?> minutos</td>
+                
+                <TABLE BORDER=1 WIDTH=600>
 
-       
-      <!-- 
-       <td> <a href="?cargar=usuarios&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
-        <td><a href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Eliminar</a></td>
-        -->
-        </tr>
-        
-      <?php  
-	  
-	  
-	  
-	  endwhile; 
-	  ?>
-      
-      
-     </tbody>
-</table>
-<br><button type="button" style="height:38px; width:350px" data-toggle="modal" data-target="#ModalAdd">Insertar Nuevo Servicio</button>
+<TR>
+<TD WIDTH=600>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=1 name='numero'>
+<input type="image" name="1" src="img/1.jpg" />
+</FORM>
+</TD>
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=2 name='numero'>
+<input type="image" name="2" src="img/2.jpg" />
+</FORM>
+</TD>
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=3 name='numero'>
+<input type="image" name="3" src="img/3.png" />
+</FORM>
+</TD>
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=4 name='numero'>
+<input type="image" name="4" src="img/4.png" />
+</FORM>
+</TD>
+
+
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=5 name='numero'>
+<input type="image" name="5" src="img/5.jpg" />
+</FORM>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=6 name='numero'>
+<input type="image" name="6" src="img/6.jpg" />
+</FORM>
+</TD>
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=7 name='numero'>
+<input type="image" name="7" src="img/7.jpg" />
+</FORM>
+</TD>
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=8 name='numero'>
+<input type="image" name="8" src="img/8.jpg" />
+</FORM>
+</TD>
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=9 name='numero'>
+<input type="image" name="9" src="img/9.png" />
+</FORM>
+</TD>
+
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=10 name='numero'>
+<input type="image" name="10" src="img/10.png" />
+</FORM>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=11 name='numero'>
+<input type="image" name="1" src="img/11.gif" />
+</FORM>
+</TD>
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=12 name='numero'>
+<input type="image" name="12" src="img/12.png" />
+</FORM>
+</TD>
+
+
+
+<TD WIDTH=500>
+<FORM METHOD="POST" ACTION="Productos.php">
+<INPUT TYPE='HIDDEN' VALUE=13 name='numero'>
+<input type="image" name="13" src="img/13.gif" />
+</FORM>
+</TD>
+</TR>
+
+</TABLE>
 
 </div>
-
-
-<!-- Modal Sexo-->
-<div id="ModalAdd" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Insertar Servicio</h4>
-      </div>
-      <div class="modal-body">
-		  <form METHOD="POST" ACTION="nServicios.php">
-			<br>Tipo de Servicio<br>
-            <select name='tipo'><option value=1>Servicio de corte</option><option value=2>Servicio de color</option><option value=3>Servicio de peinado</option><option value=4 >Servicio de maquillaje</option><option value=5 >Otro tipo de servicio</option></select><br>
-            <br>Nuevo Servicio:<br>
-            <INPUT TYPE="TEXT" NAME="descripcion" required style="height:20px; width:100px;"><br>
-            <br>Costo del Servicio:<br>
-            <input type="text" name='costo' style="height:20px; width:100px;"><br>
-           <br>Tiempo del Servicio:<br>
-            <select name='tiempo'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select><br>
-        <?
-echo "<INPUT TYPE='HIDDEN' VALUE='$id_empresa' name='id_empresa'>";
-?>
-			<br><INPUT TYPE="SUBMIT" style="height:38px; width:350px" value="Insertar" aling="Center"><br>
-		</form>
-      </div>
-    </div>
-  </div>
-</div>
-                </div> <!-- /.row -->
+                
             </div> <!-- /.container -->
         </div> <!-- /#contact -->
          
