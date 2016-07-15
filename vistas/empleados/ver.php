@@ -223,7 +223,7 @@ endwhile;
                         <div id="CostError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                             <div class="form-group">
 							<h5><i>Apoyo economico:</i></h5><label for="apoyo"><input type="number"  name="apoyo"
-                           placeholder="$$$$$" min="o" id="apoyo" onblur="ApoValidate(this);" required /></label>
+                           placeholder="$$$$$" min="0" id="apoyo" onblur="ApoValidate(this);" required /></label>
                         </div>
                         <div id="ApoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
