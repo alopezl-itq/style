@@ -22,6 +22,11 @@ if($_GET['id_usuario']){
    $resultado = $controlador->listarC($_GET['id_usuario']);	
 	
 	}
+	
+if(isset($_POST['guardar'])){
+$controlador->editarCom($_GET['id_usuario'],utf8_encode($_POST['observaciones']));
+}
+	
 
 	
 ?>
@@ -65,9 +70,22 @@ if($_GET['id_usuario']){
                     <b style="font-size:24px">Información de Contacto</b><br/><br/>
 						<b>Telefono:</b>&nbsp;<?php  echo   $row['telefono']; ?>
 <br/><br/>
-<b>Correo electronico:</b>&nbsp;<?php  echo   $row['email']; ?>
-<br/><br/>
+<b>Correo electronico:</b>&nbsp;<?php  echo  $row['email']; ?>
+<br/><br/><br/>
+  <form action="" method="POST" name="frm">
+						<div class="form-group">
+                        <h3><b>Comentarios</b></h3><br/><br/>
+ <textarea name="observaciones" style=" width:320px; height:100px"><?php echo $row['observaciones']; ?></textarea> 
+                        </div>
+                         <div class="col-sm-10" align="center">
+						<div>
+							<input type="submit"  name="guardar"  value="Guardar" onclick="return val();" style="width:30%"/>
+						</div>
+                        </div>
+						</form>
 
+
+<br><br>
 						</div>
                         
                         <div class="col-sm-4">

@@ -4,11 +4,10 @@ $controlador = new ControladorE();
 
 if(isset($_GET['id_usuario'])){
 $row=$controlador->verE($_GET['id_usuario']);
+
 }
 
 if(isset($_POST['enviar'])){
-	
-
 $controlador->editarE($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_encode($_POST['Facebook']),utf8_encode($_POST['twitter']),utf8_encode($_POST['instagram']));
 
 
@@ -175,9 +174,9 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
 								$resultMun = $usuario->vermunicipioTodos($row['descripcion_estados']);
 									while($row1=mysqli_fetch_array($resultMun)){
 										if($row['id_municipio']==$row1['id_municipio']){
-									echo '<option value="'.$row1["id_municipio"].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+									echo '<option value="'.$row1['id_municipio'].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
 								}else{
-									echo '<option value="'.$row1["id_municipio"].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+									echo '<option value="'.$row1['id_municipio'].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
 								}
 							}
 
@@ -208,7 +207,7 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
                         <h5><i>Colonia:</i></h5>
     					<div class="form-group">
 							<label>
-							<input type="text" value="<?php echo $row["colonia"]; ?>" placeholder="Ingrese su Colonia"  name="colonia" 
+							<input type="text" value="<?php echo $row['colonia']; ?>" placeholder="Ingrese su Colonia"  name="colonia" 
                                id="colonia" onblur="coloniaValidate(this);" required />
 						</label></div>
                         <div id="coloniaError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
@@ -236,7 +235,7 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
                         <h5><i>Codigo Postal:</i></h5>
 						<div class="form-group">
                         <label>
-							<input type="number" id="cp" placeholder="Ingrese su Código Postal" name="cp" value="<?php echo $row["cp"]; ?>" min="11111" max="99999" onblur="cpValidate(this);" required />
+							<input type="number" id="cp" placeholder="Ingrese su Código Postal" name="cp" value="<?php echo $row['cp']; ?>" min="11111" max="99999" onblur="cpValidate(this);" required />
 						</label></div>
                         <div id="cpError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
@@ -258,7 +257,7 @@ $resulRedes=$empleado->verredes($_GET['id_usuario']);
 
 	echo '
 					 <div class="form-group">
-                          <h5><i>'.$row6["descripcion_red_social"].'</i></h5><label for="usuario_r"><input type="text" placeholder="Usuario '.$row6["descripcion_red_social"].'" name="'.$row6["descripcion_red_social"].'" value="'.$row6["usuario_r"].'"  id="'.$row6["descripcion_red_social"].'" maxlength="50" size="20"  /></label>
+                          <h5><i>'.$row6['descripcion_red_social'].'</i></h5><label for="usuario_r"><input type="text" placeholder="Usuario '.$row6['descripcion_red_social'].'" name="'.$row6['descripcion_red_social'].'" value="'.$row6['usuario_r'].'"  id="'.$row6['descripcion_red_social'].'" maxlength="50" size="20"  /></label>
 						</div>
 ';}
 						 ?>
@@ -289,19 +288,19 @@ $resulRedes=$empleado->verredes($_GET['id_usuario']);
 		}
 	</script>
 						<div class="form-group">
-							<h5><i>User:</i></h5><label for="user"><input type="text" id="user" placeholder="Ingrese Username" name="usuario" value="<?php echo $row["usuario"]; ?>" maxlength="50" size="20" onblur="userValidate(this);" required/></label>
+							<h5><i>User:</i></h5><label for="user"><input type="text" id="user" placeholder="Ingrese Username" name="usuario" value="<?php echo $row['usuario']; ?>" maxlength="50" size="20" onblur="userValidate(this);" required/></label>
 						</div>
                         <div id="userError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 	
     					<div class="form-group">
 							<h5><i>Password:</i></h5><label for="password"><input type="password"
-                            id="password" placeholder="Ingrese Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"  value="<?php echo $row["password"]; ?>" name="password" maxlength="50" size="20" onblur="passwordValidate(this);" required/></label>
+                            id="password" placeholder="Ingrese Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"  value="<?php echo $row['password']; ?>" name="password" maxlength="50" size="20" onblur="passwordValidate(this);" required/></label>
 						</div>
                         <div id="passwordError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
 	<div class="form-group">
 		<h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password"
-													   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echo $row["password"]; ?>"maxlength="50" size="20" required/></label>
+													   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echo $row['password']; ?>"maxlength="50" size="20" required/></label>
 	</div>
     
                         <div class="col-sm-12" align="center">

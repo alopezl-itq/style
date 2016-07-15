@@ -196,22 +196,18 @@ public function crearC( $id_tipo_curso,$fecha_inicio,$fecha_final, $imparte,$nom
 			$this->empleado->set("nom_empresa_foranea",$nom_empresa_foranea);
 			$this->empleado->set("costo",$costo);
 			$this->empleado->set("apoyo",$apoyo);
-			
-			
-			
-		
-		$resultado=$this->empleado->editarCurso();
+			$resultado=$this->empleado->editarCurso();
 			return $resultado;
 		
+	}
+	
+	public function editarCom($id_usuario,$observaciones){
 		
-			
-
-
-
-			
-		
-		}
-
+            $this->empleado->set("id_usuario",$id_usuario);
+			$this->empleado->set("observaciones",$observaciones);
+		    $resultado=$this->empleado->editarComent();
+			return $resultado;
+	}
 
 }
 

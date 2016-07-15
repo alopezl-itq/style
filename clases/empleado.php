@@ -129,7 +129,7 @@ return  $this->usu->verempresas();
 		$resul = $this->con->consultaR($sql);
 	
 		$row =mysqli_fetch_assoc($resul) ;
-		print_r($row);
+		
 		
 		//set interno
 		$this->id_usuario = $row['id_usuario'];
@@ -152,6 +152,7 @@ return  $this->usu->verempresas();
 		$this->cp = $row['cp'];
 		$this->comisiones = $row['comisiones'];
 		$this->sueldo_base =$row['sueldo_base'];
+		$this->observaciones =$row['observaciones'];
 	    return $row;
 	   
 		}
@@ -216,12 +217,12 @@ $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `s
 			}
              //funcion para editar el empleado    				
 				public function editarEmpleado(){
-		echo  $sql = "UPDATE `usuarios` SET `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia' WHERE `usuarios`.`id_usuario` = '$this->id_usuario'";
+		echo  $sql = "UPDATE `usuarios` SET id_usuario=$this->id_usuario, `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia' WHERE `usuarios.id_usuario` =".$this->id_usuario;
 $this->con->query($sql);
 				
 				//funcion para editar suledo y comisiones 
 				$sql1="Update sueldos SET comisiones = $this->comisiones, sueldo_base = $this->sueldo_base where 
-				sueldos.id_usuario= $this->id_usuario";
+				sueldos.id_usuario=".$this->id_usuario;
 				$this->con->query($sql1);
 
 //funciones de editar redes social de sql2 a sl4 				
@@ -244,13 +245,6 @@ $this->con->query($sql4);
 		return $result;
 }
 
-
- //funciones para ver los tipos de cursos
-      public function vertipoCu(){
-		$sql ="SELECT * FROM tipo_curso";
-		$res=$this->con->consultaR($sql);
-		return $res;
-		}
 
 //funcion para listar los cursos tomados del usuario
   public function listarCursos(){
@@ -281,6 +275,13 @@ echo $sql="Update cursos_tomados set id_curso=$this->id_curso ,id_tipo_curso=$th
 		  
 		  
 		  
+		  //funciones para ver los tipos de cursos
+      public function vertipoCu(){
+		$sql ="SELECT * FROM tipo_curso";
+		$res=$this->con->consultaR($sql);
+		return $res;
+		}
+		  
 		  
 		  public function verCursos(){
 		  
@@ -306,6 +307,14 @@ echo $sql="Update cursos_tomados set id_curso=$this->id_curso ,id_tipo_curso=$th
 		  }
 		  
 		  
+		  ///funcion para editar comnetarios e insertar
+		  public function editarComent(){
+		  
+$sql="Update usuarios set id_usuario=$this->id_usuario,observaciones='$this->observaciones' where id_usuario=".$this->id_usuario;
+		  $this->con->query($sql);
+		  
+		  
+		  }
 		
 			  
 
