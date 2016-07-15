@@ -23,7 +23,7 @@ class Conexion extends MySQLi{
 	}
 	
 	public function consultaS($sql){
-	mysqli_query($sql);
+	mysqli_query($this->Miconexion,$sql);
 }
 
 public function consultaR($sql){
