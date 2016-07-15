@@ -39,6 +39,7 @@ private $nom_empresa_foranea;
 private $nombre_curso;
 private $costo;
 private $apoyo;
+private $id_curso;
 private $id_tipo_curso;
 private $imparte;
 private $usu;
@@ -124,11 +125,11 @@ return  $this->usu->verempresas();
 		
 		public function verE(){
 	
-		$sql = ("SELECT u.*, s.descripcion, e.descripcion_estados,t.descripcion_estatus, p.descripcion_tipo_usuarios, r.nombre,m.descripcion_municipios ,d.comisiones,d.sueldo_base from usuarios u, sexo s, estados e, estatus t, tipo_usuarios p, empresas r, municipios m ,sueldos d, redes_usuario i WHERE u.sexo=s.id_sexo and u.id_estatus=t.id_estatus and u.id_tipo_usuario= p.id_tipo_usuario and u.id_empresa=r.id_empresa and u.id_municipio=m.id_municipio and m.id_estado=e.id_estado and d.id_usuario=u.id_usuario  and u.id_usuario=".$this->id_usuario);
+	$sql = ("SELECT u.*, s.descripcion, e.descripcion_estados,t.descripcion_estatus, p.descripcion_tipo_usuarios, r.nombre,m.descripcion_municipios ,d.comisiones,d.sueldo_base from usuarios u, sexo s, estados e, estatus t, tipo_usuarios p, empresas r, municipios m ,sueldos d, redes_usuario i WHERE u.sexo=s.id_sexo and u.id_estatus=t.id_estatus and u.id_tipo_usuario= p.id_tipo_usuario and u.id_empresa=r.id_empresa and u.id_municipio=m.id_municipio and m.id_estado=e.id_estado and d.id_usuario=u.id_usuario  and u.id_usuario=".$this->id_usuario);
 		$resul = $this->con->consultaR($sql);
 	
 		$row =mysqli_fetch_assoc($resul) ;
-		
+		print_r($row);
 		
 		//set interno
 		$this->id_usuario = $row['id_usuario'];
@@ -152,7 +153,7 @@ return  $this->usu->verempresas();
 		$this->comisiones = $row['comisiones'];
 		$this->sueldo_base =$row['sueldo_base'];
 	    return $row;
-			
+	   
 		}
 		
 		
@@ -215,7 +216,7 @@ $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `s
 			}
              //funcion para editar el empleado    				
 				public function editarEmpleado(){
-				$sql = "UPDATE `usuarios` SET `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia' WHERE `usuarios`.`id_usuario` = '$this->id_usuario'";
+		echo  $sql = "UPDATE `usuarios` SET `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia' WHERE `usuarios`.`id_usuario` = '$this->id_usuario'";
 $this->con->query($sql);
 				
 				//funcion para editar suledo y comisiones 
@@ -256,34 +257,13 @@ $this->con->query($sql4);
 	 $sql= "select c.*,t.descripcion_curso  From cursos_tomados c,tipo_curso t, usuarios u  where c.id_tipo_curso=t.id_tipo_curso and c.id_usuario=u.id_usuario and u.id_usuario=".$this->id_usuario;
 	 $result = $this->con->consultaR($sql);
    return $result;
-	
-	
-	
-	
-		$row =mysqli_fetch_assoc($result) ;
-		
-		
-		//set interno
-	   $this->id_curso = $row['id_curso'];
-	   $this->id_tipo_curso =$row['descripcion_curso'];
-       $this->fech_ini_curso =$row['fecha_inicio'];
-       $this->fech_fin_curso = $row['fecha_final'];
-       $this->nom_imparte = $row['imparte'];
-       $this->nombre_curso = $row['nombre_curso'];
-       $this->empresa_foranea = $row['nom_empresa_foranea'];
-       $this->costo = $row['costo'];
-	   $this->apoyo = $row['apoyo'];
-       return $row;
-	 
-	 
-	  
-	  
-	  }
+   
+}
 	  
 	  //funcion para insertar cursos
 	  public function crearCursos(){
 		  
- $sql="INSERT  INTO cursos_tomados (id_tipo_curso,fecha_inicio,fecha_final,imparte,nombre_curso,nom_empresa_foranea,costo,apoyo,id_usuario) values ($this->id_tipo_curso,'$this->fecha_inicio','$this->fecha_final','$this->imparte','$this->nombre_curso','$this->nom_empresa_foranea',$this->costo,$this->apoyo,$this->id_usuario)";
+	echo  $sql="INSERT  INTO cursos_tomados (id_tipo_curso,fecha_inicio,fecha_final,imparte,nombre_curso,nom_empresa_foranea,costo,apoyo,id_usuario) values ($this->id_tipo_curso,'$this->fecha_inicio','$this->fecha_final','$this->imparte','$this->nombre_curso','$this->nom_empresa_foranea',$this->costo,$this->apoyo,$this->id_usuario)";
 $this->con->query($sql);
 
 return true;
@@ -291,13 +271,43 @@ return true;
 		  }
 		  
 		  //funcios para editar curso tomado de usuarios
-		  public function EditarCurso(){
+ public function editarCurso(){
 		  
-		  echo $sql="Upadte cursos_tomados set id_tipo_curso=$this->tipo_curso, fecha_inicio='$this->'fecha_inicio', fecha_final='$this->fecha_final',imparte='$this->imparte',nombre_curso='$this->nombre_curso', nom_empresa_foranea='$this->nom_empresa_foranea',costo = $this->costo, apoyo=$this->apoyo  where  usuario.id_usuario = cursos_tomados.id_usario and id_curso=".$this->id_curso;
+echo $sql="Update cursos_tomados set id_curso=$this->id_curso ,id_tipo_curso=$this->id_tipo_curso, fecha_inicio='$this->fecha_inicio', fecha_final='$this->fecha_final',imparte='$this->imparte',nombre_curso='$this->nombre_curso',nom_empresa_foranea='$this->nom_empresa_foranea',costo=$this->costo,apoyo=$this->apoyo  where id_curso=".$this->id_curso;
 		  $this->con->query($sql);
 		  
 		  
 		  }
+		  
+		  
+		  
+		  
+		  public function verCursos(){
+		  
+	 $sql= "select c.*,t.descripcion_curso  From cursos_tomados c,tipo_curso t, usuarios u  where      c.id_tipo_curso=t.id_tipo_curso and c.id_usuario=u.id_usuario and c.id_curso=".$this->id_curso;
+	 $result = $this->con->consultaR($sql);
+	
+		$row=mysqli_fetch_assoc($result) ;
+	
+		//set interno
+	   $this->id_curso = $row['id_curso'];
+	   $this->id_tipo_curso =$row['descripcion_curso'];
+       $this->fecha_inicio =$row['fecha_inicio'];
+       $this->fecha_final = $row['fecha_final'];
+       $this->imparte = $row['imparte'];
+       $this->nombre_curso = $row['nombre_curso'];
+       $this->nom_empresa_foranea = $row['nom_empresa_foranea'];
+       $this->costo = $row['costo'];
+	   $this->apoyo = $row['apoyo'];
+	   $this->id_usuario =$row['id_usuario'];
+       return $row;
+		  
+		  
+		  }
+		  
+		  
+		
+			  
 
 
 	

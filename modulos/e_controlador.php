@@ -1,5 +1,5 @@
 <?php
-include_once("../../clases/empleado.php");
+include_once('../../clases/empleado.php');
 
 
 
@@ -73,7 +73,7 @@ public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo,
 		
 		
 		
-		public function crearC( $id_tipo_curso,$fecha_inicio,$fecha_final, $imparte,$nombre_curso,$nom_empresa_foranea,$costo,$apoyo,$id_usuario){
+public function crearC( $id_tipo_curso,$fecha_inicio,$fecha_final, $imparte,$nombre_curso,$nom_empresa_foranea,$costo,$apoyo,$id_usuario){
 		
 
 			$this->empleado->set("id_tipo_curso",$id_tipo_curso);
@@ -174,8 +174,43 @@ public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo,
 		$this->empleado->set("id_usuario",$id_usuario);
 		$resultado=$this->empleado->listarCursos();	
 		  return $resultado;
+		} 
+		
+		
+		public function verC($id_curso){
+		$this->empleado->set("id_curso",$id_curso);
+		$resul=$this->empleado->verCursos();
+		return $resul;
+			
 		}
 		
+		
+		public function editarC($id_curso,$id_tipo_curso,$fecha_inicio,$fecha_final, $imparte,$nombre_curso,$nom_empresa_foranea,$costo,$apoyo){
+		
+            $this->empleado->set("id_curso",$id_curso);
+			$this->empleado->set("id_tipo_curso",$id_tipo_curso);
+			$this->empleado->set("fecha_inicio",$fecha_inicio);
+			$this->empleado->set("fecha_final",$fecha_final);
+			$this->empleado->set("imparte",$imparte);
+			$this->empleado->set("nombre_curso",$nombre_curso);
+			$this->empleado->set("nom_empresa_foranea",$nom_empresa_foranea);
+			$this->empleado->set("costo",$costo);
+			$this->empleado->set("apoyo",$apoyo);
+			
+			
+			
+		
+		$resultado=$this->empleado->editarCurso();
+			return $resultado;
+		
+		
+			
+
+
+
+			
+		
+		}
 
 
 }

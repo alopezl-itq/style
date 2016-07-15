@@ -10,6 +10,7 @@ if(isset($_POST['enviar'])){
 }
 
 
+
 if($_GET['id_usuario']){
 $result= $controlador->verredes($_GET['id_usuario']);
 }
@@ -121,7 +122,7 @@ endwhile;
         <td><?php echo  $row['apoyo'] ?></td>
 
 
-        <td> <a href="?cargar=empleados&controlador=editarcurso&id_curso=<?php echo  $row['id_curso'];  ?>">Editar</a> </td>
+        <td><a href="?cargar=empleados&controlador=editarcurso&id_curso=<?php echo  $row['id_curso'];  ?>">Editar</a></td>
         </tr>
 
       <?php
@@ -220,8 +221,5 @@ endwhile;
   </div>
 </div>
 
-</div>              
-              
-                        
-
+</div>       
 </div>
