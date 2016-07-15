@@ -47,13 +47,13 @@ class Cliente
 
     //consulta los productos usados en un servicio en específico para el historial
     public function verDescripcionProductos($id_s){
-         $sql = ' SELECT p.descripcion_productos,p.presentacion ,p.precio_venta,u.* from productos p, productos_por_servicio u where u.id_servicio_usuario='.$id_s .' and p.id_productos=u.id_producto';
+         $sql = 'SELECT p.descripcion_productos,p.presentacion ,e.precio_venta,u.* from productos p,productos_empresa e, productos_por_servicio u where u.id_servicio_usuario='.$id_s.' and p.id_productos=u.id_producto and e.id_producto = u.id_producto';
         $resultado = $this->con->consultaR($sql);
         return $resultado;
     }
     //consulta los productos de un cliente en específico para el historial
     public function verProductos(){
-        $sql="SELECT p.descripcion_productos,p.precio_venta,u.* from productos p, productos_usuario u where u.id_cliente=".$this->id_cliente." and p.id_productos=u.id_producto";
+        $sql="SELECT p.descripcion_productos,e.precio_venta,u.* from productos_empresa e, productos p, productos_usuario u where u.id_cliente=$this->id_cliente and p.id_productos=u.id_producto and e.id_producto=u.id_producto";
         $resultado =$this->con->consultaR($sql);
         return $resultado;
     }
@@ -67,7 +67,7 @@ class Cliente
     //calcula el total del costo de productos comprados por un cliente
     public function totalPrecioProductos($id_cliente){
 
-        $sql = "SELECT SUM(p.precio_venta) from productos p, productos_usuario u where u.id_cliente=".$id_cliente." and p.id_productos=u.id_producto and u.fecha>='".$this->calcularAnio()."-01-01' and u.fecha<='".$this->calcularAnio()."-12-31'";
+        $sql = "SELECT SUM(p.precio_venta) from productos_empresa p, productos_usuario u where u.id_cliente=".$id_cliente." and p.id_producto=u.id_producto and u.fecha>='".$this->calcularAnio()."-01-01' and u.fecha<='".$this->calcularAnio()."-12-31'";
         $resultado =$this->con->consultaR($sql);
         $row = $this->con->recorrer($resultado);
         return $row;

@@ -11,7 +11,10 @@ if(isset($_POST['enviar'])){
 
 
 
-<script  src="js/jquery.js"></script>
+
+<script  src="js/jquery.js">
+
+</script>
 <div id="pestanas">
  <ul class="nav nav-tabs">
  	<li class="active"><a href="#pestana1">Información Personal</a></li>
