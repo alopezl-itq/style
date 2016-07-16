@@ -7,4 +7,4 @@
  */
 include("comunes.php");
 salir();
-header("location: ../index.html");
+header("location: ../index.php");

@@ -209,7 +209,7 @@ echo 	$r;
     
     <div>
 								<?php
-									echo "<img src='".$row['imagen']."'>";
+									echo "<img height ='250' width='250' src='".$row['imagen']."'>";
 								?>
 		
                        

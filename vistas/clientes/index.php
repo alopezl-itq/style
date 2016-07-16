@@ -10,7 +10,7 @@
  include_once('../../modulos/controlador.php');
 include_once('../../modulos/controlador_cl.php');
 session_start();
-if($_SESSION['tipo']==3){
+//if($_SESSION['tipo']==3){
 
 $controlador = new ControladorC();
 
@@ -100,6 +100,3 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['empresa']);
 </body>
 
 </html>
-<?php }else{
-    header('location: ../../clases/salir.php');
-};

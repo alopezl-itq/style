@@ -6,7 +6,7 @@
  * Time: 09:33 AM
  */
 
-include_once("/../clases/cliente.php");
+include_once("../../clases/cliente.php");
 
 
 

@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "style";
+$username = "alejan14_style";
+$password = "style16";
+$dbname = "alejan14_style";
 
 session_start();
 

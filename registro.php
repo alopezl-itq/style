@@ -1,8 +1,8 @@
 <?php
 
-include_once('modulos/Controlador_Registro.php');
+include_once('modulos/controlador_registro.php');
 
-$controlador = new Controlador();
+$controlador = new controlador();
 if(isset($_POST['enviar'])){
     $controlador->crearUsuario(utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_empresa'],3,$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']));
 

@@ -77,6 +77,10 @@ http://www.templatemo.com/tm-406-flex
                                        	<li><a href="vistas/cursos">Cursos</a></li>
                                        <!--<li><a href="vistas/ventas">Ventas</a></li>-->
                                        <li><a href="vistas/clientes">Clientes</a></li>
+                                       <li><a href="vistas/agendar">Agenda</a></li>
+                                       <li><a href="vistas/empleados">Empleados</a></li>
+                                      <!-- <li><a href="vistas/productos/">Productos</a></li>->>
+                                       <--<li><a href="vistas/servicios">Servicios</a></li>-->
                                        
                                         <!--<li><a href="#">¿Quienes Somos?</a></li>-->
                                         <li><a class="glyphicon-arrow-right" href="clases/salir.php">Salir</a></li>                               
