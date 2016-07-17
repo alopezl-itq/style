@@ -58,7 +58,7 @@ public function set($atributo, $contenido){
 	return $res;
 }
 	public function vertipous(){
-		$sql ="Select * FROM tipo_usuarios where id_tipo_usuario >3";
+		$sql ="Select * FROM tipo_usuarios";
 		$res=$this->con->consultaR($sql);
 		return $res;
 		}
