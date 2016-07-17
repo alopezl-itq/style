@@ -24,7 +24,7 @@ if($_GET['id_usuario']){
 	}
 	
 if(isset($_POST['guardar'])){
-$controlador->editarCom($_GET['id_usuario'],utf8_encode($_POST['observaciones']));
+$controlador->editarCom($_GET['id_usuario'],utf8_decode($_POST['observaciones']));
 }
 	
 
@@ -52,9 +52,9 @@ $controlador->editarCom($_GET['id_usuario'],utf8_encode($_POST['observaciones'])
 <br/><br/>
 <b>Nombre:</b> &nbsp; <?php echo utf8_encode($row['nombre_usuario']); ?>
 <br/><br/>
-<b>Apellido Paterno: </b>&nbsp;<?php echo utf8_decode($row['apellido_p']); ?>
+<b>Apellido Paterno: </b>&nbsp;<?php echo utf8_encode($row['apellido_p']); ?>
 <br/><br/>
-<b>Apellido Materno:</b>&nbsp;<?php echo utf8_decode($row['apellido_m']); ?>
+<b>Apellido Materno:</b>&nbsp;<?php echo utf8_encode($row['apellido_m']); ?>
 <br/><br/>
 <b>Sexo:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion']); ?>
 <br/><br/>

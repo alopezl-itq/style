@@ -221,12 +221,12 @@ echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m
 			}
              //funcion para editar el empleado    				
 				public function editarEmpleado(){
-		echo  $sql = "UPDATE `usuarios` SET id_usuario=$this->id_usuario, `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia' WHERE `usuarios.id_usuario` =".$this->id_usuario;
+		echo  $sql = "UPDATE `usuarios` SET id_usuario=$this->id_usuario, `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia' WHERE `id_usuario` =".$this->id_usuario;
 $this->con->query($sql);
 				
 				//funcion para editar suledo y comisiones 
-			echo	$sql1="Update sueldos SET id_usuario=$this->id_curso, comisiones = $this->comisiones, sueldo_base = $this->sueldo_base where 
-				sueldos.id_usuario=".$this->id_usuario;
+			echo	$sql1="Update sueldos SET id_usuario=$this->id_usuario, comisiones = $this->comisiones, sueldo_base = $this->sueldo_base where 
+				id_usuario=".$this->id_usuario;
 				$this->con->query($sql1);
 
 //funciones de editar redes social de sql2 a sl4 				
