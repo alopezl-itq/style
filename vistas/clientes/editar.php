@@ -8,7 +8,7 @@ $row=$controlador->ver($_SESSION['id_user']);
 
 if(isset($_POST['enviar'])){
 
- $controlador->editar($_SESSION['id_user'],utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_empresa'],3,$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']));
+ $controlador->editar($_SESSION['id_user'],utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_empresa'],3,$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']));
 
 
 
@@ -46,7 +46,7 @@ if(isset($_POST['enviar'])){
 		<div class="col-lg-6 col-md-6">
 			<form action="" method="POST">
 				<div class="form-group">
-					<h5><i>Nombre:</i></h5><label for="nombre_usuario"><input type="text" value="<?php echo $row["nombre_usuario"]; ?>" name="nombre_usuario"
+					<h5><i>Nombre:</i></h5><label for="nombre_usuario"><input type="text" value="<?php echo utf8_encode($row["nombre_usuario"]); ?>" name="nombre_usuario"
 																			  id="nombre_usuario" maxlength="50" size="20" style="width:100%;" required/></label>
 				</div>
 

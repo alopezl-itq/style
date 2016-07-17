@@ -15,7 +15,7 @@ $row=$controlador->verC($_GET['id_curso']);
 }
 
 if(isset($_POST['enviar'])){
- $controlador->editarC($_GET['id_curso'],$_POST['id_tipo_curso'],$_POST['fecha_inicio'],$_POST['fecha_final'], utf8_encode($_POST['imparte']),utf8_encode($_POST['nombre_curso']),utf8_encode($_POST['nom_empresa_foranea']),$_POST['costo'],$_POST['apoyo']);
+ $controlador->editarC($_GET['id_curso'],$_POST['id_tipo_curso'],$_POST['fecha_inicio'],$_POST['fecha_final'], utf8_decode($_POST['imparte']),utf8_decode($_POST['nombre_curso']),utf8_decode($_POST['nom_empresa_foranea']),$_POST['costo'],$_POST['apoyo']);
 }
 
 
@@ -61,21 +61,21 @@ if(isset($_POST['enviar'])){
         
 						<div class="form-group">
                             <h5><i>Nombre del instructor :</i></h5><label for="nombre"><input type="text" placeholder="Nombre(s)*" name="imparte" 
-                             value="<?php echo $row['imparte']; ?>"
+                             value="<?php echo utf8_encode($row['imparte']); ?>"
                             id="nombre" maxlength="50" size="20" onblur="nombreValidate(this);" required/></label>
 						</div>
                         <div id="nombreError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
                         <div class="form-group">
 							<h5><i>Nombre del Curso:</i></h5><label for="curso"><input type="text" placeholder="ej:Corte Avanzado*" id="curso" 
-                             value="<?php echo $row['nombre_curso']; ?>"
+                             value="<?php echo utf8_encode($row['nombre_curso']); ?>"
                             name="nombre_curso" maxlength="50" size="20" onblur="cursoValidate(this);" required/></label>
 						</div>
 						<div id="cursoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
                         <div class="form-group">
 							<h5><i>Empresa Instructora:</i></h5><label for="empresa"><input type="text" placeholder="Nombre Empresa*" id="empresa" name="nom_empresa_foranea"
-                             value="<?php echo $row['nom_empresa_foranea']; ?>"
+                             value="<?php echo utf8_encode($row['nom_empresa_foranea']); ?>"
                              maxlength="50" size="20" onblur="EMPFValidate(this);" required/></label>
 						</div>
                         <div id="EMPFError" class="alert alert-danger alert-dismissable" style="display:none;"></div>

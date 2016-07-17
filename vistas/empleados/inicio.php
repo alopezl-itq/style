@@ -33,7 +33,7 @@ $resultado = $controlador->index($_SESSION['estetica']);
         <td><?php echo utf8_encode($row['apellido_p']); ?></td>
         <td><?php echo utf8_encode($row['apellido_m']); ?></td>
         <td><?php echo utf8_encode($row['nombre']); ?></td>
-        <td><?php echo utf8_encode($row['telefono']); ?></td>
+        <td><?php echo $row['telefono']; ?></td>
 
 
         <td> <a  href="?cargar=empleados&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">+Informacion</a> </td>

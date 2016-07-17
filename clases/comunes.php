@@ -98,7 +98,7 @@ include_once('conexion.php');
 
 function validarSesionEnVistas(){
     if(isset($_SESSION['login'])){
-        echo "Bienvenido ".utf8_decode($_SESSION['nombre']);
+        echo "Bienvenido ".utf8_encode($_SESSION['nombre']);
     }else{
         header ("location:index.html");
     }
@@ -107,7 +107,7 @@ function validarSesionEnVistas(){
 
 function validarSesion(){
     if(isset($_SESSION['login'])){
-        echo "Bienvenido ".utf8_decode($_SESSION['nombre']);
+        echo "Bienvenido ".utf8_encode($_SESSION['nombre']);
     }else{
         header ("location:index.html");
     }

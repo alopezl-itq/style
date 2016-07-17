@@ -8,7 +8,7 @@ $row=$controlador->ver($_GET['id_usuario']);
 
 if(isset($_POST['enviar'])){
 
- $controlador->editar($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_empresa'],$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']));
+ $controlador->editar($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_empresa'],$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']));
 
 
 
@@ -46,17 +46,17 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-6 col-md-6">
                         <form action="" method="POST">
 						<div class="form-group">
-                            <h5><i>Nombre:</i></h5><label for="nombre_usuario"><input type="text" value="<?php echo utf8_decode($row["nombre_usuario"]); ?>" name="nombre_usuario"
+                            <h5><i>Nombre:</i></h5><label for="nombre_usuario"><input type="text" value="<?php echo utf8_encode($row["nombre_usuario"]); ?>" name="nombre_usuario"
                             id="nombre_usuario" maxlength="50" size="20" style="width:100%;" required/></label>
 						</div>
 						
                         <div class="form-group">
-							<h5><i>Apellido Paterno:</i></h5><label for="apellido_p"><input type="text" value="<?php echo utf8_decode($row["apellido_p"]); ?>" 
+							<h5><i>Apellido Paterno:</i></h5><label for="apellido_p"><input type="text" value="<?php echo utf8_encode($row["apellido_p"]); ?>" 
                             id="apellidos" name="apellido_p" maxlength="50" size="20" required/></label>
 						</div>
 						
                         <div class="form-group">
-							<h5><i>Apellido Materno:</i></h5><label for="apellido_m"><input type="text" value="<?php echo utf8_decode($row["apellido_m"]); ?>" 
+							<h5><i>Apellido Materno:</i></h5><label for="apellido_m"><input type="text" value="<?php echo utf8_encode($row["apellido_m"]); ?>" 
                             id="apellidos" name="apellido_m" maxlength="50" size="20" required/></label>
 						</div>
                         
@@ -101,7 +101,7 @@ if(isset($_POST['enviar'])){
 
 						<div class="form-group">
 							<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email" 
-                            value="<?php echo $row["email"]; ?>" id="email" name="email" size="20"  maxlength="50" /></label>	
+                            value="<?php echo utf8_encode($row["email"]); ?>" id="email" name="email" size="20"  maxlength="50" /></label>	
 						</div>
 
 <?php	
@@ -116,10 +116,10 @@ if($_SESSION['tipo']==4){
 				$usuario = new Usuario();
 				$resultado1=$usuario->verempresas();
 				while($row1=mysqli_fetch_array($resultado1)){
-					if(utf8_decode($row['nombre'])==utf8_decode($row1['nombre'])){
-					echo '<option value="'.$row1["id_empresa"].'" selected>'.utf8_decode($row1["nombre"]).'</option>';
+					if($row['nombre']==$row1['nombre']){
+					echo '<option value="'.$row1["id_empresa"].'" selected>'.utf8_encode($row1["nombre"]).'</option>';
 				}else{
-						echo '<option value="'.$row1["id_empresa"].'">'.utf8_decode($row1["nombre"]).'</option>';
+						echo '<option value="'.$row1["id_empresa"].'">'.utf8_encode($row1["nombre"]).'</option>';
 					}
 					}
 				
@@ -137,9 +137,9 @@ if($_SESSION['tipo']==4){
 								$resultado2=$usuario->vertipous();
 								while($row1=mysqli_fetch_array($resultado2)){
 									if($row['id_tipo_usuario']==$row1['id_tipo_usuario']){
-									echo '<option value="'.$row1["id_tipo_usuario"].'" selected>'.utf8_decode($row1["descripcion_tipo_usuarios"]).'</option>';
+									echo '<option value="'.$row1["id_tipo_usuario"].'" selected>'.utf8_encode($row1["descripcion_tipo_usuarios"]).'</option>';
 								}else{
-									echo '<option value="'.$row1["id_tipo_usuario"].'">'.utf8_decode($row1["descripcion_tipo_usuarios"]).'</option>';
+									echo '<option value="'.$row1["id_tipo_usuario"].'">'.utf8_encode($row1["descripcion_tipo_usuarios"]).'</option>';
 								}
 
 							}
@@ -163,7 +163,7 @@ if($_SESSION['tipo']==4){
 			$resultadoestado=$usuario->verestados();
 			while($row1=mysqli_fetch_array($resultadoestado)){
 			if($row['descripcion_estados']==$row1['descripcion_estados']){
-				echo '<option value="'.$row1["id_estado"].'" selected>'.utf8_decode($row1["descripcion_estados"]).'</option>';
+				echo '<option value="'.$row1["id_estado"].'" selected>'.utf8_encode($row1["descripcion_estados"]).'</option>';
 			}else{
 				echo '<option value="'.$row1["id_estado"].'">'.utf8_encode($row1["descripcion_estados"]).'</option>';
 			}
@@ -211,14 +211,14 @@ if($_SESSION['tipo']==4){
     					<div class="form-group">
 							<h5><i>Ciudad de Residencia:</i></h5>
 						<label>
-							<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo utf8_decode($row["colonia"]); ?>"required />
+							<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo utf8_encode($row["colonia"]); ?>"required />
 						</label>
 						</div>
                         
 						<h5><i>Calle:</i></h5>
 						<div class="form-group">
                         <label>
-							<input type="text" value="<?php echo utf8_decode($row['nombre_calle']); ?>" name="nombre_calle"/>
+							<input type="text" value="<?php echo utf8_encode($row['nombre_calle']); ?>" name="nombre_calle"/>
 						</label></div>
 						
                         <h5><i>Número Interior:</i></h5>
@@ -262,17 +262,17 @@ if($_SESSION['tipo']==4){
 		}
 	</script>
 						<div class="form-group">
-							<h5><i>User:</i></h5><label for="user"><input type="text" id="user" value="<?php echo $row["usuario"]; ?>" placeholder="Ingrese Username" name="usuario" maxlength="50" 
+							<h5><i>User:</i></h5><label for="user"><input type="text" id="user" value="<?php echo utf8_encode($row["usuario"]); ?>" placeholder="Ingrese Username" name="usuario" maxlength="50" 
                             size="20" required/></label>
 						</div>
 	
     					<div class="form-group">
 							<h5><i>Password:</i></h5><label for="password"><input type="password"
-                            id="password" placeholder="Ingrese Password" name="password" maxlength="50" value="<?php echo $row["password"]; ?>" size="20" required/></label>
+                            id="password" placeholder="Ingrese Password" name="password" maxlength="50" value="<?php echo utf8_encode($row["password"]); ?>" size="20" required/></label>
 						</div>
 	<div class="form-group">
 		<h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password"
-													   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echo $row["password"]; ?>" maxlength="50" size="20" required/></label>
+													   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echoutf8_encode($row["password"]); ?>" maxlength="50" size="20" required/></label>
 	</div><br/>
                         <div class="col-sm-12" align="center">
 						<div>

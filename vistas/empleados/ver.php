@@ -6,7 +6,7 @@ $controlador= new ControladorE();
 
 
 if(isset($_POST['enviar'])){
- $controlador->crearC($_POST['id_tipo_curso'],$_POST['fecha_inicio'],$_POST['fecha_final'], utf8_encode($_POST['imparte']),utf8_encode($_POST['nombre_curso']),utf8_encode($_POST['nom_empresa_foranea']),$_POST['costo'],$_POST['apoyo'],$_GET['id_usuario']);
+ $controlador->crearC($_POST['id_tipo_curso'],$_POST['fecha_inicio'],$_POST['fecha_final'], utf8_decode($_POST['imparte']),utf8_encode($_POST['nombre_curso']),utf8_decode($_POST['nom_empresa_foranea']),$_POST['costo'],$_POST['apoyo'],$_GET['id_usuario']);
 }
 
 
@@ -46,19 +46,19 @@ $controlador->editarCom($_GET['id_usuario'],utf8_encode($_POST['observaciones'])
                     <b style="font-size:24px">Información Personal</b><br/><br/>
                         <b>Numero de Usuario:</b> &nbsp; <?php echo $row['id_usuario']; ?>
 <br/><br/>
-<b>Tipo de empleado:</b>&nbsp;<?php  echo   $row['descripcion_tipo_usuarios']; ?>
+<b>Tipo de empleado:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion_tipo_usuarios']); ?>
 <br/><br/>
-<b>Usuario:</b>&nbsp;<?php  echo   $row['usuario']; ?>
+<b>Usuario:</b>&nbsp;<?php  echo  utf8_encode($row['usuario']); ?>
 <br/><br/>
-<b>Nombre:</b> &nbsp; <?php echo $row['nombre_usuario']; ?>
+<b>Nombre:</b> &nbsp; <?php echo utf8_encode($row['nombre_usuario']); ?>
 <br/><br/>
-<b>Apellido Paterno: </b>&nbsp;<?php echo $row['apellido_p']; ?>
+<b>Apellido Paterno: </b>&nbsp;<?php echo utf8_decode($row['apellido_p']); ?>
 <br/><br/>
-<b>Apellido Materno:</b>&nbsp;<?php echo $row['apellido_m']; ?>
+<b>Apellido Materno:</b>&nbsp;<?php echo utf8_decode($row['apellido_m']); ?>
 <br/><br/>
-<b>Sexo:</b>&nbsp;<?php  echo   $row['descripcion']; ?>
+<b>Sexo:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion']); ?>
 <br/><br/>
-<b>Fecha de nacimiento:</b>&nbsp;<?php  echo   $row['fecha_nacimiento']; ?>
+<b>Fecha de nacimiento:</b>&nbsp;<?php  echo  $row['fecha_nacimiento']; ?>
 <br/><br/>
 <b>Comision:</b>&nbsp;<?php  echo   $row['comisiones']; ?>
 <br/><br/>
@@ -70,12 +70,12 @@ $controlador->editarCom($_GET['id_usuario'],utf8_encode($_POST['observaciones'])
                     <b style="font-size:24px">Información de Contacto</b><br/><br/>
 						<b>Telefono:</b>&nbsp;<?php  echo   $row['telefono']; ?>
 <br/><br/>
-<b>Correo electronico:</b>&nbsp;<?php  echo  $row['email']; ?>
+<b>Correo electronico:</b>&nbsp;<?php  echo  utf8_decode($row['email']); ?>
 <br/><br/><br/>
   <form action="" method="POST" name="frm">
 						<div class="form-group">
                         <h3><b>Comentarios</b></h3><br/><br/>
- <textarea name="observaciones" style=" width:320px; height:100px"><?php echo $row['observaciones']; ?></textarea> 
+ <textarea name="observaciones" style=" width:320px; height:100px"><?php echo utf8_encode($row['observaciones']); ?></textarea> 
                         </div>
                          <div class="col-sm-10" align="center">
 						<div>
@@ -90,8 +90,8 @@ $controlador->editarCom($_GET['id_usuario'],utf8_encode($_POST['observaciones'])
                         
                         <div class="col-sm-4">
                         <b style="font-size:24px">Domicilio</b><br/><br/>
-    					<b>Estado:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion_estados']); ?> &nbsp;&nbsp;<b>Municipio:</b>&nbsp;<?php echo  $row['descripcion_municipios']; ?> <b>Colonia:</b>&nbsp;<?php echo $row['colonia']; ?>
- <b>Calle</b>&nbsp;<?php echo $row['nombre_calle']; ?>&nbsp;<b>No. Interior:</b>&nbsp;<?php echo  utf8_encode($row['no_int']); ?> &nbsp;<br/><b>No. Exterior:</b>&nbsp;<?php echo utf8_encode($row['no_ext']); ?>&nbsp;<b>Codigo Postal:</b>&nbsp;<?php echo utf8_encode($row['cp']); ?> 
+    					<b>Estado:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion_estados']); ?> &nbsp;&nbsp;<b>Municipio:</b>&nbsp;<?php echo  utf8_encode($row['descripcion_municipios']); ?> <b>Colonia:</b>&nbsp;<?php echo utf8_encode($row['colonia']); ?>
+ <b>Calle</b>&nbsp;<?php echo utf8_encode($row['nombre_calle']); ?>&nbsp;<b>No. Interior:</b>&nbsp;<?php echo  $row['no_int']; ?> &nbsp;<br/><b>No. Exterior:</b>&nbsp;<?php echo $row['no_ext']; ?>&nbsp;<b>Codigo Postal:</b>&nbsp;<?php echo $row['cp']; ?> 
 <br/><br/><br/>
 
 
@@ -100,7 +100,7 @@ $controlador->editarCom($_GET['id_usuario'],utf8_encode($_POST['observaciones'])
 <br/>
 
  <?php  while($row = mysqli_fetch_array($result)): ?>
-<b><?php echo $row['descripcion_red_social']; ?></b>:&nbsp;&nbsp;<b>Usuario:</b><?php echo $row['usuario_r'];
+<b><?php echo utf8_encode($row['descripcion_red_social']); ?></b>:&nbsp;&nbsp;<b>Usuario:</b><?php echo utf8_encode($row['usuario_r']);
 echo"<br/>";   
 endwhile; 
 ?>

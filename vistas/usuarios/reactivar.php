@@ -20,10 +20,10 @@ $resultado = $controlador->index($_SESSION['tipo']);
             <tr>
 
                 <td><?php echo utf8_encode($row['nombre_usuario']); ?></td>
-                <td><?php echo utf8_decode($row['apellido_p']); ?></td>
+                <td><?php echo utf8_encode($row['apellido_p']); ?></td>
                 <td><?php echo utf8_encode($row['apellido_m']); ?></td>
                 <td><?php echo utf8_encode($row['nombre']); ?></td>
-                <td><?php echo utf8_encode($row['telefono']); ?></td>
+                <td><?php echo $row['telefono']; ?></td>
 
 <td><a a  class="glyphicon glyphicon-pencil" title="Editar Estatus" href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
 
