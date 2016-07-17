@@ -25,8 +25,8 @@ $resultado = $controlador->verServicios($_SESSION['id_user']);
                         while($row=mysqli_fetch_array($resultado)){
 
                             $res = $controlador->verDescripcionProductos($row['id_servicio_usuario']);
-                            echo '<tr><td>'.$row['id_servicio_usuario'].'</td><td>'.$row['fecha_servicio'].'</td><td>'.$row['hora'].'</td><td>'.$row['rating'].'</td><td><img src=""></td><td>'.$row['observaciones'].'</td><td>'; while($row2=mysqli_fetch_array($res)){
-                                echo 'Producto: '.$row2['descripcion_productos'].' Cantidad:'.$row2['cantidad'].' Presentación:'.$row2['presentacion'].' <br>';
+                            echo '<tr><td>'.$row['id_servicio_usuario'].'</td><td>'.$row['fecha_servicio'].'</td><td>'.$row['hora'].'</td><td>'.$row['rating'].'</td><td><img src=""></td><td>'.utf8_encode($row['observaciones']).'</td><td>'; while($row2=mysqli_fetch_array($res)){
+                                echo 'Producto: '.utf8_encode($row2['descripcion_productos']).' Cantidad:'.$row2['cantidad'].' Presentación:'.$row2['presentacion'].' <br>'
                             }'</td></tr>';
                         }
                     ?>

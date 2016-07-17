@@ -60,7 +60,7 @@ $controlador = new c_estetica();
 				$estetica = new estetica();
 				$resultado4=$estetica->verempresas();
 				while($row=mysqli_fetch_array($resultado4)){
-					echo "<tr class='success'><td>".$row['nombre']."</td><td >".utf8_encode($row["descripcion_estatus"])."</td><td><a  class='glyphicon glyphicon-pencil' href=index.php?cargar=esteticas&controlador=ver&id=".$row['id_empresa']."></a></td></td></td><td> <a  class='glyphicon glyphicon-remove' href=index.php?cargar=esteticas&controlador=eliminar&id=".$row['id_empresa']."></a></td></tr>";
+					echo "<tr class='success'><td>".utf8_encode($row['nombre'])."</td><td >".utf8_encode($row["descripcion_estatus"])."</td><td><a  class='glyphicon glyphicon-pencil' href=index.php?cargar=esteticas&controlador=ver&id=".$row['id_empresa']."></a></td></td></td><td> <a  class='glyphicon glyphicon-remove' href=index.php?cargar=esteticas&controlador=eliminar&id=".$row['id_empresa']."></a></td></tr>";
 				}
 			?>
 				</tbody>

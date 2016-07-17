@@ -85,14 +85,14 @@ if(isset($_POST['enviar'])){
 				break;	
 		}
 		
-		$nombre=strtolower($_POST['nombre_estetica']);
+		$nombre=strtolower(utf8_decode($_POST['nombre_estetica']));
 		$nombre=str_replace(" ", "", $nombre);
 		echo $ruta = "../../imagenes_esteticas/" . $nombre.$ext;
 
 	print_r($_POST);
- $r =$controlador->crear( $_POST['nombre_estetica'],$ruta, $_POST['eslogan'],$_POST['cliente_a'],
-	 $_POST['cliente_b'],$_POST['cliente_c'],$_POST['cliente_d'],$_POST['id_estatus'],$_POST['calle'],$_POST['no_int'],
-	 $_POST['no_ext'],$_POST['id_estado'],$_POST['facebook'],$_POST['twitter'],$_POST['instagram']);
+ $r =$controlador->crear(utf8_decode($_POST['nombre_estetica']),$ruta, $_POST['eslogan'],$_POST['cliente_a'],
+	 $_POST['cliente_b'],$_POST['cliente_c'],$_POST['cliente_d'],$_POST['id_estatus'],utf8_decode($_POST['calle']),$_POST['no_int'],
+	 $_POST['no_ext'],$_POST['id_estado'],utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
 
 
 

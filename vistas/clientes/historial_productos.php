@@ -32,7 +32,7 @@ $resultado = $controlador->verProductos($_SESSION['id_user']);
 
                     echo '<tr><td>'.$row['id_productos_usuario'].'</td><td>'.$row['fecha'].'</td><td>'.$row['hora'].'</td>
                     <td>'.$row['rating'].'</td>
-                    <td><img src=""></td><td>'.$row['observaciones'].'</td><td>'.$row['descripcion_productos'].'</td>
+                    <td><img src=""></td><td>'.utf8_encode($row['observaciones']).'</td><td>'.utf8_encode($row['descripcion_productos']).'</td>
                     <td>'.$row['precio_venta'].'</td></tr>';
                 }
                 ?>

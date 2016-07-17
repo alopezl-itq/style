@@ -51,12 +51,12 @@ if(isset($_POST['enviar'])){
 				</div>
 
 				<div class="form-group">
-					<h5><i>Apellido Paterno:</i></h5><label for="apellido_p"><input type="text" value="<?php echo $row["apellido_p"]; ?>"
+					<h5><i>Apellido Paterno:</i></h5><label for="apellido_p"><input type="text" value="<?php echo utf8_encode($row["apellido_p"]); ?>"
 																					id="apellidos" name="apellido_p" maxlength="50" size="20" required/></label>
 				</div>
 
 				<div class="form-group">
-					<h5><i>Apellido Materno:</i></h5><label for="apellido_m"><input type="text" value="<?php echo $row["apellido_m"]; ?>"
+					<h5><i>Apellido Materno:</i></h5><label for="apellido_m"><input type="text" value="<?php echo utf8_encode($row["apellido_m"]); ?>"
 																					id="apellidos" name="apellido_m" maxlength="50" size="20" required/></label>
 				</div>
 
@@ -101,7 +101,7 @@ if(isset($_POST['enviar'])){
 
 			<div class="form-group">
 				<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email"
-																			 value="<?php echo $row["email"]; ?>" id="email" name="email" size="20"  maxlength="50" /></label>
+																			 value="<?php echo utf8_encode($row["email"]); ?>" id="email" name="email" size="20"  maxlength="50" /></label>
 			</div>
 
 			<div class="form-group">
@@ -113,9 +113,9 @@ if(isset($_POST['enviar'])){
 					$resultado1=$usuario->verempresas();
 					while($row1=mysqli_fetch_array($resultado1)){
 						if($row['nombre']==$row1['nombre']){
-							echo '<option value="'.$row1["id_empresa"].'" selected>'.$row1["nombre"].'</option>';
+							echo '<option value="'.$row1["id_empresa"].'" selected>'.utf8_encode($row1["nombre"]).'</option>';
 						}else{
-							echo '<option value="'.$row1["id_empresa"].'" selected>'.$row1["nombre"].'</option>';
+							echo '<option value="'.$row1["id_empresa"].'" selected>'.utf8_encode($row1["nombre"]).'</option>';
 						}}
 					?>
 				</select>
@@ -204,14 +204,14 @@ if(isset($_POST['enviar'])){
 			<div class="form-group">
 				<h5><i>Ciudad de Residencia:</i></h5>
 				<label>
-					<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo $row["colonia"]; ?>"required />
+					<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo utf8_encode($row["colonia"]); ?>"required />
 				</label>
 			</div>
 
 			<h5><i>Calle:</i></h5>
 			<div class="form-group">
 				<label>
-					<input type="text" value="<?php echo $row['nombre_calle']; ?>" name="nombre_calle"/>
+					<input type="text" value="<?php echo utf8_encode($row['nombre_calle']); ?>" name="nombre_calle"/>
 				</label></div>
 
 			<h5><i>Número Interior:</i></h5>
@@ -255,17 +255,17 @@ if(isset($_POST['enviar'])){
 				}
 			</script>
 			<div class="form-group">
-				<h5><i>User:</i></h5><label for="user"><input type="text" id="user" value="<?php echo $row["usuario"]; ?>" placeholder="Ingrese Username" name="usuario" maxlength="50"
+				<h5><i>User:</i></h5><label for="user"><input type="text" id="user" value="<?php echo utf8_encode($row["usuario"]); ?>" placeholder="Ingrese Username" name="usuario" maxlength="50"
 															  size="20" required/></label>
 			</div>
 
 			<div class="form-group">
 				<h5><i>Password:</i></h5><label for="password"><input type="password"
-																	  id="password" placeholder="Ingrese Password" name="password" maxlength="50" value="<?php echo $row["password"]; ?>" size="20" required/></label>
+																	  id="password" placeholder="Ingrese Password" name="password" maxlength="50" value="<?php echo utf8_encode($row["password"]); ?>" size="20" required/></label>
 			</div>
 			<div class="form-group">
 				<h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password"
-																					   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echo $row["password"]; ?>" maxlength="50" size="20" required/></label>
+																					   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echo utf8_encode($row["password"]); ?>" maxlength="50" size="20" required/></label>
 			</div><br/>
 			<div class="col-sm-12" align="center">
 				<div>
