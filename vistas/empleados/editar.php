@@ -35,23 +35,23 @@ $controlador->editarE($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']),
 <div class="col-lg-6 col-md-6">
                         <form action="" method="POST" name="frm">
 						<div class="form-group">
-                            <h5><i>Nombre:</i></h5><label for="nombre"><input type="text" placeholder="Nombre(s)*" name="nombre_usuario" value="<?php echo $row['nombre_usuario']; ?>" id="nombre_usuario" maxlength="50" size="20" onblur="nombreValidate(this);" required/></label>
+                            <h5><i>Nombre:</i></h5><label for="nombre"><input type="text" placeholder="Nombre(s)*" name="nombre_usuario" value="<?php echo utf8_decode($row['nombre_usuario']); ?>" id="nombre_usuario" maxlength="50" size="20" onblur="nombreValidate(this);" required/></label>
 						</div>
                         <div id="nombreError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
                         <div class="form-group">
-							<h5><i>Apellidos Paterno:</i></h5><label for="apellido_p"><input type="text" placeholder="Apellido Paterno*" value="<?php echo $row['apellido_p']; ?>"   id="apellido_p" name="apellido_p" maxlength="50" size="20" onblur="apepValidate(this);" required/></label>
+							<h5><i>Apellidos Paterno:</i></h5><label for="apellido_p"><input type="text" placeholder="Apellido Paterno*" value="<?php echo utf8_decode($row['apellido_p']); ?>"   id="apellido_p" name="apellido_p" maxlength="50" size="20" onblur="apepValidate(this);" required/></label>
 						</div>
 						<div id="apeError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
                         <div class="form-group">
-							<h5><i>Apellidos Materno:</i></h5><label for="apellido_m"><input type="text" placeholder="Apellido Materno*" id="apellido_m" value="<?php echo $row['apellido_m']; ?>"  name="apellido_m" maxlength="50" size="20" onblur="apemValidate(this);" required/></label>
+							<h5><i>Apellidos Materno:</i></h5><label for="apellido_m"><input type="text" placeholder="Apellido Materno*" id="apellido_m" value="<?php echo utf8_decode($row['apellido_m']); ?>"  name="apellido_m" maxlength="50" size="20" onblur="apemValidate(this);" required/></label>
 						</div>
                         <div id="apemError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
 							<div class="form-group">
 							<h5><i>Sexo:</i></h5>
-                            <?php  $row['sexo']; ?>
+                            <?php  utf8_decode($row['sexo']); ?>
 							<select name="sexo">
 					<option value="null" selected>Seleccione el sexo</option>
 					<?php
@@ -93,13 +93,13 @@ $controlador->editarE($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']),
 		<h5><i>Comision:</i></h5>
 		<select name="comisiones">
 			<option value="0" selected>Seleccione porcentaje de comision</option>
-			<option value="0.01">%1</option>
+			<option value="0.01" selected>%1</option>
 			<option value="0.02">%2</option>
 			<option value="0.03">%3</option>
 			<option value="0.04">%4</option>
 			<option value="0.05">%5</option>
 			<option value="0.06">%6</option>
-			<option value="0.07" selected>%7</option>
+			<option value="0.07">%7</option>
 			<option value="0.08">%8</option>
 			<option value="0.09">%9</option>
 			<option value="0.10">%10</option>
@@ -154,7 +154,7 @@ $controlador->editarE($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']),
 								$resultado5=$empleado->vertipous();
 								while($row3=mysqli_fetch_array($resultado5)){
 									if($row['id_tipo_usuario']==$row3['id_tipo_usuario']){
-									echo '<option value="'.$row3['id_tipo_usuario'].'" selected>'.utf8_encode($row3['descripcion_tipo_usuarios']).'</option>';
+									echo '<option value="'.$row3['id_tipo_usuario'].'" selected>'.utf8_decode($row3['descripcion_tipo_usuarios']).'</option>';
 								}else{
 									echo '<option value="'.$row3['id_tipo_usuario'].'">'.utf8_encode($row3['descripcion_tipo_usuarios']).'</option>';
 								}
@@ -179,8 +179,8 @@ $controlador->editarE($_GET['id_usuario'],utf8_encode($_POST['nombre_usuario']),
 								$usuario = new Usuario();
 								$resultadoestado=$usuario->verestados();
 								while($row2=mysqli_fetch_array($resultadoestado)){
-							if($row['descripcion_estados']==$row2['descripcion_estados']){
-echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descripcion_estados']).'</option>';
+							if(utf8_decode($row['descripcion_estados'])==utf8_decode($row2['descripcion_estados'])){
+echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode(utf8_decode($row2['descripcion_estados'])).'</option>';
 									}else{
 
 									echo '<option value="'.$row2["id_estado"].'">'.utf8_encode($row2["descripcion_estados"]).'</option>';
@@ -198,7 +198,7 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
 								$resultMun = $usuario->vermunicipioTodos($row['descripcion_estados']);
 									while($row1=mysqli_fetch_array($resultMun)){
 										if($row['id_municipio']==$row1['id_municipio']){
-									echo '<option value="'.$row1['id_municipio'].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+									echo '<option value="'.$row1['id_municipio'].'" selected>'.utf8_decode($row1["descripcion_municipios"]).'</option>';
 								}else{
 									echo '<option value="'.$row1['id_municipio'].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
 								}
@@ -231,7 +231,7 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
                         <h5><i>Colonia:</i></h5>
     					<div class="form-group">
 							<label>
-							<input type="text" value="<?php echo $row['colonia']; ?>" placeholder="Ingrese su Colonia"  name="colonia" 
+							<input type="text" value="<?php echo utf8_decode($row['colonia']); ?>" placeholder="Ingrese su Colonia"  name="colonia" 
                                id="colonia" onblur="coloniaValidate(this);" required />
 						</label></div>
                         <div id="coloniaError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
@@ -239,7 +239,7 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descr
 						<h5><i>Calle:</i></h5>
 						<div class="form-group">
                         <label>
-							<input type="text" placeholder="Ingrese su Calle"    name="nombre_calle" value="<?php echo $row['nombre_calle']; ?>"  id="calle" onblur="calleValidate(this);" required />
+							<input type="text" placeholder="Ingrese su Calle"    name="nombre_calle" value="<?php echo utf8_decode($row['nombre_calle']); ?>"  id="calle" onblur="calleValidate(this);" required />
 						</label></div>
 						<div id="calleError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         

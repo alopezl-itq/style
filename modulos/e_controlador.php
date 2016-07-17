@@ -1,5 +1,6 @@
 <?php
 include_once('../../clases/empleado.php');
+include_once('../../clases/usuario.php');
 
 
 
@@ -13,17 +14,17 @@ class ControladorE{
 		
 		}
 	
-	public function index($empresa){
+	public function index($estetica){
 		
-		$resultado=$this->empleado->listarE($empresa);
+		$resultado=$this->empleado->listarE($estetica);
 		return $resultado;
 		
 		}
 	
 	
-	public function desactivados($empresa){
+	public function desactivados($estetica){
 
-		$resultado=$this->empleado->listarDesactivadosE($empresa);
+		$resultado=$this->empleado->listarDesactivadosE($estetica);
 		return $resultado;
 
 	}
@@ -127,7 +128,7 @@ public function crearC( $id_tipo_curso,$fecha_inicio,$fecha_final, $imparte,$nom
 		
 		
 		public function editarE($id_usuario,$nombre_usuario,$apellido_p,$apellido_m,$sexo,$fecha_nacimiento,
-		$telefono,$email,$id_tipo_usuario,$id_municipio,$colonia,$nombre_calle,$no_int,$no_ext,$cp,$usuario,$password,$comisiones,$sueldo_base,$facebook,$twitter,$instagram){
+		$telefono,$email,$id_tipo_usuario,$id_municipio,$colonia,$nombre_calle,$no_int,$no_ext,$cp,$usuario,$password,$comisiones,$sueldo_base,$Facebook,$twitter,$instagram){
 			 $this->empleado->set("id_usuario",$id_usuario);
 			 $this->empleado->set("nombre_usuario",$nombre_usuario);
 			 $this->empleado->set("apellido_p",$apellido_p);
@@ -147,7 +148,7 @@ public function crearC( $id_tipo_curso,$fecha_inicio,$fecha_final, $imparte,$nom
 			 $this->empleado->set("password",$password);
 			 $this->empleado->set("comisiones",$comisiones);
 			 $this->empleado->set("sueldo_base",$sueldo_base);
-			$this->empleado->set("Facebook",$facebook);
+			$this->empleado->set("Facebook",$Facebook);
 			$this->empleado->set("twitter",$twitter);
 			$this->empleado->set("instagram",$instagram);
 

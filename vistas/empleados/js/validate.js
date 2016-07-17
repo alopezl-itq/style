@@ -196,3 +196,140 @@ function passwordValidate(obj) {
 		document.getElementById("password").focus();
     }
 }
+
+
+
+function sueldValidate(obj) {
+    var message, x;
+    message = document.getElementById("suelError");
+    message.innerHTML = "";
+    x = document.getElementById("sueldo_base").value;
+    try { 
+        if(!obj.checkValidity()) throw "Ingrese el monto de sueldo";
+		document.getElementById("sueldo_base").style.borderColor = "#d5d5d5";	
+    }
+    catch(err) {
+		document.getElementById("sueldo_base").style.borderColor = "red";
+		document.getElementById("suelError").style.display = "block";
+		setTimeout("document.getElementById('suelError').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("sueldo_base").focus();
+    }
+}
+
+
+function dateValidate(obj) {
+    var message, x;
+    message = document.getElementById("dateError");
+    message.innerHTML = "";
+    x = document.getElementById("date").value;
+    try { 
+        if(!obj.checkValidity()) throw "Ingrese un formato valido para fecha AAAA/MM/DD o AAAA-MM-DD";
+		document.getElementById("date").style.borderColor = "#d5d5d5";	
+    }
+    catch(err) {
+		document.getElementById("date").style.borderColor = "red";
+		document.getElementById("dateError").style.display = "block";
+		setTimeout("document.getElementById('dateError').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("date").focus();
+    }
+}
+
+function dateValidate1(obj) {
+    var message, x;
+    message = document.getElementById("dateError1");
+    message.innerHTML = "";
+    x = document.getElementById("date1").value;
+    try { 
+        if(!obj.checkValidity()) throw "Ingrese un formato valido para fecha AAAA/MM/DD o AAAA-MM-DD";
+		document.getElementById("date1").style.borderColor = "#d5d5d5";	
+    }
+    catch(err) {
+		document.getElementById("date1").style.borderColor = "red";
+		document.getElementById("dateError1").style.display = "block";
+		setTimeout("document.getElementById('dateError1').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("date1").focus();
+    }
+}
+
+
+function cursoValidate(obj) {
+    var message, x;
+    message = document.getElementById("cursoError");
+    message.innerHTML = "";
+    x = document.getElementById("curso").value;
+    try { 
+        if(!obj.checkValidity()) throw "Este Campo es Obligatorio";
+		document.getElementById("curso").style.borderColor = "#d5d5d5";	
+    }
+    catch(err) {
+		document.getElementById("curso").style.borderColor = "red";
+		document.getElementById("cursoError").style.display = "block";
+		setTimeout("document.getElementById('cursoError').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("curso").focus();
+    }
+}
+
+
+function EMPFValidate(obj) {
+    var message, x;
+    message = document.getElementById("EMPFError");
+    message.innerHTML = "";
+    x = document.getElementById("empresa").value;
+    try { 
+        if(!obj.checkValidity()) throw "Este Campo es Obligatorio";
+		document.getElementById("empresa").style.borderColor = "#d5d5d5";	
+    }
+    catch(err) {
+		document.getElementById("empresa").style.borderColor = "red";
+		document.getElementById("EMPFError").style.display = "block";
+		setTimeout("document.getElementById('EMPFError').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("empresa").focus();
+    }
+}
+
+
+function costValidate(obj) {
+    var message, x;
+    message = document.getElementById("costError");
+    message.innerHTML = "";
+    x = document.getElementById("costo").value;
+    try { 
+        if(!obj.checkValidity()) throw "Este Campo es Obligatorio";
+		document.getElementById("costo").style.borderColor = "#d5d5d5";	
+    }
+    catch(err) {
+		document.getElementById("costo").style.borderColor = "red";
+		document.getElementById("costError").style.display = "block";
+		setTimeout("document.getElementById('costError').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("costo").focus();
+    }
+}
+
+
+function apoValidate(obj) {
+    var message, x;
+    message = document.getElementById("apoError");
+    message.innerHTML = "";
+    x = document.getElementById("apoyo").value;
+    try { 
+        if(!obj.checkValidity()) throw "Este Campo es Obligatorio";
+		document.getElementById("apoyo").style.borderColor = "#d5d5d5";	
+    }
+    catch(err) {
+		document.getElementById("apoyo").style.borderColor = "red";
+		document.getElementById("apoError").style.display = "block";
+		setTimeout("document.getElementById('apoError').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("apoyo").focus();
+    }
+}
+
+
+
+

@@ -99,9 +99,9 @@ return  $this->usu->verempresas();
 		
 
 	//funcion para listar los empleados de una empresa en especifico
-	public function listarE($empresa){
+	public function listarE($estetica){
 
-	$sql="	SELECT u.id_usuario, u.nombre_usuario,u.id_estatus,u.apellido_p,u.apellido_m,u.telefono,e.nombre From usuarios u,empresas e WHERE u.id_empresa=".$empresa." and e.id_empresa=".$empresa." and u.id_estatus=1 and id_tipo_usuario >4 ORDER by u.nombre_usuario ASC";
+	$sql="	SELECT u.id_usuario, u.nombre_usuario,u.id_estatus,u.apellido_p,u.apellido_m,u.telefono,e.nombre From usuarios u,empresas e WHERE u.id_empresa=".$estetica." and e.id_empresa=".$estetica." and u.id_estatus=1 and id_tipo_usuario >4 ORDER by u.nombre_usuario ASC";
 		$resultado = $this->con->consultaR($sql);
 		return $resultado;
 		
@@ -110,9 +110,9 @@ return  $this->usu->verempresas();
 		}
 	//funcion para listar los empleados deactivados de una empresa en especifico	
 
-	public function listarDesactivadosE($empresa){
+	public function listarDesactivadosE($estetica){
 
-		$sql = "SELECT u.id_usuario, u.nombre_usuario,u.id_estatus,u.apellido_p,u.apellido_m,u.telefono,e.nombre From usuarios u,empresas e WHERE u.id_empresa=".$empresa." and e.id_empresa=".$empresa." and u.id_estatus=2 ORDER by u.nombre_usuario ASC";
+		$sql = "SELECT u.id_usuario, u.nombre_usuario,u.id_estatus,u.apellido_p,u.apellido_m,u.telefono,e.nombre From usuarios u,empresas e WHERE u.id_empresa=".$estetica." and e.id_empresa=".$estetica." and u.id_estatus=2 ORDER by u.nombre_usuario ASC";
 
 		$resultado = $this->con->consultaR($sql);
 		return $resultado;
@@ -163,7 +163,7 @@ return  $this->usu->verempresas();
 	//funcion para crear los empleados	
 		public function crearE(){
 		 //consulta para verificar que no se repita usuario y email
-		 $sql2=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='$this->email'");
+		 $sql2=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='".$this->email."'");
             
             $resultado = $this->con->consultaR($sql2);			
 	       $numregistros=mysqli_num_rows($resultado); 	   
@@ -179,11 +179,14 @@ echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m
  , '$this->email',$this->id_empresa,$this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
   $this->con->query($sql);
   
-  //consulta para obtener el id del ultimo registro obtenido 
- echo $sql4 ="SELECT id_usuario From usuarios where email ='".$this->email."' and  usuario='".$this->usuario."' ";
+ 
+  echo $sql4 ="SELECT id_usuario From usuarios where email ='".$this->email."' and  usuario='".$this->usuario."'";
  $id_usuariores = $this->con->consultaR($sql4);
-  $rowus =mysqli_fetch_assoc($id_usuariores) ;
-	$id_usuario1=$rowus['id_usuario'];	
+ $rowus =mysqli_fetch_assoc($id_usuariores) ;
+ $id_usuario1=$rowus['id_usuario'];	
+  
+  //consulta para obtener el id del ultimo registro obtenido 
+
 	
    //consulta para insertar sueldos
    echo $sql3="INSERT INTO Sueldos (id_usuario,comisiones,sueldo_base) values
@@ -204,7 +207,8 @@ echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m
 	echo $sql7="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
       ($id_usuario1,3,'$this->instagram') ";
       $this->con->query($sql7);
-      return true;
+      
+	  return true;
 			}else{
 				echo "El usuario ya existe y/o el correo ya están registrados";
 				}
@@ -221,18 +225,18 @@ echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m
 $this->con->query($sql);
 				
 				//funcion para editar suledo y comisiones 
-				$sql1="Update sueldos SET comisiones = $this->comisiones, sueldo_base = $this->sueldo_base where 
+			echo	$sql1="Update sueldos SET id_usuario=$this->id_curso, comisiones = $this->comisiones, sueldo_base = $this->sueldo_base where 
 				sueldos.id_usuario=".$this->id_usuario;
 				$this->con->query($sql1);
 
 //funciones de editar redes social de sql2 a sl4 				
-$sql2="Update redes_usuario SET usuario_r ='$this->Facebook' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=1";
-$this->con->query($sql2);
+echo $sql2="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->Facebook' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=1";
+ $this->con->query($sql2);
 				
-$sql3="Update redes_usuario SET usuario_r ='$this->twitter' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=2";
+echo $sql3="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->twitter' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=2";
 $this->con->query($sql3);
 			
-$sql4="Update redes_usuario SET usuario_r ='$this->instagram' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=3";
+echo $sql4="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->instagram' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=3";
 $this->con->query($sql4);
 				
 				

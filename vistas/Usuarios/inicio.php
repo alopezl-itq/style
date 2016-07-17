@@ -5,8 +5,8 @@ $resultado = $controlador->index($_SESSION['tipo']);
 
 ?>
 <div class="panel panel-default">
-		<div class="panel panel-body ">
-<div align="center" class="table-responsive"> 
+		<div class="panel-heading">Usuarios Activos</div>
+		<div id="Em" class="panel panel-body "> 
 <table class="table" width="50px">
 	<thead>
         <th>Nombre</th>
@@ -26,8 +26,8 @@ $resultado = $controlador->index($_SESSION['tipo']);
         <td><?php echo utf8_encode($row['telefono']); ?></td>
        
         <td> <a href="?cargar=usuarios&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">Ver mas informacion</a> </td>
-       <td> <a href="?cargar=usuarios&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
-        <td><a href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Desactivar</a></td>
+       <td> <a  class="glyphicon glyphicon-pencil" title="Editar" href="?cargar=usuarios&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
+        <td><a  class="glyphicon glyphicon-remove" title="Desactivar" href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
         
         </tr>
         

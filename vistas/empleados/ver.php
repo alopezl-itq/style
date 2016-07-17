@@ -140,7 +140,7 @@ endwhile;
         <td><?php echo  $row['apoyo'] ?></td>
 
 
-        <td><a href="?cargar=empleados&controlador=editarcurso&id_curso=<?php echo  $row['id_curso'];  ?>">Editar</a></td>
+        <td><a  class="glyphicon glyphicon-pencil" title="Editar" href="?cargar=empleados&controlador=editarcurso&id_curso=<?php echo  $row['id_curso'];  ?>"></a></td>
         </tr>
 
       <?php
@@ -191,13 +191,16 @@ endwhile;
                         
                         <div class="form-group">
 							<h5><i>Fecha inicio de curso:</i></h5><label for="date"><input type="date"  name="fecha_inicio"
-                            id="date" onblur="dateValidate(this);" required /></label>
+                            id="date" onblur="dateValidate(this);" required/></label>
                         </div>
+                                              <div id="dateError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
                         <div class="form-group">
-							<h5><i>Fecha fin de curso:</i></h5><label for="date"><input type="date"  name="fecha_final"
-                            id="date" onblur="dateValidate(this);" required /></label>
+							<h5><i>Fecha fin de curso:</i></h5><label for="date1"><input type="date"  name="fecha_final"
+                            id="date1" onblur="dateValidate1(this);" required /></label>
                         </div>
+                        
+                                                                   <div id="dateError1" class="alert alert-danger alert-dismissable" style="display:none;"></div>
         
         
 						<div class="form-group">
@@ -206,26 +209,26 @@ endwhile;
                         <div id="nombreError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
                         <div class="form-group">
-							<h5><i>Nombre del Curso:</i></h5><label for="nombre_curso"><input type="text" placeholder="ej:Corte Avanzado*" id="nombre_curso" name="nombre_curso" maxlength="50" size="20" onblur="cursoValidate(this);" required/></label>
+							<h5><i>Nombre del Curso:</i></h5><label for="curso"><input type="text" placeholder="ej:Corte Avanzado*" id="curso" name="nombre_curso" maxlength="50" size="20" onblur="cursoValidate(this);" required/></label>
 						</div>
 						<div id="cursoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
                         <div class="form-group">
-							<h5><i>Empresa Instructora:</i></h5><label for="nom_empresa_foranea"><input type="text" placeholder="Nombre Empresa*" id="nom_empresa_foranea" name="nom_empresa_foranea" maxlength="50" size="20" onblur="EMPFValidate(this);" required/></label>
+							<h5><i>Empresa Instructora:</i></h5><label for="empresa"><input type="text" placeholder="Nombre Empresa*" id="empresa" name="nom_empresa_foranea" maxlength="50" size="20" onblur="EMPFValidate(this);" required/></label>
 						</div>
                         <div id="EMPFError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
 
 						<div class="form-group">
 							<h5><i>Costo:</i></h5><label for="costo"><input type="number"  name="costo" 
-                           placeholder="$$$$$" id="costo" min="0" onblur="CostValidate(this);" required /></label>
+                           placeholder="$$$$$" id="costo" min="0" onblur="costValidate(this);" required /></label>
                         </div>
-                        <div id="CostError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        <div id="costError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                             <div class="form-group">
 							<h5><i>Apoyo economico:</i></h5><label for="apoyo"><input type="number"  name="apoyo"
-                           placeholder="$$$$$" min="0" id="apoyo" onblur="ApoValidate(this);" required /></label>
+                           placeholder="$$$$$" min="0" id="apoyo" onblur="apoValidate(this);" required /></label>
                         </div>
-                        <div id="ApoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        <div id="apoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
                             <div class="col-sm-12" align="center">
 						<div>
@@ -240,4 +243,28 @@ endwhile;
 </div>
 
 </div>       
-</div>
+
+
+
+<div class="modal fade" id="Meditar" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Salida</h4>
+                </div>
+                <div class="modal-body">
+                    <iframe src="editarcurso.php" style="width: 100% !important; height:250px !important"></iframe>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+<script type="text/javascript" src="js/validate.js"></script>

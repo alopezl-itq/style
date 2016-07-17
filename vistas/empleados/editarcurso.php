@@ -50,29 +50,31 @@ if(isset($_POST['enviar'])){
                             name="fecha_inicio"
                             id="date" onblur="dateValidate(this);" required /></label>
                         </div>
+                         <div id="dateError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
                         <div class="form-group">
-							<h5><i>Fecha fin de curso:</i></h5><label for="date"><input type="date"  name="fecha_final"         value="<?php echo $row['fecha_final']; ?>"
-                            id="date" onblur="dateValidate(this);" required /></label>
+							<h5><i>Fecha fin de curso:</i></h5><label for="date1"><input type="date"  name="fecha_final"         value="<?php echo $row['fecha_final']; ?>"
+                            id="date1" onblur="date1Validate(this);" required /></label>
                         </div>
+                         <div id="date1Error" class="alert alert-danger alert-dismissable" style="display:none;"></div>
         
         
 						<div class="form-group">
                             <h5><i>Nombre del instructor :</i></h5><label for="nombre"><input type="text" placeholder="Nombre(s)*" name="imparte" 
                              value="<?php echo $row['imparte']; ?>"
-                            id="nombre_usuario" maxlength="50" size="20" onblur="nombreValidate(this);" required/></label>
+                            id="nombre" maxlength="50" size="20" onblur="nombreValidate(this);" required/></label>
 						</div>
                         <div id="nombreError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
                         <div class="form-group">
-							<h5><i>Nombre del Curso:</i></h5><label for="nombre_curso"><input type="text" placeholder="ej:Corte Avanzado*" id="nombre_curso" 
+							<h5><i>Nombre del Curso:</i></h5><label for="curso"><input type="text" placeholder="ej:Corte Avanzado*" id="curso" 
                              value="<?php echo $row['nombre_curso']; ?>"
                             name="nombre_curso" maxlength="50" size="20" onblur="cursoValidate(this);" required/></label>
 						</div>
 						<div id="cursoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
                         <div class="form-group">
-							<h5><i>Empresa Instructora:</i></h5><label for="nom_empresa_foranea"><input type="text" placeholder="Nombre Empresa*" id="nom_empresa_foranea" name="nom_empresa_foranea"
+							<h5><i>Empresa Instructora:</i></h5><label for="empresa"><input type="text" placeholder="Nombre Empresa*" id="empresa" name="nom_empresa_foranea"
                              value="<?php echo $row['nom_empresa_foranea']; ?>"
                              maxlength="50" size="20" onblur="EMPFValidate(this);" required/></label>
 						</div>
@@ -83,19 +85,19 @@ if(isset($_POST['enviar'])){
 							<h5><i>Costo:</i></h5><label for="costo"><input type="number"  name="costo" 
                            placeholder="$$$$$" id="costo" min="0"
                             value="<?php echo $row['costo']; ?>"
-                           onblur="CostValidate(this);" required /></label>
+                           onblur="costValidate(this);" required /></label>
                         </div>
-                        <div id="CostError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        <div id="costError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                             <div class="form-group">
 							<h5><i>Apoyo economico:</i></h5><label for="apoyo"><input type="number" 
                              value="<?php echo $row['apoyo']; ?>" name="apoyo" min="0"
-                            placeholder="$$$$$"  id="apoyo" onblur="ApoValidate(this);" required /></label>
+                            placeholder="$$$$$"  id="apoyo" onblur="apoValidate(this);" required /></label>
                         </div>
-                        <div id="ApoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        <div id="apoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
                             <div class="col-sm-12" align="center">
 						<div>
-							<input type="submit"  name="enviar" value="enviar" onclick="return val();" style="width:30%"/>
+							<input type="submit"  name="enviar" value="ENVIAR" onclick="return val();" style="width:30%"/>
 						</div>
 						</form>
                         
@@ -107,3 +109,4 @@ if(isset($_POST['enviar'])){
 
 </body>
 </html>
+<script type="text/javascript" src="js/validate.js"></script>

@@ -1,12 +1,14 @@
 <?php
 $controlador = new ControladorE();
-$resultado = $controlador->desactivados($_SESSION['empresa']);
+$resultado = $controlador->desactivados($_SESSION['estetica']);
 
 
 	
 ?>
-<div align="center">
-    <table border="1">
+<div class="panel panel-default">
+		<div class="panel-heading">Empleados Desactivados</div>
+		<div id="Em" class="panel panel-body ">
+<table class="table" width="50px">
         <thead>
         <th>Nombre</th>
         <th>Apellido Paterno</th>
@@ -39,4 +41,6 @@ $resultado = $controlador->desactivados($_SESSION['empresa']);
 
         </tbody>
     </table>
+</div>
+</div>
 </div>

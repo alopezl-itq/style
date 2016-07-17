@@ -2,6 +2,7 @@
 include_once('../../modulos/enrutador.php');
 include_once('../../modulos/e_controlador.php');
 include_once('../../modulos/c_estetica.php');
+include_once('../../modulos/controlador.php');
 include '../../clases/comunes.php';
 session_start();
 validarSesionEnVistas();
@@ -39,7 +40,7 @@ validarSesionEnVistas();
   <div class="container-fluid">
       <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.php">Inicio</a></li>
+      <li class="active"><a href="../../principal.php">Inicio</a></li> 
        <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Empleados
         <span class="caret"></span></a>
@@ -53,9 +54,9 @@ validarSesionEnVistas();
       </li>
       <li><a href="../empleados/index.php">Regresar</a></li>
             <?php 
-if($_SESSION['tipo']==2 or 4){
-	   echo '<li class="dropdown">';
-      echo  '<a class="dropdown-toggle" data-toggle="dropdown" href="#">Perfil<span class="caret"></span></a>';
+if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
+	echo '<li class="dropdown">';
+    echo  '<a class="dropdown-toggle" data-toggle="dropdown" href="#">Perfil <span class="caret"></span></a>';
 	echo '<ul class="dropdown-menu">';
 	echo '<li><a href="?cargar=usuarios&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Perfil</a></li>';
 	echo '<li><a href="?cargar=usuarios&controlador=editar&&id_usuario='.$_SESSION['id_user'].'">Editar Perfil</a></li>';
@@ -74,8 +75,8 @@ if($_SESSION['tipo']==2 or 4){
 </nav>
             <div class="container">
                 <div class="row">
-                    <div class="heading-section col-md-12 text-center">
-                        <p>Empleados</p>
+                 <div class="heading-section col-md-12 text-center">
+                     <p>Modulo De Empleados</p>
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row">

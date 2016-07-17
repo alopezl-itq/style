@@ -4,8 +4,10 @@ $resultado = $controlador->desactivados($_SESSION['tipo']);
 
 $resultado = $controlador->index($_SESSION['tipo']);
 ?>
-<div align="center">
-    <table border="1">
+<div class="panel panel-default">
+		<div class="panel-heading">Usuarios Desactivados</div>
+		<div id="Em" class="panel panel-body "> 
+    <table class="table" width="80px" >
         <thead>
         <th>Nombre</th>
         <th>Apellido Paterno</th>
@@ -23,7 +25,7 @@ $resultado = $controlador->index($_SESSION['tipo']);
                 <td><?php echo utf8_encode($row['nombre']); ?></td>
                 <td><?php echo utf8_encode($row['telefono']); ?></td>
 
-                <td><a href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Reactivar</a></td>
+<td><a a  class="glyphicon glyphicon-pencil" title="Editar Estatus" href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
 
 
             </tr>
@@ -38,4 +40,6 @@ $resultado = $controlador->index($_SESSION['tipo']);
 
         </tbody>
     </table>
+</div>
+</div>
 </div>

@@ -1,7 +1,8 @@
 <?php
 include_once('../../modulos/e_controlador.php');
+include_once('../../modulos/controlador.php');
 $controlador = new ControladorE();
-$resultado = $controlador->index($_SESSION['empresa']);
+$resultado = $controlador->index($_SESSION['estetica']);
 
 
 
@@ -13,9 +14,9 @@ $resultado = $controlador->index($_SESSION['empresa']);
 
 
 <div class="panel panel-default">
-		<div class="panel panel-body ">
-<div align="center" class="table-responsive">
-<table class="table" width="50px">
+		<div class="panel-heading">Empleados Activos</div>
+		<div id="Em" class="panel panel-body ">
+<table class="table" width="80px" >
 	<thead>
         <th>Nombre</th>
 		<th>Apellido Paterno</th>
@@ -35,9 +36,9 @@ $resultado = $controlador->index($_SESSION['empresa']);
         <td><?php echo utf8_encode($row['telefono']); ?></td>
 
 
-        <td> <a href="?cargar=empleados&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">+Informacion</a> </td>
-       <td> <a href="?cargar=empleados&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
-        <td><a href="?cargar=empleados&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Desactivar</a></td>
+        <td> <a  href="?cargar=empleados&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">+Informacion</a> </td>
+       <td> <a  class="glyphicon glyphicon-pencil" title="Editar" href="?cargar=empleados&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
+        <td><a class="glyphicon glyphicon-remove" title="Desactivar" href="?cargar=empleados&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
 
         </tr>
 

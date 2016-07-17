@@ -4,7 +4,7 @@ $controlador = new ControladorE();
 
 
 if(isset($_POST['enviar'])){
- $controlador->crearempleado(utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_empresa']=$_SESSION['empresa'],$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_encode($_POST['Facebook']),utf8_encode($_POST['twitter']),utf8_encode($_POST['instagram']));
+ $controlador->crearempleado(utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_empresa']=$_SESSION['estetica'],$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_encode($_POST['Facebook']),utf8_encode($_POST['twitter']),utf8_encode($_POST['instagram']));
 
 }
 
@@ -72,7 +72,7 @@ if(isset($_POST['enviar'])){
                         
 						<div class="form-group">
                         <h5><i>Comision:</i></h5>
-                        <select name="comisiones">
+                        <select name="comisiones"  >
                         <option value="0" selected>Seleccione porcentaje de comision</option>
                         <option value="0.01">%1</option>
                         <option value="0.02">%2</option>
@@ -94,7 +94,7 @@ if(isset($_POST['enviar'])){
                        <option value="0.18">%18</option>
                        <option value="0.19">%19</option>
                         <option value="0.20">%20</option>
-                        </select>
+                        </select >
 						</div>
                         <div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
