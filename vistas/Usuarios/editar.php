@@ -34,10 +34,10 @@ if(isset($_POST['enviar'])){
 
 <div id="pestanas">
  <ul class="nav nav-tabs">
- <li class="active"><a href="#pestana1">Información Personal</a></li> 
- <li><a href="#pestana2">Información de Contacto</a></li> 
- <li><a href="#pestana3">Domicilio</a></li> 
-  <li><a href="#pestana4">Datos de Acceso</a></li> 
+  	<li role="presentation"class="active"><a href="#pestana1" role="tab" data-toggle="tab" >Información Personal</a></li>
+ 	<li role="presentation"><a href="#pestana2"  role="tab" data-toggle="tab">Información de Contacto</a></li> 
+ 	<li role="presentation"><a href="#pestana3"  role="tab" data-toggle="tab">Domicilio</a></li> 
+	<li role="presentation"><a href="#pestana4"  role="tab" data-toggle="tab">Datos de Acceso</a></li> 
  </ul>
  
 <div id="pestana1">
@@ -104,29 +104,30 @@ if(isset($_POST['enviar'])){
                             value="<?php echo utf8_encode($row["email"]); ?>" id="email" name="email" size="20"  maxlength="50" /></label>	
 						</div>
 
-<?php	
+
+			<?php	
 if($_SESSION['tipo']==4){
-	//agregar id_empresa
+	echo "<INPUT TYPE='HIDDEN' VALUE=".$row['id_empresa']." name='id_empresa'>";
 	}else{
-						echo'<div class="form-group">';
-						echo'<h5><i>Estética:</i></h5>';
-    					echo'<select name="id_empresa">';
-        				 echo '<option value="0" selected>Selecciona una Estetica</option>';
-													
-				$usuario = new Usuario();
-				$resultado1=$usuario->verempresas();
-				while($row1=mysqli_fetch_array($resultado1)){
-					if($row['nombre']==$row1['nombre']){
-					echo '<option value="'.$row1["id_empresa"].'" selected>'.utf8_encode($row1["nombre"]).'</option>';
-				}else{
-						echo '<option value="'.$row1["id_empresa"].'">'.utf8_encode($row1["nombre"]).'</option>';
+			echo'<div class="form-group">';
+			echo'<h5><i>Estética:</i></h5>';
+    		echo'<select name="id_empresa">';
+        	echo '<option value="0" selected>Selecciona una Estetica</option>';
+			$usuario = new Usuario();
+			$resultado1=$usuario->verempresas();
+			while($row1=mysqli_fetch_array($resultado1)){
+			if($row['nombre']==$row1['nombre']){
+		    echo '<option value="'.$row1["id_empresa"].'" selected>'.utf8_encode($row1["nombre"]).'</option>';
+			}else{
+			echo '<option value="'.$row1["id_empresa"].'">'.utf8_encode($row1["nombre"]).'</option>';
 					}
 					}
 				
 						echo'</select>';
-						echo'</div>';
-	}
-			?>			
+	                                        echo'</div>';					
+	}  
+                                              
+			?>
 
     					<div class="form-group">
 							<h5><i>Tipo de Usuario</i></h5>
@@ -208,7 +209,7 @@ if($_SESSION['tipo']==4){
 		</script>
 	</div>
                         
-    					<div class="form-group">
+    						<div class="form-group">
 							<h5><i>Ciudad de Residencia:</i></h5>
 						<label>
 							<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo utf8_encode($row["colonia"]); ?>"required />
@@ -272,7 +273,7 @@ if($_SESSION['tipo']==4){
 						</div>
 	<div class="form-group">
 		<h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password"
-													   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echoutf8_encode($row["password"]); ?>" maxlength="50" size="20" required/></label>
+													   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echo utf8_encode($row["password"]); ?>" maxlength="50" size="20" required/></label>
 	</div><br/>
                         <div class="col-sm-12" align="center">
 						<div>

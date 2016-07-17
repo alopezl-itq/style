@@ -17,10 +17,10 @@ if(isset($_POST['enviar'])){
 </script>
 <div id="pestanas">
  <ul class="nav nav-tabs">
- 	<li class="active"><a href="#pestana1">Información Personal</a></li>
- 	<li><a href="#pestana2">Información de Contacto</a></li> 
- 	<li><a href="#pestana3">Domicilio</a></li> 
-	<li><a href="#pestana4">Datos de Acceso</a></li> 
+ 	<li role="presentation"class="active"><a href="#pestana1" role="tab" data-toggle="tab" >Información Personal</a></li>
+ 	<li role="presentation"><a href="#pestana2"  role="tab" data-toggle="tab">Información de Contacto</a></li> 
+ 	<li role="presentation"><a href="#pestana3"  role="tab" data-toggle="tab">Domicilio</a></li> 
+	<li role="presentation"><a href="#pestana4"  role="tab" data-toggle="tab">Datos de Acceso</a></li> 
  </ul>
  
 <div id="pestana1">
@@ -184,9 +184,7 @@ if(isset($_POST['enviar'])){
 						</label></div>
                         <div id="cpError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
-                        <div id="pestanas"">
-    						<a href="#pestana4">SIGUIENTE</a>
-						</div>
+                         
                         
 </div>
 <div class="col-lg-3 col-md-3"></div>

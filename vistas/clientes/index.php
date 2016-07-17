@@ -15,7 +15,7 @@ session_start();
 $controlador = new ControladorC();
 
 
-$raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['empresa']);
+$raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
 
 ?>
 

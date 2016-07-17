@@ -74,6 +74,7 @@ if(isset($_POST['enviar'])){
                         <h5><i>Comision:</i></h5>
                         <select name="comisiones"  >
                         <option value="0" selected>Seleccione porcentaje de comision</option>
+                        <option value="0">%0</option>
                         <option value="0.01">%1</option>
                         <option value="0.02">%2</option>
                         <option value="0.03">%3</option>

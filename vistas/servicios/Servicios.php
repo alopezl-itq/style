@@ -2,7 +2,7 @@
 
 include_once('../../modulos/controladorS.php');
 session_start();
-$id_empresa=$_SESSION['empresa'];
+$id_empresa=$_SESSION['estetica'];
 
 ?>
 <!DOCTYPE html>
