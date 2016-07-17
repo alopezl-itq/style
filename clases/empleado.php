@@ -74,7 +74,7 @@ return  $this->usu->verempresas();
 //funcion para ver los tipos de usuario	
 	public function vertipous(){
 		
-		$sql ="SELECT * FROM tipo_usuarios WHERE id_tipo_usuario > 4";
+		$sql ="SELECT * FROM tipo_usuarios WHERE id_tipo_usuario > 3";
 		$resultado=$this->con->consultaR($sql);
 		return $resultado;
 		
@@ -175,17 +175,16 @@ return  $this->usu->verempresas();
 		 
 
 
-echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono
- , '$this->email',$this->id_empresa,$this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
+echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono,'$this->email',$this->id_empresa,$this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
   $this->con->query($sql);
   
- 
+   //consulta para obtener el id del ultimo registro obtenido 
   echo $sql4 ="SELECT id_usuario From usuarios where email ='".$this->email."' and  usuario='".$this->usuario."'";
  $id_usuariores = $this->con->consultaR($sql4);
  $rowus =mysqli_fetch_assoc($id_usuariores) ;
  $id_usuario1=$rowus['id_usuario'];	
   
-  //consulta para obtener el id del ultimo registro obtenido 
+
 
 	
    //consulta para insertar sueldos
