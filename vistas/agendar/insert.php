@@ -4,14 +4,11 @@ $username = "alejan14_style";
 $password = "style16";
 $dbname = "alejan14_style";
 
+include_once('../../clases/conexion.php');
+
 session_start();
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+$conn = new Conexion();
 
 echo $sql = "INSERT INTO agendas (id_cliente,id_usuario,hora,fecha,tiempo,id_servicio) VALUES (".$_SESSION['id_user'].",".$_POST['empleado'].",'".$_POST['hora']."','".$_POST['fecha']."',".$_POST['tiempo'].",".$_POST['desc'].")";
 

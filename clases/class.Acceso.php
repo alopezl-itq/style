@@ -42,7 +42,7 @@ public function Registro(){
 	
 	}
 public function ClavePerdida(){
-	
+
 	}
 }
 ?>

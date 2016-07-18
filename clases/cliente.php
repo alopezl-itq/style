@@ -40,7 +40,7 @@ class Cliente
 
     //consulta los servicios de un cliente en específico para el historial
     public function verServicios(){
-       $sql="SELECT u.*,e.costo, s.servicio FROM usuarios r,servicios_usuari u, servicios_empresa e, descripcion_servicios d, servicios s where u.id_servicios_empresa=e.id_servicios_empresa and e.id_descripcion_servicios=d.id_descripcion_servicios and d.id_servicio=s.id_servicio and u.id_cliente =r.id_usuario and u.id_cliente=".$this->id_cliente;
+       $sql="SELECT u.*,e.costo, s.servicio FROM usuarios r,servicios_usuario u, servicios_empresa e, descripcion_servicios d, servicios s where u.id_servicios_empresa=e.id_servicios_empresa and e.id_descripcion_servicios=d.id_descripcion_servicios and d.id_servicio=s.id_servicio and u.id_cliente =r.id_usuario and u.id_cliente=".$this->id_cliente;
         $resultado =$this->con->consultaR($sql);
         return $resultado;
     }
@@ -75,7 +75,7 @@ class Cliente
 
     //calcula el total de servicios adquiridos por un cliente
     public function totalPrecioServicios($id_cliente){
-        $sql = "SELECT SUM(e.costo) FROM usuarios r,servicios_usuari u, servicios_empresa e, descripcion_servicios d, servicios s where u.id_servicios_empresa=e.id_servicios_empresa and e.id_descripcion_servicios=d.id_descripcion_servicios and d.id_servicio=s.id_servicio and u.id_cliente =r.id_usuario and u.fecha_servicio>='".$this->calcularAnio()."-01-01' and u.fecha_servicio<='".$this->calcularAnio()."-12-31' and u.id_cliente=".$id_cliente;
+        $sql = "SELECT SUM(e.costo) FROM usuarios r,servicios_usuario u, servicios_empresa e, descripcion_servicios d, servicios s where u.id_servicios_empresa=e.id_servicios_empresa and e.id_descripcion_servicios=d.id_descripcion_servicios and d.id_servicio=s.id_servicio and u.id_cliente =r.id_usuario and u.fecha_servicio>='".$this->calcularAnio()."-01-01' and u.fecha_servicio<='".$this->calcularAnio()."-12-31' and u.id_cliente=".$id_cliente;
         $resultado =$this->con->consultaR($sql);
         $row = $this->con->recorrer($resultado);
         return $row;
@@ -102,6 +102,7 @@ class Cliente
         elseif($this->suma>=$row['cliente_d']){
             return 'Premium';
         }
+
 
 
     }

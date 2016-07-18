@@ -16,7 +16,7 @@ $meses=array(1=>"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-include_once('../../clases/Conexion.php');
+include_once('../../clases/conexion.php');
 $miConexion = new Conexion();
 ?>
  

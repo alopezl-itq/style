@@ -17,7 +17,7 @@ $meses=array(1=>"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-include_once('../../clases/Conexion.php');
+include_once('../../clases/conexion.php');
 $miConexion = new Conexion();
 ?>
  
@@ -62,7 +62,7 @@ $miConexion = new Conexion();
   <div class="container-fluid">
       <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="../../vistas/clientes/index.php">Inicio</a></li>
+      <li class="active"><a href="../../principal.php">Inicio</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Agenda
         <span class="caret"></span></a>
@@ -71,7 +71,7 @@ $miConexion = new Conexion();
           <li><a href="#">Citas</a></li>
         </ul>
       </li>
-      <li><a href="#">Regresar</a></li>
+      <li><a href="../clientes/index.php">Regresar</a></li>
     </ul>
   </div>
 </nav>
@@ -120,7 +120,7 @@ $miConexion = new Conexion();
 					 $sql_cd1='SELECT usuarios.nombre_usuario, usuarios.apellido_p, servicios.servicio, descripcion_servicios.descripcion, agendas.tiempo, agendas.hora FROM `usuarios`, `descripcion_servicios`, `servicios`, `agendas` WHERE usuarios.id_usuario=agendas.id_usuario AND descripcion_servicios.id_servicio=servicios.id_servicio AND descripcion_servicios.id_descripcion_servicios=agendas.id_servicio AND agendas.id_cliente ='.$_SESSION['id_user'].' AND agendas.fecha="'.$year.'-'.$month.'-'.$day.'"';
 					$resul_cd1=mysqli_query($miConexion,$sql_cd1);
 		while($fila1=mysqli_fetch_array($resul_cd1)){
-			echo "<p><b>Peluquero:</b>".$fila1['0']." ".$fila1['1']."<br> <b>Servicio Contratado:</b>".$fila1['2']."<br> <b>Tiempo Estimado:</b>".$fila1['3']."<br> <b>Hora:</b>".$fila1['4']."</p>";	
+			echo "<p><b>Peluquero:</b>".$fila1['0']." ".$fila1['1']."<br> <b>Servicio Contratado:</b>".$fila1['2']."<br> <b>Tiempo Estimado:</b>".$fila1['3']."<br> <b>Hora:</b>".$fila1['4']."</p>";
 		}
 		echo "</a></td><td style='padding:0px'></td>";
 				}

@@ -42,8 +42,8 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
     <div class="container-fluid">
         <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Inicio</a></li>
-            <li><a href="../../vistas/agendar/agenda.php">Agendar</a></li>
+            <li class="active"><a href="../../principal.php">Inicio</a></li>
+            <li><a href="../agendar/agenda.php">Agendar</a></li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi Perfil
                     <span class="caret"></span></a>
@@ -60,6 +60,7 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
                     <li><a href="?cargar=clientes&controlador=historial_servicios">Servicios</a></li>
 
                 </ul>
+            <li><a href="../clientes/index.php">Regresar</a></li>
             <li><a href="../../clases/salir.php">Salir</a></li>
 
     </div>
