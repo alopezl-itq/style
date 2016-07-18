@@ -91,28 +91,35 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 
 	<div class="form-group">
 		<h5><i>Comision:</i></h5>
+
+		<?php  $comision= $row['comisiones']/$row['sueldo_base'];
+
+			
+
+		?>
 		<select name="comisiones">
 			<option value="0" selected>Seleccione porcentaje de comision</option>
-			<option value="0.01" selected>%1</option>
-			<option value="0.02">%2</option>
-			<option value="0.03">%3</option>
-			<option value="0.04">%4</option>
-			<option value="0.05">%5</option>
-			<option value="0.06">%6</option>
-			<option value="0.07">%7</option>
-			<option value="0.08">%8</option>
-			<option value="0.09">%9</option>
-			<option value="0.10">%10</option>
-			<option value="0.11">$11</option>
-			<option value="0.12">%12</option>
-			<option value="0.13">%13</option>
-			<option value="0.14">%14</option>
-			<option value="0.15">%15</option>
-			<option value="0.16">%16</option>
-			<option value="0.17">%17</option>
-			<option value="0.18">%18</option>
-			<option value="0.19">%19</option>
-			<option value="0.20">%20</option>
+
+			<?php
+			$i=0;
+			while($i<20){
+				$i++;
+				if($i<10){
+					if($comision=='0.0'.$i){
+						echo '<option value="0.0'.$i.'" selected>%'.$i.'</option>';
+					}else{
+					echo '<option value="0.0'.$i.'">%'.$i.'</option>';
+					}
+				}else{
+					if($row['comisiones']=='0.'.$i){
+						echo '<option value="0.'.$i.'" selected>%'.$i.'</option>';
+					}else{
+						echo '<option value="0.'.$i.'">%'.$i.'</option>';
+					}
+				}
+			}
+
+			?>
 		</select>
 	</div>
 	<div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>

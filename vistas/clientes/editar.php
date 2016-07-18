@@ -269,7 +269,7 @@ if(isset($_POST['enviar'])){
 			</div><br/>
 			<div class="col-sm-12" align="center">
 				<div>
-					<input type="submit"  name="enviar" value="ENVIAR" onclick="return val();" style="width:30%"/>
+					<input type="submit"  name="enviar" value="ENVIAR"  style="width:30%"/>
 				</div>
 				</form>
 			</div>
