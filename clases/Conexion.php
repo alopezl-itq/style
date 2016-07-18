@@ -27,7 +27,7 @@ class Conexion extends MySQLi{
     #consulta simple para insertar o actualizar sin devolver errores.
 	public function consultaS($sql){
 	mysqli_query($this->Miconexion,$sql);
-      mysqli_close($this->Miconexion);
+
 }
 
   #regresa una respuesta de la consulta.
@@ -35,7 +35,7 @@ public function consultaR($sql){
 	
 
 	$consulta = mysqli_query($this->Miconexion,$sql);
-  mysqli_close($this->Miconexion);
+
   return $consulta;
 
 
@@ -46,7 +46,7 @@ public function consultaR($sql){
 	#regresa una respuesta de la consulta al igual que consultar R;
 	 public function consulta($consulta){ 
     $resultado = mysqli_query($this->Miconexion,$consulta);
-       mysqli_close($this->Miconexion);
+
     
     return $resultado;
   }
@@ -59,7 +59,7 @@ public function consultaR($sql){
       echo 'MySQL Error: ' . mysql_error();
       exit;
     }
-    mysqli_close($this->Miconexion);
+
     return $actualizacion;
   }
 
@@ -71,7 +71,7 @@ public function consultaR($sql){
       echo 'MySQL Error: ' . mysql_error();
       exit;
     }
-    mysqli_close($this->Miconexion);
+
     return $insercion;
   }
 	}
