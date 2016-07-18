@@ -1,7 +1,9 @@
 <?php
+
 include_once('../../modulos/controladorP.php');
-session_start();
-$id_empresa=$_SESSION['empresa'];
+
+$id_producto_empresa=$_POST["numero"];
+
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -10,8 +12,7 @@ $id_empresa=$_SESSION['empresa'];
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 
-
-    <head>
+<head>
         <meta charset="utf-8">
         <title>The Best Hair Salons</title>
         <link rel="icon" type="img/ico" href="../../images/icoB.ico"/>
@@ -19,15 +20,7 @@ $id_empresa=$_SESSION['empresa'];
         <meta name="viewport" content="width=device-width">
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
-		   <!-- Necesitas esto para el bootstrap para el modal-->
-  <meta charset="utf-8">
-	 <link rel="stylesheet" href="../../css/templatemo_misc.css">
-        <link rel="stylesheet" href="../../css/templatemo_style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <!-- Fin bootstrap para el modal-->
+		
 
         <link rel="stylesheet" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" href="../../css/pestanas.css">
@@ -83,60 +76,58 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row">
-												<?php  
+						<?php  
 $controlador = new Controlador();
-$resultado = $controlador->ver($id_empresa);
+$resultado = $controlador->verProductoEmpresa($id_producto_empresa);
+
 ?>
-<div align="center"> 
-<table border="0">
+
+
+<script  src="js/jquery.js"></script>
+<div id="pestanas"> 
+<ul class="nav nav-tabs">
+        <li role="presentation" class="active" ><a href="#pestana1" role="tab" data-toggle="tab">Agregar</a></li>
+</ul>
+
+<div id="pestana1">
+<b>Actualizar datos de producto:</b><br><br>
+<form method="POST" action="actualiza.php">
+<table border="2">
 	<thead>
-        <th>Marca</th>
-		<th>Linea</th>
         <th>Producto</th>
-        <th>Presentacion</th>
-        <th>Precio de compra</th>
-		<th>Precio de venta</th>
+        <th>Costo de Compra</th>
+        <th>Costo de Venta</th>
         <th>Stock</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-
      </thead>
-     <tbody>
-     <?php  while($row = mysqli_fetch_array($resultado)): ?>
+    <div class="col-lg-3 col-md-3"></div>
+    <div class="col-lg-6 col-md-6">
+    
 
-
-
-
+     <?php
+	     while($row = mysqli_fetch_array($resultado)): 
+         ?>
         <tr>
-        <td><?php echo utf8_encode($row['0']); ?></td>
-        <td><?php echo  utf8_encode($row['1']); ?></td>
-        <td><?php echo  utf8_encode($row['2']); ?></td>
-        <td><?php echo  utf8_encode($row['3']); ?></td>
-         <td>$<?php echo utf8_encode($row['4']); ?> Pesos</td>
-        <td>$<?php echo  utf8_encode($row['5']); ?> Pesos</td>
-        <td><?php echo  utf8_encode($row['6']); ?> Unidades/piezas</td>
-       <?php
-echo " <form method=\"POST\" action=\"del.php\">\n"; 
-echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
-echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Eliminar\"  style='height:24px; width:100px' ></td>\n"; 
-echo "        </form>\n"; 
-echo "        <form method=\"POST\" action=\"upd.php\">\n"; 
-echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
-echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Editar\"  style='height:24px; width:100px' ></td>\n"; 
-echo "        </form>\n";
-?>
+            <td><?php echo utf8_encode($row[0]); ?></td>
+            <td> <input type="text" name='costoC' style="height:25px; width:100px;" required></td>
+            <td> <input type="text" name='costoV' style="height:25px; width:100px;" required></td>
+            <td> <input type="text" name='stock' style="height:25px; width:100px;" required></td>
+           
         </tr>
-      <?php  
-	  endwhile; 
-	  ?>
-      
-      
-     </tbody>
+<?php 
+       echo "<input type='hidden' name='numero' value=$id_producto_empresa>";
+         
+	     endwhile; 
+	    ?>        
+    </div>
+    <div class="col-lg-3 col-md-3"></div>                     
+    
 </table>
-<form method="POST" action="Menu.php">
-<br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas productos" style="height:38px; width:350px" >
+<br><INPUT TYPE="SUBMIT" name="guardar" value="Actualizar" style="height:38px; width:350px" >
 </form>
+</div>
 
+
+</div>
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#contact -->
@@ -150,10 +141,16 @@ echo "        </form>\n";
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#footer -->
+       
+  <script src="js/vendor/jquery-1.11.0.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script> 
         
         <?php
-echo "<script type='text/javascript' src='../../js/jquery.js'></script>";
-echo "<script type='text/javascript' src='../../js/jqueryui.js'></script>";
+echo "<script type='text/javascript' src='js/jquery.js'></script>";
+echo "<script type='text/javascript' src='js/jqueryui.js'></script>";
 echo "<script type='text/javascript'>";
 
 echo "var x;";

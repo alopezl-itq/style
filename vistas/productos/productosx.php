@@ -108,7 +108,7 @@ $resultado = $controlador->verProductosEmpresa($id_marca,$id_empresa);
 
 <div id="pestana1">
 <b>Productos:</b><br><br>
-<form method="POST" action="fProductos.php">
+<form method="POST" action="productosy.php">
 <table border="2">
 	<thead>
         <th>Producto</th>
@@ -185,9 +185,6 @@ echo "	var x=$('#pestanas');";
 echo "	x.tabs();";
 echo "	}";
 echo "</script>";
-?>
-<?php
-
 ?>
 
     </body>

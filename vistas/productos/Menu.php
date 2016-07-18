@@ -1,6 +1,3 @@
-<?php
-include_once('../../modulos/controladorS.php');
-?>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -87,28 +84,28 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
 
 <TR>
 <TD WIDTH=600>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=1 name='numero'>
 <input type="image" name="1" src="img/1.jpg" />
 </FORM>
 </TD>
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=2 name='numero'>
 <input type="image" name="2" src="img/2.jpg" />
 </FORM>
 </TD>
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=3 name='numero'>
 <input type="image" name="3" src="img/3.png" />
 </FORM>
 </TD>
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=4 name='numero'>
 <input type="image" name="4" src="img/4.png" />
 </FORM>
@@ -117,7 +114,7 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
 
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=5 name='numero'>
 <input type="image" name="5" src="img/5.jpg" />
 </FORM>
@@ -126,28 +123,28 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
 
 <TR>
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=6 name='numero'>
 <input type="image" name="6" src="img/6.jpg" />
 </FORM>
 </TD>
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=7 name='numero'>
 <input type="image" name="7" src="img/7.jpg" />
 </FORM>
 </TD>
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=8 name='numero'>
 <input type="image" name="8" src="img/8.jpg" />
 </FORM>
 </TD>
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=9 name='numero'>
 <input type="image" name="9" src="img/9.png" />
 </FORM>
@@ -155,7 +152,7 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
 
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=10 name='numero'>
 <input type="image" name="10" src="img/10.png" />
 </FORM>
@@ -164,14 +161,14 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
 
 <TR>
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=11 name='numero'>
 <input type="image" name="1" src="img/11.gif" />
 </FORM>
 </TD>
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=12 name='numero'>
 <input type="image" name="12" src="img/12.png" />
 </FORM>
@@ -180,7 +177,7 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
 
 
 <TD WIDTH=500>
-<FORM METHOD="POST" ACTION="Productos.php">
+<FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=13 name='numero'>
 <input type="image" name="13" src="img/13.gif" />
 </FORM>
@@ -219,9 +216,6 @@ echo "	var x=$('#pestanas');";
 echo "	x.tabs();";
 echo "	}";
 echo "</script>";
-?>
-<?php
-
 ?>
 
     </body>

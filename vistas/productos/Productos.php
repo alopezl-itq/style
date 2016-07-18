@@ -89,7 +89,7 @@ $resultado = $controlador->verproductosN($id_marca,$id_empresa);
 
 <div id="pestana1">
 <b>Servicio cortes:</b><br><br>
-<form method="POST" action="aProductos.php">
+<form method="POST" action="productosx.php">
 <table border="0">
 	<thead>
         <th>Linea de Producto</th>
@@ -169,6 +169,8 @@ echo "	var x=$('#pestanas');";
 echo "	x.tabs();";
 echo "	}";
 echo "</script>";
+
+mysql_close();
 ?>
     </body>
 </html>

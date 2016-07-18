@@ -104,7 +104,7 @@ $controlador = new Controlador();
 $resultado = $controlador->ver($id_empresa);
 ?>
 <div align="center"> 
-<table border="1">
+<table border="0">
 	<thead>
         <th>Marca</th>
 		<th>Linea</th>
@@ -113,9 +113,9 @@ $resultado = $controlador->ver($id_empresa);
         <th>Precio de compra</th>
 		<th>Precio de venta</th>
         <th>Stock</th>
-        <!--<th>Editar</th>
+        <th>Editar</th>
         <th>Eliminar</th>
-        -->
+        
 
      </thead>
      <tbody>
@@ -128,12 +128,17 @@ $resultado = $controlador->ver($id_empresa);
          <td>$<?php echo utf8_encode($row['4']); ?> Pesos</td>
         <td>$<?php echo  utf8_encode($row['5']); ?> Pesos</td>
         <td><?php echo  utf8_encode($row['6']); ?> Unidades/piezas</td>
+        <?php
+        echo " <form method=\"POST\" action=\"del.php\">\n"; 
+        echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
+        echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Eliminar\"  style='height:24px; width:100px' ></td>\n"; 
+        echo "        </form>\n"; 
+        echo "        <form method=\"POST\" action=\"upd.php\">\n"; 
+        echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
+        echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Editar\"  style='height:24px; width:100px' ></td>\n"; 
+        echo "        </form>\n";
+        ?>
 
-       
-      
-      <!-- botones eliminar y editar <td> <a href="?cargar=usuarios&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
-        <td><a href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>">Eliminar</a></td>
-        -->
         </tr>
         
       <?php  
@@ -147,7 +152,7 @@ $resultado = $controlador->ver($id_empresa);
      </tbody>
 </table>
 </table>
-<form method="POST" action="Menu.php">
+<form method="POST" action="menu.php">
 <br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas productos" style="height:38px; width:350px" >
 </form>
 </div>
@@ -183,8 +188,6 @@ echo "	var x=$('#pestanas');";
 echo "	x.tabs();";
 echo "	}";
 echo "</script>";
-?>
-<?php
 
 ?>
 
