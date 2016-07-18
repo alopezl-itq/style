@@ -54,12 +54,12 @@ public function __construct(){
 		$this->usu = new Usuario();
 	}
 
-//funciones getter y setter
+//set establece el valor de las variables
 
 public function set($atributo, $contenido){
 	$this->$atributo = $contenido;
 	}	
-	
+ //get obtiene el valor de las variables
 	public function get($atributo){
 	return $this->$atributo;
 	}
@@ -81,7 +81,7 @@ return  $this->usu->verempresas();
 		}
    
    
-   //funcion para ver status
+   //funcion para ver estatus
    public function verestat(){
    return  $this->usu->verestatus();
    }
@@ -103,6 +103,7 @@ return  $this->usu->verempresas();
 
 	$sql="	SELECT u.id_usuario, u.nombre_usuario,u.id_estatus,u.apellido_p,u.apellido_m,u.telefono,e.nombre From usuarios u,empresas e WHERE u.id_empresa=".$estetica." and e.id_empresa=".$estetica." and u.id_estatus=1 and id_tipo_usuario >4 ORDER by u.nombre_usuario ASC";
 		$resultado = $this->con->consultaR($sql);
+		
 		return $resultado;
 		
 		
@@ -125,7 +126,7 @@ return  $this->usu->verempresas();
 		
 		public function verE(){
 	
-	$sql = ("SELECT u.*, s.descripcion, e.descripcion_estados,t.descripcion_estatus, p.descripcion_tipo_usuarios, r.nombre,m.descripcion_municipios ,d.comisiones,d.sueldo_base from usuarios u, sexo s, estados e, estatus t, tipo_usuarios p, empresas r, municipios m ,sueldos d, redes_usuario i WHERE u.sexo=s.id_sexo and u.id_estatus=t.id_estatus and u.id_tipo_usuario= p.id_tipo_usuario and u.id_empresa=r.id_empresa and u.id_municipio=m.id_municipio and m.id_estado=e.id_estado and d.id_usuario=u.id_usuario  and u.id_usuario=".$this->id_usuario);
+	echo $sql = ("SELECT u.*, s.descripcion, e.descripcion_estados,t.descripcion_estatus, p.descripcion_tipo_usuarios, r.nombre,m.descripcion_municipios ,d.comisiones,d.sueldo_base from usuarios u, sexo s, estados e, estatus t, tipo_usuarios p, empresas r, municipios m ,sueldos d, redes_usuario i WHERE u.sexo=s.id_sexo and u.id_estatus=t.id_estatus and u.id_tipo_usuario= p.id_tipo_usuario and u.id_empresa=r.id_empresa and u.id_municipio=m.id_municipio and m.id_estado=e.id_estado and d.id_usuario=u.id_usuario  and u.id_usuario=".$this->id_usuario);
 		$resul = $this->con->consultaR($sql);
 	
 		$row =mysqli_fetch_assoc($resul) ;

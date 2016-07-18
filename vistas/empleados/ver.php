@@ -253,7 +253,7 @@ endwhile;
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Salida</h4>
+                    <h4 class="modal-title">Modificar Curso</h4>
                 </div>
                 <div class="modal-body">
                     <iframe src="editarcurso.php" style="width: 100% !important; height:250px !important"></iframe>

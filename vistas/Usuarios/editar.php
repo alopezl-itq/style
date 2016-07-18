@@ -101,7 +101,8 @@ if(isset($_POST['enviar'])){
 
 						<div class="form-group">
 							<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email" 
-                            value="<?php echo utf8_encode($row["email"]); ?>" id="email" name="email" size="20"  maxlength="50" /></label>	
+                            value="<?php echo utf8_encode($row["email"]); ?>" id="email" name="email"
+                             pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" size="20"  maxlength="50" /></label>	
 						</div>
 
 

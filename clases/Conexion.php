@@ -7,7 +7,7 @@ class Conexion extends MySQLi{
 			//constructor de mysql con la conexion
 		//parent::__construct('localhost','alejan14_style','style16','alejan14_style');//sitio
 		parent::__construct('localhost','root','','style');//local
-		#Establece el charset para consultas 
+		#Establece el charset para consultas
 		$this->query("SET NAMES 'utf-8';");
 		#Devuelve la respuesta de la conexion
 		$error=mysqli_connect_errno() ? die('Error con la conexión'.mysqli_connect_error()): $x = 'Conectado';
@@ -27,6 +27,7 @@ class Conexion extends MySQLi{
     #consulta simple para insertar o actualizar sin devolver errores.
 	public function consultaS($sql){
 	mysqli_query($this->Miconexion,$sql);
+      mysqli_close($this->Miconexion);
 }
 
   #regresa una respuesta de la consulta.
@@ -34,7 +35,10 @@ public function consultaR($sql){
 	
 
 	$consulta = mysqli_query($this->Miconexion,$sql);
-	return $consulta;
+  mysqli_close($this->Miconexion);
+  return $consulta;
+
+
 	}
 	
 	
@@ -42,6 +46,7 @@ public function consultaR($sql){
 	#regresa una respuesta de la consulta al igual que consultar R;
 	 public function consulta($consulta){ 
     $resultado = mysqli_query($this->Miconexion,$consulta);
+       mysqli_close($this->Miconexion);
     
     return $resultado;
   }
@@ -54,6 +59,7 @@ public function consultaR($sql){
       echo 'MySQL Error: ' . mysql_error();
       exit;
     }
+    mysqli_close($this->Miconexion);
     return $actualizacion;
   }
 
@@ -65,6 +71,7 @@ public function consultaR($sql){
       echo 'MySQL Error: ' . mysql_error();
       exit;
     }
+    mysqli_close($this->Miconexion);
     return $insercion;
   }
 	}

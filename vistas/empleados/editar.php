@@ -8,6 +8,9 @@ $row=$controlador->verE($_GET['id_usuario']);
 }
 
 if(isset($_POST['enviar'])){
+
+
+
 $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_decode($_POST['Facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
 
 
@@ -92,13 +95,14 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 	<div class="form-group">
 		<h5><i>Comision:</i></h5>
 
-		<?php  $comision= $row['comisiones']/$row['sueldo_base'];
+		<?php  $comision= $row['comisiones'];
 
 			
 
 		?>
 		<select name="comisiones">
 			<option value="0" selected>Seleccione porcentaje de comision</option>
+
 
 			<?php
 			$i=0;
@@ -120,6 +124,7 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 			}
 
 			?>
+
 		</select>
 	</div>
 	<div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
@@ -148,7 +153,7 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 
 						<div class="form-group">
 							<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email" 
-                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo utf8_encode($row['email']); ?>" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
+                            pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" value="<?php echo utf8_encode($row['email']); ?>" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
 						</div>
 						<div id="emailError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 

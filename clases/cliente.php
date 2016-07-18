@@ -43,6 +43,7 @@ class Cliente
        $sql="SELECT u.*,e.costo, s.servicio FROM usuarios r,servicios_usuario u, servicios_empresa e, descripcion_servicios d, servicios s where u.id_servicios_empresa=e.id_servicios_empresa and e.id_descripcion_servicios=d.id_descripcion_servicios and d.id_servicio=s.id_servicio and u.id_cliente =r.id_usuario and u.id_cliente=".$this->id_cliente;
         $resultado =$this->con->consultaR($sql);
         return $resultado;
+
     }
 
     //consulta los productos usados en un servicio en específico para el historial
