@@ -4,7 +4,7 @@ include_once('modulos/controlador_registro.php');
 
 $controlador = new controlador();
 if(isset($_POST['enviar'])){
-    $controlador->crearUsuario(utf8_encode($_POST['nombre_usuario']), utf8_encode($_POST['apellido_p']), utf8_encode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_encode($_POST['email']),$_POST['id_empresa'],3,$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_encode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_encode($_POST['usuario']),utf8_encode($_POST['password']));
+    $controlador->crearUsuario(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_empresa'],3,$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']));
 
 
 }
@@ -12,7 +12,7 @@ if(isset($_POST['enviar'])){
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
 
@@ -88,12 +88,11 @@ if(isset($_POST['enviar'])){
             </div>
 
             <div class="form-group">
-                <h5><i>Correo Electronico:</i></h5><label for="email"><input type="email"
-                                                                             placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" required /></label>
+                <h5><i>Correo Electronico:</i></h5><label for="email"><input type="email"  pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" required /></label>
             </div>
 
             <div class="form-group">
-                <h5><i>Estética:</i></h5>
+                <h5><i>EstÃ©tica:</i></h5>
                 <select name="id_empresa">
                     <option value="" selected>Selecciona una Estetica</option>
                     <?php
@@ -167,22 +166,22 @@ if(isset($_POST['enviar'])){
                     <input type="text" placeholder="Ingrese su Calle" name="nombre_calle" required />
                 </label></div>
 
-            <h5><i>Número interior:</i></h5>
+            <h5><i>NÃºmero interior:</i></h5>
             <div class="form-group">
                 <label>
-                    <input type="text" placeholder="Ingrese su Número Interior/SN" name="no_int"/>
+                    <input type="text" placeholder="Ingrese su Nï¿½mero Interior/SN" name="no_int"/>
                 </label></div>
 
-            <h5><i>Número exterior:</i></h5>
+            <h5><i>NÃºmero exterior:</i></h5>
             <div class="form-group">
                 <label>
-                    <input type="text" placeholder="Ingrese su Número Exterior" name="no_ext"/>
+                    <input type="text" placeholder="Ingrese su NÃºmero Exterior" name="no_ext"/>
                 </label></div>
 
             <h5><i>Codigo Postal:</i></h5>
             <div class="form-group">
                 <label>
-                    <input type="number" placeholder="Ingrese su Número Exterior" name="cp" min="1" required />
+                    <input type="number" placeholder="Ingrese su NÃºmero Exterior" name="cp" min="1" required />
                 </label></div>
         </div>
         <div class="col-lg-3 col-md-3"></div>

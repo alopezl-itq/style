@@ -61,7 +61,7 @@ if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
 	echo '<li><a href="?cargar=usuarios&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Perfil</a></li>';
 	echo '<li><a href="?cargar=usuarios&controlador=editar&&id_usuario='.$_SESSION['id_user'].'">Editar Perfil</a></li>';
 	echo '</ul>';
-	echo '<li>';
+	echo '</li>';
 	}else{
 		
 		}
