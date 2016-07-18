@@ -33,7 +33,9 @@ http://www.templatemo.com/tm-406-flex
         <link rel="stylesheet" href="css/templatemo_style.css">
 
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-
+        <?php
+        	echo "<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
+		?>
 </head>
 <body>
 
@@ -73,16 +75,26 @@ http://www.templatemo.com/tm-406-flex
 	                                    
                                         <li class="active"><a href="#">Inicio</a></li>
                                       <li><a href="vistas/usuarios">Usuarios</a></li>
-                                       	<li><a href="vistas/esteticas">Estéticas</a></li>
-                                       	<li><a href="vistas/cursos">Cursos</a></li>
-                                       <!--<li><a href="vistas/ventas">Ventas</a></li>-->
+                                       	
+                                       <li class="dropdown">
+        								<a class="dropdown-toggle" data-toggle="dropdown" href="vistas/esteticas">EstÃ©ticas<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                        	<li><a href="vistas/esteticas">EstÃ©ticas</a></li>
+                                       		<li><a href="vistas/cursos">Cursos</a></li>
+                                       		<li><a href="vistas/ventas">Ventas</a></li>
+                                       	</ul>
+                                       </li> 
                                        <li><a href="vistas/clientes">Clientes</a></li>
                                        <li><a href="vistas/agendar">Agenda</a></li>
-                                       <li><a href="vistas/empleados">Empleados</a></li>
-                                      <!-- <li><a href="vistas/productos/">Productos</a></li>->>
-                                       <--<li><a href="vistas/servicios">Servicios</a></li>-->
                                        
-                                        <!--<li><a href="#">¿Quienes Somos?</a></li>-->
+                                       <li class="dropdown">
+        								<a class="dropdown-toggle" data-toggle="dropdown" href="vistas/empleados">				Empleados<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">	
+                                        	<li><a href="vistas/empleados">Empleados</a></li>
+                                        	<li><a href="vistas/productos/">Productos</a></li>->>
+                                       		<li><a href="vistas/servicios">Servicios</a></li>-->
+                                       	</ul>
+                                       </li> 
                                         <li><a class="glyphicon-arrow-right" href="clases/salir.php">Salir</a></li>                               
                                     </ul>                                    
                                 </div> <!-- /.main-menu -->
@@ -92,7 +104,7 @@ http://www.templatemo.com/tm-406-flex
                 </div> <!-- /.main-header -->
             </div> <!-- /.site-header -->
              <!-- /.site-main -->
-
+</div>
 
 <div class="content-section" id="contact">
             <div class="container">
@@ -120,35 +132,29 @@ validarSesion();
 <div class="fb-comments" data-href="https://alex.redes.sociales.facebook.com" data-width="800" data-numposts="5"></div>-->
                   
                     <div class="col-md-4 hidden-xs text-right">
-                        <a href="#top" id="go-top">Back to top</a>
+                        <a href="#top" id="go-top">Ir Arriba</a>
                     </div> <!-- /.text-center -->
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#footer -->
-        
-        <script src="js/vendor/jquery-1.11.0.min.js"></script>
+    
+<script src="js/vendor/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
         <script src="js/bootstrap.js"></script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>                
-                </div> 
+        <script src="js/main.js"></script>
 
-        <div id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-xs-12 text-left">
-                        <span>Copyright &copy; 2016 Style Co. 
-                        
-                        | Design: <a rel="nofollow" href="http://www.alejandrolopezlopez.com"
-                         target="_target">QroSol</a>
-
-                        </span>
-                  </div> <!-- /.text-center -->
-                  <div id="fb-root"></div>
-
-
-        
-
+<?php
+echo "<script src='js/vendor/jquery-1.11.0.min.js'></script>";
+echo "<script>window.jQuery || document.write('<script src=\"js/vendor/jquery-1.11.0.min.js /assets/js/vendor/jquery-1.11.0.min.js\"><\/script>\')</script>";
+echo "<script src='js/bootstrap.js'></script>";
+echo "<script src='js/plugins.js'></script>";
+echo "<script src='js/main.js'></script>";
+  
+echo "<script type='text/javascript' src='js/jquery.js'></script>";
+echo "<script type='text/javascript' src='js/jqueryui.js'></script>";
+echo "<script type='text/javascript'>";
+?>
 
 </body>
 
