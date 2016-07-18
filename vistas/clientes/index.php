@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Eed
- * Date: 21/06/2016
- * Time: 09:23 AM
- */
+
  include_once('../../clases/comunes.php');
  include_once('../../modulos/enrutador.php');
  include_once('../../modulos/controlador.php');
@@ -48,9 +43,10 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi Perfil
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="?cargar=clientes&controlador=ver">Ver Mi Perfil</a></li>
-                    <li><a href="?cargar=clientes&controlador=editar">Modificar Mi Perfil</a></li>
-
+                <?php
+                   echo'<li><a href="?cargar=usuarios&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Ver Mi Perfil</a></li>';
+                    echo'<li><a href="?cargar=usuarios&controlador=editar&id_usuario='.$_SESSION['id_user'].'">Modificar Mi Perfil</a></li>';
+                    ?>
         </ul>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Historial
@@ -71,12 +67,13 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
 
 
 
-<div class="content-section" id="contact">
-
-    <div class="container">
-        <div class="row">
-
-            <div class="heading-section col-md-12" style="font-size:xx-large; text-align:center">
+<div class="container">
+                <div class="row">
+                 <div class="heading-section col-md-12 text-center">
+                     <p>Modulo De Empleados</p>
+                    </div> <!-- /.heading-section -->
+                </div> <!-- /.row -->
+                <div class="row">
 
                 <?php
                 validarSesionEnVistas();
