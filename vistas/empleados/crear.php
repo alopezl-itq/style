@@ -1,8 +1,8 @@
 ﻿<?php
-
+//instacia clase controlador
 $controlador = new ControladorE();
 
-
+//
 if(isset($_POST['enviar'])){
  $controlador->crearempleado(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_empresa']=$_SESSION['estetica'],$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_decode($_POST['Facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
 
@@ -122,7 +122,7 @@ if(isset($_POST['enviar'])){
 
 						<div class="form-group">
 							<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email" 
-                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
+                           pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
 						</div>
 						<div id="emailError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 
@@ -130,7 +130,8 @@ if(isset($_POST['enviar'])){
 							<h5><i>Tipo de Usuario:</i></h5>
 							<select name="id_tipo_usuario">
 								<option value="0" selected>Selecciona un Puesto</option>
-								<?php
+							<!--funcion para llenar al combobox desde la clase de empleado -->
+                            	<?php
 								$empleado= new Empleado();
 								$resultado2=$empleado->vertipous();
 								while($row=mysqli_fetch_array($resultado2)){
@@ -151,6 +152,7 @@ if(isset($_POST['enviar'])){
 							<h5><i>Estado de Residencia:</i></h5>
 							<select name="id_estado" id="id_estado">
 								<option value="">Seleccione un Estado</option>
+                                <!--funcion para llenar al combobox desde la clase de empleado -->
 								<?php
 								$usuario = new Usuario();
 								$resultadoestado=$usuario->verestados();
@@ -167,6 +169,7 @@ if(isset($_POST['enviar'])){
 							<select name="id_municipio" id="id_municipio">
 								<option value="">Selecciona un Municipio</option>
 							</select>
+                            <!--funcion para llenar al autocompletar combobox de municipios deacurdo al estado -->
 							<script>
 								$(document).ready(function(){
 									$('#id_estado').change(function(){

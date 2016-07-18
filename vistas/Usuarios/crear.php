@@ -72,7 +72,7 @@ if(isset($_POST['enviar'])){
 
 						<div class="form-group">
 							<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email" 
-                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
+                            pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
 						</div>
 						<div id="emailError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 

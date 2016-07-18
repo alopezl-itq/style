@@ -54,12 +54,12 @@ public function __construct(){
 		$this->usu = new Usuario();
 	}
 
-//funciones getter y setter
+//set establece el valor de las variables
 
 public function set($atributo, $contenido){
 	$this->$atributo = $contenido;
 	}	
-	
+ //get obtiene el valor de las variables
 	public function get($atributo){
 	return $this->$atributo;
 	}
@@ -81,7 +81,7 @@ return  $this->usu->verempresas();
 		}
    
    
-   //funcion para ver status
+   //funcion para ver estatus
    public function verestat(){
    return  $this->usu->verestatus();
    }
@@ -103,6 +103,7 @@ return  $this->usu->verempresas();
 
 	$sql="	SELECT u.id_usuario, u.nombre_usuario,u.id_estatus,u.apellido_p,u.apellido_m,u.telefono,e.nombre From usuarios u,empresas e WHERE u.id_empresa=".$estetica." and e.id_empresa=".$estetica." and u.id_estatus=1 and id_tipo_usuario >4 ORDER by u.nombre_usuario ASC";
 		$resultado = $this->con->consultaR($sql);
+		
 		return $resultado;
 		
 		
