@@ -8,6 +8,7 @@ $resultado = $controlador->desactivados($_SESSION['estetica']);
 <div class="panel panel-default">
 		<div class="panel-heading">Empleados Desactivados</div>
 		<div id="Em" class="panel panel-body ">
+        <div align="center" class="table-reponsive"> 
 <table class="table" width="50px">
         <thead>
         <th>Nombre</th>
@@ -41,6 +42,7 @@ $resultado = $controlador->desactivados($_SESSION['estetica']);
 
         </tbody>
     </table>
+    </div>
 </div>
 </div>
 </div>

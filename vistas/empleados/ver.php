@@ -246,4 +246,4 @@ endwhile;
 
 
 
-<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="../../js/validate.js"></script>

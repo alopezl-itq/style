@@ -14,7 +14,7 @@ if(isset($_POST['enviar'])){
 
 
 
-<script  src="js/jquery.js"></script>
+<script  src="../../js/jquery.js"></script>
 <div id="pestanas">
  <ul class="nav nav-tabs">
  	<li role="presentation" class="active"><a href="#pestana1" role="tab" data-toggle="tab">Información Personal</a></li>
@@ -302,6 +302,6 @@ if(isset($_POST['enviar'])){
 
 
 </div>
-<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="../../js/validate.js"></script>
 
 

@@ -16,6 +16,7 @@ $resultado = $controlador->index($_SESSION['estetica']);
 <div class="panel panel-default">
 		<div class="panel-heading">Empleados Activos</div>
 		<div id="Em" class="panel panel-body ">
+        <div align="center" class="table-reponsive"> 
 <table class="table" width="80px" >
 	<thead>
         <th>Nombre</th>
@@ -36,8 +37,8 @@ $resultado = $controlador->index($_SESSION['estetica']);
         <td><?php echo $row['telefono']; ?></td>
 
 
-        <td> <a  href="?cargar=empleados&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">+Informacion</a> </td>
-       <td> <a  class="glyphicon glyphicon-pencil" title="Editar" href="?cargar=empleados&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
+        <td> <a  href="?cargar=empleados&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">+Informacion</a></td>
+        <td><a class="glyphicon glyphicon-pencil" title="Desactivar" href="?cargar=empleados&controlador=editar&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
         <td><a class="glyphicon glyphicon-remove" title="Desactivar" href="?cargar=empleados&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
 
         </tr>
@@ -52,6 +53,7 @@ $resultado = $controlador->index($_SESSION['estetica']);
 
      </tbody>
 </table>
+</div>
 </div>
 </div>
 </div>

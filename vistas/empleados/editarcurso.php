@@ -102,11 +102,11 @@ if(isset($_POST['enviar'])){
 						</form>
                         
                         
-		</div>
-                </div>    
+		
+                
   
 
 
 </body>
 </html>
-<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="../../js/validate.js"></script>

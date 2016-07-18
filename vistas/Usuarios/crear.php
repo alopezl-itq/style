@@ -12,7 +12,7 @@ if(isset($_POST['enviar'])){
 
 
 
-<script  src="js/jquery.js">
+<script  src="../../js/jquery.js">
 
 </script>
 <div id="pestanas">
@@ -234,6 +234,6 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-3 col-md-3"></div>
 </div>
 </div>
-<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="../../js/validate.js"></script>
 
 

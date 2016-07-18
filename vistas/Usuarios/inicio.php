@@ -6,7 +6,8 @@ $resultado = $controlador->index($_SESSION['tipo']);
 ?>
 <div class="panel panel-default">
 		<div class="panel-heading">Usuarios Activos</div>
-		<div id="Em" class="panel panel-body "> 
+		<div id="Em" class="panel panel-body" >
+        <div align="center" class="table-reponsive"> 
 <table class="table" width="50px">
 	<thead>
         <th>Nombre</th>
@@ -41,6 +42,7 @@ $resultado = $controlador->index($_SESSION['tipo']);
       
      </tbody>
 </table>
+</div>
 </div>
 </div>
 </div>

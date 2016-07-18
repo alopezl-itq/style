@@ -71,7 +71,7 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
 <div class="container">
                 <div class="row">
                  <div class="heading-section col-md-12 text-center">
-                     <p>Modulo De Empleados</p>
+                     <p>Clentes</p>
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 <div class="row">
@@ -86,15 +86,41 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
                 ?>
             </div> <!-- /.col-md-12 -->
         </div>
-    <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-    <script src="../../js/bootstrap.js"></script>
-    <script src="../../js/plugins.js"></script>
-    <script src="../../js/main.js"></script>
+         <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 hidden-xs text-right">
+                        <a href="#top" id="go-top">Ir Arriba</a>
+                    </div> <!-- /.text-center -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /#footer -->
 
-<script type='text/javascript' src='../../js/jquery.js'></script>
-<script type='text/javascript' src='../../js/jqueryui.js'></script>
+            
+                                  
 
-</body>
+  <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+  <script src="../../js/bootstrap.js"></script>
+  <script src="../../js/plugins.js"></script>
+  <script src="../../js/main.js"></script>   
 
+<?php
+echo "<script type='text/javascript' src='../../js/jquery.js'></script>";
+echo "<script type='text/javascript' src='../../js/jqueryui.js'></script>";
+echo "<script type='text/javascript'>";
+
+echo "var x;";
+echo "x=$(document);";
+echo "x.ready(inicializar);";
+
+echo "function inicializar()";
+echo "{";
+echo "	var x=$('#pestanas');";
+echo "	x.tabs();";
+echo "	}";
+echo "</script>";
+?>
+
+    </body>
 </html>
