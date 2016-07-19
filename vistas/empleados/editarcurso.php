@@ -22,6 +22,15 @@ if(isset($_POST['enviar'])){
 
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editar Curso</title>
+    <meta charset="utf-8">
+</head>
+
+
+
 <body>
    <form action="" method="POST" >
         

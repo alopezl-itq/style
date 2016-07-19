@@ -32,6 +32,13 @@ $controlador->editarCom($_GET['id_usuario'],utf8_decode($_POST['observaciones'])
 ?>
 
 <script  src="../js/jquery.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Información</title>
+    <meta charset="utf-8">
+</head>
+<body>
 <div id="pestanas"> 
  <ul class="nav nav-tabs">
         <li role="presentation" class="active" ><a href="#pestana1" role="tab" data-toggle="tab">Información Empleado</a></li>
@@ -60,8 +67,14 @@ $controlador->editarCom($_GET['id_usuario'],utf8_decode($_POST['observaciones'])
 <br/><br/>
 <b>Fecha de nacimiento:</b>&nbsp;<?php  echo  $row['fecha_nacimiento']; ?>
 <br/><br/>
-<b>Comision:</b>&nbsp;<?php  echo   $row['comisiones']; ?>
-<br/><br/>
+<?php
+if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
+echo'<b>Comision:</b>&nbsp;  '. $row['comisiones'].'
+ <br/><br/>';
+}else{
+	
+	}
+?>
 <b>Sueldo Base:</b>&nbsp;<?php  echo   $row['sueldo_base']; ?>
 <br/><br/>
 						</div>
@@ -72,20 +85,25 @@ $controlador->editarCom($_GET['id_usuario'],utf8_decode($_POST['observaciones'])
 <br/><br/>
 <b>Correo electronico:</b>&nbsp;<?php  echo  utf8_decode($row['email']); ?>
 <br/><br/><br/>
-  <form action="" method="POST" name="frm">
-						<div class="form-group">
-                        <h3><b>Comentarios</b></h3><br/><br/>
- <textarea name="observaciones" style=" width:320px; height:100px"><?php echo utf8_encode($row['observaciones']); ?></textarea> 
-                        </div>
-                         <div class="col-sm-10" align="center">
-						<div>
-							<input type="submit"  name="guardar"  value="Guardar" onclick="return val();" style="width:30%"/>
-						</div>
-                        </div>
-						</form>
+<?php
+if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
+echo '<form action="" method="POST" name="frm">';
+						echo'<div class="form-group">';
+                       echo' <h3><b>Comentarios</b></h3><br/><br/>';
+ echo'<textarea name="observaciones" style=" width:320px; height:100px"> '.utf8_encode($row['observaciones']).' </textarea>';
+                       echo'</div>';
+                         echo'<div class="col-sm-10" align="center">';
+						echo'<div>';
+			echo'<input type="submit"  name="guardar"  value="Guardar" onclick="return val();" style="width:30%"/>';
+						echo'</div>';
+                        echo'</div>';
+						echo'</form>';
 
 
-<br><br>
+echo'<br><br>';
+}else{
+	}
+?>
 						</div>
                         
                         <div class="col-sm-4">
@@ -242,8 +260,8 @@ endwhile;
   </div>
 </div>
 </div>       
-
-
+</body>
+</html>
 
 
 <script type="text/javascript" src="../../js/validate.js"></script>

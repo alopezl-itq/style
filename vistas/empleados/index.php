@@ -48,9 +48,7 @@ validarSesionEnVistas();
           <li><a href="?cargar=empleados&controlador=crear">Nuevo Empleado</a></li>       
           <li><a href="../../vistas/empleados">Empleados Regisrados</a></li>
           <li><a href="?cargar=empleados&controlador=reactivar">Empleados Desactivados</a></li>
-            <li><a href="../servicios/servicios.php">Servicios</a></li>
-          <li><a href="../../vistas/productos/Menu.php">Productos</a></li>
-        </ul>
+          </ul>
       </li>
       <li><a href="../empleados/index.php">Regresar</a></li>
             <?php 
@@ -58,8 +56,8 @@ if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
 	echo '<li class="dropdown">';
     echo  '<a class="dropdown-toggle" data-toggle="dropdown" href="#">Perfil <span class="caret"></span></a>';
 	echo '<ul class="dropdown-menu">';
-	echo '<li><a href="?cargar=usuarios&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Perfil</a></li>';
-	echo '<li><a href="?cargar=usuarios&controlador=editar&&id_usuario='.$_SESSION['id_user'].'">Editar Perfil</a></li>';
+	echo '<li><a href="?cargar=usuarios&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Mi Perfil</a></li>';
+
 	echo '</ul>';
 	echo '</li>';
 	}else{

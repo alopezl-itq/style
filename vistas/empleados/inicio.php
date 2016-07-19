@@ -10,7 +10,13 @@ $resultado = $controlador->index($_SESSION['estetica']);
 
 ;
 ?>
-
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Empleados</title>
+    <meta charset="utf-8">
+</head>
+<body>
 
 
 <div class="panel panel-default">
@@ -57,3 +63,5 @@ $resultado = $controlador->index($_SESSION['estetica']);
 </div>
 </div>
 </div>
+</body>
+</html>

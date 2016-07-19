@@ -2,7 +2,8 @@
 
 include_once('../../modulos/controladorS.php');
 
-$id_empresa=$_POST["id_empresa"];
+session_start();
+$id_empresa=$_SESSION['estetica'];
 
 $controlador = new controlador();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
@@ -174,7 +175,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:20px; width:100px;" required></td>
+            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
 
         </tr>
@@ -327,9 +328,6 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
     <div class="col-lg-3 col-md-3"></div>                     
     
 </table>
-<?
-echo "<INPUT TYPE='HIDDEN' VALUE='$id_empresa' name='id_empresa'>";
-?>
 <br><INPUT TYPE="SUBMIT" name="guardar" value="Guardar" style="height:38px; width:350px" >
 </form>
 </div>

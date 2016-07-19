@@ -21,6 +21,13 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 
 
 <script  src="js/jquery.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editar usuarip</title>
+</head>
+<body>
 <div id="pestanas">
  <ul class="nav nav-tabs">
  	<li role="presentation"  class="active"><a href="#pestana1" role="tab" data-toggle="tab">Información Personal</a></li>
@@ -91,20 +98,25 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
 
+<?php 
 
-	<div class="form-group">
-		<h5><i>Comision:</i></h5>
+if($_SESSION['tipo']<4){
+	echo "<INPUT TYPE='HIDDEN' VALUE=".$row['comisiones']." name='comisiones'>";
 
-		<?php  $comision= $row['comisiones'];
+}else{
+echo'<div class="form-group">';
+	echo'<h5><i>Comision:</i></h5>';
+
+		 $comision= $row['comisiones'];
 
 			
 
-		?>
-		<select name="comisiones">
-			<option value="0" selected>Seleccione porcentaje de comision</option>
+		
+		echo'<select name="comisiones">';
+		echo'<option value="0" selected>Seleccione porcentaje de comision</option>';
 
 
-			<?php
+			
 			$i=0;
 			while($i<20){
 				$i++;
@@ -123,10 +135,13 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 				}
 			}
 
-			?>
+		
 
-		</select>
-	</div>
+		echo'</select>';
+	echo'</div>';
+}
+	
+		?>
 	<div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         <div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
@@ -349,10 +364,11 @@ $resulRedes=$empleado->verredes($_GET['id_usuario']);
 </div>
 <div class="col-lg-3 col-md-3"></div>
 </div>
-
-
-
-
-
 </div>
+
+</body>
+</html>
+
+
+
 <script type="text/javascript" src="js/validate.js"></script>

@@ -5,6 +5,13 @@ $resultado = $controlador->desactivados($_SESSION['estetica']);
 
 	
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crear Usuario</title>
+    <meta charset="utf-8">
+</head>
+<body>
 <div class="panel panel-default">
 		<div class="panel-heading">Empleados Desactivados</div>
 		<div id="Em" class="panel panel-body ">
@@ -46,3 +53,5 @@ $resultado = $controlador->desactivados($_SESSION['estetica']);
 </div>
 </div>
 </div>
+</body>
+</html>
