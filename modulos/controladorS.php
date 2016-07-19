@@ -38,8 +38,8 @@ public function crearServicio( $id_servicio, $detalle){
 			return $resultado;
 		}
 
-	public function eliminar($id_servicio){
-			$this->servicio->set("id_servicio",$id_servicio);
+	public function eliminar($id_servicios_empresa){
+			$this->servicio->set("id_servicios_empresa",$id_servicios_empresa);
 			$this->servicio->eliminar();
 			
 		}	
@@ -112,6 +112,14 @@ public function crearServicio( $id_servicio, $detalle){
 			$this->servicio->set("id_empresa",$id_empresa);
 
 			$resultado=$this->servicio->verServiciosEmpresa();
+		  return $resultado;
+			
+		}
+		public function verServiciosEmpresa2($id_servicios_empresa){
+
+			$this->servicio->set("id_servicios_empresa",$id_servicios_empresa);
+
+			$resultado=$this->servicio->verServiciosEmpresa2();
 		  return $resultado;
 			
 		}

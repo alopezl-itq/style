@@ -1,24 +1,8 @@
 <?php
 include_once('../../modulos/controladorS.php');
-
-$controlador = new controlador();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {  
-    session_start();
+session_start();
 $id_empresa=$_SESSION['estetica'];
-    
-    $id_servicios_empresa=$_POST["numero"];
-    $costo=$_POST["costo"];
-    $tiempo=$_POST["tiempo"];
-    
-    $count=count($id_servicios_empresa);
-    for ($i = 0; $i < $count; $i++) 
-    {
-        if(isset($_POST['guardar']))
-            {
-                $r=$controlador->actualizarServicioEmpresa($id_servicios_empresa[$i],$costo[$i],$tiempo[$i]);
-            }
-    }
-}
+$controlador = new controlador();
 ?>
 
 <!DOCTYPE html>
