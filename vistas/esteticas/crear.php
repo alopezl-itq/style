@@ -37,7 +37,7 @@ $controlador = new c_estetica();
 
 if(isset($_POST['enviar'])){
 	//print_r($_POST);
-	
+
 	
 	//print_r($_POST);
 	
@@ -70,11 +70,11 @@ if(isset($_POST['enviar'])){
 		$nombre=str_replace(" ", "", $nombre);
 		echo $ruta = "../../imagenes_esteticas/" . $nombre.$ext;
 
-	print_r($_POST);
+
  $r =$controlador->crear(utf8_decode($_POST['nombre_estetica']),$ruta, $_POST['eslogan'],$_POST['cliente_a'],
 	 $_POST['cliente_b'],$_POST['cliente_c'],$_POST['cliente_d'],$_POST['id_estatus'],utf8_decode($_POST['calle']),$_POST['no_int'],
 	 $_POST['no_ext'],$_POST['id_estado'],utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
-		header('location:../usuarios/?cargar=usuarios&controlador=crear');
+
 
 
 		//comprovamos si este imagen existe para no volverlo a copiar.
@@ -99,7 +99,7 @@ if(isset($_POST['enviar'])){
 	
 	if($r){
 		//echo 'se agrego un nuevo estética';
-		header("location:index.php");
+		header('location:../usuarios/index.php?cargar=usuarios&controlador=crear&empresa=empresa');
 	}else{
 		echo'no se agrego el registro';
 		}

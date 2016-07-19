@@ -93,11 +93,15 @@ if(isset($_POST['enviar'])){
 							<select name="id_tipo_usuario">
 								<option value="0" selected>Selecciona un Puesto</option>
 								<?php
+								if(isset($_GET['empresa'])){
+									echo '<option value="2">Propietario-Accionista</option>';
+
+								}else{
 								$usuario = new Usuario();
 								$resultado2=$usuario->vertipous();
 								while($row=mysqli_fetch_array($resultado2)){
 									echo '<option value="'.$row["id_tipo_usuario"].'">'.utf8_encode($row["descripcion_tipo_usuarios"]).'</option>';
-								}
+								}}
 								?>
 							</select>
 						</div>

@@ -36,7 +36,7 @@ class c_estetica{
 			$this->estetica->set("facebook",$facebook);
 			$this->estetica->set("twitter",$twitter);
 			$this->estetica->set("instagram",$instagram);
-		
+
 
 
 
