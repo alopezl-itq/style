@@ -1,7 +1,7 @@
 <?php
 include_once('../../modulos/controladorP.php');
 session_start();
-$id_empresa=$_SESSION['empresa'];
+$id_empresa=$_SESSION['estetica'];
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -88,7 +88,7 @@ $controlador = new Controlador();
 $resultado = $controlador->ver($id_empresa);
 ?>
 <div align="center"> 
-<table border="0">
+<table border="1">
 	<thead>
         <th>Marca</th>
 		<th>Linea</th>
@@ -118,11 +118,11 @@ $resultado = $controlador->ver($id_empresa);
        <?php
 echo " <form method=\"POST\" action=\"del.php\">\n"; 
 echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
-echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Eliminar\"  style='height:24px; width:100px' ></td>\n"; 
+echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Eliminar\"  style='height:30px; width:100px' ></td>\n"; 
 echo "        </form>\n"; 
 echo "        <form method=\"POST\" action=\"upd.php\">\n"; 
 echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
-echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Editar\"  style='height:24px; width:100px' ></td>\n"; 
+echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Editar\"  style='height:30px; width:100px' ></td>\n"; 
 echo "        </form>\n";
 ?>
         </tr>

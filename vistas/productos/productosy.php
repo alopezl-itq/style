@@ -3,7 +3,8 @@ include_once('../../modulos/controladorP.php');
 
 $controlador = new controlador();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
-    $id_empresa=$_POST["id_empresa"];
+    session_start();
+$id_empresa=$_SESSION['estetica'];
     $id_producto_empresa=$_POST["numero"];
     $costoC=$_POST["costoC"];
      $costoV=$_POST["costoV"];
@@ -104,7 +105,7 @@ $controlador = new Controlador();
 $resultado = $controlador->ver($id_empresa);
 ?>
 <div align="center"> 
-<table border="0">
+<table border="1">
 	<thead>
         <th>Marca</th>
 		<th>Linea</th>
@@ -130,12 +131,12 @@ $resultado = $controlador->ver($id_empresa);
         <td><?php echo  utf8_encode($row['6']); ?> Unidades/piezas</td>
         <?php
         echo " <form method=\"POST\" action=\"del.php\">\n"; 
-        echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
-        echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Eliminar\"  style='height:24px; width:100px' ></td>\n"; 
+        echo "        <INPUT TYPE='HIDDEN' VALUE=\"$row[7]\" name='numero'>\n"; 
+        echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Eliminar\"  style='height:30px; width:100px' ></td>\n"; 
         echo "        </form>\n"; 
         echo "        <form method=\"POST\" action=\"upd.php\">\n"; 
         echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
-        echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Editar\"  style='height:24px; width:100px' ></td>\n"; 
+        echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Editar\"  style='height:30px; width:100px' ></td>\n"; 
         echo "        </form>\n";
         ?>
 

@@ -29,6 +29,12 @@ class Controlador{
 		  return $resultado;
 			
 		}
+		public function verProductoEmpresa($id_producto_empresa){
+			$this->producto->set("id_producto_empresa",$id_producto_empresa);
+			$resultado=$this->producto->verProductoEmpresa();
+		  return $resultado;
+			
+		}
 		public function verproductosN($id_marca,$id_empresa){
 			$this->producto->set("id_marca",$id_marca);
 			$this->producto->set("id_empresa",$id_empresa);
@@ -79,7 +85,12 @@ class Controlador{
 			
 		}
 
+public function eliminar($id_producto_empresa){
+			$this->producto->set("id_producto_empresa",$id_producto_empresa);
+			$resultado=$this->producto->eliminar();
+		  return $resultado;
 
+}
 
 
 	}	

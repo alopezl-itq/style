@@ -2,7 +2,7 @@
 
 include_once('../../modulos/controladorP.php');
 session_start();
-$id_empresa=$_SESSION['empresa'];
+$id_empresa=$_SESSION['estetica'];
 $id_marca=$_POST["numero"];
 ?>
 <!DOCTYPE html>
@@ -169,8 +169,6 @@ echo "	var x=$('#pestanas');";
 echo "	x.tabs();";
 echo "	}";
 echo "</script>";
-
-mysql_close();
 ?>
     </body>
 </html>

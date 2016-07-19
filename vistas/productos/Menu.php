@@ -5,7 +5,10 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-
+<?php
+session_start();
+$id_empresa=$_SESSION['estetica'];
+?>
 
     <head>
         <meta charset="utf-8">

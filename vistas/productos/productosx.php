@@ -3,7 +3,7 @@
 include_once('../../modulos/controladorP.php');
 $id_marca=$_POST["id_marca"];
 session_start();
-$id_empresa=$_SESSION['empresa'];
+$id_empresa=$_SESSION['estetica'];
 $controlador = new controlador();
 $p1=$_POST["p1"];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
