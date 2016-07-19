@@ -100,11 +100,9 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 
 <?php 
 
-if($_SESSION['tipo']<4){
-	echo "<INPUT TYPE='HIDDEN' VALUE=".$row['comisiones']." name='comisiones'>";
-
-}else{
-echo'<div class="form-group">';
+if($_SESSION['tipo']==4 or $_SESSION['tipo']==2){
+	
+    echo'<div class="form-group">';
 	echo'<h5><i>Comision:</i></h5>';
 
 		 $comision= $row['comisiones'];
@@ -139,6 +137,9 @@ echo'<div class="form-group">';
 
 		echo'</select>';
 	echo'</div>';
+}else{
+
+echo "<INPUT TYPE='HIDDEN' VALUE=".$row['comisiones']." name='comisiones'>";
 }
 	
 		?>
@@ -171,12 +172,14 @@ echo'<div class="form-group">';
                             pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" value="<?php echo utf8_encode($row['email']); ?>" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
 						</div>
 						<div id="emailError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+<?php
 
-	    					<div class="form-group">
-							<h5><i>Tipo de Usuario</i></h5>
-							<select name="id_tipo_usuario">
-								<option value="o" >Selecciona un Puesto</option>
-								<?php
+if($_SESSION['tipo']==4 or $_SESSION['tipo']==2){
+	    				echo'	<div class="form-group">';
+						echo'	<h5><i>Tipo de Usuario</i></h5>';
+						echo'	<select name="id_tipo_usuario">';
+							echo'	<option value="o" >Selecciona un Puesto</option>';
+							
 								$empleado = new Empleado();
 								$resultado5=$empleado->vertipous();
 								while($row3=mysqli_fetch_array($resultado5)){
@@ -187,9 +190,16 @@ echo'<div class="form-group">';
 								}
 
 							}
-								?>
-							</select>
-						</div>
+								
+							echo'</select>';
+						echo'</div>';
+						
+}else{
+	echo "<INPUT TYPE='HIDDEN' VALUE=".$row['id_tipo_usuario']." name='id_tipo_usuario'>";
+	}
+		?>				
+                        
+                        
 </div>
 <div class="col-lg-3 col-md-3"></div>                        
 </div>
@@ -301,6 +311,7 @@ echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode(utf8_decode(
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
 	<?php
+$empleado = new Empleado();
 $resulRedes=$empleado->verredes($_GET['id_usuario']);
 
 	while($row6=mysqli_fetch_array($resulRedes)){

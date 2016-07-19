@@ -61,6 +61,15 @@ if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
 	echo '</ul>';
 	echo '</li>';
 	}else{
+	echo '<li class="dropdown">';
+    echo  '<a class="dropdown-toggle" data-toggle="dropdown" href="#">Perfil <span class="caret"></span></a>';
+	echo '<ul class="dropdown-menu">';
+	echo '<li><a href="?cargar=empleados&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Mi Perfil</a></li>';
+	
+	
+
+	echo '</ul>';
+	echo '</li>';
 		
 		}
 		

@@ -18,6 +18,11 @@ $resultado = $controlador->index($_SESSION['estetica']);
 </head>
 <body>
 
+<?php
+
+if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
+echo'
+
 
 <div class="panel panel-default">
 		<div class="panel-heading">Empleados Activos</div>
@@ -33,29 +38,30 @@ $resultado = $controlador->index($_SESSION['estetica']);
 
      </thead>
      <tbody>
-     <?php  while($row = mysqli_fetch_array($resultado)): ?>
-        <tr class="success">
-
-        <td ><?php echo utf8_encode($row['nombre_usuario']); ?></td>
-        <td><?php echo utf8_encode($row['apellido_p']); ?></td>
-        <td><?php echo utf8_encode($row['apellido_m']); ?></td>
-        <td><?php echo utf8_encode($row['nombre']); ?></td>
-        <td><?php echo $row['telefono']; ?></td>
-
-
-        <td> <a  href="?cargar=empleados&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">+Informacion</a></td>
-        <td><a class="glyphicon glyphicon-pencil" title="Desactivar" href="?cargar=empleados&controlador=editar&id_usuario=<?php echo $row['id_usuario'];  ?>">Editar</a></td>
-        <td><a class="glyphicon glyphicon-remove" title="Desactivar" href="?cargar=empleados&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
+	 ';
+      while($row = mysqli_fetch_array($resultado)): 
+        echo'
+		<tr class="success">
+        <td >'.utf8_encode($row['nombre_usuario']).'</td>
+        <td>'.utf8_encode($row['apellido_p']).'</td>
+        <td>'.utf8_encode($row['apellido_m']).'</td>
+        <td>'.utf8_encode($row['nombre']).'</td>
+        <td>'.$row['telefono'].'</td>
+         ';
+echo'
+        <td> <a  href="?cargar=empleados&controlador=ver&id_usuario='.$row['id_usuario'].'">+Informacion</a></td>
+        <td><a class="glyphicon glyphicon-pencil" title="Desactivar" href="?cargar=empleados&controlador=editar&id_usuario='.$row['id_usuario'].'">Editar</a></td>
+        <td><a class="glyphicon glyphicon-remove" title="Desactivar" href="?cargar=empleados&controlador=eliminar&&id_usuario='.$row['id_usuario'].'"></a></td>
 
         </tr>
-
-      <?php
+';
+     
 
 
 
 	  endwhile;
-	  ?>
-
+	 
+echo'
 
      </tbody>
 </table>
@@ -63,5 +69,10 @@ $resultado = $controlador->index($_SESSION['estetica']);
 </div>
 </div>
 </div>
+';
+}else{
+	
+	}
+ ?>
 </body>
 </html>

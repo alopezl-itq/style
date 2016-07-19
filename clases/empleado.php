@@ -244,7 +244,7 @@ $this->con->query($sql4);
 				
 	//funciones para ver los datos de redes sociales		
      public function verredes($id_usuario){
- $sql ="SELECT u.id_usuario,r.usuario_r,t.descripcion_red_social from redes_usuario r,tipo_redes_sociales t,usuarios u where r.id_tipo_red_social=t.id_tipo_red_social and u.id_usuario=r.id_usuario and u.id_usuario and u.id_usuario=".$id_usuario;
+echo $sql ="SELECT u.id_usuario,r.usuario_r,t.descripcion_red_social from redes_usuario r,tipo_redes_sociales t,usuarios u where r.id_tipo_red_social=t.id_tipo_red_social and u.id_usuario=r.id_usuario and u.id_usuario and u.id_usuario=".$id_usuario;
 		$result = $this->con->consultaR($sql);
 		return $result;
 }

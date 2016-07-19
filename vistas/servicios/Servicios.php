@@ -102,7 +102,7 @@ $resultado5 = $controlador->serviciosOtros();
 
 <div id="pestana1">
 <b>Servicio cortes:</b><br><br>
-<form method="POST" action="aServicio.php">
+<form method="POST" action="aservicio.php">
 <table border="0">
 	<thead>
         <th>Servicio</th>

@@ -103,7 +103,19 @@ echo '<form action="" method="POST" name="frm">';
 echo'<br><br>';
 }else{
 	}
-?>
+
+
+if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
+
+}else{
+	
+	
+echo'<a href="?cargar=empleados&controlador=editar&id_usuario='.$_SESSION['id_user'].'" class="btn btn-default btn-sm">
+          <span  class="glyphicon glyphicon-pencil"></span> Editar información 
+        </a>';
+
+	}
+	?>
 						</div>
                         
                         <div class="col-sm-4">

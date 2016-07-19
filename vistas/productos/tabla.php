@@ -133,7 +133,7 @@ echo "        </form>\n";
       
      </tbody>
 </table>
-<form method="POST" action="Menu.php">
+<form method="POST" action="menu.php">
 <br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas productos" style="height:38px; width:350px" >
 </form>
 
