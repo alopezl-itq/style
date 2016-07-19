@@ -30,7 +30,7 @@ class Controlador{
 
 
 
-    public function crearUsuario( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $telefono,$email, $id_empresa,$id_tipo_usuario, $id_municipio,$colonia,$nombre_calle,$no_int, $no_ext,$cp,$usuario,$password){
+    public function crearUsuario( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $email, $id_empresa,$id_tipo_usuario, $id_municipio,$usuario,$password){
 
 
         $this->usuario->set("nombre_usuario",$nombre_usuario);
@@ -38,16 +38,12 @@ class Controlador{
         $this->usuario->set("apellido_m",$apellido_m);
         $this->usuario->set("sexo",$sexo);
         $this->usuario->set("fecha_nacimiento",$fecha_nacimiento);
-        $this->usuario->set("telefono",$telefono);
+
         $this->usuario->set("email",$email);
         $this->usuario->set("id_empresa",$id_empresa);
         $this->usuario->set("id_tipo_usuario",$id_tipo_usuario);
         $this->usuario->set("id_municipio",$id_municipio);
-        $this->usuario->set("colonia",$colonia);
-        $this->usuario->set("nombre_calle",$nombre_calle);
-        $this->usuario->set("no_int",$no_int);
-        $this->usuario->set("no_ext",$no_ext);
-        $this->usuario->set("cp",$cp);
+
         $this->usuario->set("usuario",$usuario);
         $this->usuario->set("password",$password);
 

@@ -14,7 +14,7 @@ class Usuario
     private $foto;
     private $email;
     private $telefono;
-    private $observaciones;
+
     private $usuario;
     private $password;
     private $id_tipo_usuario;
@@ -27,8 +27,7 @@ class Usuario
     private $no_int;
     private $no_ext;
     private $con;
-    private $usuario_r;
-    private $descripcion_red;
+
     private $cp;
 
 
@@ -162,8 +161,8 @@ class Usuario
 
 
 
-            echo  $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono
- , '$this->email',$this->id_empresa, $this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
+            echo  $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`usuario`,`password`,`formulario_lleno`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento'
+ , '$this->email',$this->id_empresa, $this->id_tipo_usuario,1,$this->id_municipio,'$this->usuario','$this->password',0); ";
 
             $this->con->query($sql);
 

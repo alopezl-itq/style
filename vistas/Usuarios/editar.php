@@ -66,7 +66,7 @@ if(isset($_POST['enviar'])){
 					<option value="null" selected>Seleccione el sexo</option>
 					<?php
 
-					if($row['sexo']=='mujer') {
+					if($row['sexo']=='2') {
 
 						echo '
 					<option value="2" selected>Mujer</option>

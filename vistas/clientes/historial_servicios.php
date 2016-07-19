@@ -44,3 +44,4 @@ $resultado = $controlador->verServicios($_SESSION['id_user']);
 <?php #}else{
     #header('location: ../../clases/salir.php');
 #};
+cerrarConexion();

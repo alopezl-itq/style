@@ -27,7 +27,10 @@
 	 		}
 	
 }
-
+    function cerrarConexion(){
+        $db = new Conexion();
+        mysqli_close($db);
+    }
 
 function elimina_acentos($text)
     {

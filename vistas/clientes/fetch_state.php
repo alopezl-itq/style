@@ -19,4 +19,5 @@ echo $output;
  }else{
  header('location: ../../clases/salir.php');
 };
+cerrarConexion();
 ?>

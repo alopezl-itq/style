@@ -120,6 +120,7 @@ echo "	var x=$('#pestanas');";
 echo "	x.tabs();";
 echo "	}";
 echo "</script>";
+cerrarConexion();
 ?>
 
     </body>

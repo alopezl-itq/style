@@ -4,7 +4,7 @@ include_once('modulos/controlador_registro.php');
 
 $controlador = new controlador();
 if(isset($_POST['enviar'])){
-    $controlador->crearUsuario(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_empresa'],3,$_POST['id_municipio'],utf8_encode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']));
+    $controlador->crearUsuario(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],utf8_decode($_POST['email']),$_POST['id_empresa'],3,$_POST['id_municipio'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']));
 
 
 }
@@ -49,6 +49,20 @@ if(isset($_POST['enviar'])){
         <div class="col-lg-6 col-md-6">
             <form action="" method="POST" name="frm">
                 <div class="form-group">
+                    <h5><i>User:</i></h5><label for="user"><input type="text" id="user" placeholder="Ingrese Username" name="usuario" maxlength="50"
+                                                                  size="20" required/></label>
+                </div>
+
+                <div class="form-group">
+                    <h5><i>Password:</i></h5><label for="password"><input type="password"
+                                                                          id="password" placeholder="Ingrese Password" name="password" maxlength="50" size="20" required/></label>
+                </div>
+
+                <div class="form-group">
+                    <h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password"
+                                                                                           id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" maxlength="50" size="20" required/></label>
+                </div>
+                <div class="form-group">
                     <h5><i>Nombre:</i></h5><label for="nombre"><input type="text" placeholder="Nombre(s)*" name="nombre_usuario"
                                                                       id="nombre_usuario" maxlength="50" size="20" style="width:100%;" required/></label>
                 </div>
@@ -82,10 +96,7 @@ if(isset($_POST['enviar'])){
         <br/>
         <div class="col-lg-3 col-md-3"></div>
         <div class="col-lg-6 col-md-6">
-            <div class="form-group">
-                <h5><i>Telefono:</i></h5><label for="tel"><input type="tel" placeholder="(555)123-4567"
-                                                                 id="tel" name="telefono" maxlength="20" size="20" required/></label>
-            </div>
+
 
             <div class="form-group">
                 <h5><i>Correo Electronico:</i></h5><label for="email"><input type="email"  pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" required /></label>
@@ -154,35 +165,9 @@ if(isset($_POST['enviar'])){
                 </script>
             </div>
 
-            <h5><i>Ciudad de Residencia:</i></h5>
-            <div class="form-group">
-                <label>
-                    <input type="text" placeholder="Ingrese su Colonia" name="colonia" required />
-                </label></div>
 
-            <h5><i>Calle:</i></h5>
-            <div class="form-group">
-                <label>
-                    <input type="text" placeholder="Ingrese su Calle" name="nombre_calle" required />
-                </label></div>
 
-            <h5><i>Número interior:</i></h5>
-            <div class="form-group">
-                <label>
-                    <input type="text" placeholder="Ingrese su N�mero Interior/SN" name="no_int"/>
-                </label></div>
 
-            <h5><i>Número exterior:</i></h5>
-            <div class="form-group">
-                <label>
-                    <input type="text" placeholder="Ingrese su Número Exterior" name="no_ext"/>
-                </label></div>
-
-            <h5><i>Codigo Postal:</i></h5>
-            <div class="form-group">
-                <label>
-                    <input type="number" placeholder="Ingrese su Número Exterior" name="cp" min="1" required />
-                </label></div>
         </div>
         <div class="col-lg-3 col-md-3"></div>
 
@@ -203,20 +188,7 @@ if(isset($_POST['enviar'])){
                     return true;
                 }
             </script>
-            <div class="form-group">
-                <h5><i>User:</i></h5><label for="user"><input type="text" id="user" placeholder="Ingrese Username" name="usuario" maxlength="50"
-                                                              size="20" required/></label>
-            </div>
 
-            <div class="form-group">
-                <h5><i>Password:</i></h5><label for="password"><input type="password"
-                                                                      id="password" placeholder="Ingrese Password" name="password" maxlength="50" size="20" required/></label>
-            </div>
-
-            <div class="form-group">
-                <h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password"
-                                                                                       id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" maxlength="50" size="20" required/></label>
-            </div>
 
             <div class="col-sm-12 modal-footer" align="center">
 

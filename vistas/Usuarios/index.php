@@ -15,6 +15,7 @@ validarSesionEnVistas();
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+        <meta name="tipo_contenido"  content="text/html;" http-equiv="content-type" charset="utf-8">
         <meta charset="utf-8">
         <title>The Best Hair Salons</title>
         <link rel="icon" type="img/ico" href="images/icoB.ico"/>
