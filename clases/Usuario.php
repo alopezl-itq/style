@@ -186,7 +186,7 @@ echo $sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_es
 				}
 				
 				public function editarUsuario(){
-				$sql = "UPDATE `usuarios` SET `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = '$this->id_tipo_usuario', `id_empresa` = '$this->id_empresa', `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia' WHERE `usuarios`.`id_usuario` = '$this->id_usuario'";
+				$sql = "UPDATE `usuarios` SET `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = '$this->id_tipo_usuario', `id_empresa` = '$this->id_empresa', `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia',`formulario_lleno`=1 WHERE `usuarios`.`id_usuario` = '$this->id_usuario'";
 				
 				$this->con->query($sql);
 				echo $sql;
