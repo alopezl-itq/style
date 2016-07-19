@@ -1,6 +1,7 @@
 <?php
 	include_once('../../modulos/enrutador.php');
 include_once('../../modulos/c_estetica.php');
+include_once('../../modulos/controlador.php');
 
 ?>
 
@@ -14,33 +15,12 @@ include_once('../../modulos/c_estetica.php');
 
 	<script src="../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 	
-	
+	<script  src="js/jquery.js">
+
+</script>
 	
 </head>
-<script type="text/javascript">
-	
-	
-	
-	
-	
-	var checkbox = document.getElementById("estados"),
-		ajax = function(url){
-			var xhr = window.XMLHttpRequest ?
-				new XMLHttpRequest() :
-			new ActiveXObject("Microsoft.XMLHTTP") ||
-			new ActiveXObject("Msxml2.XMLHTTP");
 
-		};
-
-	checkbox.addEventListener("click", function(){
-		var estado = this.checked ? 1 : 0,
-			id = this.getAttribute("data-id"),
-			url = "ver_usuarios2.php?estado="+estado+"&id="+id;
-
-		ajax(url);
-
-	}, false);
-</script>
 
   
 <header align="center"><h1><center>Nueva Estética</center></h1></header>
@@ -237,20 +217,38 @@ if(isset($_POST['enviar'])){
 
 								</select>*
 							</div>
-							<div class="checkbox">
-								<select name="id_estado">
-									<option value="" selected>Selecciona un Estado</option>
-									<?php
-									$estetica = new estetica();
-									$resultado4=$estetica->verestados();
-									while($row=mysqli_fetch_array($resultado4)){
-										echo '<option value="'.$row["id_estado"].'">'.utf8_encode($row["descripcion_estados"]).'</option>';
-									}
+							<div class="form-group">
+							<h5><i>Estado de Residencia:</i></h5>
+							<select name="id_estado" id="id_estado">
+								<option value="">Seleccione un Estado</option>
+								<?php
+								$usuario = new Usuario();
+								$resultadoestado=$usuario->verestados();
+								while($row=mysqli_fetch_array($resultadoestado)){
+									echo '<option value="'.$row["id_estado"].'">'.utf8_encode($row["descripcion_estados"]).'</option>';
+								}
+								?>
+							</select>
+						</div>
 
-									?>
+    					<div class="form-group">
+							<h5><i>Municipio de Residencia:</i></h5>
 
-								</select>*
-							</div>
+							<select name="id_municipio" id="id_municipio">
+								<option value="">Selecciona un Municipio</option>
+							
+							<script>
+								$(document).ready(function(){
+									$('#id_estado').change(function(){
+										var country_id = $(this).val();
+										alert(("que pedo")	;									});
+									});
+								});
+							</script>
+							</select>
+						</div>
+				
+							
 	
 							<div>
 								<input type="submit" class="slider-btn" name="enviar" value="enviar" />

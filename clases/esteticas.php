@@ -89,7 +89,7 @@ public function verempresas(){
 		return $res;
 	}
 	public function vermunicipio($municipio){
-		$sql ="Select * FROM municipios where id_estado=".$municipio;
+		echo $sql ="Select * FROM municipios where id_estado=".$municipio;
 		$res=$this->con->consultaR($sql);
 		return $res;
 	}

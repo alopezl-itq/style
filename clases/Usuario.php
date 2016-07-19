@@ -80,12 +80,13 @@ public function set($atributo, $contenido){
 
 		return $res;
 		}
-		public function vermunicipioTodos($id_estado){
+	
+	public function vermunicipioTodos($id_estado){
 		 $sql ="Select * FROM municipios WHERE id_estado= (SELECT id_estado from estados where descripcion_estados='".$id_estado."')";
 		$res=$this->con->consultaR($sql);
 
 		return $res;
-		}
+	}
 	
 	
 	
