@@ -1,5 +1,5 @@
 <?php
-include_once('../../modulos/controladorS.php');
+include_once('../../modulos/controladors.php');
 
 $controlador = new controlador();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
@@ -164,7 +164,7 @@ echo "        </form>\n";
         <h4 class="modal-title">Insertar Servicio</h4>
       </div>
       <div class="modal-body">
-		  <form METHOD="POST" ACTION="nServicios.php">
+		  <form METHOD="POST" ACTION="nservicios.php">
 			<br>Tipo de Servicio<br>
             <select name='tipo'><option value=1>Servicio de corte</option><option value=2>Servicio de color</option><option value=3>Servicio de peinado</option><option value=4 >Servicio de maquillaje</option><option value=5 >Otro tipo de servicio</option></select><br>
             <br>Nuevo Servicio:<br>

@@ -1,6 +1,6 @@
 <?php
 
-include_once('../../modulos/controladorS.php');
+include_once('../../modulos/controladors.php');
 
 $controlador = new controlador();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  

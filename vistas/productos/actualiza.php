@@ -1,5 +1,5 @@
 <?php  
-include_once('../../modulos/controladorP.php');
+include_once('../../modulos/controladorp.php');
 $id_producto_empresa=$_POST["numero"];
 $costoC=$_POST["costoC"];
 $costoV=$_POST["costoV"];

@@ -1,6 +1,6 @@
 <?php
 
-include_once('../../modulos/controladorP.php');
+include_once('../../modulos/controladorp.php');
 session_start();
 $id_empresa=$_SESSION['estetica'];
 $id_marca=$_POST["numero"];
