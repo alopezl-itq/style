@@ -53,7 +53,7 @@ public function set($atributo, $contenido){
 	}
 
   public function verempresas(){
-	$sql ="Select * FROM empresas";
+	$sql ="Select * FROM empresas ORDER BY id_empresa DESC";
 	$res=$this->con->consultaR($sql);
 	return $res;
 }
@@ -160,11 +160,14 @@ echo $sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_es
 
             if($numregistros == 0 )
             {
+				$sqlempresa="SELECT MAX(id_empresa) FROM empresas";
+				$rem=$this->con->consultaR($sqlempresa);
+				$re=mysqli_fetch_array($rem);
 		 
 
 
 			echo  $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono
- , '$this->email',$this->id_empresa, $this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
+ , '$this->email',".$re["MAX(id_empresa)"].", $this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
 
 			$this->con->query($sql);
 			

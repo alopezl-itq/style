@@ -2,7 +2,7 @@
 
 $controlador = new controlador();
 if(isset($_POST['enviar'])){
- $controlador->crearUsuario(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_empresa'],$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']));
+ $controlador->crearUsuario(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']));
 
 
 }
@@ -86,19 +86,7 @@ if(isset($_POST['enviar'])){
 						</div>
 						<div id="emailError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 
-						<div class="form-group">
-							<h5><i>Estética:</i></h5>
-    						<select name="id_empresa">
-        						<option value="" selected>Selecciona una Estetica</option>
-									<?php
-									$usuario = new Usuario();
-									$resultado1=$usuario->verempresas();
-									while($row=mysqli_fetch_array($resultado1)){
-										echo '<option value="'.$row["id_empresa"].'">'.utf8_encode($row["nombre"]).'</option>';
-										}
-									?>
-							</select>
-						</div>
+
 	
     					<div class="form-group">
 							<h5><i>Tipo de Usuario:</i></h5>

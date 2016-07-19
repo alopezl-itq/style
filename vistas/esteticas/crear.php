@@ -2,6 +2,7 @@
 	include_once('../../modulos/enrutador.php');
 include_once('../../modulos/c_estetica.php');
 include_once('../../modulos/controlador.php');
+include_once('../../clases/usuario.php');
 
 ?>
 
@@ -15,7 +16,7 @@ include_once('../../modulos/controlador.php');
 
 	<script src="../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
 	
-	<script  src="js/jquery.js">
+	<script  src="../../js/jquery.js">
 
 </script>
 	
@@ -73,7 +74,7 @@ if(isset($_POST['enviar'])){
  $r =$controlador->crear(utf8_decode($_POST['nombre_estetica']),$ruta, $_POST['eslogan'],$_POST['cliente_a'],
 	 $_POST['cliente_b'],$_POST['cliente_c'],$_POST['cliente_d'],$_POST['id_estatus'],utf8_decode($_POST['calle']),$_POST['no_int'],
 	 $_POST['no_ext'],$_POST['id_estado'],utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
-
+		header('location:../usuarios/?cargar=usuarios&controlador=crear');
 
 
 		//comprovamos si este imagen existe para no volverlo a copiar.
@@ -110,7 +111,7 @@ if(isset($_POST['enviar'])){
 <section>
 
 <body>
-<div class="container" >   
+<div class="container" >
 <form action="" method="POST" enctype="multipart/form-data">
 
 <div class="container">
@@ -217,36 +218,45 @@ if(isset($_POST['enviar'])){
 
 								</select>*
 							</div>
+
 							<div class="form-group">
-							<h5><i>Estado de Residencia:</i></h5>
-							<select name="id_estado" id="id_estado">
-								<option value="">Seleccione un Estado</option>
-								<?php
-								$usuario = new Usuario();
-								$resultadoestado=$usuario->verestados();
-								while($row=mysqli_fetch_array($resultadoestado)){
-									echo '<option value="'.$row["id_estado"].'">'.utf8_encode($row["descripcion_estados"]).'</option>';
-								}
-								?>
-							</select>
-						</div>
+								<h5><i>Estado de Residencia:</i></h5>
+								<select name="id_estado" id="id_estado">
+									<option value="">Seleccione un Estado</option>
+									<?php
+									$usuario = new Usuario();
+									$resultadoestado=$usuario->verestados();
+									while($row=mysqli_fetch_array($resultadoestado)){
+										echo '<option value="'.$row["id_estado"].'">'.utf8_encode($row["descripcion_estados"]).'</option>';
+									}
+									?>
+								</select>
+							</div>
 
-    					<div class="form-group">
-							<h5><i>Municipio de Residencia:</i></h5>
+							<div class="form-group">
+								<h5><i>Municipio de Residencia:</i></h5>
 
-							<select name="id_municipio" id="id_municipio">
-								<option value="">Selecciona un Municipio</option>
-							
-							<script>
-								$(document).ready(function(){
-									$('#id_estado').change(function(){
-										var country_id = $(this).val();
-										alert(("que pedo")	;									});
+								<select name="id_municipio" id="id_municipio">
+									<option value="">Selecciona un Municipio</option>
+								</select>
+								<script>
+									$(document).ready(function(){
+										$('#id_estado').change(function(){
+											var country_id = $(this).val();
+											$.ajax({
+												url:"fetch_state.php",
+												method:"POST",
+												data:{countryId:country_id},
+												dataType:"text",
+												success:function(data)
+												{
+													$('#id_municipio').html(data);
+												}
+											});
+										});
 									});
-								});
-							</script>
-							</select>
-						</div>
+								</script>
+							</div>
 				
 							
 	
