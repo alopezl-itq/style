@@ -1,6 +1,6 @@
 <?php
 
-include_once('../../modulos/controladorS.php');
+include_once('../../modulos/controladors.php');
 session_start();
 $id_empresa=$_SESSION['estetica'];
 

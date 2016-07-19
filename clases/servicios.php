@@ -105,7 +105,7 @@ public function listar(){
 
 		//$id_empresa=1;
 	
-		echo $sql = "SELECT s.servicio, d.descripcion, x.costo, x.tiempo_servicio, x.id_servicios_empresa from descripcion_servicios d, servicios s, servicios_empresa x WHERE x.id_servicio=s.id_servicio and x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_empresa=$this->id_empresa";
+		$sql = "SELECT s.servicio, d.descripcion, x.costo, x.tiempo_servicio, x.id_servicios_empresa from descripcion_servicios d, servicios s, servicios_empresa x WHERE x.id_servicio=s.id_servicio and x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_empresa=$this->id_empresa";
 		$resultado = $this->con->consulta($sql);
 		
 		
@@ -144,7 +144,7 @@ public function listar(){
 
 
 	public function agregarServicioEmpresa(){
-		echo $sql1="SELECT id_servicios_empresa from servicios_empresa where id_descripcion_servicios=$this->id_descripcion_servicios and id_servicio=$this->id_servicio and id_empresa=$this->id_empresa";
+		$sql1="SELECT id_servicios_empresa from servicios_empresa where id_descripcion_servicios=$this->id_descripcion_servicios and id_servicio=$this->id_servicio and id_empresa=$this->id_empresa";
 		 $resultado=$this->con->consulta($sql1);
 		$row = mysqli_fetch_array($resultado);
 		$numero= $row[0];

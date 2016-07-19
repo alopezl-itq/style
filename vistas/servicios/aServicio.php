@@ -1,6 +1,6 @@
 <?php
 
-include_once('../../modulos/controladorS.php');
+include_once('../../modulos/controladors.php');
 
 session_start();
 $id_empresa=$_SESSION['estetica'];
@@ -157,7 +157,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 
 <div id="pestana1">
 <b>Servicio cortes:</b><br><br>
-<form method="POST" action="fServicios.php">
+<form method="POST" action="fservicios.php">
 <table border="2">
 	<thead>
         <th>Servicio</th>

@@ -1,6 +1,6 @@
 <?php
 
-include_once('../../modulos/controladorS.php');
+include_once('../../modulos/controladors.php');
 
 $id_servicios_empresa=$_POST["numero"];
 echo "numero".$id_servicios_empresa;

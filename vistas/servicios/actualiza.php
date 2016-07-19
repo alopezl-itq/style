@@ -1,5 +1,5 @@
 <?php  
-include_once('../../modulos/controladorS.php');
+include_once('../../modulos/controladors.php');
 $id_servicios_empresa=$_POST["numero"];
 $costo=$_POST["costo"];
 $tiempo=$_POST["tiempo"];

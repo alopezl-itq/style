@@ -1,5 +1,5 @@
 <?php  
-include_once('../../modulos/controladorS.php');
+include_once('../../modulos/controladors.php');
 $id_servicios_empresa=$_POST["numero"];
 $controlador = new Controlador();
 $resultado = $controlador->eliminar($id_servicios_empresa);
