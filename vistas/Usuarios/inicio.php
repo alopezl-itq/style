@@ -4,6 +4,14 @@ $controlador = new Controlador();
 $resultado = $controlador->index($_SESSION['tipo']);
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Usuarios</title>
+    <meta charset="utf-8">
+</head>
+<body>
 <div class="panel panel-default">
 		<div class="panel-heading">Usuarios Activos</div>
 		<div id="Em" class="panel panel-body" >
@@ -46,3 +54,5 @@ $resultado = $controlador->index($_SESSION['tipo']);
 </div>
 </div>
 </div>
+</body>
+</html>

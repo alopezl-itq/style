@@ -4,6 +4,15 @@ $resultado = $controlador->desactivados($_SESSION['tipo']);
 
 $resultado = $controlador->index($_SESSION['tipo']);
 ?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reactivar</title>
+    <meta charset="utf-8">
+</head>
+<body>
 <div class="panel panel-default">
 		<div class="panel-heading">Usuarios Desactivados</div>
 		<div id="Em" class="panel panel-body "> 
@@ -45,3 +54,5 @@ $resultado = $controlador->index($_SESSION['tipo']);
 </div>
 </div>
 </div>
+</body>
+</html>

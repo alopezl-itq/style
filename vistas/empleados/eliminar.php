@@ -19,6 +19,14 @@ if(isset($_POST['enviar'])){
 
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Estatus</title>
+    <meta charset="utf-8">
+</head>
+<body>
 <form action="" method="POST">
      <div class="form-group">
 							<h4>Status:</h4>
@@ -37,3 +45,5 @@ if(isset($_POST['enviar'])){
 
 <input type="submit" name="enviar" value="actualizar"/>
 </form>
+</body>
+<html>

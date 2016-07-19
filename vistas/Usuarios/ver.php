@@ -10,7 +10,25 @@ if(isset($_GET['id_usuario'])){
 }else{
 	header('Location: index.php');
 	}	
-?>
+
+if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
+echo '<div align="center">';
+echo'<a href="?cargar=usuarios&controlador=editar&&id_usuario='.$_SESSION['id_user'].'" class="btn btn-default btn-sm">
+          <span  class="glyphicon glyphicon-pencil"></span> Editar información 
+        </a>';
+echo'</div>';
+}else{
+	}
+
+?>        
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Información</title>
+    <meta charset="utf-8">
+</head>
+<body>
+        <br/><br>
 
  <div class="col-sm-4" align="center">
                     <b style="font-size:24px">Información Personal</b><br/><br/>
@@ -49,3 +67,6 @@ if(isset($_GET['id_usuario'])){
 
 
                			</div>
+                        
+</body>
+</html>                        

@@ -15,6 +15,16 @@ if(isset($_POST['enviar'])){
 <script  src="../../js/jquery.js">
 
 </script>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crear Usuario</title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+
 <div id="pestanas">
  <ul class="nav nav-tabs">
  	<li role="presentation"class="active"><a href="#pestana1" role="tab" data-toggle="tab" >Información Personal</a></li>
@@ -150,6 +160,15 @@ if(isset($_POST['enviar'])){
 							</script>
 						</div>
                         
+                        
+                        
+                        <h5><i>Calle:</i></h5>
+						<div class="form-group">
+                        <label>
+							<input type="text" placeholder="Ingrese su Calle" name="nombre_calle" id="calle" onblur="calleValidate(this);" required />
+						</label></div>
+						<div id="calleError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        
                         <h5><i>Colonia:</i></h5>
     					<div class="form-group">
 							<label>
@@ -157,14 +176,7 @@ if(isset($_POST['enviar'])){
 						</label></div>
                         <div id="coloniaError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
-						<h5><i>Calle:</i></h5>
-						<div class="form-group">
-                        <label>
-							<input type="text" placeholder="Ingrese su Calle" name="nombre_calle" id="calle" onblur="calleValidate(this);" required />
-						</label></div>
-						<div id="calleError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
-                        
-                        <h5><i>Número interior:</i></h5>
+				        <h5><i>Número interior:</i></h5>
 						<div class="form-group">
                         <label>
 							<input type="text" placeholder="Ingrese su Número Interior/SN" name="no_int" id="num" onblur="numValidate(this);" required/>
@@ -234,6 +246,11 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-3 col-md-3"></div>
 </div>
 </div>
+</body>
+</html>
+
 <script type="text/javascript" src="../../js/validate.js"></script>
+
+
 
 

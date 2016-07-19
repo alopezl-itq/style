@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Eed
- * Date: 19/05/2016
- * Time: 10:24 AM
- */
+
 session_start();
 
 
@@ -76,25 +71,19 @@ http://www.templatemo.com/tm-406-flex
                                         <li class="active"><a href="#">Inicio</a></li>
                                       <li><a href="vistas/usuarios">Usuarios</a></li>
                                        	
-                                       <li class="dropdown">
-        								<a class="dropdown-toggle" data-toggle="dropdown" href="vistas/esteticas">EstÃ©ticas<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                        	<li><a href="vistas/esteticas">EstÃ©ticas</a></li>
+                                       
+                                        	<li><a href="vistas/esteticas">Estéticas</a></li>
                                        		<li><a href="vistas/cursos">Cursos</a></li>
                                        		<li><a href="vistas/ventas">Ventas</a></li>
-                                       	</ul>
-                                       </li> 
+                                       	
                                        <li><a href="vistas/clientes">Clientes</a></li>
                                        <li><a href="vistas/agendar">Agenda</a></li>
                                        
-                                       <li class="dropdown">
-        								<a class="dropdown-toggle" data-toggle="dropdown" href="vistas/empleados">				Empleados<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">	
+                                       	
                                         	<li><a href="vistas/empleados">Empleados</a></li>
-                                        	<li><a href="vistas/productos/">Productos</a></li>->>
-                                       		<li><a href="vistas/servicios">Servicios</a></li>-->
-                                       	</ul>
-                                       </li> 
+                                       <li><a href="vistas/servicios/servicios.php">Servicios</a></li>
+                                       <li><a href="vistas/productos/Menu.php">Productos</a></li>
+                                       	
                                         <li><a class="glyphicon-arrow-right" href="clases/salir.php">Salir</a></li>                               
                                     </ul>                                    
                                 </div> <!-- /.main-menu -->

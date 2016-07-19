@@ -31,7 +31,14 @@ if(isset($_POST['enviar'])){
 			return true;
 		}
 	</script>
-
+    
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crear Usuario</title>
+    <meta charset="utf-8">
+</head>
+<body>
 <div id="pestanas">
  <ul class="nav nav-tabs">
   	<li role="presentation"class="active"><a href="#pestana1" role="tab" data-toggle="tab" >Información Personal</a></li>
@@ -47,18 +54,21 @@ if(isset($_POST['enviar'])){
                         <form action="" method="POST">
 						<div class="form-group">
                             <h5><i>Nombre:</i></h5><label for="nombre_usuario"><input type="text" value="<?php echo utf8_encode($row["nombre_usuario"]); ?>" name="nombre_usuario"
-                            id="nombre_usuario" maxlength="50" size="20" style="width:100%;" required/></label>
+                         onblur="nombreValidate(this);" required/></label>
 						</div>
+                        <div id="nombreError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
                         <div class="form-group">
 							<h5><i>Apellido Paterno:</i></h5><label for="apellido_p"><input type="text" value="<?php echo utf8_encode($row["apellido_p"]); ?>" 
-                            id="apellidos" name="apellido_p" maxlength="50" size="20" required/></label>
+                            id="apellidos" name="apellido_p" maxlength="50" size="20"  onblur="apepValidate(this);" required/></label>
 						</div>
+						<div id="apeError" class="alert alert-danger alert-dismissable" style="display:none;"></div
 						
-                        <div class="form-group">
+                        ><div class="form-group">
 							<h5><i>Apellido Materno:</i></h5><label for="apellido_m"><input type="text" value="<?php echo utf8_encode($row["apellido_m"]); ?>" 
-                            id="apellidos" name="apellido_m" maxlength="50" size="20" required/></label>
+                            id="apellidos" name="apellido_m" maxlength="50" size="20" onblur="apemValidate(this);" required/></label>
 						</div>
+                        <div id="apemError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
 						<div class="form-group">
 							<h5><i>Sexo:</i></h5>
@@ -96,13 +106,14 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-6 col-md-6">
 						<div class="form-group">
 							<h5><i>Teléfono:</i></h5><label for="tel"><input type="tel" value="<?php echo $row["telefono"]; ?>" 
-                            id="tel" name="telefono" maxlength="20" size="20" required/></label>
+                            id="tel" name="telefono" maxlength="20" size="20"onblur="telValidate(this);" required/></label>
 						</div>
+                        <div id="telError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 
 						<div class="form-group">
 							<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email" 
                             value="<?php echo utf8_encode($row["email"]); ?>" id="email" name="email"
-                             pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" size="20"  maxlength="50" /></label>	
+                              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
 						</div>
 
 
@@ -110,48 +121,49 @@ if(isset($_POST['enviar'])){
 if($_SESSION['tipo']==4){
 	echo "<INPUT TYPE='HIDDEN' VALUE=".$row['id_empresa']." name='id_empresa'>";
 	}else{
-			echo'<div class="form-group">';
-			echo'<h5><i>Estética:</i></h5>';
-    		echo'<select name="id_empresa">';
-        	echo '<option value="0" selected>Selecciona una Estetica</option>';
+			echo"<div class='form-group'>";
+			echo"<h5><i>Estética:</i></h5>";
+    		echo"<select name='id_empresa'>";
+        	echo"<option value='0' selected>Selecciona una Estetica</option>";
 			$usuario = new Usuario();
 			$resultado1=$usuario->verempresas();
 			while($row1=mysqli_fetch_array($resultado1)){
 			if($row['nombre']==$row1['nombre']){
-		    echo '<option value="'.$row1["id_empresa"].'" selected>'.utf8_encode($row1["nombre"]).'</option>';
+		    echo "<option value=".$row1['id_empresa']." selected>".utf8_encode($row1['nombre'])."</option>";
 			}else{
-			echo '<option value="'.$row1["id_empresa"].'">'.utf8_encode($row1["nombre"]).'</option>';
+			echo "<option value=".$row1['id_empresa'].">".utf8_encode($row1['nombre'])."</option>";
 					}
-					}
+			}
 				
-						echo'</select>';
-	                                        echo'</div>';					
+						echo"</select>";
+	                     echo"</div>";					
 	}  
-                                              
-  if($_SESSION['tipo']==3){
-	echo "<INPUT TYPE='HIDDEN' VALUE=".$row['id_tipo_usuario']." name='id_tipo_usuario'>";
-	}else{			
+       
+	   	?>                                         
 
-    					echo'<div class="form-group">';
-						echo'<h5><i>Tipo de Usuario</i></h5>';
-							echo'<select name="id_tipo_usuario">';
-								echo'<option value="0" selected>Selecciona un Puesto</option>';
-								
+	
+			
+
+    					<div class="form-group">
+						<h5><i>Tipo de Usuario</i></h5>
+							<select name="id_tipo_usuario">
+						<option value="0" selected>Selecciona un Puesto</option>
+								<?php
 								$usuario = new Usuario();
 								$resultado2=$usuario->vertipous();
 								while($row1=mysqli_fetch_array($resultado2)){
 									if($row['id_tipo_usuario']==$row1['id_tipo_usuario']){
-									echo '<option value="'.$row1["id_tipo_usuario"].'" selected>'.utf8_encode($row1["descripcion_tipo_usuarios"]).'</option>';
+									echo '<option value="'.$row1['id_tipo_usuario'].'" selected>'.utf8_encode($row1['descripcion_tipo_usuarios']).'</option>';
 								}else{
-									echo '<option value="'.$row1["id_tipo_usuario"].'">'.utf8_encode($row1["descripcion_tipo_usuarios"]).'</option>';
+									echo '<option value="'.$row1["id_tipo_usuario"].'">'.utf8_encode($row1['descripcion_tipo_usuarios']).'</option>';
 								}
 
 							}
-							
-							echo'</select>';
-					echo'</div>';
-                      }  
-                      	?>  
+								?>  
+						</select>
+					</div>
+                     
+                      
                         
 </div>
 <div class="col-lg-3 col-md-3"></div>
@@ -218,23 +230,25 @@ if($_SESSION['tipo']==4){
     						<div class="form-group">
 							<h5><i>Ciudad de Residencia:</i></h5>
 						<label>
-							<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo utf8_encode($row["colonia"]); ?>"required />
-						</label>
-						</div>
+							<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo utf8_encode($row["colonia"]); ?>" onblur="coloniaValidate(this);" required />
+						</label></div>
+                        <div id="coloniaError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
 						<h5><i>Calle:</i></h5>
 						<div class="form-group">
                         <label>
-							<input type="text" value="<?php echo utf8_encode($row['nombre_calle']); ?>" name="nombre_calle"/>
+							<input type="text" value="<?php echo utf8_encode($row['nombre_calle']); ?>" name="nombre_calle" onblur="calleValidate(this);" required />
 						</label></div>
+						<div id="calleError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
                         <h5><i>Número Interior:</i></h5>
 						<div class="form-group">
                         <label>
-							<input type="text" value="<?php echo $row['no_int']; ?>" name="no_int"/>
+							<input type="text" value="<?php echo $row['no_int']; ?>" name="no_int"onblur="numValidate(this);" required/>
 						</label></div>
-	
-    					<h5><i>Número Exterior:</i></h5>
+						<div id="numError" class="alert alert-danger alert-dismissable" style="display:none;"></div>	
+    					
+                        <h5><i>Número Exterior:</i></h5>
 						<div class="form-group">
                         <label>
 							<input type="text" value="<?php echo $row['no_ext']; ?>" name="no_ext"/>
@@ -243,8 +257,10 @@ if($_SESSION['tipo']==4){
                         <h5><i>Codigo Postal:</i></h5>
 						<div class="form-group">
                         <label>
-							<input type="number" placeholder="Ingrese su Número Exterior" name="cp" value="<?php echo $row["cp"]; ?>" min="1" required />
+							<input type="number" placeholder="Ingrese su Número Exterior" name="cp" value="<?php echo $row["cp"]; ?>" min="11111" max="99999" onblur="cpValidate(this);" required />
 						</label></div>
+                        <div id="cpError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        
                         
 </div>
 <div class="col-lg-3 col-md-3"></div>
@@ -270,13 +286,15 @@ if($_SESSION['tipo']==4){
 	</script>
 						<div class="form-group">
 							<h5><i>User:</i></h5><label for="user"><input type="text" id="user" value="<?php echo utf8_encode($row["usuario"]); ?>" placeholder="Ingrese Username" name="usuario" maxlength="50" 
-                            size="20" required/></label>
+                            size="20" onblur="userValidate(this);" required/></label>
 						</div>
+                        <div id="userError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 	
     					<div class="form-group">
 							<h5><i>Password:</i></h5><label for="password"><input type="password"
-                            id="password" placeholder="Ingrese Password" name="password" maxlength="50" value="<?php echo utf8_encode($row["password"]); ?>" size="20" required/></label>
+                            id="password" placeholder="Ingrese Password" name="password" maxlength="50" value="<?php echo utf8_encode($row["password"]); ?>" size="20"onblur="passwordValidate(this);" required/></label>
 						</div>
+                        <div id="passwordError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 	<div class="form-group">
 		<h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password"
 													   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" value="<?php echo utf8_encode($row["password"]); ?>" maxlength="50" size="20" required/></label>
@@ -291,3 +309,8 @@ if($_SESSION['tipo']==4){
 <div class="col-lg-3 col-md-3"></div>
 </div>
 </div> 
+</body>
+</html>
+<script type="text/javascript" src="../../js/validate.js"></script>
+
+
