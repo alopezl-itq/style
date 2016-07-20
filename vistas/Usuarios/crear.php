@@ -55,13 +55,14 @@ if(isset($_POST['enviar'])){
                         
 						<div class="form-group">
 							<h5><i>Sexo:</i></h5>
-							<select name="sexo">
-								<option value="null" selected>Seleccione el sexo</option>
+							<select name="sexo" id="sexo" onblur="cmbsexoValidate(this);">
+								<option value="#" selected>Seleccione el sexo</option>
 								<option value="2">Mujer</option>
 								<option value="1">Hombre</option>
 							</select>
 						</div>
-
+						<div id="sexoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        
 						<div class="form-group">
 							<h5><i>Fecha de nacimiento:</i></h5><label for="date"><input type="date"  name="fecha_nacimiento"
                             id="date" onblur="dateValidate(this);" required /></label>
@@ -90,8 +91,8 @@ if(isset($_POST['enviar'])){
 	
     					<div class="form-group">
 							<h5><i>Tipo de Usuario:</i></h5>
-							<select name="id_tipo_usuario">
-								<option value="0" selected>Selecciona un Puesto</option>
+							<select name="id_tipo_usuario" id="tipo" onblur="cmbtipoValidate(this);">
+								<option value="#" selected>Selecciona un Puesto</option>
 								<?php
 								if(isset($_GET['empresa'])){
 									echo '<option value="2">Propietario-Accionista</option>';
@@ -105,6 +106,7 @@ if(isset($_POST['enviar'])){
 								?>
 							</select>
 						</div>
+                        <div id="tipoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 </div>
 <div class="col-lg-3 col-md-3"></div>                        
 </div>
@@ -115,8 +117,8 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-6 col-md-6">
     					<div class="form-group">
 							<h5><i>Estado de Residencia:</i></h5>
-							<select name="id_estado" id="id_estado">
-								<option value="">Seleccione un Estado</option>
+							<select name="id_estado" id="id_estado" onblur="cmbestValidate(this);">
+								<option value="#">Seleccione un Estado</option>
 								<?php
 								$usuario = new Usuario();
 								$resultadoestado=$usuario->verestados();
@@ -126,7 +128,8 @@ if(isset($_POST['enviar'])){
 								?>
 							</select>
 						</div>
-
+						<div id="estError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        
     					<div class="form-group">
 							<h5><i>Municipio de Residencia:</i></h5>
 
