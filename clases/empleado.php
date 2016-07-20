@@ -190,22 +190,22 @@ echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m
 	
    //consulta para insertar sueldos
    echo $sql3="INSERT INTO Sueldos (id_usuario,comisiones,sueldo_base) values
-   ($id_usuario1,$this->comisiones,$this->sueldo_base); ";
+   (".$id_usuario1.",$this->comisiones,$this->sueldo_base); ";
       $this->con->query($sql3);
 	  
 	  
 	 
 	 //Consultas para  insertar los datos de redes de SQL5 a SQL7
     echo  $sql5="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
-      ($id_usuario1,1,'$this->Facebook') ";
+      (".$id_usuario1.",1,'$this->Facebook') ";
       $this->con->query($sql5);
 	  
 	echo  $sql6="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
-      ($id_usuario1,2,'$this->twitter') ";
+      (".$id_usuario1.",2,'$this->twitter') ";
       $this->con->query($sql6);
 	 
 	echo $sql7="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
-      ($id_usuario1,3,'$this->instagram') ";
+      (".$id_usuario1.",3,'$this->instagram') ";
       $this->con->query($sql7);
       
 	  return true;

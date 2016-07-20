@@ -147,7 +147,7 @@ public function verempresas(){
  '$this->cliente_a', '$this->cliente_b', '$this->cliente_c', '$this->cliente_d',  '$this->id_estatus', '$this->calle', '$this->no_ext', '$this->no_int', '$this->id_estado', '1','$this->facebook','$this->twitter','$this->instagram'); ";
 			//$this->con->query($sql);
 			//$conexion=mysqli_connect('localhost','desarrollo','style16','style') or die(mysql_error());
-			$conexion=mysqli_connect('localhost','root','','style') or die(mysqli_error());
+			$conexion=mysqli_connect('localhost','alejan14_style','style16','alejan14_style') or die(mysqli_error());
 			
 			if ($conexion->connect_error) {
 					die("Connection failed: " . $conexion->connect_error);
