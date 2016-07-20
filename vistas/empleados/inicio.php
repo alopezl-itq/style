@@ -42,16 +42,16 @@ echo'
       while($row = mysqli_fetch_array($resultado)): 
         echo'
 		<tr class="success">
-        <td >'.utf8_encode($row['nombre_usuario']).'</td>
+        <td>'.utf8_encode($row['nombre_usuario']).'</td>
         <td>'.utf8_encode($row['apellido_p']).'</td>
         <td>'.utf8_encode($row['apellido_m']).'</td>
         <td>'.utf8_encode($row['nombre']).'</td>
         <td>'.$row['telefono'].'</td>
          ';
 echo'
-        <td> <a  href="?cargar=empleados&controlador=ver&id_usuario='.$row['id_usuario'].'">+Informacion</a></td>
+        <td> <a  href="?cargar=empleados&controlador=ver&id_usuario='.$row['id_usuario'].'">+Información</a></td>
         <td><a class="glyphicon glyphicon-pencil" title="Desactivar" href="?cargar=empleados&controlador=editar&id_usuario='.$row['id_usuario'].'">Editar</a></td>
-        <td><a class="glyphicon glyphicon-remove" title="Desactivar" href="?cargar=empleados&controlador=eliminar&&id_usuario='.$row['id_usuario'].'"></a></td>
+        <td><a class="glyphicon glyphicon-remove-sign" title="Desactivar" href="?cargar=empleados&controlador=eliminar&&id_usuario='.$row['id_usuario'].'">Desactivar</a></td>
 
         </tr>
 ';

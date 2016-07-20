@@ -32,7 +32,9 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
  <ul class="nav nav-tabs">
  	<li role="presentation"  class="active"><a href="#pestana1" role="tab" data-toggle="tab">Información Personal</a></li>
  	<li role="presentation" ><a href="#pestana2" role="tab" data-toggle="tab">Datos de sueldo</a></li> 
-    <li role="presentation" ><a href="#pestana3" role="tab" data-toggle="tab">Información de Contacto</a></li> 
+    
+  <li role="presentation" ><a href="#pestana3" role="tab" data-toggle="tab">Información de Contacto</a></li>
+
    <li role="presentation" ><a href="#pestana4" role="tab" data-toggle="tab">Domicilio</a></li> 
     <li role="presentation" ><a href="#pestana5" role="tab" data-toggle="tab">Redes Sociales</a></li> 
 	<li role="presentation" ><a href="#pestana6" role="tab" data-toggle="tab">Datos de Acceso</a></li> 
@@ -111,7 +113,7 @@ if($_SESSION['tipo']==4 or $_SESSION['tipo']==2){
 
 		
 		echo'<select name="comisiones">';
-		echo'<option value="0" selected>Seleccione porcentaje de comision</option>';
+		echo'<option value="0" >Seleccione porcentaje de comision</option>';
 
 
 			
@@ -146,9 +148,16 @@ echo "<INPUT TYPE='HIDDEN' VALUE=".$row['comisiones']." name='comisiones'>";
 	<div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         <div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
+                    <?php
+					if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
+					echo'
                         <div class="form-group">
-							<h5><i>Sueldo base:</i></h5><label for="sueldo_base"><input type="number" placeholder="2000.00" id="sueldo_base" value="<?php echo $row['sueldo_base']; ?>" name="sueldo_base" maxlength="50" size="20" min="0" onblur="sueldValidate(this);" required/></label>
-						</div>
+							<h5><i>Sueldo base:</i></h5><label for="sueldo_base"><input type="number" placeholder="2000.00" id="sueldo_base" value=" '.$row['sueldo_base'].'" name="sueldo_base" maxlength="50" size="20" min="0" onblur="sueldValidate(this);" required/></label>
+						</div>';
+					}else{
+						echo "<INPUT TYPE='HIDDEN' VALUE=".$row['sueldo_base']." name='sueldo_base'>";
+						}
+                  ?>      
 						<div id="suelError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                       
 </div>
