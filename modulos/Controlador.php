@@ -11,15 +11,15 @@ class Controlador{
 		}
 		
 	
-	public function index($tipo){
+	public function index(){
 				
-		$resultado=$this->usuario->listar($tipo);
+		$resultado=$this->usuario->listar();
 		return $resultado;
 		
 		}
-	public function desactivados($tipo){
+	public function desactivados(){
 
-		$resultado=$this->usuario->listarDesactivados($tipo);
+		$resultado=$this->usuario->listarDesactivados();
 		return $resultado;
 
 	}

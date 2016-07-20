@@ -1,8 +1,8 @@
 <?php
 $controlador = new Controlador();
-$resultado = $controlador->desactivados($_SESSION['tipo']);
+$resultado = $controlador->desactivados();
 
-$resultado = $controlador->index($_SESSION['tipo']);
+
 ?>
 
 

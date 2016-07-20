@@ -32,7 +32,7 @@ echo'</div>';
 
  <div class="col-sm-4" align="center">
                     <b style="font-size:24px">Información Personal</b><br/><br/>
-<b>Tipo de empleado:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion_tipo_usuarios']); ?>
+<b>Tipo:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion_tipo_usuarios']); ?>
 <br/><br/>
 <b>Usuario:</b>&nbsp;<?php  echo   utf8_encode($row['usuario']); ?>
 <br/><br/>
