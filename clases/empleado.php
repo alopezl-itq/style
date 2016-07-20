@@ -176,36 +176,34 @@ return  $this->usu->verempresas();
 		 
 
 
-echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono,'$this->email',$this->id_empresa,$this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
+echo $sql= "INSERT INTO `usuarios` (`nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`,`formulario_lleno`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono,'$this->email',$this->id_empresa,$this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password',1); ";
   $this->con->query($sql);
   
    //consulta para obtener el id del ultimo registro obtenido 
-  echo $sql4 ="SELECT id_usuario From usuarios where email ='".$this->email."' and  usuario='".$this->usuario."'";
- $id_usuariores = $this->con->consultaR($sql4);
- $rowus =mysqli_fetch_assoc($id_usuariores) ;
- $id_usuario1=$rowus['id_usuario'];	
-  
-
-
-	
+  echo $sql3 ="SELECT MAX(id_usuario) AS id from usuarios ";
+  $rs = $this->con->consultaR($sql3);
+ if ($row = mysqli_fetch_row($rs)) {
+$id = trim($row[0]);
+}
+	echo"</br>";
    //consulta para insertar sueldos
-   echo $sql3="INSERT INTO Sueldos (id_usuario,comisiones,sueldo_base) values
-   (".$id_usuario1.",$this->comisiones,$this->sueldo_base); ";
-      $this->con->query($sql3);
+   echo $sql4="INSERT INTO sueldos (id_usuario,comisiones,sueldo_base) values
+   (".$id.",$this->comisiones,$this->sueldo_base) ";
+      $this->con->query($sql4);
 	  
 	  
 	 
 	 //Consultas para  insertar los datos de redes de SQL5 a SQL7
     echo  $sql5="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
-      (".$id_usuario1.",1,'$this->Facebook') ";
+      (".$id.",1,'$this->Facebook') ";
       $this->con->query($sql5);
 	  
 	echo  $sql6="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
-      (".$id_usuario1.",2,'$this->twitter') ";
+      (".$id.",2,'$this->twitter') ";
       $this->con->query($sql6);
 	 
 	echo $sql7="INSERT INTO redes_usuario (id_usuario,id_tipo_red_social,usuario_r) values
-      (".$id_usuario1.",3,'$this->instagram') ";
+      (".$id.",3,'$this->instagram') ";
       $this->con->query($sql7);
       
 	  return true;
@@ -221,7 +219,7 @@ echo $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m
 			}
              //funcion para editar el empleado    				
 				public function editarEmpleado(){
-		echo  $sql = "UPDATE `usuarios` SET id_usuario=$this->id_usuario, `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia' WHERE `id_usuario` =".$this->id_usuario;
+		echo  $sql = "UPDATE `usuarios` SET id_usuario=$this->id_usuario, `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia',`formulario_lleno`=1 WHERE `id_usuario` =".$this->id_usuario;
 $this->con->query($sql);
 				
 				//funcion para editar suledo y comisiones 

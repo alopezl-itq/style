@@ -16,7 +16,7 @@ if(isset($_POST['enviar'])){
 
 ?>
 
-<script  src="js/jquery.js"></script>
+<script  src="../../js/jquery.js"></script>
 	<script type="text/javascript">
 		function val(){
 
@@ -257,7 +257,7 @@ if($_SESSION['tipo']==4){
                         <h5><i>Codigo Postal:</i></h5>
 						<div class="form-group">
                         <label>
-							<input type="number" placeholder="Ingrese su Número Exterior" name="cp" value="<?php echo $row["cp"]; ?>" min="11111" max="99999" onblur="cpValidate(this);" required />
+						<input type="number" placeholder="Ingrese su Codigo Postal" name="cp" value="<?php echo $row['cp']; ?>" min="11111" max="99999" onblur="cpValidate(this);" required />
 						</label></div>
                         <div id="cpError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         

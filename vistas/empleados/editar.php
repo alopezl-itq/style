@@ -20,7 +20,7 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 ?>
 
 
-<script  src="js/jquery.js"></script>
+<script  src="../../js/jquery.js"></script>
 
 <!DOCTYPE html>
 <html>
@@ -150,10 +150,10 @@ echo "<INPUT TYPE='HIDDEN' VALUE=".$row['comisiones']." name='comisiones'>";
 						
                     <?php
 					if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
-					echo'
-                        <div class="form-group">
-							<h5><i>Sueldo base:</i></h5><label for="sueldo_base"><input type="number" placeholder="2000.00" id="sueldo_base" value=" '.$row['sueldo_base'].'" name="sueldo_base" maxlength="50" size="20" min="0" onblur="sueldValidate(this);" required/></label>
-						</div>';
+					
+                      echo '<div class="form-group">';
+						echo'<h5><i>Sueldo base:</i></h5><label for="sueldo_base"><input type="number" placeholder="2000.00" id="sueldo_base" value="'.$row['sueldo_base'].'" name="sueldo_base" maxlength="50" size="20" min="0" onblur="sueldValidate(this);" required/></label>';
+						echo'</div>';
 					}else{
 						echo "<INPUT TYPE='HIDDEN' VALUE=".$row['sueldo_base']." name='sueldo_base'>";
 						}
@@ -225,8 +225,8 @@ if($_SESSION['tipo']==4 or $_SESSION['tipo']==2){
 								$usuario = new Usuario();
 								$resultadoestado=$usuario->verestados();
 								while($row2=mysqli_fetch_array($resultadoestado)){
-							if(utf8_encode($row['descripcion_estados'])==utf8_encode($row2['descripcion_estados'])){
-echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode(utf8_decode($row2['descripcion_estados'])).'</option>';
+							if($row['descripcion_estados']==$row2['descripcion_estados']){
+echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode($row2['descripcion_estados']).'</option>';
 									}else{
 
 									echo '<option value="'.$row2["id_estado"].'">'.utf8_encode($row2["descripcion_estados"]).'</option>';
@@ -391,4 +391,4 @@ $resulRedes=$empleado->verredes($_GET['id_usuario']);
 
 
 
-<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="../../js/validate.js"></script>
