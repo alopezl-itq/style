@@ -139,16 +139,18 @@ if($_SESSION['tipo']==4){
 	                     echo"</div>";					
 	}  
        
-	   	?>                                         
-
+	  
 	
-			
+	if($_SESSION['tipo']==2){
+	echo "<INPUT TYPE='HIDDEN' VALUE=".$row['id_tipo_usuario']." name='id_tipo_usuario'>";
+		}else{
+			echo'
 
     					<div class="form-group">
 						<h5><i>Tipo de Usuario</i></h5>
 							<select name="id_tipo_usuario">
 						<option value="0" selected>Selecciona un Puesto</option>
-								<?php
+						';
 								$usuario = new Usuario();
 								$resultado2=$usuario->vertipous();
 								while($row1=mysqli_fetch_array($resultado2)){
@@ -159,11 +161,12 @@ if($_SESSION['tipo']==4){
 								}
 
 							}
-								?>  
+					echo '		 
 						</select>
 					</div>
-                     
-                      
+                     ';
+		}
+		?>  
                         
 </div>
 <div class="col-lg-3 col-md-3"></div>
