@@ -177,7 +177,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 <div id="pestana1">
 <b>Servicio cortes:</b><br><br>
 <form method="POST" action="fservicios.php">
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -213,7 +213,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 
 <div id="pestana2">
 <br><b>Servicio Color:</b><br><br>
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -230,7 +230,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:20px; width:100px;" required></td>
+            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
         </tr>
         <?php  
@@ -248,7 +248,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 
 <div id="pestana3">
 <br><b>Servicio Peinado:</b><br><br>
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -265,7 +265,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:20px; width:100px;" required></td>
+            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
         </tr>
         <?php  
@@ -283,7 +283,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 
 <div id="pestana4">
 <br><b>Servicio Maquillaje:</b><br><br>
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -300,7 +300,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:20px; width:100px;" required></td>
+            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
         </tr>
         <?php  
@@ -318,7 +318,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 
 <div id="pestana5">
 <br><b>Servicios Otros:</b><br><br>
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -335,7 +335,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:20px; width:100px;" required></td>
+            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
         </tr>
         <?php
