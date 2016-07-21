@@ -228,7 +228,7 @@ if($_SESSION['tipo']==4){
 	</div>
                         
     						<div class="form-group">
-							<h5><i>Ciudad de Residencia:</i></h5>
+							<h5><i>Colonia:</i></h5>
 						<label>
 							<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo utf8_encode($row["colonia"]); ?>" onblur="coloniaValidate(this);" required />
 						</label></div>
