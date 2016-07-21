@@ -84,11 +84,10 @@ $resultado = $controlador->verproductosN($id_marca,$id_empresa);
 <script  src="/../../js/jquery.js"></script>
 <div id="pestanas"> 
  <ul class="nav nav-tabs">
-        <li role="presentation" class="active" ><a href="#pestana1" role="tab" data-toggle="tab">Oro fluido Revlon</a></li>
+        <li role="presentation" class="active" ><a href="#pestana1" role="tab" data-toggle="tab">Seleccion de productos</a></li>
  </ul>
 
 <div id="pestana1">
-<b>Servicio cortes:</b><br><br>
 <form method="POST" action="productosx.php">
 <table border="0">
 	<thead>
