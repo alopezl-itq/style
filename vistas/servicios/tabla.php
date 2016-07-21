@@ -132,8 +132,8 @@ echo "        </form>\n";
      </tbody>
 </table>
 <br><button type="button" style="height:38px; width:350px" data-toggle="modal" data-target="#ModalAdd">Insertar Nuevo Servicio</button>
-<form method="POST" action="Menu.php">
-<br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas productos de lista" style="height:38px; width:350px" >
+<form method="POST" action="servicios.php">
+<br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas servicios de lista" style="height:38px; width:350px" >
 </form>
 </div>
 
