@@ -62,7 +62,7 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <li class="active"><a href="../../principal.php">Inicio</a></li>
-                                        <li><a href="?cargar=usuarios&controlador=crear"><b>Registrar</b></a></li>
+                                        <li><a href="tabla.php"><b>Ver Servicios registrados</b></a></li>
                                     
                                     <li><a class="glyphicon-book" href="../../clases/salir.php">Salir</a></li>
                                     </ul>                                    
@@ -117,6 +117,9 @@ $resultado5 = $controlador->serviciosOtros();
 
         <?php
 	     while($row = mysqli_fetch_array($resultado)): 
+        $res = $controlador->consultar($row[0],$id_empresa);
+         $r=mysqli_fetch_array($res);
+         if($r[0]==null){
          ?>
             <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
@@ -125,6 +128,7 @@ $resultado5 = $controlador->serviciosOtros();
             ?>
          </tr>
         <?php  
+         }
 	     endwhile; 
 	    ?>        
     </div>
@@ -151,6 +155,9 @@ $resultado5 = $controlador->serviciosOtros();
 
      <?php
 	     while($row = mysqli_fetch_array($resultado2)): 
+         $res = $controlador->consultar($row[0],$id_empresa);
+         $r=mysqli_fetch_array($res);
+         if($r[0]==null){
          ?>
         <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
@@ -159,6 +166,7 @@ $resultado5 = $controlador->serviciosOtros();
             ?>
             </tr>
         <?php  
+         }
 	     endwhile; 
 	    ?>        
     </div>
@@ -185,6 +193,9 @@ $resultado5 = $controlador->serviciosOtros();
 
      <?php
 	     while($row = mysqli_fetch_array($resultado3)): 
+         $res = $controlador->consultar($row[0],$id_empresa);
+         $r=mysqli_fetch_array($res);
+         if($r[0]==null){
          ?>
         <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
@@ -193,6 +204,7 @@ $resultado5 = $controlador->serviciosOtros();
             ?>
           </tr>
         <?php  
+         }
 	     endwhile; 
 	    ?>        
     </div>
@@ -219,6 +231,9 @@ $resultado5 = $controlador->serviciosOtros();
 
      <?php
 	     while($row = mysqli_fetch_array($resultado4)): 
+         $res = $controlador->consultar($row[0],$id_empresa);
+         $r=mysqli_fetch_array($res);
+         if($r[0]==null){
          ?>
         <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
@@ -227,6 +242,7 @@ $resultado5 = $controlador->serviciosOtros();
             ?>
         </tr>
         <?php  
+         }
 	     endwhile; 
 	    ?>        
     </div>
@@ -253,6 +269,9 @@ $resultado5 = $controlador->serviciosOtros();
 
      <?php
 	     while($row = mysqli_fetch_array($resultado5)): 
+         $res = $controlador->consultar($row[0],$id_empresa);
+         $r=mysqli_fetch_array($res);
+         if($r[0]==null){
          ?>
         <tr>
             <td><?php echo utf8_encode($row[1]); ?></td>
@@ -261,6 +280,7 @@ $resultado5 = $controlador->serviciosOtros();
             ?>
          </tr>
         <?php  
+         }
 	     endwhile; 
 	    ?>        
     </div>

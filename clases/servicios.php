@@ -65,6 +65,11 @@ public function listar(){
 	}
 	//Servicios de corte
 	public function serviciosCort(){
+
+
+
+
+
 		$sql ="SELECT * FROM descripcion_servicios where id_servicio=1 order by id_servicio LIMIT 0,5";
 		$resultado=$this->con->consulta($sql);
 		
@@ -213,6 +218,13 @@ public function listar(){
 				public function eliminar(){
 
 	    $sql = "DELETE FROM `servicios_empresa` WHERE `id_servicios_empresa`=$this->id_servicios_empresa";
+		$resultado = $this->con->consulta($sql);
+		
+		return $resultado;
+	}
+	public function consultar(){
+
+		echo $sql = "SELECT `id_descripcion_servicios` FROM `servicios_empresa` WHERE `id_descripcion_servicios`=$this->id_descripcion_servicios and `id_empresa`=$this->id_empresa";
 		$resultado = $this->con->consulta($sql);
 		
 		return $resultado;

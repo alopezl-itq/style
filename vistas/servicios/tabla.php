@@ -68,7 +68,7 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <li class="active"><a href="../../principal.php">Inicio</a></li>
-                                        <li><a href="?cargar=usuarios&controlador=crear"><b>Registrar</b></a></li>
+                                        <li><a href="servicios.php"><b>Registrar Servicios</b></a></li>
                                     
                                     <li><a class="glyphicon-book" href="../../clases/salir.php">Salir</a></li>
                                     </ul>                                    

@@ -6,12 +6,21 @@ session_start();
 $id_empresa=$_SESSION['estetica'];
 
 $controlador = new controlador();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
-    $corte=$_POST["corte"];
-    $color=$_POST["color"];
-    $peinado=$_POST["peinado"];
-    $maquillaje=$_POST["maquillaje"];
-    $otro=$_POST["otro"];
+
+
+$corte=isset($_POST['corte']) ? $_POST['corte'] : NULL;
+$color=isset($_POST['color']) ? $_POST['color'] : NULL;
+$peinado=isset($_POST['peinado']) ? $_POST['peinado'] : NULL;
+$maquillaje=isset($_POST['maquillaje']) ? $_POST['maquillaje'] : NULL;
+$otro=isset($_POST['otro']) ? $_POST['otro'] : NULL;
+
+ //   $corte=$_POST["corte"];
+   // $color=$_POST["color"];
+   // $peinado=$_POST["peinado"];
+   // $maquillaje=$_POST["maquillaje"];
+   // $otro=$_POST["otro"];
     
     $count=count($corte);
     $count2=count($color);
@@ -22,7 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($corte!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 1,0,$corte[$i],0);
+                }
             }
 
     }
@@ -30,7 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($corte!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 2,0,$color[$i],0);
+                }
             }
 
     }
@@ -38,7 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($color!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 3,0,$peinado[$i],0);
+                }
             }
 
     }
@@ -46,7 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($maquillaje!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 4,0,$maquillaje[$i],0);
+                }
             }
 
     }
@@ -54,7 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($otro!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 5,0,$otro[$i],0);
+                }
             }
 
     }
