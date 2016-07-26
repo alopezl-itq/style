@@ -36,7 +36,7 @@ class ControladorE{
 		
 		
 		
-public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $telefono,$email,$id_empresa,$id_tipo_usuario, $id_municipio,$colonia,$nombre_calle,$no_int, $no_ext,$cp,$usuario,$password,$comisiones,$sueldo_base,$Facebook,$twitter,$instagram){
+public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $telefono,$email,$id_empresa,$id_tipo_usuario, $id_municipio,$colonia,$nombre_calle,$no_int, $no_ext,$cp,$usuario,$password,$sueldo_base,$Facebook,$twitter,$instagram){
 		
 
 			$this->empleado->set("nombre_usuario",$nombre_usuario);
@@ -56,7 +56,6 @@ public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo,
 			$this->empleado->set("cp",$cp);
             $this->empleado->set("usuario",$usuario);
 			$this->empleado->set("password",$password);
-			$this->empleado->set("comisiones",$comisiones);
 			$this->empleado->set("sueldo_base",$sueldo_base);
 			$this->empleado->set("Facebook",$Facebook);
 			$this->empleado->set("twitter",$twitter);
@@ -128,7 +127,7 @@ public function crearC( $id_tipo_curso,$fecha_inicio,$fecha_final, $imparte,$nom
 		
 		
 		public function editarE($id_usuario,$nombre_usuario,$apellido_p,$apellido_m,$sexo,$fecha_nacimiento,
-		$telefono,$email,$id_tipo_usuario,$id_municipio,$colonia,$nombre_calle,$no_int,$no_ext,$cp,$usuario,$password,$comisiones,$sueldo_base,$Facebook,$twitter,$instagram){
+		$telefono,$email,$id_tipo_usuario,$id_municipio,$colonia,$nombre_calle,$no_int,$no_ext,$cp,$usuario,$password,$sueldo_base,$Facebook,$twitter,$instagram){
 			 $this->empleado->set("id_usuario",$id_usuario);
 			 $this->empleado->set("nombre_usuario",$nombre_usuario);
 			 $this->empleado->set("apellido_p",$apellido_p);
@@ -146,7 +145,6 @@ public function crearC( $id_tipo_curso,$fecha_inicio,$fecha_final, $imparte,$nom
 			 $this->empleado->set("cp",$cp);
 			 $this->empleado->set("usuario",$usuario);
 			 $this->empleado->set("password",$password);
-			 $this->empleado->set("comisiones",$comisiones);
 			 $this->empleado->set("sueldo_base",$sueldo_base);
 			$this->empleado->set("Facebook",$Facebook);
 			$this->empleado->set("twitter",$twitter);

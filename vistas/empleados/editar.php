@@ -11,7 +11,7 @@ if(isset($_POST['enviar'])){
 
 
 
-$controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_decode($_POST['Facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
+$controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']),$_POST['sueldo_base'],utf8_decode($_POST['Facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
 
 
 
@@ -100,53 +100,6 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
 
-<?php 
-
-if($_SESSION['tipo']==4 or $_SESSION['tipo']==2){
-	
-    echo'<div class="form-group">';
-	echo'<h5><i>Comision:</i></h5>';
-
-		 $comision= $row['comisiones'];
-
-			
-
-		
-		echo'<select name="comisiones">';
-		echo'<option value="0" >Seleccione porcentaje de comision</option>';
-
-
-			
-			$i=0;
-			while($i<20){
-				$i++;
-				if($i<10){
-					if($comision=='0.0'.$i){
-						echo '<option value="0.0'.$i.'" selected>%'.$i.'</option>';
-					}else{
-					echo '<option value="0.0'.$i.'">%'.$i.'</option>';
-					}
-				}else{
-					if($row['comisiones']=='0.'.$i){
-						echo '<option value="0.'.$i.'" selected>%'.$i.'</option>';
-					}else{
-						echo '<option value="0.'.$i.'">%'.$i.'</option>';
-					}
-				}
-			}
-
-		
-
-		echo'</select>';
-	echo'</div>';
-}else{
-
-echo "<INPUT TYPE='HIDDEN' VALUE=".$row['comisiones']." name='comisiones'>";
-}
-	
-		?>
-	<div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
-                        <div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
                     <?php
 					if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){

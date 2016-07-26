@@ -15,7 +15,7 @@ $id_empresa=$_SESSION['estetica'];
 
     <head>
         <meta charset="utf-8">
-        <title>The Best Hair Salons</title>
+        <title>Servicios</title>
         <link rel="icon" type="img/ico" href="../../images/icoB.ico"/>
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width">

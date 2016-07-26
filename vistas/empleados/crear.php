@@ -2,9 +2,9 @@
 //instacia clase controlador
 $controlador = new ControladorE();
 
-//
+//si se preciona el boton de enviar, 
 if(isset($_POST['enviar'])){
- $controlador->crearempleado(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_empresa']=$_SESSION['estetica'],$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['comisiones'],$_POST['sueldo_base'],utf8_decode($_POST['Facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
+ $controlador->crearempleado(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_empresa']=$_SESSION['estetica'],$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_encode($_POST['password']),$_POST['sueldo_base'],utf8_decode($_POST['Facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
 
 }
 
@@ -78,34 +78,7 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
                         
-						<div class="form-group">
-                        <h5><i>Comision:</i></h5>
-                        <select name="comisiones"  >
-                        <option value="0" selected>Seleccione porcentaje de comision</option>
-                        <option value="0">%0</option>
-                        <option value="0.01">%1</option>
-                        <option value="0.02">%2</option>
-                        <option value="0.03">%3</option>
-                       <option value="0.04">%4</option>
-                       <option value="0.05">%5</option>
-                       <option value="0.06">%6</option>
-                       <option value="0.07">%7</option>
-                       <option value="0.08">%8</option>
-                       <option value="0.09">%9</option>
-                       <option value="0.10">%10</option>
-                       <option value="0.11">$11</option>
-                       <option value="0.12">%12</option>
-                        <option value="0.13">%13</option>
-                       <option value="0.14">%14</option>
-                       <option value="0.15">%15</option>
-                       <option value="0.16">%16</option>
-                       <option value="0.17">%17</option>
-                       <option value="0.18">%18</option>
-                       <option value="0.19">%19</option>
-                        <option value="0.20">%20</option>
-                        </select >
-						</div>
-                        <div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+		
 						
                         <div class="form-group">
 							<h5><i>Sueldo base:</i></h5><label for="sueldo_base"><input type="number" placeholder="2000.00" id="sueldo_base" name="sueldo_base" maxlength="50" size="20" min="0" onblur="sueldValidate(this);" required/></label>

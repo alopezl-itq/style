@@ -4,10 +4,10 @@ include_once('../../modulos/controladors.php');
 
 $controlador = new controlador();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
-    $id_servicio=$_POST["tipo"];
+    $id_servicio=utf8_decode($_POST["tipo"]);
     $costo=$_POST["costo"];
     $tiempo=$_POST["tiempo"];
-    $descripcionServicios=$_POST["descripcion"];
+    $descripcionServicios=$_POSTutf8_decode(["descripcion"]);
     session_start();
 $id_empresa=$_SESSION['estetica'];
 

@@ -31,7 +31,6 @@ private $Facebook;
 private $twitter;
 private $instagram;
 private $id_tipo_red_social;
-private $comisiones;
 private $sueldo_base;
 private $fecha_inicio;
 private $fecha_final;
@@ -126,10 +125,9 @@ return  $this->usu->verempresas();
 		
 		public function verE(){
 	
-	echo $sql = ("SELECT u.*, s.descripcion, e.descripcion_estados,t.descripcion_estatus, p.descripcion_tipo_usuarios, r.nombre,m.descripcion_municipios ,d.comisiones,d.sueldo_base from usuarios u, sexo s, estados e, estatus t, tipo_usuarios p, empresas r, municipios m ,sueldos d, redes_usuario i WHERE u.sexo=s.id_sexo and u.id_estatus=t.id_estatus and u.id_tipo_usuario= p.id_tipo_usuario and u.id_empresa=r.id_empresa and u.id_municipio=m.id_municipio and m.id_estado=e.id_estado and d.id_usuario=u.id_usuario  and u.id_usuario=".$this->id_usuario);
+	echo $sql = ("SELECT u.*, s.descripcion, e.descripcion_estados,t.descripcion_estatus, p.descripcion_tipo_usuarios, r.nombre,m.descripcion_municipios ,d.sueldo_base from usuarios u, sexo s, estados e, estatus t, tipo_usuarios p, empresas r, municipios m ,sueldos d, redes_usuario i WHERE u.sexo=s.id_sexo and u.id_estatus=t.id_estatus and u.id_tipo_usuario= p.id_tipo_usuario and u.id_empresa=r.id_empresa and u.id_municipio=m.id_municipio and m.id_estado=e.id_estado and d.id_usuario=u.id_usuario  and u.id_usuario=".$this->id_usuario);
 		$resul = $this->con->consultaR($sql);
-	
-		$row =mysqli_fetch_assoc($resul) ;
+        $row=mysqli_fetch_assoc($resul) ;
 		
 		
 		//set interno
@@ -151,7 +149,6 @@ return  $this->usu->verempresas();
 		$this->id_municipio=$row['descripcion_municipios'];
 		$this->id_estado = $row['descripcion_estados'];
 		$this->cp = $row['cp'];
-		$this->comisiones = $row['comisiones'];
 		$this->sueldo_base =$row['sueldo_base'];
 		$this->observaciones =$row['observaciones'];
 	    return $row;
@@ -187,8 +184,8 @@ $id = trim($row[0]);
 }
 	echo"</br>";
    //consulta para insertar sueldos
-   echo $sql4="INSERT INTO sueldos (id_usuario,comisiones,sueldo_base) values
-   (".$id.",$this->comisiones,$this->sueldo_base) ";
+   echo $sql4="INSERT INTO sueldos (id_usuario,sueldo_base) values
+   (".$id.",$this->sueldo_base) ";
       $this->con->query($sql4);
 	  
 	  
@@ -223,7 +220,7 @@ $id = trim($row[0]);
 $this->con->query($sql);
 				
 				//funcion para editar suledo y comisiones 
-			echo	$sql1="Update sueldos SET id_usuario=$this->id_usuario, comisiones = $this->comisiones, sueldo_base = $this->sueldo_base where 
+			echo	$sql1="Update sueldos SET id_usuario=$this->id_usuario, sueldo_base = $this->sueldo_base where 
 				id_usuario=".$this->id_usuario;
 				$this->con->query($sql1);
 
