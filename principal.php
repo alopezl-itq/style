@@ -28,6 +28,10 @@ http://www.templatemo.com/tm-406-flex
         <link rel="stylesheet" href="css/templatemo_style.css">
 
         <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+        
+        
+        
+        
         <?php
         	echo "<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
 		?>
