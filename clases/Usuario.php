@@ -69,7 +69,7 @@ public function set($atributo, $contenido){
 	return $res;
 }
 	public function verestados(){
-		echo $sql ="Select * FROM estados";
+		 $sql ="Select * FROM estados";
 		$res=$this->con->consultaR($sql);
 		return $res;
 	}

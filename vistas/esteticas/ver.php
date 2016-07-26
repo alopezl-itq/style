@@ -34,14 +34,15 @@ $controlador = new c_estetica();
 if(isset($_POST['enviar'])){
  $r =$controlador->editar(utf8_decode($_POST['nombre_estetica']),$_POST['id_usuario'],utf8_decode($_POST['eslogan']),$_POST['cliente_a'],
 	 $_POST['cliente_b'],$_POST['cliente_c'],$_POST['cliente_d'],$_POST['id_estatus'],utf8_decode($_POST['calle']),$_POST['no_int'],
-	 $_POST['no_ext'],$_POST['id_estado'],$_POST['id_municipio'],utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
+	 $_POST['no_ext'],$_POST['id_estado'],$_POST['id_municipio'],utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),$_POST['empresa'],utf8_decode($_POST['instagram']));
 echo 	$r;
 	if(!$r){
 		header("location:index.php");
 		echo 'Estética actualizada';
 		
 	}else{
-		echo'no se actualizó la estética'.mysqli_error();
+		echo'no se actualizó la estética'.mysqli_error(!$r);
+		
 		}
 	}
 ?>
@@ -151,6 +152,11 @@ echo 	$r;
 							
 							
 							</div>
+							<div class="form-group">
+							<input type="hidden" value="<?php echo utf8_encode($row['id_empresa']); ?>" name="empresa" id="empresa" maxlength="50" 								size="20" ></label>
+							
+							
+							</div>
                     </div>
                     
  
@@ -165,7 +171,7 @@ echo 	$r;
 							</div>
 
 							<div class="form-group">
-								<h4> No. Interior</h4><label for="nombre"><input type="text"  name="no_int"  value="<?php echo $row['no_int']; ?>"    id="nombre" maxlength="50" size="20" required/></label>
+								<h4> No. Interior</h4><label for="nombre"><input type="text"  name="no_int"  value="<?php echo $row['no_int']; ?>"    id="nombre" maxlength="50" size="20" /></label>
 							</div>
 														
 							<div class="checkbox">
@@ -179,9 +185,18 @@ echo 	$r;
 									<?php
 									$usuario = new Usuario();
 									$resultadoestado=$usuario->verestados();
-									while($row=mysqli_fetch_array($resultadoestado)){
+									/*while($row=mysqli_fetch_array($resultadoestado)){
 										echo '<option value="'.$row["id_estado"].'">'.utf8_encode($row["descripcion_estados"]).'</option>';
+									}*/
+									
+									while($row1=mysqli_fetch_array($resultadoestado)){
+										if($row['descripcion_estados']==$row1['descripcion_estados']){
+											echo '<option value="'.$row1["id_estado"].'" selected>'.utf8_encode($row1["descripcion_estados"]).'</option>';
+										}else{
+											echo '<option value="'.$row1["id_estado"].'">'.utf8_encode($row1["descripcion_estados"]).'</option>';
+										}
 									}
+
 									?>
 								</select>
 							</div>
@@ -192,6 +207,17 @@ echo 	$r;
 
 								<select name="id_municipio" id="id_municipio">
 									<option value="">Selecciona un Municipio</option>
+									<?php
+										$usuario = new Usuario();
+										$resultadomun=$usuario->vermunicipioTodos($row['descripcion_estados']);
+										while($row1=mysqli_fetch_array($resultadomun)){
+											if($row['descripcion_municipios']==$row1['descripcion_municipios']){
+												echo '<option value="'.$row1["id_municipio"].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+											}else{
+												echo '<option value="'.$row1["id_municipio"].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+												}
+										}
+			?>
 								</select>
 								<script>
 									$(document).ready(function(){

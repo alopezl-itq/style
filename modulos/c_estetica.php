@@ -18,7 +18,7 @@ class c_estetica{
 		}
 		
 		
-	public function crear( $nombre,$imagen, $slogan, $cliente_a, $cliente_b, $cliente_c, $cliente_d, $id_estatus, $calle, $no_ext, $no_int,$id_estado,$facebook, $twitter, $instagram){
+	public function crear( $nombre,$imagen, $slogan, $cliente_a, $cliente_b, $cliente_c, $cliente_d, $id_estatus, $calle, $no_ext, $no_int,$id_estado,$id_municipio, $facebook, $twitter, $instagram){
 		
 
 			$this->estetica->set("nombre",$nombre);
@@ -30,6 +30,7 @@ class c_estetica{
 			$this->estetica->set("cliente_d",$cliente_d);
 			$this->estetica->set("id_estatus",$id_estatus);
 			$this->estetica->set("id_estado",$id_estado);
+			$this->estetica->set("id_municipio",$id_municipio);
 			$this->estetica->set("calle",$calle);
 			$this->estetica->set("no_int",$no_int);
 			$this->estetica->set("no_ext",$no_ext);
