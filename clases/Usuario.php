@@ -53,7 +53,7 @@ public function set($atributo, $contenido){
 	}
 
   public function verempresas(){
-	$sql ="Select * FROM empresas ORDER BY id_empresa DESC";
+	$sql ="Select * FROM empresas where id_estatus < 3 ORDER BY id_empresa DESC ";//descarta estéticas cuyo estatus sea el de eliminado
 	$res=$this->con->consultaR($sql);
 	return $res;
 }
