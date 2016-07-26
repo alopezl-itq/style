@@ -133,6 +133,13 @@ public function crearServicio( $id_servicio, $detalle){
 			return $resultado;
 			
 		}	
+		public function consultar($id_descripcion_servicios,$id_empresa){
+			$this->servicio->set("id_descripcion_servicios",$id_descripcion_servicios);
+			$this->servicio->set("id_empresa",$id_empresa);
+			$resultado=$this->servicio->consultar();
+		  return $resultado;
+			
+		}
 	}	
 
 

@@ -65,6 +65,11 @@ public function listar(){
 	}
 	//Servicios de corte
 	public function serviciosCort(){
+
+
+
+
+
 		$sql ="SELECT * FROM descripcion_servicios where id_servicio=1 order by id_servicio LIMIT 0,5";
 		$resultado=$this->con->consulta($sql);
 		
@@ -150,7 +155,7 @@ public function listar(){
 		$numero= $row[0];
 
 		 if($numero==null){
-			echo  $SQL="INSERT INTO servicios_empresa(id_empresa, id_servicio, costo, id_descripcion_servicios, tiempo_servicio) VALUES ($this->id_empresa,$this->id_servicio,$this->costo,$this->id_descripcion_servicios,$this->tiempo)";
+	$SQL="INSERT INTO servicios_empresa(id_empresa, id_servicio, costo, id_descripcion_servicios, tiempo_servicio) VALUES ($this->id_empresa,$this->id_servicio,$this->costo,$this->id_descripcion_servicios,$this->tiempo)";
 		$this->con->insert($SQL);
 		 }
 			return true;
@@ -190,7 +195,7 @@ public function listar(){
 	}
 
 	public function verServiciosEmpresa2(){
-		echo $sql ="SELECT d.descripcion from descripcion_servicios d,servicios_empresa x WHERE x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_servicios_empresa=$this->id_servicios_empresa";
+		$sql ="SELECT d.descripcion from descripcion_servicios d,servicios_empresa x WHERE x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_servicios_empresa=$this->id_servicios_empresa";
 
 		$resultado=$this->con->consulta($sql);
 		return $resultado;
@@ -213,6 +218,13 @@ public function listar(){
 				public function eliminar(){
 
 	    $sql = "DELETE FROM `servicios_empresa` WHERE `id_servicios_empresa`=$this->id_servicios_empresa";
+		$resultado = $this->con->consulta($sql);
+		
+		return $resultado;
+	}
+	public function consultar(){
+
+		$sql = "SELECT `id_descripcion_servicios` FROM `servicios_empresa` WHERE `id_descripcion_servicios`=$this->id_descripcion_servicios and `id_empresa`=$this->id_empresa";
 		$resultado = $this->con->consulta($sql);
 		
 		return $resultado;

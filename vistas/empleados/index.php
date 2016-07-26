@@ -41,7 +41,10 @@ validarSesionEnVistas();
       <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="../../principal.php">Inicio</a></li> 
-       <li class="dropdown">
+        <?php 
+		if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
+       echo'
+	   <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Empleados
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -50,26 +53,30 @@ validarSesionEnVistas();
           <li><a href="?cargar=empleados&controlador=reactivar">Empleados Desactivados</a></li>
           </ul>
       </li>
+	  ';
+		}else{
+			}
+	  ?>
       <li><a href="../empleados/index.php">Regresar</a></li>
             <?php 
 if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
-	echo '<li class="dropdown">';
-    echo  '<a class="dropdown-toggle" data-toggle="dropdown" href="#">Perfil <span class="caret"></span></a>';
-	echo '<ul class="dropdown-menu">';
-	echo '<li><a href="?cargar=usuarios&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Mi Perfil</a></li>';
+	echo '<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Perfil <span class="caret"></span></a>
+	<ul class="dropdown-menu">
+	 <li><a href="?cargar=usuarios&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Mi Perfil</a></li>
 
-	echo '</ul>';
-	echo '</li>';
+	 </ul>
+	 </li>';
+	 
+	
 	}else{
-	echo '<li class="dropdown">';
-    echo  '<a class="dropdown-toggle" data-toggle="dropdown" href="#">Perfil <span class="caret"></span></a>';
-	echo '<ul class="dropdown-menu">';
-	echo '<li><a href="?cargar=empleados&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Mi Perfil</a></li>';
-	
-	
-
-	echo '</ul>';
-	echo '</li>';
+	 echo '<li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Perfil <span class="caret"></span></a>
+	     <ul class="dropdown-menu">
+	  <li><a href="?cargar=empleados&controlador=ver&id_usuario='.$_SESSION['id_user'].'">Mi Perfil</a></li>
+      </ul>
+	</li>
+	';
 		
 		}
 		

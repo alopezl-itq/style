@@ -34,6 +34,15 @@ $id_empresa=$_SESSION['estetica'];
         <link rel="stylesheet" href="../../css/animate.css">
         <link rel="stylesheet" href="../../css/templatemo_misc.css">
         <link rel="stylesheet" href="../../css/templatemo_style.css">
+
+	<style>
+		.link a:hover{
+			display:block;
+			padding:8px;
+		}
+	</style>
+
+
 <?php 
 echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
 ?>
@@ -83,107 +92,120 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
                     </div> <!-- /.heading-section -->
                 </div> <!-- /.row -->
                 
-                <TABLE BORDER=1 WIDTH=600>
+                <TABLE WIDTH=100%>
 
 <TR>
-<TD WIDTH=600>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=1 name='numero'>
 <input type="image" name="1" src="img/1.jpg" />
 </FORM>
+</a>
 </TD>
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=2 name='numero'>
 <input type="image" name="2" src="img/2.jpg" />
 </FORM>
+</a>
 </TD>
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=3 name='numero'>
 <input type="image" name="3" src="img/3.png" />
 </FORM>
+</a>
 </TD>
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=4 name='numero'>
 <input type="image" name="4" src="img/4.png" />
 </FORM>
+</a>
 </TD>
 
 
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=5 name='numero'>
 <input type="image" name="5" src="img/5.jpg" />
 </FORM>
+</a>
 </TD>
 </TR>
 
 <TR>
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=6 name='numero'>
 <input type="image" name="6" src="img/6.jpg" />
 </FORM>
+</a>
 </TD>
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=7 name='numero'>
 <input type="image" name="7" src="img/7.jpg" />
 </FORM>
+</a>
 </TD>
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=8 name='numero'>
 <input type="image" name="8" src="img/8.jpg" />
 </FORM>
+</a>
 </TD>
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=9 name='numero'>
 <input type="image" name="9" src="img/9.png" />
 </FORM>
+</a>
 </TD>
 
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=10 name='numero'>
 <input type="image" name="10" src="img/10.png" />
 </FORM>
+</a>
 </TD>
 </TR>
 
 <TR>
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=11 name='numero'>
 <input type="image" name="1" src="img/11.gif" />
 </FORM>
+</a>
 </TD>
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=12 name='numero'>
 <input type="image" name="12" src="img/12.png" />
 </FORM>
+</a>
 </TD>
 
 
 
-<TD WIDTH=500>
+<TD WIDTH=20% class="link"><a>
 <FORM METHOD="POST" ACTION="productos.php">
 <INPUT TYPE='HIDDEN' VALUE=13 name='numero'>
 <input type="image" name="13" src="img/13.gif" />
 </FORM>
+</a>
 </TD>
 </TR>
 

@@ -53,7 +53,7 @@ public function set($atributo, $contenido){
 	}
 
   public function verempresas(){
-	$sql ="Select * FROM empresas ORDER BY id_empresa DESC";
+	$sql ="Select * FROM empresas where id_estatus < 3 ORDER BY id_empresa DESC ";//descarta estéticas cuyo estatus sea el de eliminado
 	$res=$this->con->consultaR($sql);
 	return $res;
 }
@@ -69,7 +69,7 @@ public function set($atributo, $contenido){
 	return $res;
 }
 	public function verestados(){
-		echo $sql ="Select * FROM estados";
+		 $sql ="Select * FROM estados";
 		$res=$this->con->consultaR($sql);
 		return $res;
 	}
@@ -93,9 +93,9 @@ public function set($atributo, $contenido){
 	
 	
 	
-	public function listar($tipo){
+	public function listar(){
 
-echo $sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_estatus,usuarios.apellido_p,usuarios.apellido_m,usuarios.telefono,empresas.nombre From usuarios,empresas WHERE usuarios.id_empresa=empresas.id_empresa and usuarios.id_estatus=1 and id_tipo_usuario=".$tipo." ORDER by usuarios.nombre_usuario ASC ");
+echo $sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_estatus,usuarios.apellido_p,usuarios.apellido_m,usuarios.telefono,empresas.nombre From usuarios,empresas WHERE usuarios.id_empresa=empresas.id_empresa and usuarios.id_estatus=1 and id_tipo_usuario=2 ORDER by usuarios.nombre_usuario ASC ");
 	
 		$resultado = $this->con->consultaR($sql);
 		return $resultado;
@@ -104,9 +104,9 @@ echo $sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_es
 		
 		}
 
-	public function listarDesactivados($tipo){
+	public function listarDesactivados(){
 
-		$sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_estatus,usuarios.apellido_p,usuarios.apellido_m,usuarios.telefono,empresas.nombre From usuarios,empresas WHERE usuarios.id_empresa=empresas.id_empresa and usuarios.id_estatus=2 and id_tipo_usuario=".$tipo." ORDER by usuarios.nombre_usuario ASC ");
+		$sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_estatus,usuarios.apellido_p,usuarios.apellido_m,usuarios.telefono,empresas.nombre From usuarios,empresas WHERE usuarios.id_empresa=empresas.id_empresa and usuarios.id_estatus=2 and id_tipo_usuario=2 ORDER by usuarios.nombre_usuario ASC ");
 
 		$resultado = $this->con->consultaR($sql);
 		return $resultado;

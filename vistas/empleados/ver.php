@@ -87,7 +87,7 @@ echo'<b>Comision:</b>&nbsp;  '. $row['comisiones'].'
 <br/><br/><br/>
 <?php
 if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
-echo '<form action="" method="POST" name="frm">';
+echo '<form action=" " method="POST">';
 						echo'<div class="form-group">';
                        echo' <h3><b>Comentarios</b></h3><br/><br/>';
  echo'<textarea name="observaciones" style=" width:320px; height:100px"> '.utf8_encode($row['observaciones']).' </textarea>';

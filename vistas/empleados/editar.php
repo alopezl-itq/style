@@ -20,7 +20,7 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 ?>
 
 
-<script  src="js/jquery.js"></script>
+<script  src="../../js/jquery.js"></script>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,9 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
  <ul class="nav nav-tabs">
  	<li role="presentation"  class="active"><a href="#pestana1" role="tab" data-toggle="tab">Información Personal</a></li>
  	<li role="presentation" ><a href="#pestana2" role="tab" data-toggle="tab">Datos de sueldo</a></li> 
-    <li role="presentation" ><a href="#pestana3" role="tab" data-toggle="tab">Información de Contacto</a></li> 
+    
+  <li role="presentation" ><a href="#pestana3" role="tab" data-toggle="tab">Información de Contacto</a></li>
+
    <li role="presentation" ><a href="#pestana4" role="tab" data-toggle="tab">Domicilio</a></li> 
     <li role="presentation" ><a href="#pestana5" role="tab" data-toggle="tab">Redes Sociales</a></li> 
 	<li role="presentation" ><a href="#pestana6" role="tab" data-toggle="tab">Datos de Acceso</a></li> 
@@ -111,7 +113,7 @@ if($_SESSION['tipo']==4 or $_SESSION['tipo']==2){
 
 		
 		echo'<select name="comisiones">';
-		echo'<option value="0" selected>Seleccione porcentaje de comision</option>';
+		echo'<option value="0" >Seleccione porcentaje de comision</option>';
 
 
 			
@@ -146,9 +148,16 @@ echo "<INPUT TYPE='HIDDEN' VALUE=".$row['comisiones']." name='comisiones'>";
 	<div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         <div id="comisionError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
-                        <div class="form-group">
-							<h5><i>Sueldo base:</i></h5><label for="sueldo_base"><input type="number" placeholder="2000.00" id="sueldo_base" value="<?php echo $row['sueldo_base']; ?>" name="sueldo_base" maxlength="50" size="20" min="0" onblur="sueldValidate(this);" required/></label>
-						</div>
+                    <?php
+					if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
+					
+                      echo '<div class="form-group">';
+						echo'<h5><i>Sueldo base:</i></h5><label for="sueldo_base"><input type="number" placeholder="2000.00" id="sueldo_base" value="'.$row['sueldo_base'].'" name="sueldo_base" maxlength="50" size="20" min="0" onblur="sueldValidate(this);" required/></label>';
+						echo'</div>';
+					}else{
+						echo "<INPUT TYPE='HIDDEN' VALUE=".$row['sueldo_base']." name='sueldo_base'>";
+						}
+                  ?>      
 						<div id="suelError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                       
 </div>
@@ -209,61 +218,58 @@ if($_SESSION['tipo']==4 or $_SESSION['tipo']==2){
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
     					<div class="form-group">
-							<h5><i>Estado de Residencia:</i></h5>
-							<select name="id_estado" id="id_estado">
-								<option value="">Seleccione un Estado</option>
-								<?php
-								$usuario = new Usuario();
-								$resultadoestado=$usuario->verestados();
-								while($row2=mysqli_fetch_array($resultadoestado)){
-							if(utf8_encode($row['descripcion_estados'])==utf8_encode($row2['descripcion_estados'])){
-echo '<option value="'.$row2['id_estado'].'" selected>'.utf8_encode(utf8_decode($row2['descripcion_estados'])).'</option>';
-									}else{
+		<h5><i>Estado de Residencia:</i></h5>
+		<select name="id_estado" id="id_estado">
+			<option value="">Seleccione un Estado</option>
+			<?php
+			$usuario = new Usuario();
+			$resultadoestado=$usuario->verestados();
+			while($row1=mysqli_fetch_array($resultadoestado)){
+			if($row['descripcion_estados']==$row1['descripcion_estados']){
+				echo '<option value="'.$row1["id_estado"].'" selected>'.utf8_encode($row1["descripcion_estados"]).'</option>';
+			}else{
+				echo '<option value="'.$row1["id_estado"].'">'.utf8_encode($row1["descripcion_estados"]).'</option>';
+			}
+			}
+			?>
+		</select>
+	</div>
 
-									echo '<option value="'.$row2["id_estado"].'">'.utf8_encode($row2["descripcion_estados"]).'</option>';
-								}}
-								?>
-						</select>
-						</div>
+	<div class="form-group">
+		<h5><i>Municipio de Residencia:</i></h5>
 
-    					<div class="form-group">
-							<h5><i>Municipio de Residencia:</i></h5>
-						<select name="id_municipio">
-							<option value="" selected>Selecciona un Municipio</option>
-							<?php
-								$usuario = new Usuario();
-								$resultMun = $usuario->vermunicipioTodos($row['descripcion_estados']);
-									while($row1=mysqli_fetch_array($resultMun)){
-										if($row['id_municipio']==$row1['id_municipio']){
-									echo '<option value="'.$row1['id_municipio'].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
-								}else{
-									echo '<option value="'.$row1['id_municipio'].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
-								}
-							}
-
-								?>
-							</select>
-
-
-
-							<script>
-								$(document).ready(function(){
-									$('#id_estado').change(function(){
-										var country_id = $(this).val();
-										$.ajax({
-											url:"fetch_state.php",
-											method:"POST",
-											data:{countryId:country_id},
-											dataType:"text",
-											success:function(data)
-											{
-												$('#id_municipio').html(data);
-											}
-										});
-									});
-								});
-							</script>
-						</div>
+		<select name="id_municipio" id="id_municipio">
+			<option value="">Selecciona un Municipio</option>
+			<?php
+			$usuario = new Usuario();
+			$resultadomun=$usuario->vermunicipioTodos($row['descripcion_estados']);
+			while($row1=mysqli_fetch_array($resultadomun)){
+				if($row['descripcion_municipios']==$row1['descripcion_municipios']){
+					echo '<option value="'.$row1["id_municipio"].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+				}else{
+					echo '<option value="'.$row1["id_municipio"].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+				}
+			}
+			?>
+		</select>
+		<script>
+			$(document).ready(function(){
+				$('#id_estado').change(function(){
+					var country_id = $(this).val();
+					$.ajax({
+						url:"fetch_state.php",
+						method:"POST",
+						data:{countryId:country_id},
+						dataType:"text",
+						success:function(data)
+						{
+							$('#id_municipio').html(data);
+						}
+					});
+				});
+			});
+		</script>
+	</div>
                         
                         <h5><i>Colonia:</i></h5>
     					<div class="form-group">
@@ -382,4 +388,4 @@ $resulRedes=$empleado->verredes($_GET['id_usuario']);
 
 
 
-<script type="text/javascript" src="js/validate.js"></script>
+<script type="text/javascript" src="../../js/validate.js"></script>

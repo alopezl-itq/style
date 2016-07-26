@@ -44,7 +44,7 @@ session_start();
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <ul class="social-icons">
-                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="https://www.facebook.com/Elitebeautyselects/" class="fa fa-facebook" target="_blank"></a></li>
                                 <li><a href="#" class="fa fa-twitter"></a></li>
                             </ul>
                         </div> <!-- /.col-md-12 -->

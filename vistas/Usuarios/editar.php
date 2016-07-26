@@ -16,7 +16,7 @@ if(isset($_POST['enviar'])){
 
 ?>
 
-<script  src="js/jquery.js"></script>
+<script  src="../../js/jquery.js"></script>
 	<script type="text/javascript">
 		function val(){
 
@@ -139,16 +139,18 @@ if($_SESSION['tipo']==4){
 	                     echo"</div>";					
 	}  
        
-	   	?>                                         
-
+	  
 	
-			
+	if($_SESSION['tipo']==2){
+	echo "<INPUT TYPE='HIDDEN' VALUE=".$row['id_tipo_usuario']." name='id_tipo_usuario'>";
+		}else{
+			echo'
 
     					<div class="form-group">
 						<h5><i>Tipo de Usuario</i></h5>
 							<select name="id_tipo_usuario">
 						<option value="0" selected>Selecciona un Puesto</option>
-								<?php
+						';
 								$usuario = new Usuario();
 								$resultado2=$usuario->vertipous();
 								while($row1=mysqli_fetch_array($resultado2)){
@@ -159,11 +161,12 @@ if($_SESSION['tipo']==4){
 								}
 
 							}
-								?>  
+					echo '		 
 						</select>
 					</div>
-                     
-                      
+                     ';
+		}
+		?>  
                         
 </div>
 <div class="col-lg-3 col-md-3"></div>
@@ -228,7 +231,7 @@ if($_SESSION['tipo']==4){
 	</div>
                         
     						<div class="form-group">
-							<h5><i>Ciudad de Residencia:</i></h5>
+							<h5><i>Colonia:</i></h5>
 						<label>
 							<input type="text" placeholder="Ingrese su Colonia" name="colonia"  value="<?php echo utf8_encode($row["colonia"]); ?>" onblur="coloniaValidate(this);" required />
 						</label></div>
@@ -257,7 +260,7 @@ if($_SESSION['tipo']==4){
                         <h5><i>Codigo Postal:</i></h5>
 						<div class="form-group">
                         <label>
-							<input type="number" placeholder="Ingrese su Número Exterior" name="cp" value="<?php echo $row["cp"]; ?>" min="11111" max="99999" onblur="cpValidate(this);" required />
+						<input type="number" placeholder="Ingrese su Codigo Postal" name="cp" value="<?php echo $row['cp']; ?>" min="11111" max="99999" onblur="cpValidate(this);" required />
 						</label></div>
                         <div id="cpError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         

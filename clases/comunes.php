@@ -1,29 +1,47 @@
 <?php
 	
 	function cursos_banner(){
+		$hoy=date("Y-m-d");
 	
-	$sql="SELECT  * from cursos ";
+	$sql="SELECT  * from cursos where fecha_inicio>'".$hoy."'";
 	
 	 		$db = new Conexion();
 	 		if($cursos=mysqli_query($db,$sql)){
 	 			$imagen=1;
-	 			while($dato=mysqli_fetch_array($cursos)){
+	 			
+	 			$row_cnt = $cursos->num_rows;
+	 			
+	 			
+	 			if($row_cnt>0){
 		 			
+	 				while($dato=mysqli_fetch_array($cursos)){
 		 			
+		 				echo "<li>
+                         <div class='overlay'></div>
+                         <img src='images/slide".$imagen.".jpg' alt=''>
+                         <div class='slider-caption visible-md visible-lg'>
+                         <h2>".$dato['nombre_curso']." </h2>
+                         <p>".utf8_encode($dato['descripcion_cursos'])."</p>
+                         <a href='vistas/cursos/".$dato['archivo']."' target='blank' class='slider-btn'>Leer +</a>
+                         </div>
+                         </li>";
+						 $imagen=$imagen+1;
+                           if ($imagen>2) $imagen=1;//depende de las imagenes que se tengan
+
+	 				}
+	 			} else {
 		 			echo "<li>
                                 <div class='overlay'></div>
-                                <img src='images/slide".$imagen.".jpg' alt=''>
+                                <img src='images/slide1.jpg' alt=''>
                                 <div class='slider-caption visible-md visible-lg'>
-                                    <h2>".$dato['nombre_curso']." </h2>
-                                    <p>".utf8_encode($dato['descripcion_cursos'])."</p>
-                                    <a href='vistas/cursos/".$dato['archivo']."' target='blank' class='slider-btn'>Leer +</a>
+                                    <h2>Sin avisos </h2>
+                                    <p></p>
+                                    <a href='#' target='blank' class='slider-btn'>Leer +</a>
                                 </div>
                             </li>";
-                            $imagen=$imagen+1;
-                            if ($imagen>2) $imagen=1;
-		 	}
-	 		} else {
-	 			echo mysqli_error($db);
+		 	 			
+	 				}} else {
+		 				echo mysqli_error($db);	
 	 		}
 	
 }

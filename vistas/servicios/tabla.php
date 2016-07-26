@@ -68,7 +68,7 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
                                         <li class="active"><a href="../../principal.php">Inicio</a></li>
-                                        <li><a href="?cargar=usuarios&controlador=crear"><b>Registrar</b></a></li>
+                                        <li><a href="servicios.php"><b>Registrar Servicios</b></a></li>
                                     
                                     <li><a class="glyphicon-book" href="../../clases/salir.php">Salir</a></li>
                                     </ul>                                    
@@ -132,8 +132,8 @@ echo "        </form>\n";
      </tbody>
 </table>
 <br><button type="button" style="height:38px; width:350px" data-toggle="modal" data-target="#ModalAdd">Insertar Nuevo Servicio</button>
-<form method="POST" action="Menu.php">
-<br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas productos de lista" style="height:38px; width:350px" >
+<form method="POST" action="servicios.php">
+<br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas servicios de lista" style="height:38px; width:350px" >
 </form>
 </div>
 

@@ -6,12 +6,21 @@ session_start();
 $id_empresa=$_SESSION['estetica'];
 
 $controlador = new controlador();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {  
-    $corte=$_POST["corte"];
-    $color=$_POST["color"];
-    $peinado=$_POST["peinado"];
-    $maquillaje=$_POST["maquillaje"];
-    $otro=$_POST["otro"];
+
+
+$corte=isset($_POST['corte']) ? $_POST['corte'] : NULL;
+$color=isset($_POST['color']) ? $_POST['color'] : NULL;
+$peinado=isset($_POST['peinado']) ? $_POST['peinado'] : NULL;
+$maquillaje=isset($_POST['maquillaje']) ? $_POST['maquillaje'] : NULL;
+$otro=isset($_POST['otro']) ? $_POST['otro'] : NULL;
+
+ //   $corte=$_POST["corte"];
+   // $color=$_POST["color"];
+   // $peinado=$_POST["peinado"];
+   // $maquillaje=$_POST["maquillaje"];
+   // $otro=$_POST["otro"];
     
     $count=count($corte);
     $count2=count($color);
@@ -22,7 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($corte!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 1,0,$corte[$i],0);
+                }
             }
 
     }
@@ -30,7 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($corte!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 2,0,$color[$i],0);
+                }
             }
 
     }
@@ -38,7 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($color!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 3,0,$peinado[$i],0);
+                }
             }
 
     }
@@ -46,7 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($maquillaje!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 4,0,$maquillaje[$i],0);
+                }
             }
 
     }
@@ -54,7 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         if(isset($_POST['guardar']))
             {
+                if($otro!=null){
                 $r=$controlador->agregarServicioEmpresa($id_empresa, 5,0,$otro[$i],0);
+                }
             }
 
     }
@@ -158,7 +177,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 <div id="pestana1">
 <b>Servicio cortes:</b><br><br>
 <form method="POST" action="fservicios.php">
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -194,7 +213,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 
 <div id="pestana2">
 <br><b>Servicio Color:</b><br><br>
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -211,7 +230,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:20px; width:100px;" required></td>
+            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
         </tr>
         <?php  
@@ -229,7 +248,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 
 <div id="pestana3">
 <br><b>Servicio Peinado:</b><br><br>
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -246,7 +265,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:20px; width:100px;" required></td>
+            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
         </tr>
         <?php  
@@ -264,7 +283,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 
 <div id="pestana4">
 <br><b>Servicio Maquillaje:</b><br><br>
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -281,7 +300,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:20px; width:100px;" required></td>
+            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
         </tr>
         <?php  
@@ -299,7 +318,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 
 <div id="pestana5">
 <br><b>Servicios Otros:</b><br><br>
-<table border="2">
+<table border="0">
 	<thead>
         <th>Servicio</th>
         <th>Costo</th>
@@ -316,7 +335,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:20px; width:100px;" required></td>
+            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
         </tr>
         <?php
