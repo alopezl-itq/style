@@ -20,7 +20,9 @@ if(isset($_POST['enviar'])){
     <link rel="icon" type="img/ico" href="images/icoB.ico"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.map.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 
 
@@ -102,19 +104,7 @@ if(isset($_POST['enviar'])){
                 <h5><i>Correo Electronico:</i></h5><label for="email"><input type="email"  pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" required /></label>
             </div>
 
-            <div class="form-group">
-                <h5><i>Estética:</i></h5>
-                <select name="id_empresa">
-                    <option value="" selected>Selecciona una Estetica</option>
-                    <?php
-                    $usuario = new Usuario();
-                    $resultado1=$usuario->verempresas();
-                    while($row=mysqli_fetch_array($resultado1)){
-                        echo '<option value="'.$row["id_empresa"].'">'.utf8_encode($row["nombre"]).'</option>';
-                    }
-                    ?>
-                </select>
-            </div>
+
 
 
         </div>
@@ -163,13 +153,43 @@ if(isset($_POST['enviar'])){
                         });
                     });
                 </script>
+                <div class="form-group">
+                    <h5><i>Estética:</i></h5>
+                    <select name="id_empresa" id="id_empresa">
+                        <option value="" selected>Selecciona una Estetica</option>
+                        <?php
+                        $usuario = new Usuario();
+                        $resultado1=$usuario->verempresas();
+                        while($row=mysqli_fetch_array($resultado1)){
+                            echo '<option value="'.$row["id_empresa"].'">'.utf8_encode($row["nombre"]).'</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+                <script>
+                    $(document).ready(function(){
+                        $('#id_empresa').change(function(){
+                            var country_id = $(this).val();
+                            $.ajax({
+                                url:"mapa.php",
+                                method:"POST",
+                                data:{countryId:country_id},
+                                dataType:"text",
+                                success:function(data)
+                                {
+                                    $('#mapa').html(data);
+                                }
+                            });
+                        });
+                    });
+                </script>
             </div>
 
 
 
 
         </div>
-        <div class="col-lg-3 col-md-3"></div>
+        <div class="col-lg-3 col-md-3" id="mapa" name="mapa"></div>
 
         <br/>
         <div class="col-lg-3 col-md-3"></div>
