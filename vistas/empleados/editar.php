@@ -11,7 +11,7 @@ if(isset($_POST['enviar'])){
 
 
 
-$controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']),$_POST['sueldo_base'],utf8_decode($_POST['Facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
+$controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telcasa'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']),$_POST['sueldo_base'],utf8_decode($_POST['Facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
 
 
 
@@ -124,8 +124,14 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 <br/>
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
-						<div class="form-group">
-							<h5><i>Telefono:</i></h5><label for="tel"><input type="tel"  id="tel"value="<?php echo $row['telefono']; ?>"name="telefono" maxlength="10" size="20" pattern="[0-9]{10}" onblur="telValidate(this);" required/></label>
+						
+                        <div class="form-group">
+							<h5><i>Telefono de Casa:</i></h5><label for="tel1"><input type="tel"  id="tel1"value="<?php echo $row['telcasa']; ?>"name="telcasa"  size="20" pattern="[0-9]{10}" onblur="tel1Validate(this);" required/></label>
+						</div>
+                        <div id="te1lError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        
+                        <div class="form-group">
+							<h5><i>Telefono Celular:</i></h5><label for="tel"><input type="tel"  id="tel"value="<?php echo $row['telefono']; ?>"name="telefono" maxlength="10" size="20" pattern="[0-9]{10}" onblur="telValidate(this);" required/></label>
 						</div>
                         <div id="telError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 

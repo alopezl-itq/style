@@ -13,6 +13,7 @@ private $apellido_m;
 private $sexo;
 private $fecha_nacimiento;
 private $email;
+private $telcasa;
 private $telefono;
 private $observaciones;
 private $usuario;
@@ -137,6 +138,8 @@ return  $this->usu->verempresas();
 		$this->apellido_m = $row['apellido_m'];
 		$this->sexo = $row['descripcion'];
 	    $this->fecha_nacimiento = $row['fecha_nacimiento'];
+		$this->telcasa =$row['telcasa'];
+		$this->telefono =$row['telefono'];
 		$this->email = $row['email'];
 		$this->usuario = $row['usuario'];
 	    $this->id_tipo_usuario = $row['descripcion_tipo_usuarios'];
@@ -173,7 +176,7 @@ return  $this->usu->verempresas();
 		 
 
 
-echo $sql= "INSERT INTO `usuarios` (`nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`,`formulario_lleno`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono,'$this->email',$this->id_empresa,$this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password',1); ";
+echo $sql= "INSERT INTO `usuarios` (`nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  telcasa, telefono ,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`,`formulario_lleno`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telcasa,$this->telefono,'$this->email',$this->id_empresa,$this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password',1); ";
   $this->con->query($sql);
   
    //consulta para obtener el id del ultimo registro obtenido 
@@ -214,9 +217,10 @@ $id = trim($row[0]);
 				$sql = "UPDATE usuarios SET id_estatus=".$this->id_estatus." WHERE id_usuario=".$this->id_usuario;
                  $this->con->query($sql);
 			}
-             //funcion para editar el empleado    				
+             
+			 //funcion para editar el empleado    				
 				public function editarEmpleado(){
-		echo  $sql = "UPDATE `usuarios` SET id_usuario=$this->id_usuario, `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia',`formulario_lleno`=1 WHERE `id_usuario` =".$this->id_usuario;
+		echo  $sql = "UPDATE `usuarios` SET id_usuario=$this->id_usuario, `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', telcasa = $this->telcasa,`telefono` = $this->telefono, `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia',`formulario_lleno`=1 WHERE `id_usuario` =".$this->id_usuario;
 $this->con->query($sql);
 				
 				//funcion para editar suledo y comisiones 

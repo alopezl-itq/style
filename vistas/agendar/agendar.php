@@ -59,7 +59,7 @@ $miConexion = new Conexion();
                      <select class="form-control" name="empleado" id="empleado"> 
                      	<option value="" class="form-control">Seleccionar...</option>  <?php   $sql_IDUsuario="SELECT 	id_usuario, nombre_usuario FROM usuarios WHERE id_tipo_usuario>=4 and id_estatus=1 and id_empresa=".$_SESSION['estetica']; $resul_IDUsuario=mysqli_query($miConexion,$sql_IDUsuario);
 		while($filaUsuario=mysqli_fetch_array($resul_IDUsuario)){
-		echo "<option value='".$filaUsuario['0']."'> ". $filaUsuario['1']."</option>";	
+		echo "<option value='".$filaUsuario['0']."'> ".utf8_encode($filaUsuario['1'])."</option>";	
 		}
 	  ?>  </select>
 		</div>
@@ -69,7 +69,7 @@ $miConexion = new Conexion();
                     <select class="form-control" name="servicio" id="sevicio" onchange="load(this.value)"> 
                      	<option value="" class="form-control">Seleccionar...</option>  <?php   $sql_IDServicio="SELECT servicios.id_servicio, servicios.servicio FROM `empresas`, `servicios`, `servicios_empresa`, `descripcion_servicios` WHERE empresas.id_empresa=servicios_empresa.id_empresa AND descripcion_servicios.id_descripcion_servicios=servicios_empresa.id_descripcion_servicios AND servicios.id_servicio=servicios_empresa.id_servicio AND empresas.id_empresa=".$_SESSION['estetica']." GROUP BY id_servicio"; $res=mysqli_query($miConexion,$sql_IDServicio);
 		while($fila=mysqli_fetch_array($res)){
-		echo "<option value='".$fila['0']."'> ". $fila['1']."</option>";	
+		echo "<option value='".$fila['0']."'> ".utf8_encode($fila['1'])."</option>";	
 		}
 	  ?>  </select>
 		</div>
