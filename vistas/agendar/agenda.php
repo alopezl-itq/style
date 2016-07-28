@@ -111,12 +111,9 @@ $miConexion = new Conexion();
 					echo "<td style='text-align:left' class='link hoy'><a href='agendar.php?dia=".$day."&mes=".$month."&anio=".$year."' data-toggle='modal'>$day";
 					$sql_cd1='SELECT usuarios.nombre_usuario, usuarios.apellido_p, servicios.servicio, descripcion_servicios.descripcion, agendas.tiempo, agendas.hora FROM `usuarios`, `descripcion_servicios`, `servicios`, `agendas` WHERE usuarios.id_usuario=agendas.id_usuario AND descripcion_servicios.id_servicio=servicios.id_servicio AND descripcion_servicios.id_descripcion_servicios=agendas.id_servicio AND agendas.id_cliente ='.$_SESSION['id_user'].' AND agendas.fecha="'.$year.'-'.$month.'-'.$day.'"';$resul_cd1=mysqli_query($miConexion,$sql_cd1);
 		while($fila1=mysqli_fetch_array($resul_cd1)){
-<<<<<<< HEAD
 			echo "<p><b>Hora:</b>".$fila1['5']."<br> <b>Estilista:</b>".$fila1['0']." ".$fila1['1']."<br> <b>Servicio Contratado:</b>".$fila1['2']." ".$fila1['3']."<br> <b>Tiempo Estimado:</b>".$fila1['4']." mins </p>";	
-=======
-			echo "<p><b>Hora:</b>".$fila1['5']."<br> <b>Estilista:</b>".utf8_encode($fila1['0'])." ".$fila1['1']."<br> <b>Servicio Contratado:</b>".utf8_encode($fila1['2'])." ".utf8_encode($fila1['3'])."<br> <b>Tiempo Estimado:</b>".$fila1['4']." <b>Hora:</b>".$fila1['5']."</p>";	
->>>>>>> 8e3c22fa032c9075bc5c4ff17ab200282fd05d2e
-		}					echo "</a></td><td style='padding:0px'></td>";
+
+		}echo "</a></td><td style='padding:0px'></td>";
 
 				}else{
 				
@@ -124,11 +121,9 @@ $miConexion = new Conexion();
 					 $sql_cd1='SELECT usuarios.nombre_usuario, usuarios.apellido_p, servicios.servicio, descripcion_servicios.descripcion, agendas.tiempo, agendas.hora FROM `usuarios`, `descripcion_servicios`, `servicios`, `agendas` WHERE usuarios.id_usuario=agendas.id_usuario AND descripcion_servicios.id_servicio=servicios.id_servicio AND descripcion_servicios.id_descripcion_servicios=agendas.id_servicio AND agendas.id_cliente ='.$_SESSION['id_user'].' AND agendas.fecha="'.$year.'-'.$month.'-'.$day.'"';
 					$resul_cd1=mysqli_query($miConexion,$sql_cd1);
 		while($fila1=mysqli_fetch_array($resul_cd1)){
-<<<<<<< HEAD
-			echo "<p><b>Hora:</b>".$fila1['5']."<br> <b>Estilista:</b>".$fila1['0']." ".$fila1['1']."<br> <b>Servicio Contratado:</b>".$fila1['2']." ".$fila1['3']."<br> <b>Tiempo Estimado:</b>".$fila1['4']." mins </p>";
-=======
-			echo "<p><b>Hora:</b>".$fila1['5']."<br> <b>Estilista:</b>".utf8_encode($fila1['0'])." ".utf8_encode($fila1['1'])."<br> <b>Servicio Contratado:</b>".utf8_encode($fila1['2'])." ".utf8_encode($fila1['3'])."<br> <b>Tiempo Estimado:</b>".$fila1['4']." <b>Hora:</b>".$fila1['5']."</p>";
->>>>>>> 8e3c22fa032c9075bc5c4ff17ab200282fd05d2e
+
+			echo "<p><b>Hora:</b>".$fila1['5']."<br> <b>Estilista:</b>".utf8_encode($fila1['0'])." ".utf8_encode($fila1['1'])."<br> <b>Servicio Contratado:</b>".utf8_encode($fila1['2'])." ".utf8_encode($fila1['3'])."<br> <b>Tiempo Estimado:</b>".$fila1['4']." mins </p>";
+
 		}
 		echo "</a></td><td style='padding:0px'></td>";
 				}
