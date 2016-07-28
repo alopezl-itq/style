@@ -265,7 +265,7 @@ echo 	$r;
     
     <div>
 								<?php
-									echo "<img height ='150' width='150' src='".$row['imagen']."'>";
+									echo "<img height ='150' width='150' src='../../imagenes_esteticas/".$row['imagen']."'>";
 								?>
 		
                        
