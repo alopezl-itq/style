@@ -8,13 +8,26 @@
 //echo 'hola '.$_POST['countryId'];
 include_once('modulos/controlador_registro.php');
 
-$controlador = new controlador();
+$controlador = new Controlador();
 
 $respuesta = $controlador->geoloc($_POST['countryId']);
 
+$row=mysqli_fetch_assoc($respuesta);
+
+
 ?>
 
-
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    var longitud = <?php echo $row['longitud'];?>;
+    var latitud = <?php echo $row['latitud'];?>;
+    </script>
+    <title>Prueba - jQuery - Google.maps</title>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.map.js"></script>
     <script type="text/javascript">
 
 
@@ -22,25 +35,19 @@ $respuesta = $controlador->geoloc($_POST['countryId']);
         $(document).ready(function(){
             $('#id');
             var mapa;
-            
+
             var marcador;
-            var coordenadas = new google.maps.LatLng(<?php
-            while($dato=mysqli_fetch_array($respuesta)){
-            echo $dato['latitud'];
-            }?>, <?php
-            while($dato=mysqli_fetch_array($respuesta)){
-            echo $dato['altitud'];
-            } ?>);
+            var coordenadas = new google.maps.LatLng(latitud, longitud);
             var opciones = {
                 center: coordenadas,
                 zoom:11,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             mapa = new google.maps.Map($('#mapa')[0], opciones);
-            var lating = {lat: 50.0875726, lng: 14.4189987};
+            var lating = {lat: latitud, lng: longitud};
             ponCoordenadas(lating);
 
-            var lating2 = {lat: 50, lng: 14.4189987};
+            var lating2 = {lat: latitud, lng: longitud};
             ponCoordenadas(lating2);
 
             google.maps.event.addListener(mapa, 'click', function(event) {
@@ -71,7 +78,7 @@ $respuesta = $controlador->geoloc($_POST['countryId']);
         div#mapa {width: 500px;height:500px;}
         .cbr     {width: 500px; height:50px;}
     </style>
+</head>
+<body>
 
 <div id="mapa"></div>
-
-

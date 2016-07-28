@@ -147,7 +147,7 @@ class Usuario
     }
 
     public function geoloc($id){
-       echo  $sql = "select longitud, latitud from empresas where id_empresa = ".$id;
+       $sql = "select longitud, latitud from empresas where id_empresa = ".$id;
         $resultado = $this->con->consultaR($sql);
 
         return $resultado;

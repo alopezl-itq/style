@@ -32,7 +32,6 @@ if(isset($_POST['enviar'])){
     <link rel="stylesheet" href="css/templatemo_misc.css">
     <link rel="stylesheet" href="css/templatemo_style.css">
 
-
 </head>
 
 <body>
@@ -166,6 +165,23 @@ if(isset($_POST['enviar'])){
                         ?>
                     </select>
                 </div>
+                <script>
+                    $(document).ready(function(){
+                        $('#id_estado').change(function(){
+                            var country_id = $(this).val();
+                            $.ajax({
+                                url:"vistas/usuarios/fetch_state.php",
+                                method:"POST",
+                                data:{countryId:country_id},
+                                dataType:"text",
+                                success:function(data)
+                                {
+                                    $('#id_municipio').html(data);
+                                }
+                            });
+                        });
+                    });
+                </script>
                 <script>
                     $(document).ready(function(){
                         $('#id_empresa').change(function(){
