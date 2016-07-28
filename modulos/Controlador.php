@@ -30,7 +30,7 @@ class Controlador{
 		
 		
 		
-public function crearUsuario( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $telefono,$email, $id_tipo_usuario, $id_municipio,$colonia,$nombre_calle,$no_int, $no_ext,$cp,$usuario,$password){
+public function crearUsuario( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento,$telcasa, $telefono,$email, $id_tipo_usuario, $id_municipio,$colonia,$nombre_calle,$no_int, $no_ext,$cp,$usuario,$password){
 		
 
 			$this->usuario->set("nombre_usuario",$nombre_usuario);
@@ -38,6 +38,7 @@ public function crearUsuario( $nombre_usuario, $apellido_p, $apellido_m, $sexo, 
 			$this->usuario->set("apellido_m",$apellido_m);
 			$this->usuario->set("sexo",$sexo);
 			$this->usuario->set("fecha_nacimiento",$fecha_nacimiento);
+			$this->usuario->set("telcasa",$telcasa);
 			$this->usuario->set("telefono",$telefono);
 			$this->usuario->set("email",$email);
 
@@ -53,7 +54,7 @@ public function crearUsuario( $nombre_usuario, $apellido_p, $apellido_m, $sexo, 
 
 
 
-		$resultado=$this->usuario->crearUsuario();
+			$resultado=$this->usuario->crearUsuario();
 			return $resultado;
 			
 		
@@ -85,7 +86,7 @@ public function crearUsuario( $nombre_usuario, $apellido_p, $apellido_m, $sexo, 
 	 
 		
 		
-		public function editar($id_usuario,$nombre_usuario,$apellido_p,$apellido_m,$sexo,$fecha_nacimiento,$telefono,$email,$id_empresa,$id_tipo_usuario,$id_municipio,$colonia,$nombre_calle,$no_int,$no_ext,$cp,$usuario,$password){
+		public function editar($id_usuario,$nombre_usuario,$apellido_p,$apellido_m,$sexo,$fecha_nacimiento,$telcasa,$telefono,$email,$id_empresa,$id_tipo_usuario,$id_municipio,$colonia,$nombre_calle,$no_int,$no_ext,$cp,$usuario,$password){
 			 $this->usuario->set("id_usuario",$id_usuario);
 			 $this->usuario->set("nombre_usuario",$nombre_usuario);
 			 $this->usuario->set("apellido_p",$apellido_p);
@@ -93,6 +94,7 @@ public function crearUsuario( $nombre_usuario, $apellido_p, $apellido_m, $sexo, 
 			 $this->usuario->set("sexo",$sexo);
 			 $this->usuario->set("fecha_nacimiento",$fecha_nacimiento);
 			 $this->usuario->set("telefono",$telefono);
+			 $this->usuario->set("telcasa",$telcasa);
 			 $this->usuario->set("email",$email);
 			 $this->usuario->set("id_empresa",$id_empresa);
 			 $this->usuario->set("id_tipo_usuario",$id_tipo_usuario);

@@ -2,7 +2,7 @@
 
 $controlador = new controlador();
 if(isset($_POST['enviar'])){
- $controlador->crearUsuario(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']));
+ $controlador->crearUsuario(utf8_decode($_POST['nombre_usuario']), utf8_decode($_POST['apellido_p']), utf8_decode($_POST['apellido_m']),$_POST['sexo'],$_POST['fecha_nacimiento'],$_POST['telcasa'],$_POST['telefono'],utf8_decode($_POST['email']),$_POST['id_tipo_usuario'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['cp'],utf8_decode($_POST['usuario']),utf8_decode($_POST['password']));
 
 
 }
@@ -77,11 +77,15 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
 						<div class="form-group">
-							<h5><i>Telefono:</i></h5><label for="tel"><input type="tel" placeholder="Ingresa tú número teléfonico con su lada" id="tel" name="telefono" maxlength="10" size="20" pattern="[0-9]{10}" onblur="telValidate(this);" required/></label>
+							<h5><i>Celular:</i></h5><label for="tel"><input type="tel" placeholder="Ingresa tú número teléfonico con su lada" id="tel" name="telefono" maxlength="10" size="20" pattern="[0-9]{10}" onblur="telValidate(this);" required/></label>
 						</div>
                         <div id="telError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+	<div class="form-group">
+		<h5><i>Casa:</i></h5><label for="telcasa"><input type="telcasa" placeholder="Ingresa tú número teléfonico con su lada" id="telcasa" name="telcasa" maxlength="10" size="20" pattern="[0-9]{10}" onblur="telValidate(this);" required/></label>
+	</div>
+	<div id="telcasaError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 
-						<div class="form-group">
+	<div class="form-group">
 							<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email" 
                             pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
 						</div>
