@@ -10,7 +10,7 @@ include_once('modulos/controlador_registro.php');
 
 $controlador = new controlador();
 
-$dato = $controlador->geoloc($_POST['countryId']);
+$respuesta = $controlador->geoloc($_POST['countryId']);
 
 ?>
 
@@ -24,7 +24,13 @@ $dato = $controlador->geoloc($_POST['countryId']);
             var mapa;
             
             var marcador;
-            var coordenadas = new google.maps.LatLng(<?php echo $dato['latitud']; ?>, <?php echo $dato['longitud']; ?>);
+            var coordenadas = new google.maps.LatLng(<?php
+            while($dato=mysqli_fetch_array($respuesta)){
+            echo $dato['latitud'];
+            }?>, <?php
+            while($dato=mysqli_fetch_array($respuesta)){
+            echo $dato['altitud'];
+            } ?>);
             var opciones = {
                 center: coordenadas,
                 zoom:11,
