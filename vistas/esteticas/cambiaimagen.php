@@ -35,7 +35,7 @@ $controlador = new c_estetica();
 if(isset($_POST['enviar'])){
 	//print_r($_POST);
 
-	print_r($_POST);
+	//print_r($_POST);
 	
 	
 	$permitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
@@ -58,12 +58,12 @@ if(isset($_POST['enviar'])){
 				$ext=".png";
 				break;	
 		}
-		print_r($_POST);
+		//print_r($_POST);
 	
 		
-		echo $row['imagen'];
+		//echo $row['imagen'];
 		
-		if(copy($_FILES["imagen"]["tmp_name"],$row['imagen'])){
+		if(copy($_FILES["imagen"]["tmp_name"],"../../imagenes_esteticas/".$row['imagen'])){
 			echo "se modificó la imagen";
 
 		} else{
@@ -103,7 +103,7 @@ if(isset($_POST['enviar'])){
                     	<div class="row">
                     	<div class="col-md-4">
 								<?php
-									echo "<img height ='150' width='150' src='".$row['imagen']."'>";
+									echo "<img height ='150' width='150' src='../../imagenes_esteticas/".$row['imagen']."'>";
 								?>         
                     	</div>
                     	<div class="col-md-4"> 

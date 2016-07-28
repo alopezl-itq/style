@@ -36,6 +36,9 @@ $controlador = new c_estetica();
 	</center>
 
 
+	<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
 
 	<div class="panel panel-default">
 		<div class="panel-heading">  Estéticas</div>
@@ -46,29 +49,29 @@ $controlador = new c_estetica();
 						<th>Nombre</th>
 						<th>Estatus</th>
 						<th><a href="#" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-pencil"></span> Editar
-        </a></th>
+          					<span class="glyphicon glyphicon-pencil"></span> Editar</a>
+        				</th>
 						<th ><a href="#" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-remove"></span> Eliminar
-        </a></th>
-        <th ><a href="#" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-pencil"></span> Cambiar Imagen
-        </a></th>
+          					<span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+          				</th>
+				        <th ><a href="#" class="btn btn-default btn-sm">
+				          <span class="glyphicon glyphicon-pencil"></span> Cambiar Imagen</a>
+				  		</th>
 					</tr>
 				</thead>
 				<tbody>
-			<?php
-				
-				
-				$estetica = new estetica();
-				$resultado4=$estetica->verempresas();
-				while($row=mysqli_fetch_array($resultado4)){
-					echo "<tr class='success'><td>".utf8_encode($row['nombre'])."</td><td >".utf8_encode($row["descripcion_estatus"])."</td><td><a  class='glyphicon glyphicon-pencil' href=index.php?cargar=esteticas&controlador=ver&id=".$row['id_empresa']."></a></td></td></td><td> <a  class='glyphicon glyphicon-remove' href=index.php?cargar=esteticas&controlador=eliminar&id=".$row['id_empresa']."></a></td><td> <a  class='glyphicon glyphicon-pencil' href=index.php?cargar=esteticas&controlador=cambiaimagen&id=".$row['id_empresa']."></a></td></tr>";
-				}
-			?>
+				<?php
+					$estetica = new estetica();
+					$resultado4=$estetica->verempresas();
+					while($row=mysqli_fetch_array($resultado4)){
+						echo "<tr class='success'><td>".utf8_encode($row['nombre'])."</td><td >".utf8_encode($row["descripcion_estatus"])."</td><td><a  class='glyphicon glyphicon-pencil' href=index.php?cargar=esteticas&controlador=ver&id=".$row['id_empresa']."></a></td></td></td><td> <a  class='glyphicon glyphicon-remove' href=index.php?cargar=esteticas&controlador=eliminar&id=".$row['id_empresa']."></a></td><td> <a  class='glyphicon glyphicon-pencil' href=index.php?cargar=esteticas&controlador=cambiaimagen&id=".$row['id_empresa']."></a></td></tr>";
+					}
+				?>
 				</tbody>
 			</table>
 		</div>
+	</div>
+	</div>
 	</div>
 
 
