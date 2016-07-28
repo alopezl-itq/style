@@ -77,7 +77,7 @@ if(isset($_POST['enviar'])){
 
 
 
-		//comprovamos si este imagen existe para no volverlo a copiar.
+		//comprobamos si este imagen existe para no volverlo a copiar.
 		//pero si quieren pueden obviar esto si no es necesario.
 		//o pueden darle otro nombre para que no sobreescriba el actual.
 		if (!file_exists($ruta)){
