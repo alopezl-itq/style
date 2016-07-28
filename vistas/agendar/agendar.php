@@ -20,8 +20,8 @@ $miConexion = new Conexion();
         <link rel="stylesheet" href="../../css/templatemo_misc.css">
         <link rel="stylesheet" href="../../css/templatemo_style.css">
         
-        <script src="js/ajax.js"></script>
-        <script src="js/vendor/jquery-1.11.0.min.js"></script>
+        <script src="../../js/ajax.js"></script>
+        <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
 </head>
 
 <body>
@@ -86,10 +86,10 @@ $miConexion = new Conexion();
   </div>
 </div>
 
-  <script src="js/vendor/jquery-1.11.0.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+  <script src="../../js/bootstrap.js"></script>
+  <script src="../../js/plugins.js"></script>
+  <script src="../../js/main.js"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@ $controlador = new controlador();
         <link rel="stylesheet" href="../../css/templatemo_misc.css">
         <link rel="stylesheet" href="../../css/templatemo_style.css">
 <?php 
-echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
+echo "	<script src='../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
 ?>
     </head>
     <body>
