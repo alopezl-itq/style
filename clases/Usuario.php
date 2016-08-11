@@ -203,7 +203,7 @@ echo $sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_es
 				
 				public function editarUsuario(){
 
-					$sql2=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='$this->email' and id_usuario!=".$this->id_usuario);
+					$sql2=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='".$this->email."' and id_usuario!=".$this->id_usuario);
 
 					$resultado = $this->con->consultaR($sql2);
 					$numregistros=mysqli_num_rows($resultado);

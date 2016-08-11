@@ -164,15 +164,18 @@ return  $this->usu->verempresas();
 	//funcion para crear los empleados	
 		public function crearE(){
 		 //consulta para verificar que no se repita usuario y email
-		 $sql2=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='".$this->email."'");
-            
-            $resultado = $this->con->consultaR($sql2);			
-	       $numregistros=mysqli_num_rows($resultado); 	   
-		    
+		 $sql2=("SELECT usuario FROM usuarios WHERE usuario='".$this->usuario."'");
+         $resultado = $this->con->consultaR($sql2);			
+	     $numregistros=mysqli_num_rows($resultado); 	
+		 
+		 $sql8=("SELECT email FROM usuarios WHERE email='".$this->email."'");   
+		  $resultado = $this->con->consultaR($sql8);			
+	     $numr=mysqli_num_rows($resultado);   
        
 //si el numero de registros es igual a cero realiza el insert del usuario
-            if($numregistros == 0 )
-            {
+            if($numregistros==0 and $numr==0)
+			  {
+
 		 
 
 
@@ -180,7 +183,7 @@ echo $sql= "INSERT INTO `usuarios` (`nombre_usuario`, `apellido_p`, `apellido_m`
   $this->con->query($sql);
   
    //consulta para obtener el id del ultimo registro obtenido 
-  echo $sql3 ="SELECT MAX(id_usuario) AS id from usuarios ";
+   $sql3 ="SELECT MAX(id_usuario) AS id from usuarios ";
   $rs = $this->con->consultaR($sql3);
  if ($row = mysqli_fetch_row($rs)) {
 $id = trim($row[0]);
@@ -207,6 +210,8 @@ $id = trim($row[0]);
       $this->con->query($sql7);
       
 	  return true;
+			
+			
 			}else{
 				echo "El usuario ya existe y/o el correo ya están registrados";
 				}
@@ -220,6 +225,13 @@ $id = trim($row[0]);
              
 			 //funcion para editar el empleado    				
 				public function editarEmpleado(){
+					
+$sql5=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='".$this->email."'");
+
+					$resultado = $this->con->consultaR($sql5);
+					$numregistros=mysqli_num_rows($resultado);
+					if($numregistros==0){
+					
 		echo  $sql = "UPDATE `usuarios` SET id_usuario=$this->id_usuario, `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', telcasa = $this->telcasa,`telefono` = $this->telefono, `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia',`formulario_lleno`=1 WHERE `id_usuario` =".$this->id_usuario;
 $this->con->query($sql);
 				
@@ -237,6 +249,10 @@ $this->con->query($sql3);
 			
 echo $sql4="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->instagram' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=3";
 $this->con->query($sql4);
+				
+				}else{
+						echo "El usuario y/o el correo ya existen ";
+					}
 				
 				
 				}
