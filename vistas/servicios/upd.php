@@ -95,8 +95,11 @@ $resultado = $controlador->verServiciosEmpresa2($id_servicios_empresa);
 <form method="POST" action="actualiza.php">
 <table border="2">
 	<thead>
+        <th>Tipo</th>
         <th>Costo</th>
         <th>Tiempo</th>
+        <th>Comisión</th>
+
      </thead>
     <div class="col-lg-3 col-md-3"></div>
     <div class="col-lg-6 col-md-6">
@@ -107,9 +110,18 @@ $resultado = $controlador->verServiciosEmpresa2($id_servicios_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo' style="height:30px; width:100px;" required></td>
+            <td> <b>$ </b><input type="text" value="0" name='costo' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
-
+            <td> <select name='comision'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
            
         </tr>
 <?php 

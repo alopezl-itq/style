@@ -11,12 +11,21 @@ private $descripcion_marca;
 
 private $id_productos;
 private $stock;
+private $comision;
 private $precio_venta;
 private $precio_compra;
 private $id_proveedor;
 private $descripcion_productos;
 private $presentacion;
 private $id_producto_empresa;
+
+
+private $marca;
+private $linea;
+private $producto;
+private $precioc;
+private $preciov;
+
 
 //Aqui comienzan las funciones
 
@@ -95,9 +104,9 @@ public function set($atributo, $contenido){
 		$resultado=$this->con->consulta($sql);
 		return $resultado;
 	}
-	//Con esta funcion se actualizan precion de compra y venta de los productos de una empresa 
+	//Con esta funcion se actualizan precion de compra y venta de los productos de una empresa y se asigna una comision para el empleado por producto
 	public function actualizarProductoEmpresa(){
-		$SQL="UPDATE productos_empresa SET stock=$this->stock,precio_compra=$this->precio_compra, precio_venta=$this->precio_venta WHERE id_producto_empresa=$this->id_producto_empresa"; 
+		$SQL="UPDATE productos_empresa SET stock=$this->stock,precio_compra=$this->precio_compra, precio_venta=$this->precio_venta, comisiones=$this->comision WHERE id_producto_empresa=$this->id_producto_empresa"; 
 		$this->con->update($SQL);
 		return true;
 	}
@@ -105,7 +114,7 @@ public function set($atributo, $contenido){
 
 	public function ver(){
 
-	$sql = "SELECT m.descripcion_marca, l.descripcion_linea, p.descripcion_productos, p.presentacion ,e.precio_compra,e.precio_venta, e.stock, e.id_producto_empresa from productos p, linea_productos l, productos_empresa e, marcas m WHERE e.id_producto=p.id_productos and p.id_marca=m.id_marca and p.id_linea_productos=l.id_linea_producto and e.id_empresa=$this->id_empresa order by m.descripcion_marca";
+	$sql = "SELECT m.descripcion_marca, l.descripcion_linea, p.descripcion_productos, p.presentacion ,e.precio_compra,e.precio_venta, e.stock, e.id_producto_empresa, e.comisiones from productos p, linea_productos l, productos_empresa e, marcas m WHERE e.id_producto=p.id_productos and p.id_marca=m.id_marca and p.id_linea_productos=l.id_linea_producto and e.id_empresa=$this->id_empresa order by m.descripcion_marca";
 		$resultado = $this->con->consulta($sql);
 		
 		return $resultado;
@@ -120,6 +129,61 @@ public function set($atributo, $contenido){
 		
 		return $resultado;
 	}
+
+	//con esta funcion podemos ver las lineas de productos de lista
+
+	public function verlinealista(){
+
+		$sql = "SELECT `id_linea_producto`,`descripcion_linea` FROM `linea_productos` LIMIT 0,167";
+		$resultado = $this->con->consulta($sql);
+		
+		return $resultado;
+	}
+	
+	//con esta funcion podemos ver las marcas de productos de lista
+
+	public function verMarcaslista(){
+
+		$sql = "SELECT * FROM `marcas` limit 0,13";
+		$resultado = $this->con->consulta($sql);
+		
+		return $resultado;
+	}
+
+
+	public function nuevoProductoEmpresa(){
+
+		echo $sql = "INSERT INTO `marcas`(`descripcion_marca`) VALUES ('$this->marca')";
+		$resultado = $this->con->insert($sql);
+		echo $sql2 = "SELECT * FROM `marcas` WHERE `descripcion_marca`=$this->marca";
+		$resultado2 = $this->con->consulta($sql);
+		$row = mysqli_fetch_array($resultado2);
+		$idmarca= $row[0];
+		
+
+		echo $sql3 = "INSERT INTO `linea_productos`(`descripcion_linea`, `id_marca`) VALUES ('$this->linea',$idmarca)";
+		$resultado3 = $this->con->insert($sql3);
+		echo $sql4 = "SELECT * FROM `linea_productos` WHERE `descripcion_linea`=$this->linea and id_marca=$idmarca";
+		$resultado4 = $this->con->consulta($sql4);
+		$row2 = mysqli_fetch_array($resultado4);
+		$idlinea= $row2[0];
+
+
+		echo $sql5 = "INSERT INTO `productos`(`precio_venta`, `precio_compra`, `descripcion_productos`, `id_marca`, `id_linea_productos`, `presentacion`) VALUES ($this->preciov,$this->precioc,'$this->producto',$idmarca,$idlinea,'$this->presentacion')";
+		$resultado5 = $this->con->insert($sql5);
+		echo $sql6 = "SELECT * FROM `productos` WHERE `descripcion_productos`=$this->producto and id_marca=$idmarca and id_linea_productos=$idlinea and `presentacion`=$this->presentacion ";
+		$resultado6 = $this->con->consulta($sql6);
+		$row3 = mysqli_fetch_array($resultado6);
+		$idproducto= $row3[0];
+		
+		echo $SQL7="INSERT INTO `productos_empresa`( `stock`, `id_empresa`, `id_producto`, `precio_venta`, `precio_compra`) VALUES($this->stock,$this->id_empresa, $idproducto,$this->preciov,$this->precioc)";
+		$this->con->insert($SQL7);
+
+		return true;
+		 }
+
+		
+	
 
 	
 

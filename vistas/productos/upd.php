@@ -98,6 +98,7 @@ $resultado = $controlador->verProductoEmpresa($id_producto_empresa);
         <th>Costo de Compra</th>
         <th>Costo de Venta</th>
         <th>Stock</th>
+        <th>Comisión</th>
      </thead>
     <div class="col-lg-3 col-md-3"></div>
     <div class="col-lg-6 col-md-6">
@@ -108,10 +109,19 @@ $resultado = $controlador->verProductoEmpresa($id_producto_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costoC' style="height:25px; width:100px;" required></td>
-            <td> <input type="text" name='costoV' style="height:25px; width:100px;" required></td>
-            <td> <input type="text" name='stock' style="height:25px; width:100px;" required></td>
-           
+            <td><b>$ </b> <input type="text" value="0" name='costoC' style="height:25px; width:100px;" required></td>
+            <td><b>$ </b>  <input type="text" value="0" name='costoV' style="height:25px; width:100px;" required></td>
+            <td> <input type="text" value="0" name='stock' style="height:25px; width:100px;" required></td>
+           <td> <select name='comision'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
         </tr>
 <?php 
        echo "<input type='hidden' name='numero' value=$id_producto_empresa>";

@@ -86,6 +86,8 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
 												<?php  
 $controlador = new Controlador();
 $resultado = $controlador->ver($id_empresa);
+$resultado2 = $controlador->verlinealista();
+$resultado3 = $controlador->verMarcaslista();
 ?>
 <div align="center"> 
 <table border="1">
@@ -97,8 +99,9 @@ $resultado = $controlador->ver($id_empresa);
         <th>Precio de compra</th>
 		<th>Precio de venta</th>
         <th>Stock</th>
-        <th>Editar</th>
+        <th>comisión para el empleado</th>
         <th>Eliminar</th>
+        <th>Editar</th>
 
      </thead>
      <tbody>
@@ -115,6 +118,7 @@ $resultado = $controlador->ver($id_empresa);
          <td>$<?php echo utf8_encode($row['4']); ?> Pesos</td>
         <td>$<?php echo  utf8_encode($row['5']); ?> Pesos</td>
         <td><?php echo  utf8_encode($row['6']); ?> Unidades/piezas</td>
+        <td><?php echo  utf8_encode($row['8']); ?> %</td>
        <?php
 echo " <form method=\"POST\" action=\"del.php\">\n"; 
 echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
@@ -133,9 +137,127 @@ echo "        </form>\n";
       
      </tbody>
 </table>
+<br><button type="button" style="height:38px; width:350px" data-toggle="modal" data-target="#ModalAdd">Insertar Nuevo Producto</button>
+
 <form method="POST" action="menu.php">
-<br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas productos" style="height:38px; width:350px" >
+<br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas productos de lista" style="height:38px; width:350px" >
 </form>
+
+
+
+<!-- Modal-->
+<div id="ModalAdd" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Insertar Producto</h4>
+      </div>
+      <div class="modal-body">
+
+      <script  src="/../../js/jquery.js"></script>
+        <div id="pestanas"> 
+            <ul class="nav nav-tabs">
+            <li role="presentation" class="active" ><a href="#pestana1" role="tab" data-toggle="tab">Marcas registradas</a></li>
+            <li role="presentation"><a href="#pestana2" role="tab" data-toggle="tab">Marcas no registradas</a></li> 
+            <div id="pestana1">
+            <form METHOD="POST" ACTION="agregarproducto.php">
+			<br><br>Marca :<br>
+            <select name='marca'>
+            <?php  while($row2 = mysqli_fetch_array($resultado3)): 
+            echo "<option value='$row2[0]'>$row2[1]</option>";
+            endwhile; 
+            ?>
+            </select><br>
+            <br>Linea :<br>
+            <select name='linea'>
+            <?php  while($row3 = mysqli_fetch_array($resultado2)): 
+            echo "<option value='$row3[0]'>$row3[1]</option>";
+            endwhile; 
+            ?>
+            </select><br>
+            <br>Nombre del Producto:<br>
+            <b></b><input type="text" name='producto' value="0" style="height:27px; width:250px;" required><br>
+            <br>Presentación :<br>
+            <INPUT TYPE="TEXT" NAME="presentacion" required style="height:27px; width:250px;" required><b> (ml/pieza) </b><br>
+            <br>Precio de compra:<br>
+            <b>$ </b><INPUT TYPE="TEXT" NAME="precioc" required style="height:27px; width:250px;" required><br>
+            <br>Precio de venta :<br>
+            <b>$ </b><INPUT TYPE="TEXT" NAME="preciov" required style="height:27px; width:250px;" required><br>
+            <br>Stock:<br>
+            <INPUT TYPE="TEXT" NAME="stock" required style="height:27px; width:250px;" required><br>
+            <br>Comisión para el empleado:<br>
+            <td> <select name='comision'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
+            <br>
+            <br>
+			<br><INPUT TYPE="SUBMIT" style="height:38px; width:350px" value="Insertar" aling="Center"><br>
+		</form>
+</div>
+    <div id="pestana2">
+         <form METHOD="POST" ACTION="nuevoproducto.php">
+			<br><br>Nueva marca :<br>
+            <INPUT TYPE="TEXT" NAME="marca" required style="height:27px; width:250px;" required><br>
+            <br>Nueva linea de producto :<br>
+            <INPUT TYPE="TEXT" NAME="linea" required style="height:27px; width:250px;" required><br>
+            <br>Nombre del Producto:<br>
+            <b></b><input type="text" name='producto' value="0" style="height:27px; width:250px;" required><br>
+            <br>Presentación :<br>
+            <INPUT TYPE="TEXT" NAME="presentacion" required style="height:27px; width:250px;" required><b> (ml/pieza) </b><br>
+            <br>Precio de compra:<br>
+            <b>$ </b><INPUT TYPE="TEXT" NAME="precioc" required style="height:27px; width:250px;" required><br>
+            <br>Precio de venta :<br>
+            <b>$ </b><INPUT TYPE="TEXT" NAME="preciov" required style="height:27px; width:250px;" required><br>
+            <br>Stock:<br>
+            <INPUT TYPE="TEXT" NAME="stock" required style="height:27px; width:250px;" required><br>
+            <br>Comisión para el empleado:<br>
+            <td> <select name='comision'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
+            <br>
+            <br>
+        
+			<br><INPUT TYPE="SUBMIT" style="height:38px; width:350px" value="Insertar" aling="Center"><br>
+		</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		  
+      </div>
+    </div>
+  </div>
+</div>
 
                 </div> <!-- /.row -->
             </div> <!-- /.container -->

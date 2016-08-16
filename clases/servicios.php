@@ -11,7 +11,7 @@ private $id_descripcion_servicios;
 private $descripcionServicios;
 private $costo;
 private $tiempo;
-
+private $comision;
 private $id_servicios_empresa;
 private $numero;
 
@@ -110,16 +110,8 @@ public function listar(){
 
 		//$id_empresa=1;
 	
-		$sql = "SELECT s.servicio, d.descripcion, x.costo, x.tiempo_servicio, x.id_servicios_empresa from descripcion_servicios d, servicios s, servicios_empresa x WHERE x.id_servicio=s.id_servicio and x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_empresa=$this->id_empresa";
+		$sql = "SELECT s.servicio, d.descripcion, x.costo, x.tiempo_servicio, x.id_servicios_empresa, x.comisiones from descripcion_servicios d, servicios s, servicios_empresa x WHERE x.id_servicio=s.id_servicio and x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_empresa=$this->id_empresa";
 		$resultado = $this->con->consulta($sql);
-		
-		
-		//set interno
-		//$this->id_usuario = utf8_encode($row['id_usuario']);
-		//$this->servicio = utf8_encode($row['servicio']);
-		//$this->descripcion = utf8_encode($row['descripcion']);
-		//$this->costo = utf8_encode($row['costo']);
-		
 		return $resultado;
 
 
@@ -176,10 +168,8 @@ public function listar(){
 		$resultado=$this->con->consulta($sql1);
 		$row = mysqli_fetch_array($resultado);
 		$numero= $row[0];
-
-
 		
-		$SQL="INSERT INTO servicios_empresa(id_empresa, id_servicio, costo, id_descripcion_servicios, tiempo_servicio) VALUES ($this->id_empresa,$this->id_servicio,$this->costo,$numero,$this->tiempo)";
+		$SQL="INSERT INTO servicios_empresa(id_empresa, id_servicio, costo, id_descripcion_servicios, tiempo_servicio, comisiones) VALUES ($this->id_empresa,$this->id_servicio,$this->costo,$numero,$this->tiempo, $this->comision)";
 		$this->con->insert($SQL);
 
 
@@ -202,8 +192,10 @@ public function listar(){
 	}
 
 
+	//Con esta funcion se actualizan precios de servicios asi como el tiempo, ademas se asigna una comision para el empleado por servicio realizado
+
 	public function actualizarServicioEmpresa(){
-		$SQL="UPDATE servicios_empresa SET  costo =$this->costo, tiempo_servicio=$this->tiempo where id_servicios_empresa=$this->id_servicios_empresa"; 
+		$SQL="UPDATE servicios_empresa SET  comisiones=$this->comision,costo =$this->costo, tiempo_servicio=$this->tiempo where id_servicios_empresa=$this->id_servicios_empresa"; 
 		$this->con->update($SQL);
 			return true;
 	}

@@ -98,6 +98,7 @@ $resultado = $controlador->ver($id_empresa);
 		<th>Descripcion</th>
         <th>Costo</th>
         <th>tiempo</th>
+        <th>Comisión para el empleado</th>
         <th>Editar</th>
         <th>Eliminar</th>
 
@@ -109,6 +110,8 @@ $resultado = $controlador->ver($id_empresa);
         <td><?php echo  utf8_encode($row['descripcion']); ?></td>
         <td>$<?php echo  utf8_encode($row['costo']); ?> Pesos</td>
         <td><?php echo  utf8_encode($row['tiempo_servicio']); ?> minutos</td>
+        <td><?php echo  utf8_encode($row['comisiones']); ?> %</td>
+
                <?php
 echo " <form method=\"POST\" action=\"del.php\">\n"; 
 echo "        <INPUT TYPE='HIDDEN' VALUE=$row[4] name='numero'>\n"; 
@@ -152,13 +155,25 @@ echo "        </form>\n";
 			<br>Tipo de Servicio<br>
             <select name='tipo'><option value=1>Servicio de corte</option><option value=2>Servicio de color</option><option value=3>Servicio de peinado</option><option value=4 >Servicio de maquillaje</option><option value=5 >Otro tipo de servicio</option></select><br>
             <br>Nuevo Servicio:<br>
-            <INPUT TYPE="TEXT" NAME="descripcion" required style="height:20px; width:100px;" required><br>
+            <INPUT TYPE="TEXT" NAME="descripcion" required style="height:30px; width:300px;" required><br>
             <br>Costo del Servicio:<br>
-            <input type="text" name='costo' style="height:20px; width:100px;" required><br>
+            <b>$ </b><input type="text" name='costo' value="0" style="height:30px; width:100px;" required><br>
            <br>Tiempo del Servicio:<br>
             <select name='tiempo'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select><br>
+            <br>Comisión para el empleado:<br>
+            <td> <select name='comision'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
+            <br>
+            <br>
             <?
-echo "<INPUT TYPE='HIDDEN' VALUE='$id_empresa' name='id_empresa'>";
 ?>
         
 			<br><INPUT TYPE="SUBMIT" style="height:38px; width:350px" value="Insertar" aling="Center"><br>

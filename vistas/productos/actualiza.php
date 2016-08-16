@@ -4,8 +4,9 @@ $id_producto_empresa=$_POST["numero"];
 $costoC=$_POST["costoC"];
 $costoV=$_POST["costoV"];
 $stock=$_POST["stock"];
+$comision=$_POST["comision"];
 $controlador = new Controlador();
-$r=$controlador->actualizarProductoEmpresa($id_producto_empresa,$stock,$costoC,$costoV);
+$r=$controlador->actualizarProductoEmpresa($id_producto_empresa,$stock,$costoC,$costoV,$comision);
 
 ?>
 

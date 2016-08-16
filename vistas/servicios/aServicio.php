@@ -182,6 +182,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
         <th>Servicio</th>
         <th>Costo</th>
         <th>Tiempo</th>
+        <th>Comisión para el empleado</th>
      </thead>
      <!-- Cortes -->   
     
@@ -194,9 +195,18 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
+            <td> <b>$ </b><input type="text" value="0" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
-
+            <td> <select name='comision[]'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
         </tr>
 <?php 
        echo "<input type='hidden' name='numero[]' value=$row[1]>";
@@ -218,6 +228,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
         <th>Servicio</th>
         <th>Costo</th>
         <th>Tiempo</th>
+        <th>Comisión para el empleado</th>
      </thead>
      <!-- Color -->   
     
@@ -230,8 +241,18 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
+            <td> <b>$ </b><input type="text" value="0" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
+            <td> <select name='comision[]'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
         </tr>
         <?php  
         echo "<input type='hidden' name='numero[]' value=$row[1]>";
@@ -253,6 +274,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
         <th>Servicio</th>
         <th>Costo</th>
         <th>Tiempo</th>
+        <th>Comisión para el empleado</th>
      </thead>
      <!-- Peinado -->   
     
@@ -265,9 +287,19 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
+            <td> <b>$ </b><input type="text" value="0" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
-        </tr>
+            <td> <select name='comision[]'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
+</tr>
         <?php  
         echo "<input type='hidden' name='numero[]' value=$row[1]>";
         
@@ -288,6 +320,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
         <th>Servicio</th>
         <th>Costo</th>
         <th>Tiempo</th>
+        <th>Comisión para el empleado</th>
      </thead>
      <!-- Maquillaje -->   
     
@@ -299,10 +332,20 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
 	     while($row = mysqli_fetch_array($resultado4)): 
          ?>
         <tr>
-            <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
+           <td><?php echo utf8_encode($row[0]); ?></td>
+            <td> <b>$ </b><input type="text" value="0" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
-        </tr>
+            <td> <select name='comision[]'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
+            </tr>
         <?php  
         echo "<input type='hidden' name='numero[]' value=$row[1]>";
         
@@ -323,6 +366,7 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
         <th>Servicio</th>
         <th>Costo</th>
         <th>Tiempo</th>
+        <th>Comisión para el empleado</th>
      </thead>
      <!-- Cortes -->   
     
@@ -335,8 +379,18 @@ $resultado5 = $controlador->verServiciosEmpresa(5,$id_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <input type="text" name='costo[]' style="height:30px; width:100px;" required></td>
+            <td> <b>$ </b><input type="text" value="0" name='costo[]' style="height:30px; width:100px;" required></td>
             <td><select name='tiempo[]'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
+            <td> <select name='comision[]'>
+            <?php
+            for ($i=0; $i<=100; $i++)
+            {
+                ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
+                <?php
+            }
+            ?>
+            </select></td>
         </tr>
         <?php
         echo "<input type='hidden' name='numero[]' value=$row[1]>";

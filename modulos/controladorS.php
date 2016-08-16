@@ -60,22 +60,23 @@ public function crearServicio( $id_servicio, $detalle){
 		  return $resultado;
 		}
 
-		public function agregarNuevoServicioEmpresa($id_empresa,$id_servicio,$costo,$descripcionServicios,$tiempo){
-
+		public function agregarNuevoServicioEmpresa($id_empresa,$id_servicio,$costo,$descripcionServicios,$tiempo,$comision){
 			$this->servicio->set("id_empresa",$id_empresa);
 			$this->servicio->set("id_servicio",$id_servicio);
 			$this->servicio->set("costo",$costo);
 			$this->servicio->set("descripcionServicios",$descripcionServicios);
 			$this->servicio->set("tiempo",$tiempo);
+			$this->servicio->set("comision",$comision);
 			$resultado=$this->servicio->agregarNuevoServicioEmpresa();
 		  return $resultado;
 		}
 
-		public function actualizarServicioEmpresa($id_servicios_empresa,$costo,$tiempo){
+		public function actualizarServicioEmpresa($id_servicios_empresa,$costo,$tiempo, $comision){
 
 			$this->servicio->set("id_servicios_empresa",$id_servicios_empresa);
 			$this->servicio->set("costo",$costo);
 			$this->servicio->set("tiempo",$tiempo);
+			$this->servicio->set("comision",$comision);
 			$resultado=$this->servicio->actualizarServicioEmpresa();
 		  return $resultado;
 		}
