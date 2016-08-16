@@ -83,6 +83,7 @@ http://www.templatemo.com/tm-406-flex
                                         	<li><a href="vistas/empleados">Empleados</a></li>
                                        <li><a href="vistas/servicios/servicios.php">Servicios</a></li>
                                        <li><a href="vistas/productos/menu.php">Productos</a></li>
+                                       <li><a href="vistas/modulos">Productos</a></li>
                                        	
                                         <li><a class="glyphicon-arrow-right" href="clases/salir.php">Salir</a></li>                               
                                     </ul>                                    
