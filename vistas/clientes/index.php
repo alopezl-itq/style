@@ -10,6 +10,7 @@ session_start();
 $controlador = new ControladorC();
 
 
+
 $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
 
 ?>
@@ -30,9 +31,17 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
     <link rel="stylesheet" href="../../css/animate.css">
     <link rel="stylesheet" href="../../css/templatemo_misc.css">
     <link rel="stylesheet" href="../../css/templatemo_style.css">
+    <script src="js/jquery.js"></script>
 
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myModal").modal('show');
+        });
+    </script>
 </head>
 <body>
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="logo-wrap col-md-2 col-sm-2 col-lg-2 col-xs-2"></div>
@@ -95,6 +104,39 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
                 </div> <!-- /.row -->
             </div> <!-- /.container -->
         </div> <!-- /#footer -->
+<?php
+
+$dato=$controlador->cliente->formCompleto($_SESSION['id_user']);
+
+
+echo '<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Completar Registro</h4>
+            </div>
+            <div class="modal-body">
+                <p>Necesitas Completar tus datos de tu registro</p>
+                <br>
+                <p>Da click en Editar para registrar tus datos faltantes o en Continuar para ir a tu página.</p>
+                <form action="../usuarios/editar.php">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Editar</button>
+                    </div>
+                    </form>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Continuar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>';
+
+?>
+
 
             
                                   
@@ -103,13 +145,16 @@ $raking=$controlador->rakingUsuario($_SESSION['id_user'],$_SESSION['estetica']);
   <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
   <script src="../../js/bootstrap.js"></script>
   <script src="../../js/plugins.js"></script>
-  <script src="../../js/main.js"></script>   
+  <script src="../../js/main.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
 
 <?php
-echo "<script type='text/javascript' src='../../js/jquery.js'></script>";
-echo "<script type='text/javascript' src='../../js/jqueryui.js'></script>";
-echo "<script type='text/javascript'>";
 
+
+echo "<script type='text/javascript'>";
+echo "<script src='js/jquery.js'>";
+
+echo "<script type='text/javascript' src='../../js/jqueryui.js'>";
 echo "var x;";
 echo "x=$(document);";
 echo "x.ready(inicializar);";
