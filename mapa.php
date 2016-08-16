@@ -6,13 +6,13 @@
  * Time: 09:07 PM
  */
 //echo 'hola '.$_POST['countryId'];
-include_once('modulos/controlador_registro.php');
+//include_once('modulos/controlador_registro.php');
 
-$controlador = new Controlador();
+//$controlador = new Controlador();
 
-$respuesta = $controlador->geoloc($_POST['countryId']);
+//$respuesta = $controlador->geoloc($_POST['countryId']);
 
-$row=mysqli_fetch_assoc($respuesta);
+//$row=mysqli_fetch_assoc($respuesta);
 
 
 ?>
@@ -21,8 +21,8 @@ $row=mysqli_fetch_assoc($respuesta);
 <html>
 <head>
     <script>
-    var longitud = <?php echo $row['longitud'];?>;
-    var latitud = <?php echo $row['latitud'];?>;
+    var longitud = /*<?php echo $row['longitud'];?>*/50;
+    var latitud = /*<?php echo $row['latitud'];?>*/20;
     </script>
     <title>Prueba - jQuery - Google.maps</title>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=places"></script>

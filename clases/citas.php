@@ -5,30 +5,29 @@ $link=new Conexion();
 function calcularEdad () {
     $m=getdate();
     if($m['mon']<10&&$m['mday']<10) {
-        return "0".$m['mon'] . "-0" . $m['mday'];
+        return $m['year']."-0".$m['mon'] . "-0" . ($m['mday']+1);
     }elseif($m['mon']<10&&$m['mday']>=10){
-        return "0".$m['mon'] . "-" . $m['mday'];
+        return $m['year']."-0".$m['mon'] . "-" .($m['mday']+1);
     }elseif($m['mon']>=10&&$m['mday']<10){
-        return "".$m['mon'] . "-0" . $m['mday'];
+        return $m['year']."-".$m['mon'] . "-0" . ($m['mday']+1);
     }
-
 }
 $edad=calcularEdad();
 
-$sql = "SELECT u.nombre_usuario,u.apellido_p,u.apellido_m,u.email,u.fecha_nacimiento, substring(u.fecha_nacimiento,6),e.nombre FROM usuarios u, empresas e WHERE substring(u.fecha_nacimiento,6)='".$edad."' and e.id_empresa=u.id_empresa";
+echo $sql = "SELECT u.nombre_usuario,u.apellido_p,u.apellido_m, a.hora,a.fecha,a.tiempo FROM usuarios u, agendas a WHERE a.id_cliente=1 and a.id_usuario=u.id_usuario and a.fecha ='$edad'";
 
 $resfecha=$link->consultaR($sql);
 
 
 
 
-   while ($row = mysqli_fetch_array($resfecha)) {
+while ($row = mysqli_fetch_array($resfecha)) {
 
-        $correo = 'Edd';
-        $nombre =$row['nombre_usuario']." ".$row['apellido_p']." ".$row['apellido_m'];
-        $para= $row['email'];
-        $asunto = "Felicidades";
-        echo $mensaje ='
+    $correo = 'Edd';
+    $nombre =$row['nombre_usuario']." ".$row['apellido_p']." ".$row['apellido_m'];
+    $para= $row['email'];
+    $asunto = "Felicidades";
+    echo $mensaje ='
 
 
 
@@ -80,7 +79,7 @@ $resfecha=$link->consultaR($sql);
 
 <div class="container">
 
-<div class="row"><h1 class="lead text-info">Â¡Feliz cumpleaÃ±os te desea '.$row['nombre'].', '.utf8_encode($nombre).'!</h1></div>
+<div class="row"><h1 class="lead text-info">¡Feliz cumpleaños te desea '.$row['nombre'].', '.utf8_encode($nombre).'!</h1></div>
 <div class="row"><img src="../images/descarga.png" class="img-responsive" width=350" height="200"/></div>
 </div>
 
@@ -120,12 +119,12 @@ $resfecha=$link->consultaR($sql);
 
         ';
 
-        $cabeceras = 'From:'.$correo . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
+    $cabeceras = 'From:'.$correo . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
 
 
     //  mail($para, $asunto, $mensaje, $cabeceras);
-   }
+}
 
 
 ?>

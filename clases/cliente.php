@@ -76,7 +76,7 @@ class Cliente
 
     //calcula el total de servicios adquiridos por un cliente
     public function totalPrecioServicios($id_cliente){
-        $sql = "SELECT SUM(e.costo) FROM usuarios r,servicios_usuario u, servicios_empresa e, descripcion_servicios d, servicios s where u.id_servicios_empresa=e.id_servicios_empresa and e.id_descripcion_servicios=d.id_descripcion_servicios and d.id_servicio=s.id_servicio and u.id_cliente =r.id_usuario and u.fecha_servicio>='".$this->calcularAnio()."-01-01' and u.fecha_servicio<='".$this->calcularAnio()."-12-31' and u.id_cliente=".$id_cliente;
+         $sql = "SELECT SUM(e.costo) FROM usuarios r,servicios_usuario u, servicios_empresa e, descripcion_servicios d, servicios s where u.id_servicios_empresa=e.id_servicios_empresa and e.id_descripcion_servicios=d.id_descripcion_servicios and d.id_servicio=s.id_servicio and u.id_cliente =r.id_usuario and u.fecha_servicio>='".$this->calcularAnio()."-01-01' and u.fecha_servicio<='".$this->calcularAnio()."-12-31' and u.id_cliente=".$id_cliente;
         $resultado =$this->con->consultaR($sql);
         $row = $this->con->recorrer($resultado);
         return $row;
@@ -84,23 +84,27 @@ class Cliente
 
     //calcula el raking del usuario (A,AA,AAA,Premium)
     public function rakingUsuario(){
-        $resP=$this->totalPrecioProductos($this->id_cliente);
-        $resS=$this->totalPrecioServicios($this->id_cliente);
+         $resP=$this->totalPrecioProductos($this->id_cliente);
+         $resS=$this->totalPrecioServicios($this->id_cliente);
         $this->suma=$resP['SUM(p.precio_venta)']+$resS['SUM(e.costo)'];
 
          $sql="select cliente_a,cliente_b,cliente_c,cliente_d from empresas where id_empresa=".$this->id_empresa;
         $res=$this->con->consultaR($sql);
         $row=$this->con->recorrer($res);
-    $this->suma;
-        if($this->suma>=$row['cliente_a']&&$this->suma<$row['cliente_b']){
+     $this->suma;
+        if($this->suma<=$row['cliente_a']){
+
             return 'A';
-        }elseif($this->suma>=$row['cliente_b']&&$this->suma<$row['cliente_c']){
+        }elseif($this->suma<=$row['cliente_b']&&$this->suma<$row['cliente_c'] and $this->suma>$row['cliente_a']){
+
             return 'AA';
         }
-        elseif($this->suma>=$row['cliente_c']&&$this->suma<$row['cliente_d']){
+        elseif($this->suma<=$row['cliente_c']&&$this->suma>$row['cliente_b']){
+
             return 'AAA';
         }
-        elseif($this->suma>=$row['cliente_d']){
+        elseif(($this->suma<=$row['cliente_d'] and $this->suma>$row['cliente_c']) or $this->suma>$row['cliente_d']){
+
             return 'Premium';
         }
 
