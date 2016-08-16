@@ -67,21 +67,15 @@ $controlador->editarCom($_GET['id_usuario'],utf8_decode($_POST['observaciones'])
 <br/><br/>
 <b>Fecha de nacimiento:</b>&nbsp;<?php  echo  $row['fecha_nacimiento']; ?>
 <br/><br/>
-<?php
-if($_SESSION['tipo']==2 or $_SESSION['tipo']==4){
-echo'<b>Comision:</b>&nbsp;  '. $row['comisiones'].'
- <br/><br/>';
-}else{
-	
-	}
-?>
 <b>Sueldo Base:</b>&nbsp;<?php  echo   $row['sueldo_base']; ?>
 <br/><br/>
 						</div>
                         
                         <div class="col-sm-4">
                     <b style="font-size:24px">Información de Contacto</b><br/><br/>
-						<b>Telefono:</b>&nbsp;<?php  echo   $row['telefono']; ?>
+					<b>Telefono de casa:</b>&nbsp;<?php  echo   $row['telcasa']; ?>
+<br/><br/>
+                        <b>Celular:</b>&nbsp;<?php  echo   $row['telefono']; ?>
 <br/><br/>
 <b>Correo electronico:</b>&nbsp;<?php  echo  utf8_decode($row['email']); ?>
 <br/><br/><br/>
@@ -129,8 +123,11 @@ echo'<a href="?cargar=empleados&controlador=editar&id_usuario='.$_SESSION['id_us
 <b style="font-size:24px">Redes Sociales</b><br/><br/>
 <br/>
 
+
+
  <?php  while($row = mysqli_fetch_array($result)): ?>
-<b><?php echo utf8_encode($row['descripcion_red_social']); ?></b>:&nbsp;&nbsp;<b>Usuario:</b><?php echo utf8_encode($row['usuario_r']);
+<?php echo  '<a target="_blank" href="http://wwww.'.utf8_encode($row['descripcion_red_social']).'.com/'.utf8_encode($row['usuario_r']).'">http://wwww.'.utf8_encode($row['descripcion_red_social']).'.com/'.utf8_encode($row['usuario_r']).'</a>'; 
+ 
 echo"<br/>";   
 endwhile; 
 ?>

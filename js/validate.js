@@ -1,3 +1,57 @@
+function cmbsexoValidate(){ 
+var message, x;
+message = document.getElementById("sexoError");
+message.innerHTML = "";
+x=document.getElementById("sexo").value;
+try {  
+	if(x=='#') throw "Elija una Opción";
+	document.getElementById("sexo").style.borderColor = "#d5d5d5"; 
+}
+    catch(err) {
+		document.getElementById("sexo").style.borderColor = "red";
+		document.getElementById("sexoError").style.display = "block";
+		setTimeout("document.getElementById('sexoError').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("sexo").focus();
+    } 
+}
+
+function cmbtipoValidate(){ 
+var message, x;
+message = document.getElementById("tipoError");
+message.innerHTML = "";
+x=document.getElementById("tipo").value;
+try {  
+	if(x=='#') throw "Elija un Puesto para el Usuario";
+	document.getElementById("tipo").style.borderColor = "#d5d5d5"; 
+}
+    catch(err) {
+		document.getElementById("tipo").style.borderColor = "red";
+		document.getElementById("tipoError").style.display = "block";
+		setTimeout("document.getElementById('tipoError').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("tipo").focus();
+    } 
+}
+
+function cmbestValidate(){ 
+var message, x;
+message = document.getElementById("estError");
+message.innerHTML = "";
+x=document.getElementById("id_estado").value;
+try {  
+	if(x=='#') throw "Elija una Opción";
+	document.getElementById("id_estado").style.borderColor = "#d5d5d5"; 
+}
+    catch(err) {
+		document.getElementById("id_estado").style.borderColor = "red";
+		document.getElementById("estError").style.display = "block";
+		setTimeout("document.getElementById('estError').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("id_estado").focus();
+    } 
+}
+
 function nombreValidate(obj) {
     var message, x;
     message = document.getElementById("nombreError");
@@ -69,6 +123,27 @@ function emailValidate(obj) {
 		document.getElementById("email").focus();
     }
 }
+
+
+function tel1Validate(obj) {
+    var message, x;
+    message = document.getElementById("tel1Error");
+    message.innerHTML = "";
+    x = document.getElementById("tel1").value;
+    try { 
+        if(!obj.checkValidity()) throw "Ingrese su número teléfonico a 10 dígitos";
+		document.getElementById("tel1").style.borderColor = "#d5d5d5";	
+    }
+    catch(err) {
+		document.getElementById("tel1").style.borderColor = "red";
+		document.getElementById("tel1Error").style.display = "block";
+		setTimeout("document.getElementById('tel1Error').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("tel1").focus();
+    }
+}
+
+
 
 function telValidate(obj) {
     var message, x;

@@ -144,7 +144,7 @@ public function verempresas(){
 
 			
 			 $sql= "INSERT INTO `empresas` (`id_empresa`, `id_usuario`, `nombre`, `eslogan`, `imagen`, `cliente_a`, `cliente_b`, `cliente_c`, `cliente_d`, `id_estatus`, `calle`, `no_ext`, `no_int`, `id_estado`,`id_ciudad`,`facebook`,`twitter`,`instagram`) VALUES (NULL, NULL, '$this->nombre', '$this->eslogan', '$this->imagen',
- '$this->cliente_a', '$this->cliente_b', '$this->cliente_c', '$this->cliente_d',  '$this->id_estatus', '$this->calle', '$this->no_ext', '$this->no_int', '$this->id_estado', '1','$this->facebook','$this->twitter','$this->instagram'); ";
+ '$this->cliente_a', '$this->cliente_b', '$this->cliente_c', '$this->cliente_d',  '$this->id_estatus', '$this->calle', '$this->no_ext', '$this->no_int', '$this->id_estado', '$this->id_municipio','$this->facebook','$this->twitter','$this->instagram'); ";
 			//$this->con->query($sql);
 			//$conexion=mysqli_connect('localhost','desarrollo','style16','style') or die(mysql_error());
 			$conexion=mysqli_connect('localhost','alejan14_style','style16','alejan14_style') or die(mysqli_error());
@@ -181,7 +181,9 @@ public function verempresas(){
 //Inicia función par editar estéticas
 				
 				public function editar(){
-				 $sql = "UPDATE empresas SET nombre = '".$_POST['nombre_estetica']."', id_usuario= '".$_POST['id_usuario']."', eslogan= '".$_POST['eslogan']."', id_estatus= '".$_POST['id_estatus']."', cliente_a = '".$_POST['cliente_a']."', cliente_b = '".$_POST['cliente_b']."', cliente_c = '".$_POST['cliente_c']."', cliente_d = '".$_POST['cliente_d']."', calle = '".$_POST['calle']."', facebook = '".$_POST['facebook']."', twitter = '".$_POST['twitter']."', instagram = '".$_POST['instagram']."', no_ext = '".$_POST['no_ext']."', no_int = '".$_POST['no_int']."', id_ciudad ='1',  id_estado='".$_POST['id_estado']."' WHERE id_empresa = '".$_POST['id_empresa']."'";
+					
+				// print_r($_POST);
+				 $sql = "UPDATE empresas SET nombre = '".$_POST['nombre_estetica']."', id_usuario= '".$_POST['id_usuario']."', eslogan= '".$_POST['eslogan']."', id_estatus= '".$_POST['id_estatus']."', cliente_a = '".$_POST['cliente_a']."', cliente_b = '".$_POST['cliente_b']."', cliente_c = '".$_POST['cliente_c']."', cliente_d = '".$_POST['cliente_d']."', calle = '".$_POST['calle']."', facebook = '".$_POST['facebook']."', twitter = '".$_POST['twitter']."', instagram = '".$_POST['instagram']."', no_ext = '".$_POST['no_ext']."', no_int = '".$_POST['no_int']."',   id_estado='".$_POST['id_estado']."', id_ciudad='".$_POST['id_municipio']." ' WHERE id_empresa = '".$_POST['empresa']."'";
 				
 				//$this->con->query($sql);
 				
@@ -193,8 +195,7 @@ public function verempresas(){
 			} 
 			
 			if ($conexion->query($sql) === TRUE) {
-				echo("aqui ando");
-								//header("location:index.php");
+				header("location:index.php");
 			}else {
 				echo "Error: " . $sql . "<br>" . $conexion->error;
 			}

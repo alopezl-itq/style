@@ -85,34 +85,10 @@ direcciones,clientes,productos,ventas,detalle_ventas,tipo_pago WHERE usuarios.id
 $resul = $this->con->consultaR($sql);
 		$row =mysqli_fetch_assoc($resul) ;
 		
-		 function vercliente($cliente){
-		$sql ="Select * FROM clientes where id_cliente=".$cliente;
-		$res=$this->con->consultaR($sql);
-		return $res;
-	} 
-	    public function verproducto($producto){
-		$sql ="Select * FROM productos_empresa where id_producto=".$producto;
-		$res=$this->con->consultaR($sql);
-		return $res;
-	}
 	
-	    public function vercompra($compra){
-		$sql ="Select * FROM detalle_ventas where id_detalle_ventas=".$compra;
-		$res=$this->con->consultaR($sql);
-		return $res;
-	}
-		public function tipopago($tpago){
-		$sql ="Select * FROM tipo_pago where id_tipo_pago=".$tpago;
-		$res=$this->con->consultaR($sql);
-		return $res;
-	}
-	    public function totalventa($tventa){
-		$sql ="Select * FROM ventas where id_ventas=".$tventa;
-		$res=$this->con->consultaR($sql);
-		return $res;
-	}
 		
 		//set interno
+		
 		$this->id_detalle_ventas = $row['id_detalle_ventas'];
 		$this->id_servicio = $row['id_servicio'];
 		$this->id_producto = $row["id_producto"];
@@ -135,6 +111,34 @@ $resul = $this->con->consultaR($sql);
 		return $row;
 		}
 		
+	
+		function vercliente($cliente){
+		$sql ="Select * FROM clientes where id_cliente=".$cliente;
+		$res=$this->con->consultaR($sql);
+		return $res;
+	} 
+	
+	    public function verproducto($producto){
+		$sql ="Select * FROM productos_empresa where id_producto=".$producto;
+		$res=$this->con->consultaR($sql);
+		return $res;
+	}
+	
+	    public function vercompra($compra){
+		$sql ="Select * FROM detalle_ventas where id_detalle_ventas=".$compra;
+		$res=$this->con->consultaR($sql);
+		return $res;
+	}
+		public function tipopago($tpago){
+		$sql ="Select * FROM tipo_pago where id_tipo_pago=".$tpago;
+		$res=$this->con->consultaR($sql);
+		return $res;
+	}
+	    public function totalventa($tventa){
+		$sql ="Select * FROM ventas where id_ventas=".$tventa;
+		$res=$this->con->consultaR($sql);
+		return $res;
+	}
 		
 		public function crearventa(){
 			
@@ -158,7 +162,7 @@ $resul = $this->con->consultaR($sql);
 				
 				}*/
 			
-	
+
 }
 
 

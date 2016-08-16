@@ -14,6 +14,6 @@ $res=mysqli_query($miConexion,$sql);
 
 while($fila=mysqli_fetch_array($res)){
 	echo "<input type='hidden' class='form-control' name='tiempo' id='tiempo' value='".$fila['0']."'/>";
-	echo "<td>Duración Aproximada ".$fila['0']." horas</td>";
+	echo "<td>Duración Aproximada ".$fila['0']." minutos</td>";
 }
 ?>

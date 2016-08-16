@@ -54,7 +54,7 @@ public function set($atributo, $contenido){
  //Con esta funcion se agregan los modulos a cada usuario
 	public function insert(){
 
-		echo $sql3 = "SELECT * FROM `modulo_usuario` WHERE `id_modulo`=$this->modulo, `id_usuario`=$this->empleado";
+		$sql3 = "SELECT * FROM `modulo_usuario` WHERE `id_modulo`=$this->modulo and `id_usuario`=$this->empleado";
 		$r = $this->con->consulta($sql3);
 
 		$row = mysqli_fetch_array($r);
@@ -63,10 +63,10 @@ public function set($atributo, $contenido){
 		 if($numero==null){
 		
 
-		echo $sql = "INSERT INTO `modulo_usuario`(`id_modulo`, `id_usuario`) VALUES ($this->modulo,$this->empleado)";
+		$sql = "INSERT INTO `modulo_usuario`(`id_modulo`, `id_usuario`) VALUES ($this->modulo,$this->empleado)";
 		$resultado = $this->con->insert($sql);
 		 }
-		return $resultado;
+		return true;
 	}
 
 

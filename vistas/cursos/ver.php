@@ -28,7 +28,8 @@ if(isset($_POST['enviar'])){
 	 $_POST['empresa']);
 
 	if(!$r){
-		header("Location:index.php");
+		echo"<script language='javascript'>window.location='ejem07d.php'</script>;"	;	//header("Location:index.php"); Probar
+
 			}else{
 		echo'no se agrego el registro';
 		}
@@ -63,7 +64,7 @@ if(isset($_POST['enviar'])){
 							</div>
 
 							<div class="form-group">
-								<h4> Descripción del curso:</h4><textarea   name="descripcion" id="descripcion"  required/ cols="80"><?php echo $row['descripcion_cursos'] ?></textarea>*
+								<h4> Descripción del curso:</h4><textarea   name="descripcion" id="descripcion"  required/ cols="80"><?php echo utf8_encode($row['descripcion_cursos']) ?></textarea>*
 							</div>
 							
                 </div>

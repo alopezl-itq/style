@@ -56,7 +56,7 @@ $controlador = new c_cursos();
 				$curso = new cursos();
 				$resultado4=$curso->vercursos();
 				while($row=mysqli_fetch_array($resultado4)){//index.php?cargar=cursos&controlador=eliminar&id=".$row['id_curso']. href para mandar llamar al php que cancelara
-					echo "<tr class='success'><td>".utf8_encode($row['nombre_curso'])."</td><td>".($row["descripcion_cursos"])."</td><td><a class='glyphicon glyphicon-pencil' href=index.php?cargar=cursos&controlador=ver&id=".$row['id_curso']."></a></td></td><td><a class='glyphicon glyphicon-remove' href=></a></td><td><a href='".$row['archivo']."' target='blank'>Ver +</a></td></tr>";
+					echo "<tr class='success'><td>".utf8_encode($row['nombre_curso'])."</td><td>".utf8_encode(($row["descripcion_cursos"]))."</td><td><a class='glyphicon glyphicon-pencil' href=index.php?cargar=cursos&controlador=ver&id=".$row['id_curso']."></a></td></td><td><a class='glyphicon glyphicon-remove' href=></a></td><td><a href='".$row['archivo']."' target='blank'>Ver +</a></td></tr>";
 				}
 			?>
 				</tbody>

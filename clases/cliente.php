@@ -1,12 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Eed
- * Date: 30/06/2016
- * Time: 09:36 AM
- */
-
-
 include_once('conexion.php');
 
 class Cliente

@@ -146,10 +146,16 @@ class Usuario
 
     }
 
+    public function geoloc($id){
+       $sql = "select longitud, latitud from empresas where id_empresa = ".$id;
+        $resultado = $this->con->consultaR($sql);
+
+        return $resultado;
+    }
 
     public function crearUsuario(){
 
-        $sql2=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='$this->email'");
+        $sql2=("SELECT usuario FROM usuarios WHERE usuario='".$this->usuario."'");
 
         $resultado = $this->con->consultaR($sql2);
         $numregistros=mysqli_num_rows($resultado);
@@ -158,6 +164,13 @@ class Usuario
 
         if($numregistros == 0 )
         {
+           $sqlmail=("SELECT email FROM usuarios WHERE email='".$this->email."'");
+
+            $resultadomail = $this->con->consultaR($sqlmail);
+            $numregistrosmail=mysqli_num_rows($resultadomail);
+
+            if($numregistrosmail == 0 )
+            {
 
 
 
@@ -168,7 +181,10 @@ class Usuario
 
             return true;
         }else{
-            echo "El usuario ya existe y/o el correo ya están registrados";
+                echo "El correo ya está registrado";
+            }
+        }else{
+            echo "El usuario ya existe";
         }
 
     }
@@ -184,11 +200,18 @@ class Usuario
     }
 
     public function editarUsuario(){
+        $sql2=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='$this->email' and id_usuario!=".$this->id_usuario);
+
+        $resultado = $this->con->consultaR($sql2);
+        $numregistros=mysqli_num_rows($resultado);
+        if($numregistros==0){
         $sql = "UPDATE `usuarios` SET `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = '$this->id_tipo_usuario', `id_empresa` = '$this->id_empresa', `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia' WHERE `usuarios`.`id_usuario` = '$this->id_usuario'";
 
         $this->con->query($sql);
         echo $sql;
-    }
+    }else{
+            echo "no se pudo editar";
+        }}
 
 
 }

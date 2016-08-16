@@ -44,7 +44,7 @@ session_start();
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <ul class="social-icons">
-                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="https://www.facebook.com/Elitebeautyselects/" class="fa fa-facebook" target="_blank"></a></li>
                                 <li><a href="#" class="fa fa-twitter"></a></li>
                             </ul>
                         </div> <!-- /.col-md-12 -->
@@ -62,10 +62,13 @@ session_start();
                                 <div class="col-md-10 col-sm-10 main-menu text-right">
                                     <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
                                     <ul class="menu-first">
-                                        <li class="active"><a href="#">Inicio</a></li>                                        <li><a href="#acceso">Login</a></li>                                										<li><a href=""  data-toggle="modal" data-target="#myModal">Registrarse</a></li>
-                                        <li><a href=""  data-toggle="modal" data-target="#myModalAsistencia">Asistencia</a></li>
+                                        <li class="active"><a href="#">Inicio</a></li>                                        <li><a href="#acceso">Login</a></li>    
+                                                                   										
+                                        <li><a href=""  data-toggle="modal" data-target="#myModal">Registrarse</a></li>
+                                        <li><a href=""  data-toggle="modal" data-target="#myModalAsistencia">Asistencia</a></li>	
                                         <li><a href=""  data-toggle="modal" data-target="#myModalSalida">Salida</a></li>
-                                    </ul>                                    
+                                    </ul> 
+                               
                                 </div> <!-- /.main-menu -->
                             </div> <!-- /.row -->
                         </div> <!-- /#menu-wrapper -->                        
@@ -195,15 +198,6 @@ session_start();
         </div>
     </div>
     </form>
-
-
-
-
-    <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-    <script src="../../js/bootstrap.js"></script>
-    <script src="../../js/plugins.js"></script>
-    <script src="../../js/main.js"></script>
 </body>
 
 </html>

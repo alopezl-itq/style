@@ -1,5 +1,10 @@
 <?php
+include_once('../../modulos/enrutador.php');
 include_once ('../../modulos/c_estetica.php');
+include_once('../../modulos/controlador.php');
+include_once('../../clases/usuario.php');
+
+
 $controlador = new estetica();
  $_GET['id'];
 if(isset($_GET['id'])){
@@ -15,6 +20,12 @@ if(isset($_GET['id'])){
 <head>
 	<meta charset="utf-8">
 	<title>Modificar  Estética</title>
+	<script src="../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+	
+	<script  src="../../js/jquery.js">
+
+</script>
+
 </head>
 <body>
 
@@ -23,14 +34,15 @@ $controlador = new c_estetica();
 if(isset($_POST['enviar'])){
  $r =$controlador->editar(utf8_decode($_POST['nombre_estetica']),$_POST['id_usuario'],utf8_decode($_POST['eslogan']),$_POST['cliente_a'],
 	 $_POST['cliente_b'],$_POST['cliente_c'],$_POST['cliente_d'],$_POST['id_estatus'],utf8_decode($_POST['calle']),$_POST['no_int'],
-	 $_POST['no_ext'],$_POST['id_estado'],utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
+	 $_POST['no_ext'],$_POST['id_estado'],$_POST['id_municipio'],utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),$_POST['empresa'],utf8_decode($_POST['instagram']));
 echo 	$r;
 	if(!$r){
 		header("location:index.php");
 		echo 'Estética actualizada';
 		
 	}else{
-		echo'no se actualizó la estética'.mysqli_error();
+		echo'no se actualizó la estética'.mysqli_error(!$r);
+		
 		}
 	}
 ?>
@@ -40,7 +52,9 @@ echo 	$r;
 
 <div class="container" >   
 <form action="" method="POST">
-
+<?php echo session_name()." "; 
+echo session_id()." ";
+echo session_cache_expire()." "; ?>
 <div class="container">
     <div class="row">
         <div class="col-md-8">
@@ -129,14 +143,19 @@ echo 	$r;
                         <h2>--</h2>
                         <p>
                             <div class="form-group">
-								<h4> Facebook:</h4><label for="nombre"><input type="text" value="<?php echo utf8_encode($row['facebook']); ?>" name="facebook" id="nombre_estetica" maxlength="50" size="20" required/></label>
+								<h4> Facebook:</h4><label for="nombre"><input type="text" value="<?php echo utf8_encode($row['facebook']); ?>" name="facebook" id="nombre_estetica" maxlength="50" size="20"></label>
 							</div>
 
 							<div class="form-group">
-								<h4> Twitter:</h4><label for="nombre"><input type="text" value="<?php echo utf8_encode($row['twitter']); ?>" name="twitter" id="eslogan" maxlength="50" 								size="20" required/></label>
+								<h4> Twitter:</h4><label for="nombre"><input type="text" value="<?php echo utf8_encode($row['twitter']); ?>" name="twitter" id="eslogan" maxlength="50" 								size="20" /></label>
 							</div>
 							<div class="form-group">
-							<h4> Instagram:</h4><input type="text" value="<?php echo utf8_encode($row['instagram']); ?>" name="instagram" id="eslogan" maxlength="50" 								size="20" required/></label>
+							<h4> Instagram:</h4><input type="text" value="<?php echo utf8_encode($row['instagram']); ?>" name="instagram" id="eslogan" maxlength="50" 								size="20" ></label>
+							
+							
+							</div>
+							<div class="form-group">
+							<input type="hidden" value="<?php echo utf8_encode($row['id_empresa']); ?>" name="empresa" id="empresa" maxlength="50" 								size="20" ></label>
 							
 							
 							</div>
@@ -154,43 +173,82 @@ echo 	$r;
 							</div>
 
 							<div class="form-group">
-								<h4> No. Interior</h4><label for="nombre"><input type="text"  name="no_int"  value="<?php echo $row['no_int']; ?>"    id="nombre" maxlength="50" size="20" required/></label>
+								<h4> No. Interior</h4><label for="nombre"><input type="text"  name="no_int"  value="<?php echo $row['no_int']; ?>"    id="nombre" maxlength="50" size="20" /></label>
 							</div>
 														
 							<div class="checkbox">
 								
 							</div>
-							<div class="checkbox">
-								
-								<select name="id_estado">
-									<option value="" selected>Selecciona un Estado</option>
+							
+							<div class="form-group">
+								<h5><i>Estado de Residencia:</i></h5>
+								<select name="id_estado" id="id_estado">
+									<option value="">Seleccione un Estado</option>
 									<?php
-									$estetica = new estetica();
-									$resultado4=$estetica->verestados();
-									print_r($row);
-									while($row2=mysqli_fetch_array($resultado4)){
-										echo($row2['id_estado'])."todos<br>";
-										echo($row['id_estado'])."<br>";
-										if($row2["id_estado"]==$row["id_estado"]){
-											echo '<option value="'.$row2["id_estado"].'" selected>'.utf8_encode($row2["descripcion_estados"]).'</option>';
+									$usuario = new Usuario();
+									$resultadoestado=$usuario->verestados();
+									/*while($row=mysqli_fetch_array($resultadoestado)){
+										echo '<option value="'.$row["id_estado"].'">'.utf8_encode($row["descripcion_estados"]).'</option>';
+									}*/
+									
+									while($row1=mysqli_fetch_array($resultadoestado)){
+										if($row['descripcion_estados']==$row1['descripcion_estados']){
+											echo '<option value="'.$row1["id_estado"].'" selected>'.utf8_encode($row1["descripcion_estados"]).'</option>';
 										}else{
-											echo '<option value="'.$row2["id_estado"].'">'.utf8_encode($row2["descripcion_estados"]).'</option>';
-
+											echo '<option value="'.$row1["id_estado"].'">'.utf8_encode($row1["descripcion_estados"]).'</option>';
 										}
 									}
 
 									?>
-
 								</select>
 							</div>
+							
+							
 							<div class="form-group">
-								<h4>Ciudad:</h4><label for="tel"><input type="text" value="<?php echo  utf8_encode($row['descripcion_municipios']); ?>" id="tel" name="municipio" maxlength="20" size="20" required/>	</label>
-								
+								<h5><i>Municipio de Residencia:</i></h5>
+
+								<select name="id_municipio" id="id_municipio">
+									<option value="">Selecciona un Municipio</option>
+									<?php
+										$usuario = new Usuario();
+										$resultadomun=$usuario->vermunicipioTodos($row['descripcion_estados']);
+										while($row1=mysqli_fetch_array($resultadomun)){
+											if($row['descripcion_municipios']==$row1['descripcion_municipios']){
+												echo '<option value="'.$row1["id_municipio"].'" selected>'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+											}else{
+												echo '<option value="'.$row1["id_municipio"].'">'.utf8_encode($row1["descripcion_municipios"]).'</option>';
+												}
+										}
+			?>
+								</select>
+								<script>
+									$(document).ready(function(){
+										$('#id_estado').change(function(){
+											var country_id = $(this).val();
+											$.ajax({
+												url:"fetch_state.php",
+												method:"POST",
+												data:{countryId:country_id},
+												dataType:"text",
+												success:function(data)
+												{
+													$('#id_municipio').html(data);
+												}
+											});
+										});
+									});
+								</script>
+							</div>
+                    <div>
 								<input type="hidden" name="id_empresa" value="<?php echo $row['id_empresa'];?>">
 							</div>
-							<div>
-								<input type="submit" class="btn btn-default btn-sm" name="enviar" value="enviar" />
+							<div class="row ">
+								<div class="col-md-12">
+									<input type="submit" class="btn btn-default btn-sm" name="enviar" value="enviar" />
+								</div>
+								<div class="col-md-8">
 								<a href="index.php" class="btn btn-warning btn-sm" >Cancelar</a>
+								</div>
 							</div>
 							
                 </div>
@@ -209,7 +267,7 @@ echo 	$r;
     
     <div>
 								<?php
-									echo "<img height ='250' width='250' src='".$row['imagen']."'>";
+									echo "<img height ='150' width='150' src='../../imagenes_esteticas/".$row['imagen']."'>";
 								?>
 		
                        

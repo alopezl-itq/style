@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="bootstrap.js" server="C:/xampp/htdocs/style/" local="131097387640000000" remote="131097387640000000" Dst="2" />
-<file name="plugins.js" server="C:/xampp/htdocs/style/" local="131097387660000000" remote="131097387660000000" Dst="2" />
-<file name="main.js" server="C:/xampp/htdocs/style/" local="131097387640000000" remote="131097387640000000" Dst="2" />
+<file name="bootstrap.js" server="C:/xampp/htdocs/style/" local="131134364575716920" remote="131134364570000000" Dst="2" />
+<file name="plugins.js" server="C:/xampp/htdocs/style/" local="131134364576827673" remote="131134364570000000" Dst="2" />
+<file name="main.js" server="C:/xampp/htdocs/style/" local="131134364576277247" remote="131134364570000000" Dst="2" />
+<file name="jquery.js" server="C:/xampp/htdocs/style/" local="131134364575847027" remote="131134364570000000" Dst="2" />
+<file name="jqueryui.js" server="C:/xampp/htdocs/style/" local="131134364576237207" remote="131134364570000000" Dst="2" />
+<file name="validate.js" server="C:/xampp/htdocs/style/" local="131134611610000000" remote="131134611610000000" Dst="2" />
 </dwsync>

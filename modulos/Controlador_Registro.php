@@ -25,6 +25,12 @@ class Controlador{
     }
     public function verestados(){
         $resultado=$this->usuario->verestados();
+        return $resultado;
+    }
+
+    public function geoloc($id){
+        $resultado=$this->usuario->geoloc($id);
+        return $resultado;
     }
 
 

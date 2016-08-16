@@ -30,7 +30,7 @@ private $con;
 private $usuario_r;
 private $descripcion_red;
 private $cp;
-
+private $telcasa;
 
  
 
@@ -53,7 +53,7 @@ public function set($atributo, $contenido){
 	}
 
   public function verempresas(){
-	$sql ="Select * FROM empresas ORDER BY id_empresa DESC";
+	$sql ="Select * FROM empresas where id_estatus < 3 ORDER BY id_empresa DESC ";//descarta estéticas cuyo estatus sea el de eliminado
 	$res=$this->con->consultaR($sql);
 	return $res;
 }
@@ -69,7 +69,7 @@ public function set($atributo, $contenido){
 	return $res;
 }
 	public function verestados(){
-		echo $sql ="Select * FROM estados";
+		 $sql ="Select * FROM estados";
 		$res=$this->con->consultaR($sql);
 		return $res;
 	}
@@ -132,6 +132,8 @@ echo $sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_es
 		$this->apellido_m = $row["apellido_m"];
 		$this->sexo = $row["descripcion"];
 	    $this->fecha_nacimiento = $row["fecha_nacimiento"];
+			$this->telefono = $row["telefono"];
+			$this->telcasa = $row["telcasa"];
 		$this->email = $row["email"];
 		$this->usuario = $row["usuario"];
 	    $this->id_tipo_usuario = $row['descripcion_tipo_usuarios'];
@@ -151,30 +153,31 @@ echo $sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_es
 		
 		public function crearUsuario(){
 		 
-		 $sql2=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='$this->email'");
-            
-            $resultado = $this->con->consultaR($sql2);			
-	       $numregistros=mysqli_num_rows($resultado); 	   
-		    
+		 $sql2=("SELECT usuario FROM usuarios WHERE usuario='".$this->usuario."'");
+         $resultado = $this->con->consultaR($sql2);			
+	     $numregistros=mysqli_num_rows($resultado); 	
+		 
+		 $sql8=("SELECT email FROM usuarios WHERE email='".$this->email."'");   
+		  $resultado = $this->con->consultaR($sql8);			
+	     $numr=mysqli_num_rows($resultado);   
        
-
-            if($numregistros == 0 )
+//si el numero de registros es igual a cero realiza el insert del usuario
+            if($numregistros==0 and $numr==0)
             {
-				$sqlempresa="SELECT MAX(id_empresa) FROM empresas";
+			
+               $sqlempresa="SELECT MAX(id_empresa) FROM empresas";
 				$rem=$this->con->consultaR($sqlempresa);
 				$re=mysqli_fetch_array($rem);
 		 
 
 
-			echo  $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`,  `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telefono
- , '$this->email',".$re["MAX(id_empresa)"].", $this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
+			echo  $sql= "INSERT INTO `usuarios` ( `nombre_usuario`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nacimiento`, `telcasa`, `telefono`,`email`, `id_empresa`,`id_tipo_usuario`, `id_estatus`,`id_municipio`,`colonia`,`nombre_calle`,`no_int`, `no_ext`,cp,`usuario`,`password`) VALUES ('$this->nombre_usuario','$this->apellido_p', '$this->apellido_m',$this->sexo,'$this->fecha_nacimiento', $this->telcasa, $this->telefono,'$this->email',".$re["MAX(id_empresa)"].", $this->id_tipo_usuario,1,$this->id_municipio,'$this->colonia','$this->nombre_calle',$this->no_int,$this->no_ext,$this->cp,'$this->usuario','$this->password'); ";
+$this->con->query($sql);
 
-			$this->con->query($sql);
-			
-			return true;
-			}else{
-				echo "El usuario ya existe y/o el correo ya están registrados";
+				}else{
+				echo "El usuario ya existe";
 				}
+			return true;
 			
 	}		
 			
@@ -189,10 +192,27 @@ echo $sql = ("SELECT usuarios.id_usuario, usuarios.nombre_usuario,usuarios.id_es
 				}
 				
 				public function editarUsuario(){
-				$sql = "UPDATE `usuarios` SET `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = '$this->id_tipo_usuario', `id_empresa` = '$this->id_empresa', `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia',`formulario_lleno`=1 WHERE `usuarios`.`id_usuario` = '$this->id_usuario'";
+
+$sql2=("SELECT usuario FROM usuarios WHERE usuario='".$this->usuario."'  and id_usuario!=".$this->id_usuario);
+$resultado = $this->con->consultaR($sql2);
+$numregistros=mysqli_num_rows($resultado);
+
+
+$sql3=("SELECT email FROM usuarios WHERE email='".$this->email."'  and id_usuario!=".$this->id_usuario);
+$resultado = $this->con->consultaR($sql3);
+$numr=mysqli_num_rows($resultado);
+
+
+					
+					
+					if($numregistros==0 and $numr==0){
+
+					$sql = "UPDATE `usuarios` SET `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email',  `telcasa` = '$this->telcasa', `telefono` = '$this->telefono', `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = '$this->id_tipo_usuario', `id_empresa` = '$this->id_empresa', `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia',`formulario_lleno`=1 WHERE `usuarios`.`id_usuario` = '$this->id_usuario'";
 				
 				$this->con->query($sql);
-				echo $sql;
+					}else{
+						echo "El usuario y/o el correo ya existen ";
+					}
 				}
 			
 	
