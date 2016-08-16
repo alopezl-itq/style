@@ -122,7 +122,7 @@ return  $this->usu->verempresas();
 
 	}
 
-//funcion para ver los datos de un empleado
+//funcion para obtener los datos de un empleado
 		
 		public function verE(){
 	
@@ -145,7 +145,7 @@ return  $this->usu->verempresas();
 	    $this->id_tipo_usuario = $row['descripcion_tipo_usuarios'];
 		$this->id_estatus = $row['descripcion_estatus'];
 		$this->id_empresa = $row['nombre'];
-		$this->id_direccion= $row['nombre_calle'];
+		$this->calle= $row['nombre_calle'];
 		$this->no_int = $row['no_int'];
 		$this->no_ext = $row['no_ext'];
 		$this->colonia= $row['colonia'];
@@ -225,18 +225,28 @@ $id = trim($row[0]);
              
 			 //funcion para editar el empleado    				
 				public function editarEmpleado(){
-					
-$sql5=("SELECT usuario,email FROM usuarios WHERE usuario='".$this->usuario."' and email='".$this->email."'");
 
-					$resultado = $this->con->consultaR($sql5);
-					$numregistros=mysqli_num_rows($resultado);
-					if($numregistros==0){
+$sql2=("SELECT usuario FROM usuarios WHERE usuario='".$this->usuario."'  and id_usuario!=".$this->id_usuario);
+$resultado = $this->con->consultaR($sql2);
+$numregistros=mysqli_num_rows($resultado);
+
+
+$sql3=("SELECT email FROM usuarios WHERE email='".$this->email."'  and id_usuario!=".$this->id_usuario);
+$resultado = $this->con->consultaR($sql3);
+$numr=mysqli_num_rows($resultado);
+
+
 					
-		echo  $sql = "UPDATE `usuarios` SET id_usuario=$this->id_usuario, `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', telcasa = $this->telcasa,`telefono` = $this->telefono, `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia',`formulario_lleno`=1 WHERE `id_usuario` =".$this->id_usuario;
+					
+					if($numregistros==0 and $numr==0){
+							
+					
+					
+		echo  $sql = "UPDATE `usuarios` SET  `nombre_usuario` = '$this->nombre_usuario', `apellido_p` = '$this->apellido_p', `apellido_m` = '$this->apellido_m', `sexo` = '$this->sexo', `fecha_nacimiento` = '$this->fecha_nacimiento', `email` = '$this->email', telcasa = $this->telcasa,`telefono` = $this->telefono, `usuario` = '$this->usuario', `password` = '$this->password', `id_tipo_usuario` = $this->id_tipo_usuario,  `nombre_calle` = '$this->nombre_calle', `no_ext` = '$this->no_ext', cp = $this->cp, `no_int` = '$this->no_int', `id_municipio` = '$this->id_municipio', `colonia` = '$this->colonia',`formulario_lleno`=1 WHERE `id_usuario` =".$this->id_usuario;
 $this->con->query($sql);
 				
 				//funcion para editar suledo y comisiones 
-			echo	$sql1="Update sueldos SET id_usuario=$this->id_usuario, sueldo_base = $this->sueldo_base where 
+echo	$sql1="Update sueldos SET id_usuario=$this->id_usuario, sueldo_base = $this->sueldo_base where 
 				id_usuario=".$this->id_usuario;
 				$this->con->query($sql1);
 
@@ -249,11 +259,9 @@ $this->con->query($sql3);
 			
 echo $sql4="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->instagram' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=3";
 $this->con->query($sql4);
-				
-				}else{
-						echo "El usuario y/o el correo ya existen ";
-					}
-				
+}else{
+echo "El usuario y/o el correo ya existen ";
+		}
 				
 				}
 				

@@ -16,7 +16,7 @@ $resultado = $controlador->index($_SESSION['tipo']);
 		<div class="panel-heading">Usuarios Activos</div>
 		<div id="Em" class="panel panel-body" >
         <div align="center" class="table-reponsive"> 
-<table class="table" width="50px">
+ <table class="table" width="80px" >
 	<thead>
         <th>Nombre</th>
 		<th>Apellido Paterno</th>
