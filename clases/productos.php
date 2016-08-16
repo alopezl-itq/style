@@ -92,7 +92,7 @@ public function set($atributo, $contenido){
 	//Con esta funcion se muestran los productos de una empresa 
 
 	public function verProductosEmpresa(){
-		$sql ="SELECT x.id_producto_empresa, p.descripcion_productos from productos p,productos_empresa x WHERE p.id_productos=x.id_producto and p.id_marca=$this->id_marca and x.id_empresa=$this->id_empresa order by p.descripcion_productos";
+		 $sql ="SELECT x.id_producto_empresa, p.descripcion_productos from productos p,productos_empresa x WHERE p.id_productos=x.id_producto and p.id_marca=$this->id_marca and x.id_empresa=$this->id_empresa and x.precio_venta=0.0 and x.precio_compra=0.0 and x.comisiones=0 order by p.descripcion_productos";
 
 		$resultado=$this->con->consulta($sql);
 		return $resultado;

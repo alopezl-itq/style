@@ -178,7 +178,7 @@ public function listar(){
 
 
 	public function verServiciosEmpresa(){
-		$sql ="SELECT d.descripcion, x.id_servicios_empresa from descripcion_servicios d,servicios_empresa x WHERE x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_servicio=$this->id_servicio and x.id_empresa=$this->id_empresa";
+		 $sql ="SELECT d.descripcion, x.id_servicios_empresa from descripcion_servicios d,servicios_empresa x WHERE x.id_descripcion_servicios=d.id_descripcion_servicios and x.id_servicio=$this->id_servicio and x.id_empresa=$this->id_empresa and x.costo=0.0 and x.comisiones=0";
 
 		$resultado=$this->con->consulta($sql);
 		return $resultado;
