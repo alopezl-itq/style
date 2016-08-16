@@ -79,7 +79,7 @@ while ($row = mysqli_fetch_array($resfecha)) {
 
 <div class="container">
 
-<div class="row"><h1 class="lead text-info">¡Feliz cumpleaños te desea '.$row['nombre'].', '.utf8_encode($nombre).'!</h1></div>
+<div class="row"><h1 class="lead text-info">ï¿½Feliz cumpleaï¿½os te desea '.$row['nombre'].', '.utf8_encode($nombre).'!</h1></div>
 <div class="row"><img src="../images/descarga.png" class="img-responsive" width=350" height="200"/></div>
 </div>
 
