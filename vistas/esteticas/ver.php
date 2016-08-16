@@ -52,7 +52,9 @@ echo 	$r;
 
 <div class="container" >   
 <form action="" method="POST">
-
+<?php echo session_name()." "; 
+echo session_id()." ";
+echo session_cache_expire()." "; ?>
 <div class="container">
     <div class="row">
         <div class="col-md-8">

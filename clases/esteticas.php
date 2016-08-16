@@ -183,7 +183,7 @@ public function verempresas(){
 				public function editar(){
 					
 				// print_r($_POST);
-				echo $sql = "UPDATE empresas SET nombre = '".$_POST['nombre_estetica']."', id_usuario= '".$_POST['id_usuario']."', eslogan= '".$_POST['eslogan']."', id_estatus= '".$_POST['id_estatus']."', cliente_a = '".$_POST['cliente_a']."', cliente_b = '".$_POST['cliente_b']."', cliente_c = '".$_POST['cliente_c']."', cliente_d = '".$_POST['cliente_d']."', calle = '".$_POST['calle']."', facebook = '".$_POST['facebook']."', twitter = '".$_POST['twitter']."', instagram = '".$_POST['instagram']."', no_ext = '".$_POST['no_ext']."', no_int = '".$_POST['no_int']."',   id_estado='".$_POST['id_estado']."', id_ciudad='".$_POST['id_municipio']." ' WHERE id_empresa = '".$_POST['empresa']."'";
+				 $sql = "UPDATE empresas SET nombre = '".$_POST['nombre_estetica']."', id_usuario= '".$_POST['id_usuario']."', eslogan= '".$_POST['eslogan']."', id_estatus= '".$_POST['id_estatus']."', cliente_a = '".$_POST['cliente_a']."', cliente_b = '".$_POST['cliente_b']."', cliente_c = '".$_POST['cliente_c']."', cliente_d = '".$_POST['cliente_d']."', calle = '".$_POST['calle']."', facebook = '".$_POST['facebook']."', twitter = '".$_POST['twitter']."', instagram = '".$_POST['instagram']."', no_ext = '".$_POST['no_ext']."', no_int = '".$_POST['no_int']."',   id_estado='".$_POST['id_estado']."', id_ciudad='".$_POST['id_municipio']." ' WHERE id_empresa = '".$_POST['empresa']."'";
 				
 				//$this->con->query($sql);
 				
@@ -195,8 +195,7 @@ public function verempresas(){
 			} 
 			
 			if ($conexion->query($sql) === TRUE) {
-				echo("aqui ando");
-								//header("location:index.php");
+				header("location:index.php");
 			}else {
 				echo "Error: " . $sql . "<br>" . $conexion->error;
 			}

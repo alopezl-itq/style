@@ -36,7 +36,7 @@ class ControladorE{
 		
 		
 		
-public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento, $telefono,$email,$id_empresa,$id_tipo_usuario, $id_municipio,$colonia,$nombre_calle,$no_int, $no_ext,$cp,$usuario,$password,$sueldo_base,$Facebook,$twitter,$instagram){
+public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo, $fecha_nacimiento,$telcasa,$telefono,$email,$id_empresa,$id_tipo_usuario, $id_municipio,$colonia,$nombre_calle,$no_int, $no_ext,$cp,$usuario,$password,$sueldo_base,$Facebook,$twitter,$instagram){
 		
 
 			$this->empleado->set("nombre_usuario",$nombre_usuario);
@@ -44,6 +44,7 @@ public function crearempleado( $nombre_usuario, $apellido_p, $apellido_m, $sexo,
 			$this->empleado->set("apellido_m",$apellido_m);
 			$this->empleado->set("sexo",$sexo);
 			$this->empleado->set("fecha_nacimiento",$fecha_nacimiento);
+			$this->empleado->set("telcasa",$telcasa);
 			$this->empleado->set("telefono",$telefono);
 			$this->empleado->set("email",$email);
 			$this->empleado->set("id_empresa",$id_empresa);
@@ -127,13 +128,14 @@ public function crearC( $id_tipo_curso,$fecha_inicio,$fecha_final, $imparte,$nom
 		
 		
 		public function editarE($id_usuario,$nombre_usuario,$apellido_p,$apellido_m,$sexo,$fecha_nacimiento,
-		$telefono,$email,$id_tipo_usuario,$id_municipio,$colonia,$nombre_calle,$no_int,$no_ext,$cp,$usuario,$password,$sueldo_base,$Facebook,$twitter,$instagram){
+		$telcasa,$telefono,$email,$id_tipo_usuario,$id_municipio,$colonia,$nombre_calle,$no_int,$no_ext,$cp,$usuario,$password,$sueldo_base,$Facebook,$twitter,$instagram){
 			 $this->empleado->set("id_usuario",$id_usuario);
 			 $this->empleado->set("nombre_usuario",$nombre_usuario);
 			 $this->empleado->set("apellido_p",$apellido_p);
 			 $this->empleado->set("apellido_m",$apellido_m);
 			 $this->empleado->set("sexo",$sexo);
 			 $this->empleado->set("fecha_nacimiento",$fecha_nacimiento);
+			  $this->empleado->set("telcasa",$telcasa);
 			 $this->empleado->set("telefono",$telefono);
 			 $this->empleado->set("email",$email);
 			 $this->empleado->set("id_tipo_usuario",$id_tipo_usuario);

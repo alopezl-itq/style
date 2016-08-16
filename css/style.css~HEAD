@@ -1,0 +1,15 @@
+.columna{
+	background-color: #FFFF00;
+	border:1px solid #333;
+}
+.full-width{
+	width: 100%;
+	color: #fff;
+	background-color: #400080;
+	padding: 20px;
+}
+
+.full-width-extra{
+	color: #000;
+	background-color: #fc0;
+}

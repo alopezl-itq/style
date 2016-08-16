@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "alejan14_style";
-$password = "style16";
-$dbname = "alejan14_style";
+
 
 include_once('../../clases/conexion.php');
 

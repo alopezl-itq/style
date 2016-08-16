@@ -124,6 +124,27 @@ function emailValidate(obj) {
     }
 }
 
+
+function tel1Validate(obj) {
+    var message, x;
+    message = document.getElementById("tel1Error");
+    message.innerHTML = "";
+    x = document.getElementById("tel1").value;
+    try { 
+        if(!obj.checkValidity()) throw "Ingrese su número teléfonico a 10 dígitos";
+		document.getElementById("tel1").style.borderColor = "#d5d5d5";	
+    }
+    catch(err) {
+		document.getElementById("tel1").style.borderColor = "red";
+		document.getElementById("tel1Error").style.display = "block";
+		setTimeout("document.getElementById('tel1Error').style.display='none'",2000);
+		message.innerHTML = err;
+		document.getElementById("tel1").focus();
+    }
+}
+
+
+
 function telValidate(obj) {
     var message, x;
     message = document.getElementById("telError");

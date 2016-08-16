@@ -35,7 +35,7 @@ if(isset($_POST['enviar'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Crear Usuario</title>
+	<title>Editar Usuario</title>
     <meta charset="utf-8">
 </head>
 <body>
@@ -111,7 +111,7 @@ if(isset($_POST['enviar'])){
                         <div id="telError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 	<div class="form-group">
 		<h5><i>Casa:</i></h5><label for="telcasa"><input type="tel" value="<?php echo $row["telcasa"]; ?>"
-														 id="telcasa" name="telcasa" maxlength="20" size="20"onblur="telValidate(this);" required/></label>
+	     id="telcasa" name="telcasa" maxlength="20" size="20"onblur="telValidate(this);" required/></label>
 	</div>
 	<div id="telcasaError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 
