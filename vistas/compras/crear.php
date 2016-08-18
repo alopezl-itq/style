@@ -4,7 +4,8 @@ $controlador = new ControladorC();
 
 //si se preciona el boton de enviar, 
 if(isset($_POST['enviar'])){
- $controlador->crearp(utf8_decode($_POST['nombre_empresa']), utf8_decode($_POST['contacto']), utf8_decode($_POST['banco']),$_POST['clabe'],utf8_decode($_POST['nom_tcuenta']),utf8_decode($_POST['rfc']),$_POST['no_cuenta'],$_POST['id_empresa']=$_SESSION['estetica'],utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),$_POST['telefono'],$_POST['telcasa'],$_POST['cp'], utf8_decode($_POST['email']),utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
+ $controlador->crearp(utf8_decode($_POST['nombre_empresa']), utf8_decode($_POST['contacto']), utf8_decode($_POST['banco']),$_POST['clabe'],utf8_decode($_POST['nom_tcuenta']),utf8_decode($_POST['rfc']),$_POST['no_cuenta'],$_POST['id_empresa']=$_SESSION['estetica'],utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),$_POST['telefono'],$_POST['telcasa'],$_POST['cp'], 
+ utf8_decode($_POST['email']),utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
 
 
 }
@@ -21,7 +22,7 @@ if(isset($_POST['enviar'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Crear Usuario</title>
+	<title>Crear Proveedor</title>
     <meta charset="utf-8">
 </head>
 <body>
@@ -29,10 +30,11 @@ if(isset($_POST['enviar'])){
 
 <div id="pestanas">
  <ul class="nav nav-tabs">
- 	<li role="presentation"class="active"><a href="#pestana1" role="tab" data-toggle="tab" >Información Personal</a></li>
+ 	<li role="presentation"class="active"><a href="#pestana1" role="tab" data-toggle="tab" >Información</a></li>
  	<li role="presentation"><a href="#pestana2"  role="tab" data-toggle="tab">Información de Contacto</a></li> 
  	<li role="presentation"><a href="#pestana3"  role="tab" data-toggle="tab">Domicilio</a></li> 
-	<li role="presentation"><a href="#pestana4"  role="tab" data-toggle="tab">Datos de Acceso</a></li> 
+    <li role="presentation" ><a href="#pestana4" role="tab" data-toggle="tab">Redes Sociales</a></li>
+	<li role="presentation"><a href="#pestana5"  role="tab" data-toggle="tab">Datos Bancarios</a></li> 
  </ul>
  
 <div id="pestana1">
@@ -41,35 +43,22 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-6 col-md-6">
                         <form action="" method="POST" name="frm">
 						<div class="form-group">
-                            <h5><i>Nombre:</i></h5><label for="nombre"><input type="text" placeholder="Nombre(s)*" name="nombre_usuario" id="nombre_usuario" maxlength="50" size="20" onblur="nombreValidate(this);" required/></label>
+                  <h5><i>Nombre y/o Razon Social:</i></h5><label for="nombre_empresa"><input type="text" placeholder="Nombre De Empresa y/yo Razon Social" name="nombre_empresa" id="nombre_empresa" maxlength="50" size="20" onblur="nombreEValidate(this);" required/></label>
 						</div>
-                        <div id="nombreError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+    <div id="nombreEError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 						
                         <div class="form-group">
-							<h5><i>Apellidos Paterno:</i></h5><label for="apellido_p"><input type="text" placeholder="Apellido Paterno*" id="apellido_p" name="apellido_p" maxlength="50" size="20" onblur="apepValidate(this);" required/></label>
+							<h5><i>RFC:</i></h5><label for="rfc"><input type="text" placeholder="Ingrese Los 13 Digitos Del RFC" id="rfc" name="rfc" maxlength="50" size="20" onblur="rfcValidate(this);" required/></label>
 						</div>
-						<div id="apeError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+						<div id="rfcError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
                         <div class="form-group">
-							<h5><i>Apellidos Materno:</i></h5><label for="apellido_m"><input type="text" placeholder="Apellido Materno*" id="apellido_m" name="apellido_m" maxlength="50" size="20" onblur="apemValidate(this);" required/></label>
+	<h5><i>Contacto:</i></h5><label for="contacto"><input type="text" placeholder="Ingrese El Nombre Completo Del Contacto*" id="contacto" name="contacto" maxlength="50" size="20" onblur="cValidate(this);" required/></label>
 						</div>
-                        <div id="apemError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        <div id="cError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
-						<div class="form-group">
-							<h5><i>Sexo:</i></h5>
-							<select name="sexo" id="sexo" onblur="cmbsexoValidate(this);">
-								<option value="#" selected>Seleccione el sexo</option>
-								<option value="2">Mujer</option>
-								<option value="1">Hombre</option>
-							</select>
-						</div>
-						<div id="sexoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
-						<div class="form-group">
-							<h5><i>Fecha de nacimiento:</i></h5><label for="date"><input type="date"  name="fecha_nacimiento"
-                            id="date" onblur="dateValidate(this);" required /></label>
-                        </div>
-                        <div id="dateError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+
 </div>
 <div class="col-lg-3 col-md-3"></div> 
 </div>
@@ -78,41 +67,25 @@ if(isset($_POST['enviar'])){
 <br/>
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
-						<div class="form-group">
+						
+                  <div class="form-group">
+		<h5><i> Telefono de Casa:</i></h5><label for="telcasa"><input type="number" placeholder="Ingresa tú número teléfonico con su lada" id="telcasa" name="telcasa"  size="20"  onblur="telValidate(this);" required/></label>
+	</div>
+	<div id="telcasaError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        
+                        
+                        <div class="form-group">
 							<h5><i>Celular:</i></h5><label for="tel"><input type="tel" placeholder="Ingresa tú número teléfonico con su lada" id="tel" name="telefono" maxlength="10" size="20" pattern="[0-9]{10}" onblur="telValidate(this);" required/></label>
 						</div>
                         <div id="telError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
-	<div class="form-group">
-		<h5><i>Casa:</i></h5><label for="telcasa"><input type="telcasa" placeholder="Ingresa tú número teléfonico con su lada" id="telcasa" name="telcasa" maxlength="10" size="20" pattern="[0-9]{10}" onblur="telValidate(this);" required/></label>
-	</div>
-	<div id="telcasaError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
-
-	<div class="form-group">
+	
+<div class="form-group">
 							<h5><i>Correo Electronico:</i></h5><label for="email"><input type="email" 
                             pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" placeholder="correo@email.com" id="email" name="email" size="20"  maxlength="50" onblur="emailValidate(this);" required/></label>	
 						</div>
 						<div id="emailError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 
 
-	
-    					<div class="form-group">
-							<h5><i>Tipo de Usuario:</i></h5>
-							<select name="id_tipo_usuario" id="tipo" onblur="cmbtipoValidate(this);">
-								<option value="#" selected>Selecciona un Puesto</option>
-								<?php
-								if(isset($_GET['empresa'])){
-									echo '<option value="2">Propietario-Accionista</option>';
-
-								}else{
-								$usuario = new Usuario();
-								$resultado2=$usuario->vertipous();
-								while($row=mysqli_fetch_array($resultado2)){
-									echo '<option value="'.$row["id_tipo_usuario"].'">'.utf8_encode($row["descripcion_tipo_usuarios"]).'</option>';
-								}}
-								?>
-							</select>
-						</div>
-                        <div id="tipoError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 </div>
 <div class="col-lg-3 col-md-3"></div>                        
 </div>
@@ -207,35 +180,51 @@ if(isset($_POST['enviar'])){
 <br/>
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
-	<script type="text/javascript">
-		function val(){
-
-
-
-			if(frm.confirmpassword.value != frm.password.value)
-			{
-				alert("El Password no Coincide.");
-				return false;
-			}
-
-			return true;
-		}
-	</script>
-						<div class="form-group">
-							<h5><i>User:</i></h5><label for="user"><input type="text" id="user" placeholder="Ingrese Username" name="usuario" maxlength="50" size="20" onblur="userValidate(this);" required/></label>
-						</div>
-                        <div id="userError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
-	
-    					<div class="form-group">
-							<h5><i>Password:</i></h5><label for="password"><input type="password"
-                            id="password" placeholder="Ingrese Password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" name="password" maxlength="50" size="20" onblur="passwordValidate(this);" required/></label>
-						</div>
-                        <div id="passwordError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
                         
-	<div class="form-group">
-		<h5><i>Confirmar Password:</i></h5><label for="confirmpassword"><input type="password"
-													   id="confirmpassword" placeholder="Ingrese Password" name="confirmpassword" maxlength="50" size="20" required/></label>
-	</div>
+					 <div class="form-group">
+                          <h5><i>Facebook</i></h5><label for="facebook"><input type="text" placeholder="Usuario Facebook" name="facebook" id="facebook" maxlength="50" size="20"  /></label>
+						</div>
+
+						 
+                        <div class="form-group">
+							<h5><i>instagram:</i></h5><label for="twitter"><input type="text" placeholder= "Usuario Twitter" id="twitter" name="twitter" maxlength="50" size="20"  /></label>
+						</div>
+                        
+                            <div class="form-group">
+							<h5><i>Twitter:</i></h5><label for="instragram"><input type="text" placeholder= "Usuario Instagram" id="instagram" name="instagram" maxlength="50" size="20"  /></label>
+						</div>
+						
+                      
+</div>
+<div class="col-lg-3 col-md-3"></div> 
+</div>
+
+
+<div id="pestana5">
+<br/>
+<div class="col-lg-3 col-md-3"></div>
+<div class="col-lg-6 col-md-6">
+	
+						<div class="form-group">
+							<h5><i>Nombre del Banco:</i></h5><label for="banco"><input type="text" id="banco" placeholder="Ej. Bancomer*" name="banco" maxlength="50" size="20" onblur="nbValidate(this);" required/></label>
+						</div>
+                        <div id="nbError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+    
+    	<div class="form-group">
+							<h5><i>Nombre Del Titular De La Cuenta:</i></h5><label for="nom_tcuenta"><input type="text" id="nom_tcuenta" placeholder="Nombre Del Titular.*" name="nom_tcuenta" maxlength="50" size="20" onblur="ntValidate(this);" required/></label>
+						</div>
+                        <div id="ntError" class="alert alert-danger alert-dismissable" style="display:none;"></div>                   
+ <div class="form-group">
+							<h5><i>ClABE(Clave Bancaria Estandarizada):</i></h5><label for="cable"><input type="number" placeholder="Ingrese los 18 digitos" id="clabe" name="clabe"  max="999999999999999999" size="20" pattern="[0-9]{18}" onblur="clValidate(this);" required/></label>
+						</div>
+            <div id="clError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                        
+                        
+                             <div class="form-group">
+							<h5><i>Cuenta Bancaria:</i></h5><label for="no_cuenta"><input type="text" placeholder="Ingrese los digitos de la cuenta bancaria" id="no_cuenta" name="no_cuenta"  size="25"  onblur="ncValidate(this);" required/></label>
+						</div>
+                        <div id="ncError" class="alert alert-danger alert-dismissable" style="display:none;"></div>                      
+                        
     
                         <div class="col-sm-12" align="center">
 						<div>

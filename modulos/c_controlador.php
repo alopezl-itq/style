@@ -23,10 +23,9 @@ class ControladorC{
 		
 		
 		
-public function crearp($nombre_empresa,$contacto,$banco,$clabe,$nom_tcuenta,$rfc,$no_cuenta,$id_empresa,$nombre_calle,$no_int,$no_ext,$id_municipio,$colonia,$telefono,$telcasa,$cp,$emial,$facebook,$twitter,$instagram){
+public function crearp($nombre_empresa,$contacto,$banco,$clabe,$nom_tcuenta,$rfc,$no_cuenta,$id_empresa,$nombre_calle,$no_int,$no_ext,$id_municipio,$colonia,$telefono,$telcasa,$cp,$email,$facebook,$twitter,$instagram){
 		
-             
-			$this->compra ->set("nombre_empresa",$nombre_empresa);
+            $this->compra ->set("nombre_empresa",$nombre_empresa);
 			$this->compra->set("contacto",$contacto);
 			$this->compra->set("banco",$banco);
 			$this->compra->set("clabe",$clabe);
@@ -42,8 +41,8 @@ public function crearp($nombre_empresa,$contacto,$banco,$clabe,$nom_tcuenta,$rfc
 			$this->compra->set("telefono",$telefono);
 			$this->compra->set("telcasa",$telcasa);
 		    $this->compra->set("cp",$cp);
-			$this->compra->set("email",$email);
-			$this->compra->set("Facebook",$facebook);
+			$this->compra->set('email',$email);
+			$this->compra->set("facebook",$facebook);
 			$this->compra->set("twitter",$twitter);
 			$this->compra->set("instagram",$instagram);
 		    $resultado=$this->compra->insertP();
@@ -57,8 +56,8 @@ public function crearp($nombre_empresa,$contacto,$banco,$clabe,$nom_tcuenta,$rfc
 		
 	 
 		
-		
-		public function editarE($nombre_empresa,$contacto,$banco,$clabe,$nom_tcuenta,$rfc,$no_cuenta,$nombre_calle,$no_int,$no_ext,$id_municipio,$colonia,$telefono,$telcasa,$cp,$emial,$facebook,$twitter,$instagram){
+	public function editarp($id_proveedor,$nombre_empresa,$contacto,$banco,$clabe,$nom_tcuenta,$rfc,$no_cuenta,$nombre_calle,$no_int,$no_ext,$id_municipio,$colonia,$telefono,$telcasa,$cp,$email,$facebook,$twitter,$instagram){
+			$this->compra->set("id_proveedor",$id_proveedor);
 			$this->compra ->set("nombre_empresa",$nombre_empresa);
 			$this->compra->set("contacto",$contacto);
 			$this->compra->set("banco",$banco);
@@ -75,10 +74,9 @@ public function crearp($nombre_empresa,$contacto,$banco,$clabe,$nom_tcuenta,$rfc
 			$this->compra->set("telcasa",$telcasa);
 		    $this->compra->set("cp",$cp);
 			$this->compra->set("email",$email);
-			$this->compra->set("Facebook",$facebook);
+			$this->compra->set("facebook",$facebook);
 			$this->compra->set("twitter",$twitter);
 			$this->compra->set("instagram",$instagram);;
-
             $resultado=$this->compra->editarP();
 			return $resultado;
 			

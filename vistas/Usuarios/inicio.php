@@ -34,9 +34,9 @@ $resultado = $controlador->index($_SESSION['tipo']);
         <td><?php echo utf8_encode($row['nombre']); ?></td>
         <td><?php echo  $row['telefono']; ?></td>
        
-        <td> <a href="?cargar=usuarios&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">Ver mas informacion</a> </td>
-       <td> <a  class="glyphicon glyphicon-pencil" title="Editar" href="?cargar=usuarios&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
-        <td><a  class="glyphicon glyphicon-remove" title="Desactivar" href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
+        <td> <a href="./?cargar=usuarios&controlador=ver&id_usuario=<?php echo  $row['id_usuario'];  ?>">Ver mas informacion</a> </td>
+       <td> <a  class="glyphicon glyphicon-pencil" title="Editar" href="./?cargar=usuarios&controlador=editar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
+        <td><a  class="glyphicon glyphicon-remove" title="Desactivar" href="./?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
         
         </tr>
         

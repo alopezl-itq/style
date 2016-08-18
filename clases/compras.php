@@ -4,7 +4,7 @@ include_once('conexion.php');
 class Compra
 {
 //Atributos
-private $id_provedor;
+private $id_proveedor;
 private $nombre_empresa;
 private $contacto;
 private $banco;
@@ -55,7 +55,7 @@ public function __construct(){
  
 //funcion para insertar  
      public function insertP(){
- $sql="INSERT INTO `proveedores` (nombre_empresa, contacto, banco, clabe, nom_tcuenta, rfc, no_cuenta, id_empresa, `nombre_calle, no_ext, no_int, id_municipio, colonia, telefono, telcasa, cp, email, facebook,twitter, instagram) VALUES ('$this->nombre_empresa', '$this->contacto', '$this->banco', '$this->clabe', '$this->nom_tcuenta, '$this->rfc', '$this->no_cuenta', '$this->id_empresa', '$this->nombre_calle', '$this->no_ext', '$this->no_int', '$this->id_municipio', '$this->colonia', '$this->telefono', '$this->telcasa', '$this->cp', '$this->email', '$this->facebook', '$this->twitter', '$this->instagram'); ";		
+echo $sql="INSERT INTO `proveedores` (`nombre_empresa`, `contacto`,`banco`, `clabe`, `nom_tcuenta`, `rfc`, `no_cuenta`, `id_empresa`, `nombre_calle`, `no_ext`, `no_int`, `id_municipio`, `colonia`, `telefono`, `telcasa`,`cp`, `email`, `facebook`,`twitter`,`instagram`) VALUES ('$this->nombre_empresa', '$this->contacto', '$this->banco', '$this->clabe', '$this->nom_tcuenta', '$this->rfc', '$this->no_cuenta', '$this->id_empresa', '$this->nombre_calle', '$this->no_ext', '$this->no_int', '$this->id_municipio', '$this->colonia', '$this->telefono', '$this->telcasa', '$this->cp', '$this->email', '$this->facebook', '$this->twitter', '$this->instagram'); ";		
   $this->con->query($sql); 
 		 
 		 
@@ -63,8 +63,9 @@ public function __construct(){
 		 }
 //funcion para editar provedores
 public function editarP(){
-$sql="UPDATE proveedores SET nombre_empresa='$this->nombre_empresa', contacto='$this->contacto', banco='$this->banco',  cable='$this->clabe', nom_tcuenta='$this->nom_tcuenta' , rfc='$this->rfc', no_cuenta='$this->no_cuenta',
- nombre_calle='$this->nombre_calle',no_ext='$this->no_ext',no_int='$this->no_int', id_municipio='$this->id_municipio',colonia='$this->colonia',telefono='$this->telefono',telcasa='$this->telcasa',cp='$this->cp',email= '$this->email', facebook='$this->facebook', twitter=$this->twitter',instagram='$this->instagram'";	
+ echo $sql="UPDATE `proveedores` SET `nombre_empresa`='$this->nombre_empresa', `contacto`='$this->contacto', `banco`='$this->banco',  `clabe`='$this->clabe', `nom_tcuenta`='$this->nom_tcuenta' , `rfc`='$this->rfc', `no_cuenta`='$this->no_cuenta',
+ `nombre_calle`='$this->nombre_calle',`no_ext`='$this->no_ext',`no_int`='$this->no_int', `id_municipio`='$this->id_municipio',`colonia`='$this->colonia',`telefono`='$this->telefono',`telcasa`='$this->telcasa',`cp`='$this->cp',`email`= '$this->email', `facebook`='$this->facebook', `twitter`='$this->twitter',`instagram`='$this->instagram'
+ where `id_proveedor`=".$this->id_proveedor;	
  $this->con->query($sql); 
   	 
 	 
@@ -74,7 +75,7 @@ $sql="UPDATE proveedores SET nombre_empresa='$this->nombre_empresa', contacto='$
 //funcion obtener datos de usuario
         
 	public function verP(){
-	echo	$sql="SELECT p.*, e.descripcion_estados , r.nombre,m.descripcion_municipios from proveedores p, estados e, empresas r, municipios m WHERE p.id_empresa=r.id_empresa and p.id_municipio=m.id_municipio and m.id_estado=e.id_estado and p.id_proveedor=".$this->id_proveedor;
+	$sql="SELECT p.*, e.descripcion_estados , r.nombre,m.descripcion_municipios from proveedores p, estados e, empresas r, municipios m WHERE p.id_empresa=r.id_empresa and p.id_municipio=m.id_municipio and m.id_estado=e.id_estado and p.id_proveedor=".$this->id_proveedor;
 		$resul = $this->con->consultaR($sql);
         $row=mysqli_fetch_assoc($resul) ;
 		

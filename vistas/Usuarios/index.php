@@ -44,9 +44,9 @@ validarSesionEnVistas();
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="?cargar=usuarios&controlador=crear">Nuevo Usuario</a></li>       
-          <li><a href="../../vistas/usuarios">Usuarios Regisrados</a></li>
-          <li><a href="?cargar=usuarios&controlador=reactivar">Usuarios Desactivados</a></li> 
+          <li><a href="./?cargar=usuarios&controlador=crear">Nuevo Usuario</a></li>       
+          <li><a href="../usuarios">Usuarios Regisrados</a></li>
+          <li><a href="./?cargar=usuarios&controlador=reactivar">Usuarios Desactivados</a></li> 
         </ul>
       </li>
       <li><a href="../../principal.php">Regresar</a></li>

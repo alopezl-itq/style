@@ -39,7 +39,7 @@ if(isset($_POST['enviar'])){
 <br/>
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
-                        <form action="" method="POST" name="frm">
+                        <form action="crear.php" method="POST" name="frm">
 						<div class="form-group">
                             <h5><i>Nombre:</i></h5><label for="nombre"><input type="text" placeholder="Nombre(s)*" name="nombre_usuario" id="nombre_usuario" maxlength="50" size="20" onblur="nombreValidate(this);" required/></label>
 						</div>
