@@ -36,7 +36,7 @@ $id_empresa=$_SESSION['estetica'];
         <link rel="stylesheet" href="../../css/templatemo_misc.css">
         <link rel="stylesheet" href="../../css/templatemo_style.css">
 <?php 
-echo "	<script src='../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
+echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
 ?>
     </head>
     <body>
@@ -152,7 +152,7 @@ echo "        </form>\n";
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Insertar Producto</h4>
+        <h4 class="modal-title">Agregar Nuevo Producto</h4>
       </div>
       <div class="modal-body">
 
@@ -167,13 +167,6 @@ echo "        </form>\n";
             <select name='marca'>
             <?php  while($row2 = mysqli_fetch_array($resultado3)): 
             echo "<option value='$row2[0]'>$row2[1]</option>";
-            endwhile; 
-            ?>
-            </select><br>
-            <br>Linea :<br>
-            <select name='linea'>
-            <?php  while($row3 = mysqli_fetch_array($resultado2)): 
-            echo "<option value='$row3[0]'>$row3[1]</option>";
             endwhile; 
             ?>
             </select><br>

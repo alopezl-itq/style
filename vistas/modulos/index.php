@@ -93,9 +93,15 @@ $resultado2 = $controlador->empleado($estetica);
 
 <select id="empleado" name="empleado" autofocus >
     <?php
-    while($row2 = mysqli_fetch_array($resultado2)): 
-    echo "<option value=$row2[0]>$row2[0] $row2[1] $row2[2] $row2[3]</option>";
+    
+        while($row2 = mysqli_fetch_array($resultado2)): 
+        if($row2[4]==1)
+        {
+        echo "<option value=$row2[0]>$row2[1] $row2[2] $row2[3]</option>";
+        }
     endwhile; 
+    
+    
 	?>
   </select>
 

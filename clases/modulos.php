@@ -29,7 +29,7 @@ public function set($atributo, $contenido){
     //Con esta funcion se pueden ver los modulos, identificcador y descripcion
     public function ver(){
 
-		$sql = "SELECT `id_modulo`,`descripcion` FROM `modulo`";
+		$sql = "SELECT `id_modulo`,`descripcion` FROM `modulo` WHERE id_modulo>2";
 		$resultado = $this->con->consulta($sql);
 		
 		return $resultado;
@@ -46,7 +46,7 @@ public function set($atributo, $contenido){
 
 	public function empleado(){
 
-		$sql = "SELECT `id_usuario`,`nombre_usuario`,`apellido_p`,`apellido_m` FROM `usuarios` WHERE `id_empresa`=$this->id_empresa";
+		$sql = "SELECT `id_usuario`,`nombre_usuario`,`apellido_p`,`apellido_m`,`id_estatus` FROM `usuarios` WHERE `id_empresa`=$this->id_empresa";
 		$resultado = $this->con->consulta($sql);
 		
 		return $resultado;

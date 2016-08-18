@@ -29,7 +29,7 @@ $id_producto_empresa=$_POST["numero"];
         <link rel="stylesheet" href="../../css/templatemo_misc.css">
         <link rel="stylesheet" href="../../css/templatemo_style.css">
 <?php 
-echo "	<script src='../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
+echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
 ?>
     </head>
     <body>
@@ -83,7 +83,7 @@ $resultado = $controlador->verProductoEmpresa($id_producto_empresa);
 ?>
 
 
-<script  src="../../js/jquery.js"></script>
+<script  src="js/jquery.js"></script>
 <div id="pestanas"> 
 <ul class="nav nav-tabs">
         <li role="presentation" class="active" ><a href="#pestana1" role="tab" data-toggle="tab">Agregar</a></li>
@@ -152,15 +152,15 @@ $resultado = $controlador->verProductoEmpresa($id_producto_empresa);
             </div> <!-- /.container -->
         </div> <!-- /#footer -->
        
-  <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
-  <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-  <script src="../../js/bootstrap.js"></script>
-  <script src="../../js/plugins.js"></script>
-  <script src="../../js/main.js"></script> 
+  <script src="js/vendor/jquery-1.11.0.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script> 
         
         <?php
-echo "<script type='text/javascript' src='../../js/jquery.js'></script>";
-echo "<script type='text/javascript' src='../../js/jqueryui.js'></script>";
+echo "<script type='text/javascript' src='js/jquery.js'></script>";
+echo "<script type='text/javascript' src='js/jqueryui.js'></script>";
 echo "<script type='text/javascript'>";
 
 echo "var x;";
