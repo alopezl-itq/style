@@ -1,25 +1,8 @@
 <?php
 
 include_once('../../modulos/controladorp.php');
-$id_marca=$_POST["id_marca"];
-session_start();
-$id_empresa=$_SESSION['estetica'];
-$controlador = new controlador();
-$p1=$_POST["p1"];
-if ($_SERVER["REQUEST_METHOD"] == "POST") {  
-    
-    
-    $count1=count($p1);
-    for ($i = 0; $i < $count1; $i++) 
-    {
-        if(isset($_POST['guardar']))
-            {
-                echo $p1[$i];
-                $r=$controlador->agregarProductoEmpresa($id_empresa,$p1[$i]);
-            }
-    }
-}
 
+$id_producto_empresa=$_POST["numero"];
 
 ?>
 <!DOCTYPE html>
@@ -48,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php 
 echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
 ?>
-
 <script>
 function valida(e){
     tecla = (document.all) ? e.keyCode : e.which;
@@ -60,19 +42,6 @@ function valida(e){
         
     // Patron de entrada, en este caso solo acepta numeros
     patron =/[0-9]/;
-    tecla_final = String.fromCharCode(tecla);
-    return patron.test(tecla_final);
-}
-function valida2(e){
-    tecla = (document.all) ? e.keyCode : e.which;
-
-    //Tecla de retroceso para borrar, siempre la permite
-    if (tecla==8){
-        return true;
-    }
-        
-    // Patron de entrada, en este caso solo acepta numeros
-    patron =/[0-9-.]/;
     tecla_final = String.fromCharCode(tecla);
     return patron.test(tecla_final);
 }
@@ -124,7 +93,7 @@ function valida2(e){
                 <div class="row">
 						<?php  
 $controlador = new Controlador();
-$resultado = $controlador->verProductosEmpresa($id_marca,$id_empresa);
+$resultado = $controlador->verProductoEmpresa($id_producto_empresa);
 
 ?>
 
@@ -136,14 +105,12 @@ $resultado = $controlador->verProductosEmpresa($id_marca,$id_empresa);
 </ul>
 
 <div id="pestana1">
-<form method="POST" action="productosy.php">
-<table border="2">
+<b>Actualizar stock:</b><br><br>
+<form method="POST" action="actualiza.php">
+<table border="0">
 	<thead>
         <th>Producto</th>
-        <th>Costo de Compra</th>
-        <th>Costo de Venta</th>
-        <th>Stock</th>
-        <th>Comisión para el empleado</th>
+        <th>Piezas/unidades</th>
      </thead>
     <div class="col-lg-3 col-md-3"></div>
     <div class="col-lg-6 col-md-6">
@@ -153,24 +120,11 @@ $resultado = $controlador->verProductosEmpresa($id_marca,$id_empresa);
 	     while($row = mysqli_fetch_array($resultado)): 
          ?>
         <tr>
-            <td><?php echo utf8_encode($row[1]); ?></td>
-            <td> <b>$ </b><input type="text" name='costoC[]' value="0"  style="height:25px; width:100px;" onkeypress="return valida2(event)" required></td>
-            <td> <b>$ </b><input type="text" name='costoV[]' value="0" style="height:25px; width:100px;" onkeypress="return valida2(event)" required></td>
-            <td> <input type="text" value="0" name='stock[]' style="height:25px; width:100px;" required  onkeypress="return valida(event)"></td>
-            <td> <select name='comision[]'>
-            <?php
-            for ($i=0; $i<=100; $i++)
-            {
-                ?>
-                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
-                <?php
-            }
-            ?>
-            </select></td>
-           
+            <td><?php echo utf8_encode($row[0]); ?></td>
+            <td> <input type="text" value="0" name='stock' style="height:25px; width:100px;"  onkeypress="return valida(event)" required></td>
         </tr>
 <?php 
-       echo "<input type='hidden' name='numero[]' value=$row[0]>";
+       echo "<input type='hidden' name='numero' value=$id_producto_empresa>";
          
 	     endwhile; 
 	    ?>        
@@ -178,12 +132,7 @@ $resultado = $controlador->verProductosEmpresa($id_marca,$id_empresa);
     <div class="col-lg-3 col-md-3"></div>                     
     
 </table>
-
-
-<?
-echo "<INPUT TYPE='HIDDEN' VALUE='$id_empresa' name='id_empresa'>";
-?>
-<br><INPUT TYPE="SUBMIT" name="guardar" value="Guardar" style="height:38px; width:350px" >
+<br><INPUT TYPE="SUBMIT" name="guardar" value="Actualizar" style="height:38px; width:350px" >
 </form>
 </div>
 

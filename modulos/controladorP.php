@@ -77,6 +77,13 @@ class Controlador{
 		  return $resultado;
 			
 		}
+		public function actualizarStock($id_producto_empresa,$stock){
+			$this->producto->set("id_producto_empresa",$id_producto_empresa);
+			$this->producto->set("stock",$stock);
+			$resultado=$this->producto->actualizarStock();
+		  return $resultado;
+			
+		}
 
 		public function consultar($id_producto,$id_empresa){
 			$this->producto->set("id_producto",$id_producto);

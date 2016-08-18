@@ -59,7 +59,7 @@ echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>";
                             <div class="row">
                                 <div class="logo-wrapper col-md-2 col-sm-2">
                                     <h1>
-                                       <a href="#">Productos</a>
+                                       <a href="#">Inventario</a>
                                     </h1>
                                 </div> <!-- /.logo-wrapper -->
                                 <div class="col-md-10 col-sm-10 main-menu text-right">
@@ -90,43 +90,29 @@ $resultado2 = $controlador->verlinealista();
 $resultado3 = $controlador->verMarcaslista();
 ?>
 <div align="center"> 
+
+
 <table border="1">
 	<thead>
         <th>Marca</th>
 		<th>Linea</th>
         <th>Producto</th>
         <th>Presentacion</th>
-        <th>Precio de compra</th>
-		<th>Precio de venta</th>
         <th>Stock</th>
-        <th>comisión para el empleado</th>
-        <th>Eliminar</th>
-        <th>Editar</th>
-
+        <th> - </th>
      </thead>
      <tbody>
      <?php  while($row = mysqli_fetch_array($resultado)): ?>
-
-
-
-
         <tr>
         <td><?php echo utf8_encode($row['0']); ?></td>
         <td><?php echo  utf8_encode($row['1']); ?></td>
         <td><?php echo  utf8_encode($row['2']); ?></td>
         <td><?php echo  utf8_encode($row['3']); ?></td>
-         <td>$<?php echo utf8_encode($row['4']); ?> Pesos</td>
-        <td>$<?php echo  utf8_encode($row['5']); ?> Pesos</td>
         <td><?php echo  utf8_encode($row['6']); ?> Unidades/piezas</td>
-        <td><?php echo  utf8_encode($row['8']); ?> %</td>
        <?php
-echo " <form method=\"POST\" action=\"del.php\">\n"; 
+echo "        <form method=\"POST\" action=\"stock.php\">\n"; 
 echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
-echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Eliminar\"  style='height:30px; width:100px' ></td>\n"; 
-echo "        </form>\n"; 
-echo "        <form method=\"POST\" action=\"upd.php\">\n"; 
-echo "        <INPUT TYPE='HIDDEN' VALUE=$row[7] name='numero'>\n"; 
-echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Editar\"  style='height:30px; width:100px' ></td>\n"; 
+echo "        <td> <INPUT TYPE=\"SUBMIT\" name=\"guardar\" value=\"Modificar Stock\"  style='height:30px; width:100px' ></td>\n"; 
 echo "        </form>\n";
 ?>
         </tr>
@@ -137,119 +123,14 @@ echo "        </form>\n";
       
      </tbody>
 </table>
-<br><button type="button" style="height:38px; width:350px" data-toggle="modal" data-target="#ModalAdd">Agregar Un Nuevo Producto</button>
-
-<form method="POST" action="menu.php">
-<br><INPUT TYPE="SUBMIT" name="guardar" value="Agregar mas productos de lista" style="height:38px; width:350px" >
 </form>
-
-
-
-<!-- Modal-->
-<div id="ModalAdd" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Agregar Nuevo Producto</h4>
-      </div>
-      <div class="modal-body">
-
-      <script  src="/../../js/jquery.js"></script>
-        <div id="pestanas"> 
-            <ul class="nav nav-tabs">
-            <li role="presentation" class="active" ><a href="#pestana1" role="tab" data-toggle="tab">Marcas registradas</a></li>
-            <li role="presentation"><a href="#pestana2" role="tab" data-toggle="tab">Marcas no registradas</a></li> 
-            <div id="pestana1">
-            <form METHOD="POST" ACTION="agregarproducto.php">
-			<br><br>Marca :<br>
-            <select name='marca'>
-            <?php  while($row2 = mysqli_fetch_array($resultado3)): 
-            echo "<option value='$row2[0]'>$row2[1]</option>";
-            endwhile; 
-            ?>
-            </select><br>
-            <br>Nombre del Producto:<br>
-            <b></b><input type="text" name='producto' value="0" style="height:27px; width:250px;" required><br>
-            <br>Presentación :<br>
-            <INPUT TYPE="TEXT" NAME="presentacion" required style="height:27px; width:250px;" required><b> (ml/pieza) </b><br>
-            <br>Precio de compra:<br>
-            <b>$ </b><INPUT TYPE="TEXT" NAME="precioc" required style="height:27px; width:250px;" required><br>
-            <br>Precio de venta :<br>
-            <b>$ </b><INPUT TYPE="TEXT" NAME="preciov" required style="height:27px; width:250px;" required><br>
-            <br>Stock:<br>
-            <INPUT TYPE="TEXT" NAME="stock" required style="height:27px; width:250px;" required><br>
-            <br>Comisión para el empleado:<br>
-            <td> <select name='comision'>
-            <?php
-            for ($i=0; $i<=100; $i++)
-            {
-                ?>
-                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
-                <?php
-            }
-            ?>
-            </select></td>
-            <br>
-            <br>
-			<br><INPUT TYPE="SUBMIT" style="height:38px; width:350px" value="Insertar" aling="Center"><br>
-		</form>
-</div>
-    <div id="pestana2">
-         <form METHOD="POST" ACTION="nuevoproducto.php">
-			<br><br>Nueva marca :<br>
-            <INPUT TYPE="TEXT" NAME="marca" required style="height:27px; width:250px;" required><br>
-            <br>Nueva linea de producto :<br>
-            <INPUT TYPE="TEXT" NAME="linea" required style="height:27px; width:250px;" required><br>
-            <br>Nombre del Producto:<br>
-            <b></b><input type="text" name='producto' value="0" style="height:27px; width:250px;" required><br>
-            <br>Presentación :<br>
-            <INPUT TYPE="TEXT" NAME="presentacion" required style="height:27px; width:250px;" required><b> (ml/pieza) </b><br>
-            <br>Precio de compra:<br>
-            <b>$ </b><INPUT TYPE="TEXT" NAME="precioc" required style="height:27px; width:250px;" required><br>
-            <br>Precio de venta :<br>
-            <b>$ </b><INPUT TYPE="TEXT" NAME="preciov" required style="height:27px; width:250px;" required><br>
-            <br>Stock:<br>
-            <INPUT TYPE="TEXT" NAME="stock" required style="height:27px; width:250px;" required><br>
-            <br>Comisión para el empleado:<br>
-            <td> <select name='comision'>
-            <?php
-            for ($i=0; $i<=100; $i++)
-            {
-                ?>
-                <option value="<?php echo $i;?>"><?php echo $i;?>%</option>
-                <?php
-            }
-            ?>
-            </select></td>
-            <br>
-            <br>
-        
-			<br><INPUT TYPE="SUBMIT" style="height:38px; width:350px" value="Insertar" aling="Center"><br>
-		</form>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 
 
 		  
-      </div>
-    </div>
-  </div>
+
 </div>
 
                 </div> <!-- /.row -->

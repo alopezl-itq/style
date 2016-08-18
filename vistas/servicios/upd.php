@@ -32,6 +32,34 @@ echo "numero".$id_servicios_empresa;
 <?php 
 echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
 ?>
+<script>
+function valida(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+function valida2(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9-.]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
+</script>
     </head>
     <body>
     
@@ -110,7 +138,7 @@ $resultado = $controlador->verServiciosEmpresa2($id_servicios_empresa);
          ?>
         <tr>
             <td><?php echo utf8_encode($row[0]); ?></td>
-            <td> <b>$ </b><input type="text" value="0" name='costo' style="height:30px; width:100px;" required></td>
+            <td> <b>$ </b><input type="text" value="0" name='costo' style="height:30px; width:100px;" onkeypress="return valida2(event)" required></td>
             <td><select name='tiempo'><option value=30>30 min</option><option value=60>1 hora</option><option value=90 >1 hora y 30 minutos</option><option value=120 >2 horas</option></select></td>
             <td> <select name='comision'>
             <?php
