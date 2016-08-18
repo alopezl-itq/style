@@ -28,7 +28,7 @@ $id_marca=$_POST["numero"];
         <link rel="stylesheet" href="../../css/templatemo_misc.css">
         <link rel="stylesheet" href="../../css/templatemo_style.css">
 <?php 
-echo "	<script src='js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
+echo "	<script src='../../js/vendor/modernizr-2.6.1-respond-1.1.0.min.js'></script>"; 
 ?>
     </head>
     <body>
@@ -147,15 +147,15 @@ echo "<INPUT TYPE='HIDDEN' VALUE='$id_marca' name='id_marca'>";
             </div> <!-- /.container -->
         </div> <!-- /#footer -->
         
-  <script src="js/vendor/jquery-1.11.0.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script> 
+  <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+  <script src="../../js/bootstrap.js"></script>
+  <script src="../../js/plugins.js"></script>
+  <script src="../../js/main.js"></script> 
         
         <?php
-echo "<script type='text/javascript' src='js/jquery.js'></script>";
-echo "<script type='text/javascript' src='js/jqueryui.js'></script>";
+echo "<script type='text/javascript' src='../../js/jquery.js'></script>";
+echo "<script type='text/javascript' src='../../js/jqueryui.js'></script>";
 echo "<script type='text/javascript'>";
 
 echo "var x;";
