@@ -56,11 +56,14 @@ echo  "<a href='https://www.instagram.com/".$row['instagram']."' target='_blank'
                         
                         <div class="col-sm-3">
                     <b style="font-size:20px">Información de Contacto</b><br/><br/>
-						<b>Celular:</b>&nbsp;<?php  echo   utf8_encode($row['telefono']); ?>
+						<?php 
+                        if($row['telcasa']==0){}else{
+                        echo'<b>Casa:</b>&nbsp;';
+                        echo $row['telcasa'];} ?>
+                        <br/><br/><br>
+                        <b>Celular:</b>&nbsp;<?php  echo   utf8_encode($row['telefono']); ?>
                             <br/><br/><br/>
-                            <b>Casa:</b>&nbsp;<?php  echo   utf8_encode($row['telcasa']); ?>
-
-<br/><br/><br/>
+           
 <b>Correo electrónico:</b>&nbsp;<?php  echo  utf8_encode( $row['email']); ?>
 <br/><br/>
 

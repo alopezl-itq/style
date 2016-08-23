@@ -50,8 +50,15 @@ echo'</div>';
                         
                         <div class="col-sm-4">
                     <b style="font-size:24px">Información de Contacto</b><br/><br/>
-						<b>Telefono:</b>&nbsp;<?php  echo   utf8_encode($row['telefono']); ?>
-<br/><br/>
+						<?php 
+                         if($row['telcasa']==0){}else{
+                         echo'<b>Casa:</b>&nbsp;';
+                         echo $row['telcasa'];} 
+                        echo'<br/><br/><br/>';
+						 ?> 
+                        
+                        <b>Celular:</b>&nbsp;<?php  echo   utf8_encode($row['telefono']); ?>
+                        <br/><br/><br/>
 <b>Correo electronico:</b>&nbsp;<?php  echo  utf8_encode( $row['email']); ?>
 <br/><br/>
 
@@ -60,7 +67,11 @@ echo'</div>';
                         <div class="col-sm-4">
                         <b style="font-size:24px">Domicilio</b><br/><br/>
     					<b>Estado:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion_estados']); ?> &nbsp;&nbsp;<b>Municipio:</b>&nbsp;<?php echo utf8_encode($row['descripcion_municipios']); ?> <b>Colonia:</b>&nbsp;<?php echo utf8_encode($row['colonia']); ?>
- <b>Calle</b>&nbsp;<?php echo utf8_encode($row['nombre_calle']); ?>&nbsp;<b>No. Interior:</b>&nbsp;<?php echo  utf8_encode($row['no_int']); ?> &nbsp;<br/><b>No. Exterior:</b>&nbsp;<?php echo $row['no_ext']; ?>&nbsp;<b>Codigo Postal:</b>&nbsp;<?php echo $row['cp']; ?> 
+ <b>Calle:</b>&nbsp;<?php echo utf8_encode($row['nombre_calle']); ?>&nbsp;<b>No. Interior:</b>&nbsp;<?php echo  utf8_encode($row['no_int']); ?> &nbsp;<br/> 
+ <?php 
+ if($row['no_ext']==0){}else{
+ echo'<b>No. Exterior:</b>&nbsp;';
+ echo $row['no_ext'];} ?>   <br/>&nbsp;<b>Codigo Postal:</b>&nbsp;<?php echo $row['cp']; ?> 
 <br/><br/><br/>
 
 

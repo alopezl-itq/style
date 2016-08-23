@@ -15,6 +15,7 @@ $resultado = $controlador->index($_SESSION['estetica']);
 <head>
 	<title>Empleados</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -50,8 +51,8 @@ echo'
          ';
 echo'
         <td> <a  href="?cargar=empleados&controlador=ver&id_usuario='.$row['id_usuario'].'">+Información</a></td>
-        <td><a class="glyphicon glyphicon-pencil" title="Desactivar" href="?cargar=empleados&controlador=editar&id_usuario='.$row['id_usuario'].'">Editar</a></td>
-        <td><a class="glyphicon glyphicon-remove-sign" title="Desactivar" href="?cargar=empleados&controlador=eliminar&&id_usuario='.$row['id_usuario'].'">Desactivar</a></td>
+        <td><a class="glyphicon glyphicon-pencil" title="Editar" href="?cargar=empleados&controlador=editar&id_usuario='.$row['id_usuario'].'"></a></td>
+        <td><a class="glyphicon glyphicon-remove-sign" title="Desactivar" href="?cargar=empleados&controlador=eliminar&&id_usuario='.$row['id_usuario'].'"></a></td>
 
         </tr>
 ';

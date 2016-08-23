@@ -11,6 +11,7 @@ $resultado = $controlador->desactivados();
 <head>
 	<title>Reactivar</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 <div class="panel panel-default">

@@ -4,11 +4,33 @@ $controlador = new ControladorC();
 
 //si se preciona el boton de enviar, 
 if(isset($_POST['enviar'])){
+
+if(!empty($_POST['telcasa'])){ 
+if(!empty($_POST['no_ext'])){ 
  $controlador->crearp(utf8_decode($_POST['nombre_empresa']), utf8_decode($_POST['contacto']), utf8_decode($_POST['banco']),$_POST['clabe'],utf8_decode($_POST['nom_tcuenta']),utf8_decode($_POST['rfc']),$_POST['no_cuenta'],$_POST['id_empresa']=$_SESSION['estetica'],utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),$_POST['telefono'],$_POST['telcasa'],$_POST['cp'], 
  utf8_decode($_POST['email']),utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
 
+}else{
+ $controlador->crearp(utf8_decode($_POST['nombre_empresa']), utf8_decode($_POST['contacto']), utf8_decode($_POST['banco']),$_POST['clabe'],utf8_decode($_POST['nom_tcuenta']),utf8_decode($_POST['rfc']),$_POST['no_cuenta'],$_POST['id_empresa']=$_SESSION['estetica'],utf8_decode($_POST['nombre_calle']),$_POST['no_int'],0,$_POST['id_municipio'],utf8_decode($_POST['colonia']),$_POST['telefono'],$_POST['telcasa'],$_POST['cp'], 
+ utf8_decode($_POST['email']),utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
+	}
+}else{
+if(!empty($_POST['no_ext'])){ 
+ $controlador->crearp(utf8_decode($_POST['nombre_empresa']), utf8_decode($_POST['contacto']), utf8_decode($_POST['banco']),$_POST['clabe'],utf8_decode($_POST['nom_tcuenta']),utf8_decode($_POST['rfc']),$_POST['no_cuenta'],$_POST['id_empresa']=$_SESSION['estetica'],utf8_decode($_POST['nombre_calle']),$_POST['no_int'],$_POST['no_ext'],$_POST['id_municipio'],utf8_decode($_POST['colonia']),$_POST['telefono'],0,$_POST['cp'], 
+ utf8_decode($_POST['email']),utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
+
+
+}else{
+ $controlador->crearp(utf8_decode($_POST['nombre_empresa']), utf8_decode($_POST['contacto']), utf8_decode($_POST['banco']),$_POST['clabe'],utf8_decode($_POST['nom_tcuenta']),utf8_decode($_POST['rfc']),$_POST['no_cuenta'],$_POST['id_empresa']=$_SESSION['estetica'],utf8_decode($_POST['nombre_calle']),$_POST['no_int'],0,$_POST['id_municipio'],utf8_decode($_POST['colonia']),$_POST['telefono'],0,$_POST['cp'], 
+ utf8_decode($_POST['email']),utf8_decode($_POST['facebook']),utf8_decode($_POST['twitter']),utf8_decode($_POST['instagram']));
+}
+	
+}
+
+
 
 }
+
 
 ?>
 
