@@ -26,7 +26,7 @@ $resultado = $controlador->desactivados($_SESSION['estetica']);
         </thead>
         <tbody>
         <?php  while($row = mysqli_fetch_array($resultado)): ?>
-            <tr>
+           <tr class="success">
 
                 <td><?php echo utf8_encode($row['nombre_usuario']); ?></td>
                 <td><?php echo utf8_encode($row['apellido_p']); ?></td>

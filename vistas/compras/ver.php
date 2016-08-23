@@ -45,23 +45,23 @@ echo  "<a href='https://www.instagram.com/".$row['instagram']."' target='_blank'
 
  <div class="col-sm-3" >
                     <b style="font-size:20px">Información</b><br/><br/>
-<b>Nombre De Empresa y/o Razon Social:</b>&nbsp;<?php  echo   utf8_encode($row['nombre_empresa']); ?>
+<b>Nombre De Empresa y/o Razón Social:</b>&nbsp;<?php  echo   utf8_encode($row['nombre_empresa']); ?>
 <br/><br/>
 <b>RFC:</b>&nbsp;<?php  echo   utf8_encode($row['rfc']); ?>
 <br/><br/>
 <b>Nombre Del Contacto:</b> &nbsp; <?php echo utf8_encode($row['contacto']); ?>
-<br/><br/>
+<br/><br/><br/>
 
 						</div>
                         
                         <div class="col-sm-3">
                     <b style="font-size:20px">Información de Contacto</b><br/><br/>
 						<b>Celular:</b>&nbsp;<?php  echo   utf8_encode($row['telefono']); ?>
-                            <br/><br/>
+                            <br/><br/><br/>
                             <b>Casa:</b>&nbsp;<?php  echo   utf8_encode($row['telcasa']); ?>
 
-<br/><br/>
-<b>Correo electronico:</b>&nbsp;<?php  echo  utf8_encode( $row['email']); ?>
+<br/><br/><br/>
+<b>Correo electrónico:</b>&nbsp;<?php  echo  utf8_encode( $row['email']); ?>
 <br/><br/>
 
 						</div>
@@ -69,7 +69,7 @@ echo  "<a href='https://www.instagram.com/".$row['instagram']."' target='_blank'
                         <div class="col-sm-3">
                         <b style="font-size:20px">Domicilio</b><br/><br/>
  <b>Estado:</b>&nbsp;<?php  echo   utf8_encode($row['descripcion_estados']); ?>&nbsp;<b>Municipio:</b>&nbsp;<?php echo utf8_encode($row['descripcion_municipios']); ?> <b>Colonia:</b>&nbsp;<?php echo utf8_encode($row['colonia']); ?>
-<br/><b>Calle</b>&nbsp;<?php echo utf8_encode($row['nombre_calle']); ?>&nbsp;<b>No. Interior:</b>&nbsp;<?php echo  utf8_encode($row['no_int']); ?> &nbsp;<br/>
+<br/><b>Calle:</b>&nbsp;<?php echo utf8_encode($row['nombre_calle']); ?>&nbsp;<b>No. Interior:</b>&nbsp;<?php echo  utf8_encode($row['no_int']); ?> &nbsp;<br/>
  <?php 
  if($row['no_ext']==0){}else{
  echo'<b>No. Exterior:</b>&nbsp;';

@@ -251,11 +251,11 @@ echo	$sql1="Update sueldos SET id_usuario=$this->id_usuario, sueldo_base = $this
 				$this->con->query($sql1);
 
 //funciones de editar redes social de sql2 a sl4 				
-echo $sql2="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->Facebook' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=1";
- $this->con->query($sql2);
+echo $sql6="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->Facebook' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=1";
+ $this->con->query($sql6);
 				
-echo $sql3="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->twitter' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=2";
-$this->con->query($sql3);
+echo $sql7="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->twitter' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=2";
+$this->con->query($sql7);
 			
 echo $sql4="Update redes_usuario SET id_usuario=$this->id_usuario, usuario_r ='$this->instagram' where redes_usuario.id_usuario = '$this->id_usuario' and redes_usuario.id_tipo_red_social=3";
 $this->con->query($sql4);

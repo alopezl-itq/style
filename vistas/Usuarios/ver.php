@@ -50,10 +50,7 @@ echo'</div>';
                         
                         <div class="col-sm-4">
                     <b style="font-size:24px">Información de Contacto</b><br/><br/>
-						<b>Celular:</b>&nbsp;<?php  echo   utf8_encode($row['telefono']); ?>
-                            <br/><br/>
-                            <b>Casa:</b>&nbsp;<?php  echo   utf8_encode($row['telcasa']); ?>
-
+						<b>Telefono:</b>&nbsp;<?php  echo   utf8_encode($row['telefono']); ?>
 <br/><br/>
 <b>Correo electronico:</b>&nbsp;<?php  echo  utf8_encode( $row['email']); ?>
 <br/><br/>

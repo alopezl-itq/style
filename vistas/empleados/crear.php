@@ -97,9 +97,9 @@ if(isset($_POST['enviar'])){
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
 							<div class="form-group">
-							<h5><i>Telefono  de Casa:</i></h5><label for="tel1"><input type="tel" placeholder="Ingresa tú número teléfonico con su lada" id="tel1" name="telcasa"  size="20" pattern="[0-9]{10}" onblur="tel1Validate(this);" required/></label>
+							<h5><i>Telefono  de Casa:</i></h5><label for="tel1"><input type="number" placeholder="Ingresa tú número teléfonico con su lada" id="tel1" name="telcasa"  min="0" size="20"></label>
 						</div>
-                        <div id="tel1Error" class="alert alert-danger alert-dismissable" style="display:none;"></div>
+                     
                         
                         
                         <div class="form-group">

@@ -101,8 +101,8 @@ public function eliminar($id_producto_empresa){
 }
 //con esta funcion podemos ver las lineas de productos de lista de la 0 a la 167
 public function verlinealista(){
-			$resultado=$this->producto->verlinealista();
-		  return $resultado;
+	$resultado=$this->producto->verlinealista();
+ return $resultado;
 			
 		}
 //con esta funcion podemos ver las marcas de productos de lista de la 0 a la 13

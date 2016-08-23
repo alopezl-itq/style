@@ -33,6 +33,8 @@ $resultado = $controlador->index($_SESSION['estetica']);
      <tbody>
 	
      <?php    while($row = mysqli_fetch_array($resultado)): ?>
+         <tr class="success">
+        
         <td><?php echo utf8_encode($row['nombre_empresa']); ?></td>
         <td><?php echo utf8_encode($row['telefono']); ?></td>
         <td><?php echo utf8_encode($row['email']); ?></td>

@@ -119,7 +119,7 @@ echo '<div id="myModal" class="modal fade">
             <div class="modal-body">
                 <p>Necesitas Completar tus datos de tu registro</p>
                 <br>
-                <p>Da click en Editar para registrar tus datos faltantes o en Continuar para ir a tu página.</p>
+                <p>Da click en Editar para registrar tus datos faltantes o en Continuar para ir a tu pï¿½gina.</p>
                 <form action="../usuarios/editar.php">
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Editar</button>

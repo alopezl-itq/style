@@ -51,7 +51,7 @@ if(isset($_POST['enviar'])){
 <br/>
 <div class="col-lg-3 col-md-3"></div>
 <div class="col-lg-6 col-md-6">
-                        <form action="editar.php" method="POST">
+                        <form action="" method="POST">
 						<div class="form-group">
                             <h5><i>Nombre:</i></h5><label for="nombre_usuario"><input type="text" value="<?php echo utf8_encode($row["nombre_usuario"]); ?>" name="nombre_usuario"
                          onblur="nombreValidate(this);" required/></label>

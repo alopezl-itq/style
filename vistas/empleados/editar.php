@@ -126,12 +126,11 @@ $controlador->editarE($_GET['id_usuario'],utf8_decode($_POST['nombre_usuario']),
 <div class="col-lg-6 col-md-6">
 						
                         <div class="form-group">
-							<h5><i>Telefono de Casa:</i></h5><label for="tel1"><input type="tel"  id="tel1"value="<?php echo $row['telcasa']; ?>"name="telcasa"  size="20" pattern="[0-9]{10}" onblur="tel1Validate(this);" required/></label>
+							<h5><i>Teléfono de Casa:</i></h5><label for="tel1"><input type="number"  id="tel1"value="<?php echo $row['telcasa']; ?>"name="telcasa"  size="20" min="0"></label>
 						</div>
-                        <div id="te1lError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
-                        
+                       
                         <div class="form-group">
-							<h5><i>Telefono Celular:</i></h5><label for="tel"><input type="tel"  id="tel"value="<?php echo $row['telefono']; ?>"name="telefono" maxlength="10" size="20" pattern="[0-9]{10}" onblur="telValidate(this);" required/></label>
+							<h5><i>Celular:</i></h5><label for="tel"><input type="tel"  id="tel"value="<?php echo $row['telefono']; ?>"name="telefono" maxlength="10" size="20" pattern="[0-9]{10}" onblur="telValidate(this);" required/></label>
 						</div>
                         <div id="telError" class="alert alert-danger alert-dismissable" style="display:none;"></div>
 
@@ -146,7 +145,7 @@ if($_SESSION['tipo']==4 or $_SESSION['tipo']==2){
 	    				echo'	<div class="form-group">';
 						echo'	<h5><i>Tipo de Usuario</i></h5>';
 						echo'	<select name="id_tipo_usuario">';
-							echo'	<option value="o" >Selecciona un Puesto</option>';
+						echo'	<option value="o" >Selecciona un Puesto</option>';
 							
 								$empleado = new Empleado();
 								$resultado5=$empleado->vertipous();

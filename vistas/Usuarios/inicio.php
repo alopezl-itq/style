@@ -12,11 +12,11 @@ $resultado = $controlador->index($_SESSION['tipo']);
     <meta charset="utf-8">
 </head>
 <body>
-<div class="panel panel-default">
+<<div class="panel panel-default">
 		<div class="panel-heading">Usuarios Activos</div>
-		<div id="Em" class="panel panel-body" >
+		<div id="E" class="panel panel-body "> 
         <div align="center" class="table-reponsive"> 
- <table class="table" width="80px" >
+    <table class="table" width="80px" >
 	<thead>
         <th>Nombre</th>
 		<th>Apellido Paterno</th>
@@ -50,7 +50,6 @@ $resultado = $controlador->index($_SESSION['tipo']);
       
      </tbody>
 </table>
-</div>
 </div>
 </div>
 </div>

@@ -23,7 +23,37 @@ session_start();
         <link rel="icon" type="img/ico" href="images/icoB.ico"/>
     	<meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+		
+        <style>
 
+ul.topnav li.icon {display: none;}
+
+@media screen and (max-width:990px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:990px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+</style>
+        
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
         
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -60,8 +90,8 @@ session_start();
                                     </h1>-->
                                 </div> <!-- /.logo-wrapper -->
                                 <div class="col-md-10 col-sm-10 main-menu text-right">
-                                    <div class="toggle-menu visible-sm visible-xs"><i class="fa fa-bars"></i></div>
-                                      <ul class="menu-first">
+                                    
+                                      <ul class="topnav" id="myTopnav">
 	                                    
                                         <li class="active"><a href="#">Inicio</a></li>
                                         
@@ -118,11 +148,11 @@ menu_usuario();
                                        <li><a href="vistas/empleados">Empleados</a></li>
                                        <li><a href="vistas/servicios/servicios.php">Servicios</a></li>
                                        <li><a href="vistas/productos/menu.php">Productos</a></li>
-                                       <li><a href="vistas/modulos">Productos</a></li>
-                                       <li><a href="vistas/compras">Compras</a></li>
-                                       <li><a class="glyphicon-arrow-right" href="clases/salir.php">Salir</a></li>                               
+                                        <li><a href="vistas/compras">Compras</a></li>
+                                       <li><a class="glyphicon-arrow-right" href="clases/salir.php">Salir</a></li>	
+                                       
+                          			   <li class="icon"><a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a></li>
                                     </ul>                                        
-
                                 </div> <!-- /.main-menu -->
                             </div> <!-- /.row -->
                         </div> <!-- /#menu-wrapper -->                        
@@ -146,6 +176,16 @@ menu_usuario();
         <script src="js/bootstrap.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
 
 </body>
 

@@ -27,7 +27,7 @@ $resultado = $controlador->desactivados();
         </thead>
         <tbody>
         <?php  while($row = mysqli_fetch_array($resultado)): ?>
-            <tr>
+            <tr class="success">
 
                 <td><?php echo utf8_encode($row['nombre_usuario']); ?></td>
                 <td><?php echo utf8_encode($row['apellido_p']); ?></td>
@@ -35,7 +35,7 @@ $resultado = $controlador->desactivados();
                 <td><?php echo utf8_encode($row['nombre']); ?></td>
                 <td><?php echo $row['telefono']; ?></td>
 
-<td><a a  class="glyphicon glyphicon-pencil" title="Editar Estatus" href="./?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
+<td><a a  class="glyphicon glyphicon-pencil" title="Editar Estatus" href="?cargar=usuarios&controlador=eliminar&&id_usuario=<?php echo $row['id_usuario'];  ?>"></a></td>
 
 
             </tr>
