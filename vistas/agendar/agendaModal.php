@@ -105,7 +105,7 @@ $miConexion = new Conexion();
 				// mostramos el dia
 				if($day==$diaActual)
 				{
-					echo "<td style='text-align:left' class='link hoy'><a href='#ModalAdd' data-toggle='modal'>$day";
+					echo "<td style='text-align:left' class='link hoy'><a href='' data-toggle='modal' data-target='#ModalAdd?$day'>$day";
 					$sql_cd1='SELECT usuarios.nombre_usuario, usuarios.apellido_p, servicios.descripcion_servicios, agendas.tiempo, agendas.hora, agendas.fecha FROM `usuarios`, `servicios`, `agendas` WHERE usuarios.id_usuario=agendas.id_usuario AND servicios.id_servicio=agendas.id_descripcion_servicio AND agendas.id_cliente = 1';$resul_cd1=mysqli_query($sql_cd1);
 		while($fila1=mysqli_fetch_array($resul_cd1)){
 			echo "<p><b>Peluquero:</b>".$fila1['0']." ".$fila1['1']."<br> <b>Servicio Contratado:</b>".$fila1['2']."<br> <b>Tiempo Estimado:</b>".$fila1['3']."<br> <b>Hora:</b>".$fila1['4']."</p>";	
@@ -144,54 +144,11 @@ $miConexion = new Conexion();
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Agendar este día</h4>
       </div>
-      <div class="modal-body">
-		      <form action="altaCita" method="post">
-        <div class="form-group">
-            <p>Fecha</p>
-        <?php echo"<input type='text' class='form-control' name='tiempo' id='tiempo' value='".$day."'/>" ?>      
-        </div>
-         
-        <div class="form-group">
-            <p>Hora</p>
-            <select name="hora" id="hora" class="form-control">
-            	<option value="">Seleccionar...</option>
-            	<option value='12:00'>12:00</option>
-                <option value='13:00'>13;00</option>
-                <option value='16:00'>14:00</option>
-                <option value='17:00'>15:00</option>
-                <option value='18:00'>16:00</option>
-            </select>
-		</div>
- 		
-        <div class="form-group">
-                    <p>Nuestros Peluqueros</p>
-                     <select class="form-control" name="empleado" id="empleado"> 
-                     	<option value="" class="form-control">Seleccionar...</option>  <?php   $sql_IDUsuario="SELECT 	id_usuario, nombre_usuario FROM usuarios WHERE id_tipo_usuario=2"; $resul_IDUsuario=mysqli_query($sql_IDUsuario);
-		while($filaUsuario=mysqli_fetch_array($resul_IDUsuario)){
-		echo "<option value='".$filaUsuario['0']."'> ". $filaUsuario['1']."</option>";	
-		}
-	  ?>  </select>
-		</div> 
-        
-		<div class="form-group">
-                    <p>Servicios</p>
-                    <select class="form-control" name="servicio" id="sevicio" onchange="load(this.value)"> 
-                     	<option value="" class="form-control">Seleccionar...</option>  <?php   $sql_IDServicio="SELECT servicios.id_servicio, servicios.descripcion_servicios FROM `empresas`, `servicios`, `servicios_empresa`, `descripcion_servicios` WHERE empresas.id_empresa=servicios_empresa.id_empresa AND descripcion_servicios.id_descripcion_servicios=servicios_empresa.id_descripcion_servicios AND servicios.id_servicio=servicios_empresa.id_servicio AND empresas.id_empresa=1 GROUP BY id_servicio"; $res=mysqli_query($sql_IDServicio);
-		while($fila=mysqli_fetch_array($res)){
-		echo "<option value='".$fila['0']."'> ". $fila['1']."</option>";	
-		}
-	  ?>  </select>
-		</div>
-        
-        <div class="form-group" id="divDesc"></div>
-        
-        <div class="form-group" id="divTime"></div>
-
-		<div class="form-group">
-			<input type="submit" class="btn btn-xl" value="Agendar"  name="insertar" id="insertar"/>
-		</div></br></br>
-</form>
-      </div>
+		 <div class="modal-body">
+         	<?php
+            echo "<iframe src='agendar.php?dia=".$day."&mes=".$month."&anio=".$year."' style='width: 100% !important; height: 250px !important'></iframe>"
+            ?>
+         </div>
     </div>
   </div>
 </div>

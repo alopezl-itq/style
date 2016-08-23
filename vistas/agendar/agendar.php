@@ -25,6 +25,7 @@ $miConexion = new Conexion();
 </head>
 
 <body>
+<!-- Con MODAL-->
 <div id="ModalAdd">
   <div class="modal-dialog">
       <div class="modal-header">
@@ -32,6 +33,7 @@ $miConexion = new Conexion();
         <h4 class="modal-title">Agendar este día</h4>
       </div>
       <div class="modal-body">
+      <!-- Con MODAL-->
 <form action="insert.php" method="post">
         <div class="form-group">
         <?php echo"<input type='hidden' class='form-control' name='fecha' id='fecha' value='".$_GET['anio']."-".$_GET['mes']."-".$_GET['dia']."'/>";
@@ -82,10 +84,11 @@ $miConexion = new Conexion();
 			<input type="submit" class="btn btn-xl" value="Agendar"  name="insertar" id="insertar"/>
 		</div></br></br>
 </form>
+<!--Con MODAL -->
       </div>
   </div>
 </div>
-
+<!--Con MODAL -->
   <script src="../../js/vendor/jquery-1.11.0.min.js"></script>
   <script>window.jQuery || document.write('<script src="../../js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
   <script src="../../js/bootstrap.js"></script>
